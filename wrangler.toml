@@ -1,12 +1,14 @@
 name = "scaleandfit"
+account_id = "8731d11f0dd513e9305c584846d8ceef"
 compatibility_date = "2026-11-01"
-
-[assets]
-directory = "./dist"
-html_handling = "auto-trailing-slash"
-not_found_handling = "404-page"
+workers_dev = true
 
 routes = [
   { pattern = "scaleandfit.com", custom_domain = true },
   { pattern = "www.scaleandfit.com", custom_domain = true }
 ]
+
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
