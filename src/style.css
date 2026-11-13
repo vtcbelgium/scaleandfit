@@ -126,18 +126,19 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 10px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   color: var(--text);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   letter-spacing: -0.025em;
   padding: 10px 0;
+  flex-shrink: 0;
 }
 
 .brand:hover {
@@ -159,18 +160,18 @@ textarea {
 
 .brand-meta {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.06em;
   color: var(--muted);
   border-left: 1px solid var(--border);
-  padding-left: 9px;
+  padding-left: 8px;
   text-transform: uppercase;
 }
 
 .nav-links {
   display: flex;
   align-items: stretch;
-  gap: 4px;
+  gap: 2px;
   overflow-x: auto;
 }
 
@@ -178,8 +179,8 @@ textarea {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 15px 11px;
-  font-size: 0.85rem;
+  padding: 15px 9px;
+  font-size: 0.83rem;
   font-weight: 500;
   color: var(--muted);
   white-space: nowrap;
@@ -202,6 +203,28 @@ textarea {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1120px) {
+  .brand-meta {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    gap: 0 10px;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding: 0;
+  }
+  .nav-link {
+    padding: 9px 10px;
+  }
 }
 
 .search-trigger,
