@@ -5,7 +5,7 @@ const SVG_SIZER_PREVIEW = `<svg viewBox="0 0 280 86" width="260" height="80" rol
   <path d="M34 80v6M156 80v6" stroke="var(--muted)" stroke-width="1"/>
   <rect x="184" y="14" width="54" height="64" fill="none" stroke="var(--border-strong)" stroke-dasharray="3 2" stroke-width="1.3"/>
   <rect x="190" y="24" width="42" height="54" rx="2" fill="rgba(15,82,186,0.12)" stroke="#0F52BA" stroke-width="1.4"/>
-  <text x="166" y="75" font-family="ui-monospace,Consolas,monospace" font-size="8" fill="var(--muted)">65" / 55"</text>
+  <text x="84" y="53" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="8.5" font-weight="600" fill="#0F52BA">55" / 65"</text>
 </svg>`;
 
 const SVG_PAPER_PREVIEW = `<svg viewBox="0 0 280 86" width="260" height="80" role="img" aria-hidden="true">
