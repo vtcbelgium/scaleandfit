@@ -1,0 +1,10 @@
+# ScaleAndFit (scaleandfit.com)
+
+ScaleAndFit is a 100% client-side, zero-tracking utility platform housing four precision studio suites:
+
+- /visual-sizer/ — Visual TV/monitor/mattress scale overlays & airline carry-on sizer checks
+- /printable-paper/ — Client-side vector PDF dot-grid, graph, Cornell notes, holiday calendars & Avery labels
+- /size-converter/ — Millimeter Mondopoint brand shoe matrix & credit-card calibrated ring sizer
+- /passport-photo/ — Local biometric passport/visa photo cropper & 300-DPI 4x6 print sheet generator
+
+All math, PDF synthesis, and image cropping execute strictly on the user's device.

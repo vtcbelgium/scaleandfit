@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.othrys/
+.wrangler/
+*.tsbuildinfo
+.env
+.env.*

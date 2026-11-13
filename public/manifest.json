@@ -1,0 +1,16 @@
+{
+  "name": "ScaleAndFit Utility Studio",
+  "short_name": "ScaleAndFit",
+  "description": "4-in-1 private in-browser visual sizing, vector printable PDF, shoe/ring fit converter, and biometric passport photo studio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

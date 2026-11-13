@@ -1,0 +1,12 @@
+name = "scaleandfit"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
+routes = [
+  { pattern = "scaleandfit.com", custom_domain = true },
+  { pattern = "www.scaleandfit.com", custom_domain = true }
+]

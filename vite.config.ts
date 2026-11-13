@@ -1,0 +1,16 @@
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  base: "/",
+  build: {
+    outDir: "dist",
+    emptyOutDir: true,
+    manifest: true,
+    sourcemap: false,
+    rollupOptions: {
+      input: {
+        main: "index.html",
+      },
+    },
+  },
+});

@@ -1,0 +1,25 @@
+{
+  "name": "scaleandfit",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ScaleAndFit.com — 4-in-1 private in-browser visual sizing, vector printable PDF, shoe/ring fit & biometric passport photo studio.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build && node scripts/postbuild-seo.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "deploy": "npm run build && npx wrangler deploy"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8"
+  }
+}
