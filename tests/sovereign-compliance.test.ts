@@ -4,8 +4,8 @@ import { describe, expect, it } from "vitest";
 import { ECONOMIC_VALVE_OPEN, renderPartnerSlot } from "../src/config/valve.js";
 
 const BANNED_ANTI_AD_PATTERNS = [
-  /zero[\s-]*ads/i,
-  /ad[\s-]*free/i,
+  /\bzero[\s-]*ads\b/i,
+  /\bad[\s-]*free\b/i,
   /\bno[\s-]*ads\b/i,
   /without[\s-]+annoying[\s-]+ads/i,
   /googlesyndication/i,

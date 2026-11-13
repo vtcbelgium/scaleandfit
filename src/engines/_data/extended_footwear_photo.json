@@ -1,0 +1,351 @@
+{
+  "extraPhotoSpecs": [
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Ireland",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 32,
+      "notes": "Standard passport size",
+      "slug": "ireland-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Spain",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 32,
+      "maxHeadMm": 26,
+      "minHeadMm": 22,
+      "notes": "Standard passport size",
+      "slug": "spain-passport",
+      "widthMm": 26
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Italy",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport size",
+      "slug": "italy-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Switzerland",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport size",
+      "slug": "switzerland-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Poland",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport size",
+      "slug": "poland-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "New Zealand",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport size",
+      "slug": "new-zealand-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "South Korea",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 32,
+      "notes": "Standard passport size",
+      "slug": "south-korea-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Brazil",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 70,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport size",
+      "slug": "brazil-passport",
+      "widthMm": 50
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Mexico",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport size",
+      "slug": "mexico-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "UAE",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 60,
+      "maxHeadMm": 36,
+      "minHeadMm": 32,
+      "notes": "Standard passport size",
+      "slug": "uae-passport",
+      "widthMm": 40
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Singapore",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 35,
+      "minHeadMm": 25,
+      "notes": "Standard passport size",
+      "slug": "singapore-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Hong Kong",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 50,
+      "maxHeadMm": 36,
+      "minHeadMm": 32,
+      "notes": "Standard passport photo specifications.",
+      "slug": "hong-kong-passport",
+      "widthMm": 40
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Malaysia",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 50,
+      "maxHeadMm": 30,
+      "minHeadMm": 25,
+      "notes": "Standard passport photo specifications.",
+      "slug": "malaysia-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Philippines",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport photo specifications.",
+      "slug": "philippines-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "South Africa",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport photo specifications.",
+      "slug": "south-africa-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Sweden",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport photo specifications.",
+      "slug": "sweden-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Norway",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport photo specifications.",
+      "slug": "norway-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Denmark",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport photo specifications.",
+      "slug": "denmark-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Austria",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 32,
+      "notes": "Standard passport photo specifications.",
+      "slug": "austria-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "Portugal",
+      "documentType": "Passport",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 45,
+      "maxHeadMm": 36,
+      "minHeadMm": 31,
+      "notes": "Standard passport photo specifications.",
+      "slug": "portugal-passport",
+      "widthMm": 35
+    },
+    {
+      "backgroundHex": "#FFFFFF",
+      "country": "United States DV Lottery",
+      "documentType": "Photo",
+      "eyeLineFromBottomMaxRatio": 0.68,
+      "eyeLineFromBottomMinRatio": 0.55,
+      "heightMm": 50.8,
+      "maxHeadMm": 35,
+      "minHeadMm": 25,
+      "notes": "Standard DV lottery photo specifications.",
+      "slug": "united-states-dv-lottery-photo",
+      "widthMm": 50.8
+    }
+  ],
+  "extraShoeBrands": [
+    {
+      "fitNote": "Standard fit",
+      "name": "Brooks",
+      "offsetMm": 0,
+      "slug": "brooks"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Saucony",
+      "offsetMm": 0,
+      "slug": "saucony"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Puma",
+      "offsetMm": 0,
+      "slug": "puma"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Reebok",
+      "offsetMm": 0,
+      "slug": "reebok"
+    },
+    {
+      "fitNote": "Slightly narrower",
+      "name": "Mizuno",
+      "offsetMm": -1,
+      "slug": "mizuno"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Merrell",
+      "offsetMm": 0,
+      "slug": "merrell"
+    },
+    {
+      "fitNote": "Slightly longer",
+      "name": "Timberland",
+      "offsetMm": 3,
+      "slug": "timberland"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Clarks",
+      "offsetMm": 0,
+      "slug": "clarks"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Allbirds",
+      "offsetMm": 0,
+      "slug": "allbirds"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Veja",
+      "offsetMm": 0,
+      "slug": "veja"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Keen",
+      "offsetMm": 0,
+      "slug": "keen"
+    },
+    {
+      "fitNote": "Standard fit",
+      "name": "Under Armour",
+      "offsetMm": 0,
+      "slug": "under-armour"
+    }
+  ]
+}
