@@ -1,18 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#090d16"/>
-      <stop offset="100%" stop-color="#131c31"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="#38bdf8" stroke-opacity="0.14" stroke-width="1">
-    <path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200"/>
-    <path d="M150 0v630M300 0v630M450 0v630M600 0v630M750 0v630M900 0v630M1050 0v630"/>
+  <rect width="1200" height="630" fill="#F6F6F3"/>
+  <g stroke="#DCDCD5" stroke-width="1">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/>
+    <path d="M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630"/>
   </g>
-  <rect x="84" y="86" width="1032" height="458" rx="24" fill="#0f172a" fill-opacity="0.82" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="2"/>
-  <text x="140" y="205" fill="#38bdf8" font-family="system-ui,-apple-system,sans-serif" font-size="26" font-weight="700" letter-spacing="3">SCALEANDFIT.COM</text>
-  <text x="140" y="290" fill="#f8fafc" font-family="system-ui,-apple-system,sans-serif" font-size="60" font-weight="800">Precision Sizing &amp; Print Studio</text>
-  <text x="140" y="355" fill="#cbd5e1" font-family="system-ui,-apple-system,sans-serif" font-size="28">Visual TV/Bag Sizer · Vector PDF Paper · Shoe &amp; Ring Matrix · Biometric Photo Cropper</text>
-  <text x="140" y="455" fill="#94a3b8" font-family="monospace" font-size="22">100% Local In-Browser Execution · Zero Tracking Cookies · Instant Export</text>
+  <rect x="72" y="72" width="1056" height="486" rx="6" fill="#FFFFFF" stroke="#111214" stroke-width="2"/>
+  <line x1="72" y1="140" x2="1128" y2="140" stroke="#DCDCD5" stroke-width="1.5"/>
+  <text x="116" y="114" fill="#111214" font-family="ui-monospace,Consolas,monospace" font-size="20" font-weight="700" letter-spacing="2">SCALEANDFIT.COM // METROLOGY STUDIO</text>
+  <text x="1084" y="114" text-anchor="end" fill="#5C5F66" font-family="ui-monospace,Consolas,monospace" font-size="18">213 CALIBRATED ROUTES</text>
+
+  <text x="116" y="246" fill="#111214" font-family="Inter,system-ui,-apple-system,sans-serif" font-size="56" font-weight="800" letter-spacing="-1.5">Precision Sizing,</text>
+  <text x="116" y="312" fill="#111214" font-family="Inter,system-ui,-apple-system,sans-serif" font-size="56" font-weight="800" letter-spacing="-1.5">Print &amp; Biometric Studio</text>
+  <text x="116" y="368" fill="#5C5F66" font-family="Inter,system-ui,-apple-system,sans-serif" font-size="24">Visual Screen &amp; Carry-On Sizer · Vector PDF Paper · Mondopoint Fit · 300-DPI ID Crop</text>
+
+  <!-- Mini CAD scale emblem bottom-right -->
+  <rect x="850" y="218" width="230" height="130" fill="#0F52BA" fill-opacity="0.08" stroke="#0F52BA" stroke-width="2.5"/>
+  <rect x="850" y="246" width="180" height="102" fill="#D9381E" fill-opacity="0.08" stroke="#D9381E" stroke-width="2.5"/>
+  <line x1="850" y1="366" x2="1080" y2="366" stroke="#111214" stroke-width="1.5"/>
+  <path d="M850 360v12M1080 360v12" stroke="#111214" stroke-width="1.5"/>
+  <text x="965" y="388" text-anchor="middle" fill="#111214" font-family="ui-monospace,Consolas,monospace" font-size="16">1 : 1 MM SCALE</text>
+
+  <line x1="72" y1="458" x2="1128" y2="458" stroke="#DCDCD5" stroke-width="1.5"/>
+  <text x="116" y="514" fill="#5C5F66" font-family="ui-monospace,Consolas,monospace" font-size="20">34 AIRLINES  ·  10 PAPER / 8 AVERY TEMPLATES  ·  24 BRAND LASTS  ·  36 COUNTRY ID SPECS</text>
 </svg>

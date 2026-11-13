@@ -27,6 +27,7 @@ export function renderRouteReferenceHtml(route, allRoutes) {
   }
   const uniqueRelated = [...new Map(related.map((r) => [r.path, r])).values()].slice(0, 6);
 
+  let tableTitle = "Specification Reference";
   let tableHtml = "";
   let faqs = [];
 
@@ -37,8 +38,8 @@ export function renderRouteReferenceHtml(route, allRoutes) {
     const areaPct = (((mB.areaIn / mA.areaIn) - 1) * 100).toFixed(1);
     const wDiffCm = (mB.wCm - mA.wCm).toFixed(1);
     const hDiffCm = (mB.hCm - mA.hCm).toFixed(1);
+    tableTitle = `${a.label} vs ${b.label} Dimension Table`;
     tableHtml = `
-      <h2>Exact Dimension Comparison: ${escapeHtml(a.label)} vs ${escapeHtml(b.label)}</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Specification</th><th>${escapeHtml(a.label)} (${a.aspectW}:${a.aspectH})</th><th>${escapeHtml(b.label)} (${b.aspectW}:${b.aspectH})</th><th>Delta</th></tr></thead>
@@ -46,7 +47,7 @@ export function renderRouteReferenceHtml(route, allRoutes) {
             <tr><td>Visible Width</td><td>${mA.wCm.toFixed(1)} cm (${mA.wIn.toFixed(1)} in)</td><td>${mB.wCm.toFixed(1)} cm (${mB.wIn.toFixed(1)} in)</td><td>${Number(wDiffCm) >= 0 ? "+" : ""}${wDiffCm} cm</td></tr>
             <tr><td>Visible Height</td><td>${mA.hCm.toFixed(1)} cm (${mA.hIn.toFixed(1)} in)</td><td>${mB.hCm.toFixed(1)} cm (${mB.hIn.toFixed(1)} in)</td><td>${Number(hDiffCm) >= 0 ? "+" : ""}${hDiffCm} cm</td></tr>
             <tr><td>Screen Surface Area</td><td>${mA.areaCm.toFixed(0)} cm² (${mA.areaIn.toFixed(0)} in²)</td><td>${mB.areaCm.toFixed(0)} cm² (${mB.areaIn.toFixed(0)} in²)</td><td>+${areaPct}% area</td></tr>
-            <tr><td>30° SMPTE Viewing Distance</td><td>${((mA.wCm / 100) * 1.866).toFixed(2)} m</td><td>${((mB.wCm / 100) * 1.866).toFixed(2)} m</td><td>Optimum mixed usage</td></tr>
+            <tr><td>30° SMPTE Viewing Distance</td><td>${((mA.wCm / 100) * 1.866).toFixed(2)} m</td><td>${((mB.wCm / 100) * 1.866).toFixed(2)} m</td><td>Mixed seating</td></tr>
           </tbody>
         </table>
       </div>`;
@@ -60,14 +61,14 @@ export function renderRouteReferenceHtml(route, allRoutes) {
         a: `Ensure at least ${(mB.wCm + 15).toFixed(0)} cm (${((mB.wCm + 15) / 2.54).toFixed(0)} in) of wall or stand width to allow safe bezel and side clearance for a ${b.label}.`,
       },
       {
-        q: "Does ScaleAndFit compute dimensions privately?",
+        q: "Does ScaleAndFit compute dimensions locally?",
         a: "Yes. Every display ratio calculation and scaled SVG overlay renders 100% locally in your browser with zero tracking cookies.",
       },
     ];
   } else if (route.kind === "airline-bag") {
     const air = route.meta.airline;
+    tableTitle = `${air.name} (${air.iata}) Baggage Allowance`;
     tableHtml = `
-      <h2>${escapeHtml(air.name)} (${escapeHtml(air.iata)}) Baggage Allowance Reference</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Bag Category</th><th>Metric (cm)</th><th>Imperial (in)</th><th>Max Weight / Inclusion</th></tr></thead>
@@ -77,7 +78,7 @@ export function renderRouteReferenceHtml(route, allRoutes) {
           </tbody>
         </table>
       </div>
-      <p style="color:var(--muted);font-size:.9rem;margin-top:8px">Carrier note: ${escapeHtml(air.policyNote)}</p>`;
+      <p style="color:var(--muted);font-size:.86rem;margin:10px 0 0">Carrier note: ${escapeHtml(air.policyNote)}</p>`;
     faqs = [
       {
         q: `What are the carry-on dimensions for ${air.name} (${air.iata})?`,
@@ -97,8 +98,8 @@ export function renderRouteReferenceHtml(route, allRoutes) {
   } else if (route.kind === "mattress-compare") {
     const { a, b } = route.meta;
     const areaDelta = ((((b.widthCm * b.lengthCm) / (a.widthCm * a.lengthCm)) - 1) * 100).toFixed(1);
+    tableTitle = `${a.label} vs ${b.label} Exact Dimensions`;
     tableHtml = `
-      <h2>${escapeHtml(a.label)} vs ${escapeHtml(b.label)} Exact Dimensions</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Dimension</th><th>${escapeHtml(a.label)}</th><th>${escapeHtml(b.label)}</th></tr></thead>
@@ -123,8 +124,8 @@ export function renderRouteReferenceHtml(route, allRoutes) {
     const { format, spacingMm } = route.meta;
     const fmtW = format === "a4" ? 210 : 215.9;
     const fmtH = format === "a4" ? 297 : 279.4;
+    tableTitle = "Vector PDF Print Sheet Specifications";
     tableHtml = `
-      <h2>Vector PDF Print Sheet Specifications</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Property</th><th>Value</th></tr></thead>
@@ -142,14 +143,14 @@ export function renderRouteReferenceHtml(route, allRoutes) {
         a: `Yes. ScaleAndFit writes exact vector geometry at 72 PostScript points per inch (${format.toUpperCase()} ${fmtW}×${fmtH} mm). Print at 100% / Actual Size rather than "Fit to Page" for true ruler accuracy.`,
       },
       {
-        q: "Does the PDF include any brand stamps or signups?",
+        q: "Does the PDF include any watermarks or accounts?",
         a: "No. Your customized PDF is synthesized locally in browser memory with pdf-lib and downloaded immediately without accounts or server uploads.",
       },
     ];
   } else if (route.kind === "holiday-calendar") {
     const { year, cname, holidays } = route.meta;
+    tableTitle = `${year} ${cname} National Holidays Included in PDF`;
     tableHtml = `
-      <h2>${year} ${escapeHtml(cname)} National Holidays Included in PDF</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>ISO Date</th><th>Holiday Name</th></tr></thead>
@@ -165,13 +166,13 @@ export function renderRouteReferenceHtml(route, allRoutes) {
       },
       {
         q: "Can I switch between Monday-first and Sunday-first weeks?",
-        a: "Yes. Use the Week Starts dropdown above to toggle ISO Monday-first or North American Sunday-first calendar grids before downloading.",
+        a: "Yes. Use the Week Starts selector above to toggle ISO Monday-first or North American Sunday-first calendar grids before downloading.",
       },
     ];
   } else if (route.kind === "avery-label") {
     const av = route.meta.avery;
+    tableTitle = `${av.name} Die-Cut Grid Geometry`;
     tableHtml = `
-      <h2>${escapeHtml(av.name)} Die-Cut Grid Geometry</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Parameter</th><th>Specification</th></tr></thead>
@@ -193,8 +194,8 @@ export function renderRouteReferenceHtml(route, allRoutes) {
     const sampleUs = [7, 8, 8.5, 9, 9.5, 10, 10.5, 11, 12];
     const fromB = route.meta.bA || { name: "Nike", offsetMm: 0 };
     const toB = route.meta.bB || { name: "Adidas", offsetMm: 2 };
+    tableTitle = `${fromB.name} to ${toB.name} Quick Men's Conversion Chart`;
     tableHtml = `
-      <h2>${escapeHtml(fromB.name)} to ${escapeHtml(toB.name)} Quick Men's Conversion Chart</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>${escapeHtml(fromB.name)} US</th><th>Foot Length (Mondopoint)</th><th>${escapeHtml(toB.name)} US</th><th>Est. EU Size</th></tr></thead>
@@ -222,8 +223,8 @@ export function renderRouteReferenceHtml(route, allRoutes) {
     ];
   } else if (route.kind === "ring-guide") {
     const diams = [15.7, 16.51, 17.35, 18.14, 18.95, 19.76, 20.57, 21.39];
+    tableTitle = "International Ring Diameter Reference Table";
     tableHtml = `
-      <h2>International Ring Diameter Reference Table</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Inside Diameter</th><th>Circumference (EU)</th><th>US Size</th><th>Japan</th></tr></thead>
@@ -242,15 +243,15 @@ export function renderRouteReferenceHtml(route, allRoutes) {
     faqs = [
       {
         q: "How accurate is an on-screen credit-card calibrated ring sizer?",
-        a: "Because every ISO/IEC 7810 ID-1 bank card is manufactured strictly to 85.60 mm width, matching the cyan reference bar to your card locks pixels-per-millimeter accurately regardless of browser zoom or monitor DPI.",
+        a: "Because every ISO/IEC 7810 ID-1 bank card is manufactured strictly to 85.60 mm width, matching the calibrated reference card outline to your bank card locks pixels-per-millimeter accurately regardless of browser zoom or monitor DPI.",
       },
     ];
   } else if (route.kind === "photo-spec") {
     const sp = route.meta.spec;
     const wPx = Math.round((sp.widthMm / 25.4) * 300);
     const hPx = Math.round((sp.heightMm / 25.4) * 300);
+    tableTitle = `Official ${sp.country} ${sp.documentType} Biometric Requirements`;
     tableHtml = `
-      <h2>Official ${escapeHtml(sp.country)} ${escapeHtml(sp.documentType)} Biometric Requirements</h2>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>Biometric Parameter</th><th>Official Requirement</th></tr></thead>
@@ -276,19 +277,35 @@ export function renderRouteReferenceHtml(route, allRoutes) {
 
   const relatedHtml = uniqueRelated.length
     ? `<div class="card">
-        <h3>Related Precision Calculators</h3>
-        <div class="chip-grid">
-          ${uniqueRelated.map((r) => `<a class="route-chip" href="${r.path}">${escapeHtml(r.h1)}</a>`).join("")}
+        <div class="panel-header">
+          <h3 class="panel-title">Related Calibrated Routes</h3>
+          <span class="section-kicker">Directory</span>
+        </div>
+        <div class="directory-grid">
+          ${uniqueRelated.map((r) => `<a class="directory-link" href="${r.path}"><span>${escapeHtml(r.h1)}</span><span aria-hidden="true">-&gt;</span></a>`).join("")}
         </div>
       </div>`
     : "";
 
   const faqHtml = faqs.length
     ? `<div class="card">
-        <h3>Frequently Asked Questions</h3>
+        <div class="panel-header">
+          <h3 class="panel-title">Technical FAQ</h3>
+          <span class="section-kicker">${faqs.length} Answers</span>
+        </div>
         <div class="faq-list">
           ${faqs.map((f) => `<div class="faq-item"><h4>${escapeHtml(f.q)}</h4><p>${escapeHtml(f.a)}</p></div>`).join("")}
         </div>
+      </div>`
+    : "";
+
+  const tableCardHtml = tableHtml
+    ? `<div class="card">
+        <div class="panel-header">
+          <h2 class="panel-title">${escapeHtml(tableTitle)}</h2>
+          <span class="section-kicker">Specification Table</span>
+        </div>
+        ${tableHtml}
       </div>`
     : "";
 
@@ -305,7 +322,7 @@ export function renderRouteReferenceHtml(route, allRoutes) {
     : null;
 
   return {
-    html: `<section class="seo-reference container">${tableHtml ? `<div class="card">${tableHtml}</div>` : ""}${faqHtml}${relatedHtml}</section>`,
+    html: `<section class="seo-reference container">${tableCardHtml}${faqHtml}${relatedHtml}</section>`,
     faqJsonLd,
   };
 }

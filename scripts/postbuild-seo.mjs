@@ -11,35 +11,39 @@ const distDir = path.resolve(webRoot, "dist");
 const SUITE_META = {
   "visual-sizer": {
     name: "Visual Sizer",
+    index: "01",
     h1: "Visual TV, Monitor, Bag & Mattress Sizer",
     title: "Visual TV, Monitor, Carry-On Bag & Mattress Scale Sizer | ScaleAndFit",
     description:
       "Compare TVs, monitors, and mattresses side-by-side to exact scale and check bag sizes against 34 global airline carry-on limits in your browser.",
-    lead: "Side-by-side SVG scale overlays for TVs, ultrawide monitors, mattresses, and 34 airline cabin sizer cages.",
+    lead: "True-to-scale orthographic CAD overlays for displays, ultrawide monitors, mattresses, and 34 airline cabin sizer cages.",
   },
   "printable-paper": {
     name: "Paper & Avery",
+    index: "02",
     h1: "Printable Vector Paper, Holiday Calendars & Avery Labels",
     title: "Printable Vector Grid Paper, 2026–2027 Holiday Calendars & Avery PDFs | ScaleAndFit",
     description:
       "Generate millimeter-exact A4 & US Letter dot grid, graph, isometric, Cornell, sheet music, holiday calendar, and Avery die-cut label PDFs offline.",
-    lead: "Vector pdf-lib generator for A4 and Letter dot/graph/music templates, 10-country holiday planners, and calibrated Avery label sheets.",
+    lead: "Vector pdf-lib generator for A4 and Letter drafting sheets, 10-country holiday planners, and calibrated Avery label templates.",
   },
   "size-converter": {
     name: "Shoe & Ring Fit",
+    index: "03",
     h1: "Cross-Brand Shoe Size Matrix & Credit-Card Ring Sizer",
     title: "Cross-Brand Mondopoint Shoe Size & Credit-Card Ring Sizer | ScaleAndFit",
     description:
       "Convert US, UK, EU, and Mondopoint millimeter shoe sizes across 24 footwear brands and calibrate ring sizes on-screen with an 85.60 mm payment card.",
-    lead: "Canonical millimeter Mondopoint footwear translation across 24 brands plus bank-card-calibrated ring inner diameter sizing.",
+    lead: "Canonical millimeter Mondopoint footwear translation across 24 brands plus ISO/IEC 7810 ID-1 bank-card calibrated ring sizing.",
   },
   "passport-photo": {
     name: "Passport Photo",
+    index: "04",
     h1: "Biometric Passport, Visa & 4×6 Print Sheet Studio",
     title: "Biometric Passport & Visa Photo Cropper + 4×6 300-DPI Sheet Maker | ScaleAndFit",
     description:
       "Crop biometric passport and visa photos across 36 official country templates in local Canvas and download 300-DPI single or 4×6 print sheets.",
-    lead: "100% local HTML5 Canvas biometric oval framing, backdrop brightness adjustment, and 300-DPI 4×6 kiosk sheet export.",
+    lead: "Local HTML5 Canvas biometric oval framing, backdrop adjustment, and 300-DPI 4×6 kiosk sheet export across 36 global standards.",
   },
 };
 
@@ -133,7 +137,7 @@ function renderDocument({
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0d1321" />${robotsMeta}
+  <meta name="theme-color" content="#f6f6f3" />${robotsMeta}
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}" />
   <link rel="canonical" href="${canonicalUrl}" />
@@ -171,10 +175,13 @@ function renderHubReference(routes) {
       const sample = routes.filter((r) => r.suite === id).slice(0, 6);
       return `
         <div class="card">
-          <h2><a href="/${id}/">${escapeHtml(meta.h1)}</a></h2>
-          <p style="color:var(--muted)">${escapeHtml(meta.description)}</p>
-          <div class="chip-grid">
-            ${sample.map((r) => `<a class="route-chip" href="${r.path}">${escapeHtml(r.h1)}</a>`).join("")}
+          <div class="panel-header">
+            <h2 class="panel-title"><a href="/${id}/">${escapeHtml(meta.h1)}</a></h2>
+            <span class="section-kicker">Module ${meta.index}</span>
+          </div>
+          <p style="margin:0 0 12px;color:var(--muted);font-size:.88rem">${escapeHtml(meta.description)}</p>
+          <div class="directory-grid">
+            ${sample.map((r) => `<a class="directory-link" href="${r.path}"><span>${escapeHtml(r.h1)}</span><span aria-hidden="true">-&gt;</span></a>`).join("")}
           </div>
         </div>
       `;
@@ -184,14 +191,17 @@ function renderHubReference(routes) {
 }
 
 function renderSuiteDirectoryReference(suiteId, suiteRoutes) {
-  const chips = suiteRoutes
-    .map((r) => `<a class="route-chip" href="${r.path}">${escapeHtml(r.h1)}</a>`)
+  const links = suiteRoutes
+    .map((r) => `<a class="directory-link" href="${r.path}"><span>${escapeHtml(r.h1)}</span><span aria-hidden="true">-&gt;</span></a>`)
     .join("");
   return `
     <section class="seo-reference container">
       <div class="card">
-        <h2>All Pre-Calibrated ${escapeHtml(SUITE_META[suiteId].name)} Calculators (${suiteRoutes.length})</h2>
-        <div class="chip-grid">${chips}</div>
+        <div class="panel-header">
+          <h2 class="panel-title">Calibrated ${escapeHtml(SUITE_META[suiteId].name)} Directory</h2>
+          <span class="section-kicker">${suiteRoutes.length} Direct Presets</span>
+        </div>
+        <div class="directory-grid">${links}</div>
       </div>
     </section>
   `;
@@ -215,8 +225,8 @@ async function main() {
     canonicalPath: "/",
     suite: "hub",
     title: "ScaleAndFit — Visual TV/Bag Sizer, Printable PDF Paper, Shoe/Ring Matrix & Passport Photo Studio",
-    h1: "ScaleAndFit — 4-in-1 Sizing, Print & Fit Studio",
-    lead: "Compare screen and luggage dimensions to exact scale, generate vector PDF paper and holiday planners, convert shoe and ring sizes in millimeters, and crop 300-DPI biometric ID photos locally in your browser.",
+    h1: "Precision Sizing, Vector Print & Biometric Fit Studio",
+    lead: "True-to-scale screen & baggage geometry, vector PDF engineering sheets, millimeter footwear translation, and local 300-DPI passport cropping.",
     description:
       "ScaleAndFit.com runs 100% locally in your browser: compare TVs and carry-on bags to scale, generate vector A4/Letter PDF paper & holiday calendars, convert shoe & ring sizes by millimeter, and crop biometric passport photos.",
     preset: {},
@@ -268,7 +278,7 @@ async function main() {
     suite: "hub",
     title: "Page Not Found | ScaleAndFit",
     h1: "404 — Utility Route Not Found",
-    lead: "Choose one of the 4 client-side sizing, vector print, shoe/ring conversion, or biometric passport studios below.",
+    lead: "Select one of the four client-side sizing, vector print, shoe/ring conversion, or biometric passport modules below.",
     description: "Route not found on ScaleAndFit.com.",
     preset: {},
     referenceHtml: renderHubReference(routes),

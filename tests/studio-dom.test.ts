@@ -10,6 +10,7 @@ function installCanvasStub(): void {
     font: "12px sans-serif",
     filter: "none",
     fillRect: vi.fn(),
+    strokeRect: vi.fn(),
     clearRect: vi.fn(),
     beginPath: vi.fn(),
     closePath: vi.fn(),
@@ -17,6 +18,8 @@ function installCanvasStub(): void {
     arc: vi.fn(),
     moveTo: vi.fn(),
     lineTo: vi.fn(),
+    quadraticCurveTo: vi.fn(),
+    bezierCurveTo: vi.fn(),
     stroke: vi.fn(),
     fill: vi.fn(),
     save: vi.fn(),
@@ -40,9 +43,11 @@ function installCanvasStub(): void {
   });
 }
 
-describe("ScaleAndFit Studio DOM Hydration & SEO Preservation", () => {
+describe("ScaleAndFit Studio DOM Hydration, Theme Toggle & SEO Preservation", () => {
   beforeEach(() => {
     installCanvasStub();
+    window.localStorage.removeItem("sf-theme");
+    delete document.documentElement.dataset.theme;
   });
 
   const suites = [
@@ -72,4 +77,24 @@ describe("ScaleAndFit Studio DOM Hydration & SEO Preservation", () => {
       expect(seoSection?.textContent).toContain("Reference Table");
     });
   }
+
+  it("defaults to Daylight architectural theme and toggles cleanly to Carbon Dark mode", () => {
+    document.body.innerHTML = `
+      <div id="app" data-suite="hub" data-preset="{}" data-h1="Hub" data-lead="Lead"></div>
+      <div id="site-footer-mount"></div>
+    `;
+
+    bootApp();
+    expect(document.documentElement.dataset.theme).toBeUndefined();
+
+    const themeBtn = document.getElementById("chrome-theme-btn") as HTMLButtonElement | null;
+    expect(themeBtn).not.toBeNull();
+    themeBtn!.click();
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(window.localStorage.getItem("sf-theme")).toBe("dark");
+
+    themeBtn!.click();
+    expect(document.documentElement.dataset.theme).toBeUndefined();
+    expect(window.localStorage.getItem("sf-theme")).toBeNull();
+  });
 });

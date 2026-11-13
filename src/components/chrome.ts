@@ -28,7 +28,7 @@ const FALLBACK_ROUTES: RouteIndexItem[] = [
   { path: "/visual-sizer/ryanair-carry-on-size/", suite: "visual-sizer", h1: "Ryanair Carry-On Bag Sizer" },
   { path: "/printable-paper/", suite: "printable-paper", h1: "Printable Vector Paper, Calendars & Avery Studio" },
   { path: "/printable-paper/5mm-dot-grid-a4/", suite: "printable-paper", h1: "5mm Dot Grid Paper (A4)" },
-  { path: "/printable-paper/avery-5160-address-label-template-pdf/", suite: "printable-paper", h1: "Avery 5160 Address Label PDF" },
+  { path: "/printable-paper/avery-5160-template-pdf/", suite: "printable-paper", h1: "Avery 5160 Address Label PDF" },
   { path: "/size-converter/", suite: "size-converter", h1: "Shoe Brand & Credit-Card Ring Sizer" },
   { path: "/size-converter/nike-to-adidas-shoe-size/", suite: "size-converter", h1: "Nike to Adidas Shoe Size Converter" },
   { path: "/size-converter/us-to-eu-ring-size-converter/", suite: "size-converter", h1: "US to EU Ring Size Chart" },
@@ -38,12 +38,26 @@ const FALLBACK_ROUTES: RouteIndexItem[] = [
 ];
 
 const NAV_ITEMS: Array<{ id: SuiteId; label: string; href: string }> = [
-  { id: "hub", label: "Studio Hub", href: "/" },
+  { id: "hub", label: "Overview", href: "/" },
   { id: "visual-sizer", label: "Visual Sizer", href: "/visual-sizer/" },
   { id: "printable-paper", label: "Paper & Avery", href: "/printable-paper/" },
   { id: "size-converter", label: "Shoe & Ring Fit", href: "/size-converter/" },
   { id: "passport-photo", label: "Passport Photo", href: "/passport-photo/" },
 ];
+
+const SUITE_SPECS: Record<SuiteId, { crumb: string; spec: string }> = {
+  hub: { crumb: "Workspace", spec: "213 CALIBRATED ROUTES · LOCAL ENGINE" },
+  "visual-sizer": { crumb: "01 · Visual Sizer", spec: "TRUE-TO-SCALE SVG · 34 AIRLINES" },
+  "printable-paper": { crumb: "02 · Paper & Avery", spec: "72 PT/IN VECTOR PDF · ISO / US" },
+  "size-converter": { crumb: "03 · Shoe & Ring Fit", spec: "MONDOPOINT MM · ISO 7810 ID-1" },
+  "passport-photo": { crumb: "04 · Passport Photo", spec: "ICAO 9303 · 300 DPI CANVAS" },
+};
+
+const ICON_BRAND = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 13.5V2.5h11"/><path d="M5.5 2.5v2.2M8.5 2.5v1.6M11.5 2.5v2.2M2.5 5.5h2.2M2.5 8.5h1.6M2.5 11.5h2.2"/><rect x="6.5" y="6.5" width="7" height="5.5" stroke="#0F52BA" stroke-width="1.5"/></svg>`;
+const ICON_SEARCH = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="4.8"/><path d="M10.7 10.7L14 14"/></svg>`;
+const ICON_LINK = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6.5 9.5l3-3"/><path d="M8.5 11.5l-1.3 1.3a2.8 2.8 0 0 1-4-4L4.5 7.5"/><path d="M7.5 4.5l1.3-1.3a2.8 2.8 0 0 1 4 4L11.5 8.5"/></svg>`;
+const ICON_MOON = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13.2 9.9A5.5 5.5 0 0 1 6.1 2.8a5.6 5.6 0 1 0 7.1 7.1z"/></svg>`;
+const ICON_SUN = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M12.6 3.4l-1.1 1.1M4.5 11.5l-1.1 1.1"/></svg>`;
 
 function escapeHtml(text: string): string {
   return text
@@ -56,7 +70,7 @@ function escapeHtml(text: string): string {
 
 function readSavedTheme(): string {
   try {
-    return window.localStorage.getItem("sf-theme") || "";
+    return window.localStorage.getItem("sf-theme") === "dark" ? "dark" : "";
   } catch {
     return "";
   }
@@ -64,8 +78,8 @@ function readSavedTheme(): string {
 
 function saveTheme(theme: string): void {
   try {
-    if (theme) {
-      window.localStorage.setItem("sf-theme", theme);
+    if (theme === "dark") {
+      window.localStorage.setItem("sf-theme", "dark");
     } else {
       window.localStorage.removeItem("sf-theme");
     }
@@ -75,11 +89,18 @@ function saveTheme(theme: string): void {
 }
 
 function applyTheme(theme: string): void {
-  if (theme === "light") {
-    document.documentElement.dataset.theme = "light";
+  if (theme === "dark") {
+    document.documentElement.dataset.theme = "dark";
   } else {
     delete document.documentElement.dataset.theme;
   }
+}
+
+function updateThemeButton(btn: HTMLButtonElement | null): void {
+  if (!btn) return;
+  const isDark = document.documentElement.dataset.theme === "dark";
+  btn.innerHTML = isDark ? `${ICON_SUN}<span>Daylight</span>` : `${ICON_MOON}<span>Carbon</span>`;
+  btn.setAttribute("aria-pressed", isDark ? "true" : "false");
 }
 
 export function mountStudioChrome(
@@ -96,42 +117,51 @@ export function mountStudioChrome(
 
   const navHtml = NAV_ITEMS.map((item) => {
     const active = item.id === options.suite ? " active" : "";
-    return `<a class="nav-pill${active}" href="${item.href}">${escapeHtml(item.label)}</a>`;
+    return `<a class="nav-link${active}" href="${item.href}">${escapeHtml(item.label)}</a>`;
   }).join("");
+
+  const suiteMeta = SUITE_SPECS[options.suite] || SUITE_SPECS.hub;
+  const crumbTrail =
+    options.suite === "hub"
+      ? `<a href="/">ScaleAndFit</a> <span>/</span> <span>${escapeHtml(suiteMeta.crumb)}</span>`
+      : `<a href="/">ScaleAndFit</a> <span>/</span> <a href="/${options.suite}/">${escapeHtml(suiteMeta.crumb)}</a>`;
 
   appRoot.innerHTML = `
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/">
-          <span class="brand-mark">SF</span>
+          <span class="brand-mark">${ICON_BRAND}</span>
           <span>ScaleAndFit</span>
+          <span class="brand-meta">Precision</span>
         </a>
         <nav class="nav-links" aria-label="Studio modules">
           ${navHtml}
         </nav>
         <div class="header-actions">
           <button class="search-trigger" id="chrome-search-btn" type="button">
-            Search <span class="kbd">Ctrl+K</span>
+            <span class="search-trigger-left">${ICON_SEARCH}<span>Quick Jump</span></span>
+            <kbd class="kbd">Ctrl K</kbd>
           </button>
-          <button class="icon-btn" id="chrome-share-btn" type="button">Share Link</button>
-          <button class="icon-btn" id="chrome-theme-btn" type="button" aria-label="Toggle color theme">Theme</button>
+          <button class="action-btn" id="chrome-share-btn" type="button">${ICON_LINK}<span>Share</span></button>
+          <button class="action-btn" id="chrome-theme-btn" type="button" aria-label="Toggle color theme"></button>
         </div>
       </div>
       ${headerPartner}
     </header>
     <main class="container">
-      <div class="trust-strip" aria-label="Studio guarantees">
-        <span class="trust-badge">100% Local Browser Execution</span>
-        <span class="trust-badge">300-DPI Vector &amp; Canvas</span>
-        <span class="trust-badge">Millimeter-Calibrated</span>
-      </div>
-      <section class="hero">
-        <h1>${escapeHtml(options.h1)}</h1>
-        <p>${escapeHtml(options.lead)}</p>
-      </section>
+      <header class="masthead">
+        <div class="masthead-main">
+          <nav class="breadcrumb" aria-label="Breadcrumb">${crumbTrail}</nav>
+          <h1>${escapeHtml(options.h1)}</h1>
+          <p class="masthead-lead">${escapeHtml(options.lead)}</p>
+        </div>
+        <div class="masthead-spec">${escapeHtml(suiteMeta.spec)}</div>
+      </header>
       <div id="studio-mount"></div>
     </main>
   `;
+
+  updateThemeButton(appRoot.querySelector<HTMLButtonElement>("#chrome-theme-btn"));
 
   let footerHost = document.getElementById("site-footer-mount");
   if (!footerHost) {
@@ -141,17 +171,31 @@ export function mountStudioChrome(
   }
   footerHost.innerHTML = `
     <footer class="site-footer">
-      <div class="footer-inner">
+      <div class="footer-grid">
         <div>
-          <strong>ScaleAndFit.com</strong> — Client-side visual scale, vector PDF engineering paper, Mondopoint footwear &amp; ring fit, and 300-DPI biometric photo processing.
+          <p class="footer-col-title">ScaleAndFit.com // Metrology</p>
+          <p style="margin:0 0 8px;max-width:46ch">
+            Client-side precision workbench for proportional display &amp; luggage geometry, 72 pt/in vector PDF sheets, Mondopoint shoe &amp; ring sizing, and 300-DPI ICAO portrait framing.
+          </p>
+          <span class="spec-tag">Local Browser Execution · Zero Telemetry</span>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:12px">
-          <a href="/visual-sizer/">Visual Sizer</a>
-          <a href="/printable-paper/">Paper Studio</a>
-          <a href="/size-converter/">Size Converter</a>
-          <a href="/passport-photo/">Passport Photo</a>
-          <a href="/sitemap.xml">Sitemap</a>
-          <a href="/llms.txt">llms.txt</a>
+        <div>
+          <p class="footer-col-title">Instruments</p>
+          <div class="footer-links">
+            <a href="/visual-sizer/">01 · Visual Sizer (Screens, Bags, Beds)</a>
+            <a href="/printable-paper/">02 · Printable Paper, Calendars &amp; Avery</a>
+            <a href="/size-converter/">03 · Mondopoint Shoe &amp; Ring Sizer</a>
+            <a href="/passport-photo/">04 · Biometric Passport &amp; 4×6 Sheet</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Indexes &amp; Machine Spec</p>
+          <div class="footer-links">
+            <a href="/sitemap.xml">XML Sitemap (213 URLs)</a>
+            <a href="/llms.txt">llms.txt Summary</a>
+            <a href="/llms-full.txt">llms-full.txt Complete Catalog</a>
+            <a href="/route-index.json">route-index.json</a>
+          </div>
         </div>
       </div>
       ${footerPartner}
@@ -165,12 +209,12 @@ export function mountStudioChrome(
     palette.className = "palette-modal";
     palette.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px">
-        <strong>Jump to Calculator, Spec or Template</strong>
-        <button class="icon-btn" id="sf-palette-close" type="button">Esc</button>
+        <span class="section-kicker">Quick Jump // 213 Calibrated Routes</span>
+        <button class="action-btn btn-sm" id="sf-palette-close" type="button">Esc</button>
       </div>
       <div class="field">
         <label for="sf-palette-input" style="position:absolute;left:-9999px">Search routes</label>
-        <input id="sf-palette-input" type="search" placeholder="Search TVs, Ryanair, Avery 5160, Nike, Belgium passport..." autocomplete="off" />
+        <input id="sf-palette-input" type="search" placeholder="Filter TVs, Ryanair, Avery 5160, Nike, Belgium passport..." autocomplete="off" />
       </div>
       <div class="palette-results" id="sf-palette-results"></div>
     `;
@@ -198,10 +242,10 @@ export function mountStudioChrome(
       ? filtered
           .map(
             (r) =>
-              `<a class="palette-item" href="${escapeHtml(r.path)}"><span>${escapeHtml(r.h1)}</span><span class="status-pill">${escapeHtml(r.suite)}</span></a>`
+              `<a class="palette-item" href="${escapeHtml(r.path)}"><span><strong>${escapeHtml(r.h1)}</strong><span style="display:block;font-family:var(--font-mono);font-size:.72rem;color:var(--muted)">${escapeHtml(r.path)}</span></span><span class="spec-tag">${escapeHtml(r.suite)}</span></a>`
           )
           .join("")
-      : `<div style="padding:10px;color:var(--muted)">No matching routes found.</div>`;
+      : `<div style="padding:12px;color:var(--muted);font-size:.86rem">No matching routes found.</div>`;
   };
 
   const openPalette = async () => {
@@ -280,10 +324,12 @@ export function mountStudioChrome(
   window.addEventListener("scaleandfit:open-search", onOpenSearch);
   window.addEventListener("keydown", onKeyDown);
 
-  appRoot.querySelector<HTMLButtonElement>("#chrome-theme-btn")?.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "light" ? "" : "light";
+  const themeBtn = appRoot.querySelector<HTMLButtonElement>("#chrome-theme-btn");
+  themeBtn?.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "" : "dark";
     applyTheme(next);
     saveTheme(next);
+    updateThemeButton(themeBtn);
   });
 
   const shareBtn = appRoot.querySelector<HTMLButtonElement>("#chrome-share-btn");
@@ -301,10 +347,9 @@ export function mountStudioChrome(
     } catch {
       // Ignore clipboard permissions errors
     }
-    const oldLabel = shareBtn.textContent || "Share Link";
-    shareBtn.textContent = "Copied Link!";
+    shareBtn.innerHTML = `${ICON_LINK}<span>Copied</span>`;
     window.setTimeout(() => {
-      shareBtn.textContent = oldLabel;
+      shareBtn.innerHTML = `${ICON_LINK}<span>Share</span>`;
     }, 1800);
   });
 
