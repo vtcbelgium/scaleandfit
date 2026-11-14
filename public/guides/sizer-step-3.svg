@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Top-down bedroom floor plan showing mattress and 60cm side walkways">
+  <rect width="360" height="220" rx="8" fill="#FAFAF8"/>
+  <!-- Bedroom Perimeter -->
+  <rect x="34" y="22" width="292" height="176" rx="4" fill="#FFFFFF" stroke="#111214" stroke-width="2"/>
+  <!-- Nightstands -->
+  <rect x="44" y="28" width="38" height="34" rx="3" fill="#E6E6E0" stroke="#94A3B8" stroke-width="1.2"/>
+  <rect x="278" y="28" width="38" height="34" rx="3" fill="#E6E6E0" stroke="#94A3B8" stroke-width="1.2"/>
+  <!-- Mattress Overlay (Red King behind Blue Queen) -->
+  <rect x="96" y="24" width="168" height="128" rx="4" fill="rgba(217,56,30,0.08)" stroke="#D9381E" stroke-width="1.8"/>
+  <rect x="108" y="24" width="144" height="122" rx="4" fill="rgba(15,82,186,0.10)" stroke="#0F52BA" stroke-width="1.8"/>
+  <!-- Pillows -->
+  <rect x="118" y="32" width="54" height="24" rx="5" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.2"/>
+  <rect x="188" y="32" width="54" height="24" rx="5" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.2"/>
+  <!-- Green Side Walkway Arrows (60 cm / 24 in) -->
+  <g stroke="#15803D" stroke-width="1.6">
+    <line x1="38" y1="106" x2="92" y2="106"/>
+    <line x1="268" y1="106" x2="322" y2="106"/>
+    <line x1="180" y1="156" x2="180" y2="194"/>
+  </g>
+  <text x="65" y="99" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="10" font-weight="700" fill="#15803D">60 cm</text>
+  <text x="295" y="99" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="10" font-weight="700" fill="#15803D">60 cm</text>
+  <text x="192" y="182" font-family="ui-monospace,Consolas,monospace" font-size="10" font-weight="700" fill="#15803D">75 cm</text>
+</svg>

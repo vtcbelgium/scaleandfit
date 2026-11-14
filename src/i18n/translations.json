@@ -1,0 +1,2357 @@
+{
+  "en": {
+    "meta": { "code": "en", "nativeName": "English", "ogLocale": "en_US" },
+    "nav": {
+      "skipToMain": "Skip to tool workspace",
+      "overview": "Overview",
+      "visualSizer": "Screen & Bag Sizer",
+      "printablePaper": "Paper & Labels",
+      "sizeConverter": "Shoe & Ring Size",
+      "passportPhoto": "Passport Photo",
+      "guides": "How It Works",
+      "searchPlaceholder": "Search tools...",
+      "searchBtn": "Find Tool",
+      "shareBtn": "Share Link",
+      "shareCopied": "Copied!",
+      "themeCarbon": "Dark",
+      "themeDaylight": "Light",
+      "langLabel": "Language",
+      "searchModalTitle": "Find Any Sizing, Print or Photo Tool",
+      "searchModalInput": "Search TVs, Ryanair bag, dot grid, Nike to Adidas, Belgium passport...",
+      "searchNoResults": "No matching tools found. Try a country, airline, brand, or paper type.",
+      "closeEsc": "Close (Esc)"
+    },
+    "footer": {
+      "tagline": "Practical everyday sizing, printable PDF paper, footwear & ring conversion, and passport photo framing — everything runs privately inside your own browser.",
+      "trustBadge": "Private On-Device Processing · Zero Tracking Cookies",
+      "colTools": "Precision Tools",
+      "colGuides": "Guides & Indexes",
+      "colLegal": "About & Legal",
+      "languageLabel": "Language",
+      "copyright": "© 2026 ScaleAndFit.com · All calculations happen locally on your device.",
+      "links": {
+        "about": "About & Standards",
+        "guides": "Visual Picture Guides",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "cookies": "Cookie & Storage Policy",
+        "contact": "Contact & Corrections",
+        "sitemap": "Sitemap",
+        "llms": "AI Guide (llms.txt)"
+      }
+    },
+    "hub": {
+      "title": "ScaleAndFit — Simple Everyday Sizing, Printable PDFs & Passport Photos",
+      "h1": "Size Anything Correctly in Seconds",
+      "lead": "Compare TVs and cabin bags visually, print exact-scale grid paper & calendars, match shoe & ring sizes by millimeter, and frame official passport photos on your own device.",
+      "description": "Private in-browser toolkit for visual TV and carry-on bag comparisons, vector A4/Letter grid & Avery label PDFs, cross-brand shoe & ring conversion, and 300-DPI passport photos.",
+      "searchLabel": "Quick Search Across 200+ Pre-Set Tools",
+      "searchPlaceholder": "What do you want to measure today? e.g. US passport, Ryanair bag, 65 inch TV, A4 dot grid...",
+      "quickPopularLabel": "Popular shortcuts:",
+      "quickTags": [
+        { "label": "Passport Photo Maker", "href": "/passport-photo/" },
+        { "label": "Ryanair Bag Check", "href": "/visual-sizer/ryanair-carry-on-size/" },
+        { "label": "55\" vs 65\" TV", "href": "/visual-sizer/55-vs-65-inch-tv/" },
+        { "label": "A4 Dot Grid PDF", "href": "/printable-paper/5mm-dot-grid-a4/" },
+        { "label": "Nike to Adidas", "href": "/size-converter/nike-to-adidas-shoe-size/" },
+        { "label": "Ring Sizer", "href": "/size-converter/credit-card-ring-sizer-online/" }
+      ],
+      "trustItems": [
+        "100% Private on Your Device",
+        "Zero Tracking Cookies",
+        "No Sign-Up Required",
+        "Instant PDF & PNG Downloads"
+      ],
+      "overviewTitle": "How ScaleAndFit Helps Everyday Decisions",
+      "overviewLead": "Visual comparisons, real-world pictures, and instant print-ready downloads.",
+      "cards": {
+        "visualSizer": {
+          "kicker": "Tool 01 · Compare visually",
+          "badge": "TV · BAG · BED",
+          "title": "Screen, Carry-On Bag & Bed Sizer",
+          "desc": "See two TVs or mattresses drawn to exact scale, or test whether your suitcase fits overhead bins and under-seat sizers across 34 airlines.",
+          "cta": "Open Visual Sizer",
+          "imageAlt": "Illustration comparing overlapping TV sizes next to a carry-on suitcase",
+          "routes": [
+            { "label": "55\" vs 65\" TV Size Overlay", "href": "/visual-sizer/55-vs-65-inch-tv/", "tag": "TV" },
+            { "label": "Ryanair Carry-On Bag Checker", "href": "/visual-sizer/ryanair-carry-on-size/", "tag": "Bag" },
+            { "label": "Queen vs King Mattress Fit", "href": "/visual-sizer/queen-vs-king-mattress/", "tag": "Room" }
+          ]
+        },
+        "printablePaper": {
+          "kicker": "Tool 02 · Print at 100% scale",
+          "badge": "PDF SHEETS",
+          "title": "Printable Grid Paper, Calendars & Labels",
+          "desc": "Download crisp A4 or US Letter PDFs for dot-grid journals, engineering graphs, music staves, 2026–2027 holiday planners, and Avery sticker labels.",
+          "cta": "Open Paper Studio",
+          "imageAlt": "Overhead illustration of dot-grid paper, planner sheet, address labels, ruler, and printer",
+          "routes": [
+            { "label": "5mm Dot Grid Paper (A4 PDF)", "href": "/printable-paper/5mm-dot-grid-a4/", "tag": "Paper" },
+            { "label": "2026 Holiday Calendar PDF", "href": "/printable-paper/2026-united-states-holiday-calendar-pdf/", "tag": "Calendar" },
+            { "label": "Avery 5160 Address Labels", "href": "/printable-paper/avery-5160-template-pdf/", "tag": "Labels" }
+          ]
+        },
+        "sizeConverter": {
+          "kicker": "Tool 03 · Fit without guesswork",
+          "badge": "SHOES · RINGS",
+          "title": "Shoe Brand Translator & Ring Sizer",
+          "desc": "Find your true shoe size across 24 brands by millimeter foot length, or calibrate your screen with any bank card to measure a ring accurately.",
+          "cta": "Open Size Converter",
+          "imageAlt": "Illustration of measuring a shoe against a wall ruler and sizing a ring on a tablet with a bank card",
+          "routes": [
+            { "label": "Nike to Adidas Size Converter", "href": "/size-converter/nike-to-adidas-shoe-size/", "tag": "Shoes" },
+            { "label": "Hoka to New Balance Fit", "href": "/size-converter/hoka-to-new-balance-shoe-size/", "tag": "Shoes" },
+            { "label": "Credit-Card Ring Sizer", "href": "/size-converter/credit-card-ring-sizer-online/", "tag": "Rings" }
+          ]
+        },
+        "passportPhoto": {
+          "kicker": "Tool 04 · Ready for printing",
+          "badge": "ID & VISA",
+          "title": "Passport, Visa & ID Photo Maker",
+          "desc": "Upload a photo or snap one with your webcam, align eyes cleanly inside the official guide oval, and download a single file or 4×6 print sheet.",
+          "cta": "Open Photo Maker",
+          "imageAlt": "Illustration of taking a well-lit passport photo at home in front of a plain light wall",
+          "routes": [
+            { "label": "United States 2×2\" Passport", "href": "/passport-photo/us-passport-photo-2x2/", "tag": "US" },
+            { "label": "Schengen Visa 35×45 mm", "href": "/passport-photo/schengen-visa-35x45/", "tag": "EU" },
+            { "label": "Belgium / Netherlands ID", "href": "/passport-photo/belgium-passport-eid/", "tag": "ID" }
+          ]
+        }
+      }
+    },
+    "suites": {
+      "visual-sizer": {
+        "name": "Screen & Bag Sizer",
+        "title": "Visual TV, Carry-On Luggage & Mattress Size Comparison | ScaleAndFit",
+        "h1": "Visual TV, Bag & Mattress Sizer",
+        "lead": "See true-to-scale screen overlays, test cabin bags against 34 airline sizers, and plan bedroom walking clearance around mattresses.",
+        "description": "Compare TVs, monitors, mattresses side-by-side to exact scale and check luggage sizes against 34 global airlines directly in your browser.",
+        "spec": "SCALE SVG · 34 AIRLINES"
+      },
+      "printable-paper": {
+        "name": "Paper & Labels",
+        "title": "Printable Dot Grid, Graph Paper, Holiday Calendars & Avery PDFs | ScaleAndFit",
+        "h1": "Printable Paper, Calendars & Avery Labels",
+        "lead": "Create true-millimeter PDF notebooks, sheet music, country holiday calendars, and aligned Avery address labels ready to print at 100% scale.",
+        "description": "Generate millimeter-exact A4 & US Letter dot grid, graph, isometric, Cornell, sheet music, holiday calendar, and Avery label PDFs privately in browser memory.",
+        "spec": "A4 & US LETTER · PRINT 100%"
+      },
+      "size-converter": {
+        "name": "Shoe & Ring Size",
+        "title": "Cross-Brand Shoe Size Translator & Credit-Card Ring Sizer | ScaleAndFit",
+        "h1": "Shoe Brand Translator & Ring Sizer",
+        "lead": "Convert shoe sizes across 24 brands using foot length in millimeters, or measure ring diameter accurately on screen using any bank card.",
+        "description": "Convert US, UK, EU, and centimeter shoe sizes across 24 footwear brands and calibrate your screen with an 85.60 mm bank card to measure rings.",
+        "spec": "24 BRANDS · CARD CALIBRATED"
+      },
+      "passport-photo": {
+        "name": "Passport Photo",
+        "title": "Passport & Visa Photo Maker + 4×6 Print Sheet | ScaleAndFit",
+        "h1": "Passport, Visa & ID Photo Maker",
+        "lead": "Frame your portrait neatly to official rules for 36 countries and download an online upload PNG or multi-photo 4×6 print sheet in seconds.",
+        "description": "Crop passport and visa photos across 36 country rules directly in browser memory and save 300-DPI single images or 4×6 print sheets.",
+        "spec": "36 COUNTRIES · PRIVATE CANVAS"
+      }
+    },
+    "passport": {
+      "steps": ["1. Pick Country & ID Type", "2. Add or Snap Your Photo", "3. Align Eyes & Download"],
+      "controlsTitle": "Set Up Your Photo",
+      "countryGroupTitle": "Step 1 · Choose Country Document",
+      "popularLabel": "Popular:",
+      "countrySelectLabel": "All Countries & Visas",
+      "specsUnit": "specs",
+      "dropTitle": "Choose Photo from Your Device",
+      "dropSub": "or drag & drop a selfie / portrait here",
+      "cameraBtn": "Take Photo with Camera",
+      "cameraStop": "Close Camera",
+      "cameraSnap": "Capture Portrait Now",
+      "cameraMirror": "Mirror camera view",
+      "cameraUnavailable": "Camera access is unavailable or blocked. Please upload an image file instead.",
+      "cameraHint": "Look straight at the camera lens with a neutral closed mouth and plain light wall behind you.",
+      "privacyNote": "Your photos never leave your device — cropping happens inside local browser memory.",
+      "sampleBtn": "Load Example Silhouette",
+      "adjustGroupTitle": "Step 3 · Adjust Fit & Brightness",
+      "resetBtn": "Reset",
+      "zoom": "Zoom Size",
+      "rotate": "Tilt / Straighten",
+      "panX": "Move Left / Right",
+      "panY": "Move Up / Down",
+      "exposure": "Photo Brightness",
+      "backdrop": "Lighten Background",
+      "guidesToggle": "Show green eye line & blue head-size oval",
+      "exportGroupTitle": "Download Ready-to-Use Files",
+      "dlSingleTitle": "Download Digital Photo (PNG)",
+      "dlSingleSub": "Best for online government portals",
+      "dlPdfTitle": "Download 4×6\" Print Sheet (PDF)",
+      "dlPdfSub": "Print at home or store · includes cut lines",
+      "dlPngTitle": "Download 4×6\" Photo Kiosk Image (PNG)",
+      "dlPngSub": "Save on USB or phone for 10×15 cm kiosks",
+      "viewSingle": "Single Face View",
+      "viewSheet": "4×6\" Print Sheet",
+      "dragTip": "Tip: Drag directly on the photo to center your face, or scroll to zoom.",
+      "sheetTip": "Standard 4×6 inch (10×15 cm) sheet — print borderless at 100%, then trim along the thin grey lines.",
+      "statusUser": "Your Photo Loaded",
+      "statusSample": "Preview Silhouette — Upload Your Photo Left",
+      "kpiPixels": "Digital Pixels (300 DPI)",
+      "kpiHead": "Ideal Head Height Share",
+      "kpiTiles": "Photos per 4×6 Sheet",
+      "checkSpec": "Official Photo Size",
+      "checkHead": "Crown-to-Chin Guide",
+      "checkBg": "Light Backdrop",
+      "checkPrivacy": "100% On-Device",
+      "ruleLabel": "Official Requirement:",
+      "printSizeLabel": "Print Size",
+      "headHeightLabel": "Head Height",
+      "howTitle": "How to Take & Print Your Passport Photo at Home (Visual Guide)",
+      "howLead": "Follow these 3 visual steps for a clean photo accepted on the first try.",
+      "bannerAlt": "Illustration of standing half a meter from a white wall facing window light with a smartphone on a tripod at eye level",
+      "stepCards": [
+        {
+          "title": "Step 1 · Plain Wall & Window Light",
+          "desc": "Stand 50 cm (2 ft) in front of a plain white or light wall facing a window. Hold the camera at eye level so shadows fall behind you, not on your face.",
+          "alt": "Diagram showing a person facing a daylight window in front of a plain white wall with an eye-level camera"
+        },
+        {
+          "title": "Step 2 · Center Head Inside Oval",
+          "desc": "Use Zoom and drag on the preview until your eyes sit on the green horizontal line and your head fits comfortably inside the blue oval.",
+          "alt": "Diagram showing eyes lined up on the green horizontal guide line inside the blue head-height oval"
+        },
+        {
+          "title": "Step 3 · Print 4×6\" & Trim Cleanly",
+          "desc": "For paper copies, download the 4×6\" sheet and print as a standard 4×6\" (10×15 cm) borderless photo. Cut along the faint grey boxes with sharp scissors.",
+          "alt": "Diagram showing a 4x6 photo sheet with six passport photos and scissors trimming along the guide lines"
+        }
+      ],
+      "doDontTitle": "Quick Photo Check: Approved vs Rejected Examples",
+      "doDontLead": "Before saving, make sure your photo matches the green checkmarks below.",
+      "doDontAlt": "Four-panel visual comparison showing good even lighting, straight head, clear eyes, and proper framing versus dark shadows, tilted head, sunglasses, and cropped forehead",
+      "doDontPairs": [
+        { "goodTitle": "Even Front Lighting", "goodDesc": "Face is evenly lit with zero wall shadows behind ears.", "badTitle": "Avoid Harsh Shadows", "badDesc": "Side shadows across face or dark grey background." },
+        { "goodTitle": "Straight & Neutral", "goodDesc": "Head straight, mouth gently closed, both eyes open.", "badTitle": "Avoid Tilting or Big Smiles", "badDesc": "Tilted head or wide open-mouth smile with teeth." },
+        { "goodTitle": "No Glasses or Hats", "goodDesc": "Both eyes and eyebrows completely unobstructed.", "badTitle": "Avoid Glare & Caps", "badDesc": "Sunglasses, thick frame glare, headphones, or hats." },
+        { "goodTitle": "Room Above Hair", "goodDesc": "Shoulders visible and space above crown inside oval.", "badTitle": "Avoid Too Close Crops", "badDesc": "Hair top or chin touching the edge of the frame." }
+      ]
+    },
+    "sizer": {
+      "steps": ["1. Pick What to Measure", "2. Select Your Items", "3. Read True-to-Scale Fit"],
+      "tabScreens": "TVs & Monitors",
+      "tabAirlines": "Carry-On Bag Checker",
+      "tabMattresses": "Mattresses & Room",
+      "unitMetric": "cm / kg (Metric)",
+      "unitImperial": "in / lb (Imperial)",
+      "presetLabel": "Quick picks:",
+      "scrTitle": "Compare Two Screens",
+      "scrA": "First Screen (Blue)",
+      "scrB": "Second Screen (Red)",
+      "scrSwap": "Swap Screens",
+      "scrOverlay": "Stack screens from bottom-left corner",
+      "scrConsole": "Show 160 cm (63\") TV stand below screens",
+      "kpiArea": "Extra Screen Area",
+      "kpiWidthDiff": "Width Difference",
+      "kpiSmpte": "Comfortable Viewing",
+      "kpiThx": "Cinema Viewing",
+      "airTitle": "Check Your Suitcase or Backpack",
+      "airSpotlight": "Airline to Highlight",
+      "airH": "Height",
+      "airW": "Width",
+      "airD": "Depth",
+      "airKg": "Weight",
+      "airRegion": "Filter Airlines",
+      "allRegions": "All Airlines",
+      "kpiCabinPass": "Overhead Bins Passed",
+      "kpiUnderPass": "Under-Seat Bags Passed",
+      "verdictBoth": "Fits Under Seat & Overhead!",
+      "verdictOverheadOnly": "Fits Overhead Bin (May Need Upgraded Ticket)",
+      "verdictTooBig": "Too Large for This Airline's Cage",
+      "legendOverhead": "Max Overhead Bin",
+      "legendUnder": "Free Under-Seat Bag",
+      "legendBag": "Your Bag",
+      "marginsLabel": "Room to spare:",
+      "matTitle": "Compare Beds in Your Room",
+      "matA": "Smaller / Current Bed (Blue)",
+      "matB": "Larger / New Bed (Red)",
+      "roomW": "Bedroom Width",
+      "roomL": "Bedroom Length",
+      "kpiSleepDelta": "Extra Sleeping Space",
+      "kpiSideAisle": "Walking Space Each Side",
+      "kpiFootClear": "Space at Foot of Bed",
+      "howTitle": "How Visual Sizing Saves Buying & Baggage Surprises",
+      "howLead": "See real physical proportions before you shop, drill a wall mount, or board a flight.",
+      "bannerAlt": "Living room illustration comparing two flat-screen TVs above a wooden console and a rolling carry-on suitcase",
+      "stepCards": [
+        {
+          "title": "Step 1 · Compare Screens to Scale",
+          "desc": "Pick two TV or monitor sizes. Stacking them from the same corner makes the true height and width gain immediately obvious.",
+          "alt": "Overlapping 55-inch and 65-inch TV outlines above a furniture stand with viewing distance"
+        },
+        {
+          "title": "Step 2 · Measure Suitcase Wheels Too",
+          "desc": "Measure your bag from floor to top handle including wheels. The green or red box shows if it slides inside metal gate sizers.",
+          "alt": "Rolling cabin bag with wheels and handle fitting neatly inside a dashed airport sizer cage"
+        },
+        {
+          "title": "Step 3 · Leave 60 cm (24\") Walkways",
+          "desc": "Enter your bedroom walls to verify whether doors open cleanly and at least 60 cm walking space remains on both sides.",
+          "alt": "Top-down bedroom diagram showing mattress centered with 60 cm walking aisles on each side"
+        }
+      ]
+    },
+    "paper": {
+      "steps": ["1. Pick Paper, Calendar or Labels", "2. Adjust Spacing & Ink", "3. Print at 100% Actual Size"],
+      "tabPaper": "Grid & Lined Paper",
+      "tabCalendar": "2026–2027 Holiday Calendars",
+      "tabAvery": "Avery Sticker Labels",
+      "paperTitle": "Customize Your Printable Sheet",
+      "presetLabel": "Quick styles:",
+      "patternLabel": "Pattern Style",
+      "formatLabel": "Paper Size",
+      "spacingLabel": "Grid / Line Spacing (mm)",
+      "inkLabel": "Print Ink Color",
+      "weightLabel": "Line Thickness",
+      "titleLabel": "Optional Top Heading",
+      "titlePlaceholder": "e.g. Math Notes / Project Planner",
+      "dlPaper": "Download Print-Ready PDF",
+      "kpiSize": "Sheet Size",
+      "kpiPitch": "Pattern Spacing",
+      "kpiPrintScale": "Printer Scale Tip",
+      "calTitle": "Customize Holiday Calendar",
+      "calCountry": "Country Holidays Included",
+      "calYear": "Calendar Year",
+      "calScope": "Months to Print",
+      "calFormat": "Paper Size",
+      "calWeek": "Week Starts On",
+      "weekMon": "Monday (ISO / Europe)",
+      "weekSun": "Sunday (US / Canada)",
+      "dlCal": "Download Calendar PDF",
+      "calHolidaysBadge": "Public Holidays",
+      "averyTitle": "Customize Address / Sticker Labels",
+      "averyTemplate": "Avery Label Code",
+      "averyCopy": "Text Printed on Every Label (up to 3 lines)",
+      "averyXNudge": "Shift Left / Right",
+      "averyYNudge": "Shift Up / Down",
+      "dlAvery": "Download Label Sheet PDF",
+      "labelsUnit": "labels",
+      "captionPrintAt100": "Important: Select \"100% / Actual Size\" in your printer menu so every millimeter stays true.",
+      "howTitle": "How to Print Millimeter-True Paper & Aligned Labels",
+      "howLead": "Avoid shrunken margins so 5 mm squares really measure 5 mm with a ruler.",
+      "bannerAlt": "Desk flat-lay showing dot-grid sheet, blank calendar grid, label sheets, ruler, pen, and compact printer",
+      "stepCards": [
+        {
+          "title": "Step 1 · Pick Your Format (A4 or US Letter)",
+          "desc": "Choose European/Global A4 (210×297 mm) or North American Letter (8.5×11 in) before customizing grids, calendars, or Avery sheets.",
+          "alt": "Three crisp paper sheets showing dot grid, monthly calendar, and sticker labels"
+        },
+        {
+          "title": "Step 2 · Pick Faint Ink for Easy Writing",
+          "desc": "Slate or Faint Grey keeps dots subtle under dark pen ink, while Blueprint Cobalt looks crisp for technical sketching.",
+          "alt": "Zoomed 5 mm ruler scale with ink color swatches"
+        },
+        {
+          "title": "Step 3 · Choose \"Actual Size / 100%\"",
+          "desc": "Uncheck \"Fit to Page\" in your printer window so PDF margins never shrink. For Avery sheets, hold a plain test print behind labels against light.",
+          "alt": "Printer dialog showing 100% green checkmark versus 94% red crossed out"
+        }
+      ]
+    },
+    "fit": {
+      "steps": ["1. Measure Foot or Ready a Card", "2. Match Screen to Real Object", "3. Read Your Size"],
+      "tabShoes": "Shoe Size Translator",
+      "tabRings": "Credit-Card Ring Sizer",
+      "shoeTitle": "Find Your Size in Another Brand",
+      "fromBrand": "Brand You Already Wear",
+      "toBrand": "Brand You Want to Buy",
+      "swapTitle": "Swap Brands",
+      "genderLabel": "Sizing Chart",
+      "genderMens": "Men's",
+      "genderWomens": "Women's",
+      "genderUnisex": "Unisex",
+      "inputSystemLabel": "Size Unit You Know",
+      "sizeValueLabel": "Your Known Size",
+      "recommendedBanner": "Recommended Size:",
+      "kpiFootLength": "True Foot Length",
+      "lastNoteLabel": "Fit Tip:",
+      "mondopointBadge": "FOOT LENGTH",
+      "ringTitle": "Calibrate Screen & Measure Ring",
+      "ringStep1": "Step 1 · Match Any Bank or ID Card (85.6 mm)",
+      "ringStep1Desc": "Hold a standard credit card, debit card, or driver's license flat against the blue box. Tap - or + until left and right edges line up.",
+      "cardWidthLabel": "Adjust Box Width to Card",
+      "ringStep2": "Step 2 · Place Ring Over the Red Circle",
+      "ringStep2Desc": "Rest a ring you wear comfortably over the red circle. Adjust until the red line touches the INSIDE edge of the metal band.",
+      "ringDiaLabel": "Inside Diameter",
+      "ringCircLabel": "Inside Circumference",
+      "matchRingPrompt": "Align the red line with the INSIDE wall of your ring",
+      "howTitle": "How to Measure Feet & Rings Without Special Tools",
+      "howLead": "Simple household steps so online orders fit right out of the box.",
+      "bannerAlt": "Illustration of measuring a shoe on paper against a wall next to a tablet showing a calibrated ring circle and bank card",
+      "stepCards": [
+        {
+          "title": "Step 1 · Heel-to-Wall Foot Measurement",
+          "desc": "Stand barefoot on a sheet of paper with your heel lightly touching a wall. Mark the tip of your longest toe and measure in cm or mm.",
+          "alt": "Diagram showing a foot on paper with heel against a wall and a pencil marking the longest toe"
+        },
+        {
+          "title": "Step 2 · Calibrate Once with Any Bank Card",
+          "desc": "Every standard payment card is strictly 85.60 mm wide worldwide. Matching your card to the blue rectangle makes your screen millimeter-accurate.",
+          "alt": "Diagram showing an 85.6 mm payment card lined up with left and right screen arrows"
+        },
+        {
+          "title": "Step 3 · Match Ring Inside Wall Only",
+          "desc": "Thick rings look larger from the outside. Line up the red circle exclusively against the inner opening where your finger goes.",
+          "alt": "Close-up illustration pointing green checkmark to inner ring edge and red cross to outer metal edge"
+        }
+      ]
+    },
+    "info": {
+      "about": {
+        "title": "About ScaleAndFit — Measurement Standards & Privacy | ScaleAndFit",
+        "h1": "About ScaleAndFit & Our Measurement Standards",
+        "lead": "Built to take guesswork out of everyday sizes, home printing, airline bags, and ID photos — privately in your own browser.",
+        "description": "Learn how ScaleAndFit computes exact TV ratios, 72 pt/in PDFs, Mondopoint footwear conversions, ISO ring sizes, and ICAO 9303 passport crops locally.",
+        "sections": [
+          {
+            "heading": "Why We Built ScaleAndFit",
+            "paragraphs": [
+              "Most measurement tools online bury simple answers behind pop-ups, slow file uploads, or vague approximations. ScaleAndFit brings four everyday physical calibration tools into one fast, clear workspace designed so anyone can get a reliable answer in seconds.",
+              "Every pixel, millimeter, and PDF page point is calculated mathematically inside your browser — from international banking card width (85.60 mm) to official 300-DPI passport ovals."
+            ]
+          },
+          {
+            "heading": "International Standards Used",
+            "list": [
+              "Passport & Visa Photos (ICAO Doc 9303): Calculates 300 pixels per inch (11.811 px/mm) output canvases and target crown-to-chin ratios across 36 country rules.",
+              "Printable Vector PDFs (72 PostScript pt/in): Writes true geometric coordinates into clean PDF vectors using ISO A4 (210 × 297 mm) and US Letter (215.9 × 279.4 mm).",
+              "Shoe Sizing (ISO 9407 Mondopoint): Translates US, UK, and Paris-Point EU sizes through canonical foot length in millimeters plus brand last offsets.",
+              "Ring Sizing (ISO 8653 & ISO/IEC 7810 ID-1): Uses a real 85.60 × 53.98 mm card reference to eliminate display DPI distortion on phones, laptops, and monitors."
+            ]
+          }
+        ]
+      },
+      "guides": {
+        "title": "Visual Step-by-Step User Guides | ScaleAndFit",
+        "h1": "How Each Tool Works — Illustrated Guides",
+        "lead": "Easy visual instructions and a downloadable 100% scale printer check sheet so every photo, bag check, print, and ring fits right.",
+        "description": "Illustrated step-by-step instructions for passport photos, visual TV/airline bag sizing, millimeter-accurate PDF printing, and ring/shoe calibration.",
+        "printTestTitle": "Free 100% Printer Calibration Check Sheet",
+        "printTestDesc": "Not sure whether your home printer scales PDFs slightly smaller? Download our 10 mm vector check grid and measure two squares with any ruler before printing Avery labels or calendars.",
+        "printTestBtnA4": "Download 10mm Check Sheet (A4 PDF)",
+        "printTestBtnLetter": "Download 10mm Check Sheet (US Letter PDF)"
+      },
+      "privacy": {
+        "title": "Privacy Policy | ScaleAndFit",
+        "h1": "Privacy Policy",
+        "lead": "Plain-English guarantee: your photos, custom label text, and shoe or bag inputs stay strictly on your own device.",
+        "description": "ScaleAndFit processes all images, PDFs, and sizing inputs locally inside your browser with zero file uploads and zero tracking cookies.",
+        "summaryTitle": "Short Version (Plain English)",
+        "summaryBullets": [
+          "Photos never leave your phone or computer — cropping runs inside HTML5 Canvas memory.",
+          "PDFs are created right inside your browser without uploading your address labels or notes.",
+          "Zero analytics cookies, zero cross-site profiling, and no user account or email required."
+        ],
+        "sections": [
+          {
+            "heading": "1. Data Controller & Contact",
+            "paragraphs": [
+              "ScaleAndFit.com is operated by OTHRYS Systems. For privacy questions or data inquiries, contact us at othrys.systems@gmail.com."
+            ]
+          },
+          {
+            "heading": "2. Local In-Browser Processing (GDPR & CCPA)",
+            "paragraphs": [
+              "When you load a portrait in Passport Photo Studio, type addresses into Avery Labels, capture a frame from your camera, or measure a ring, all processing occurs exclusively in client-side JavaScript memory. No personal portrait files or form data are transmitted to or stored on ScaleAndFit servers."
+            ]
+          },
+          {
+            "heading": "3. Browser Preferences (localStorage)",
+            "paragraphs": [
+              "We save at most two strictly functional preference keys locally in your browser: sf-theme (only when Dark / Carbon mode is turned on) and sf-lang (your selected language preference). Neither key contains personal identifiers or crosses domains."
+            ]
+          },
+          {
+            "heading": "4. Network Delivery & Security Logs",
+            "paragraphs": [
+              "Static HTML, scripts, and images are delivered globally via Cloudflare Workers Edge. Like all standard web servers, Cloudflare temporarily processes basic connection metadata (such as IP request logs for DDoS and TLS security protection) under Cloudflare's infrastructure privacy safeguards."
+            ]
+          },
+          {
+            "heading": "5. Your Rights",
+            "paragraphs": [
+              "Because ScaleAndFit collects no user accounts, portrait archives, or behavioral profiles, clearing your browser site storage removes any saved local theme or language choice immediately. You may also contact othrys.systems@gmail.com anytime."
+            ]
+          }
+        ]
+      },
+      "terms": {
+        "title": "Terms of Use & Measurement Disclaimers | ScaleAndFit",
+        "h1": "Terms of Use & Verification Notes",
+        "lead": "Clear expectations for using ScaleAndFit tools across official documents, airlines, printing, and shopping.",
+        "description": "Terms of service and practical verification guidance for biometric photos, airline baggage checks, shoe sizing, and vector PDF printing.",
+        "sections": [
+          {
+            "heading": "1. Everyday Guidance & Final Verification",
+            "paragraphs": [
+              "ScaleAndFit is provided free of charge to help estimate sizes accurately. While all geometry, 300-DPI dimensions, and public datasets are carefully maintained, rules change periodically across agencies and brands."
+            ]
+          },
+          {
+            "heading": "2. Official Passport & Visa Rules",
+            "paragraphs": [
+              "Always review the current photo guidelines published by your embassy, passport agency, or visa portal (for example lighting, glasses restrictions, or recent photo age limits) before final submission."
+            ]
+          },
+          {
+            "heading": "3. Airline Fare Tiers & Baggage Sizers",
+            "paragraphs": [
+              "Carry-on cabin and under-seat allowances depend on ticket fare class and carrier updates. Measure bags including wheels and handles and verify your booking confirmation before traveling."
+            ]
+          },
+          {
+            "heading": "4. Footwear & Ring Fit",
+            "paragraphs": [
+              "Individual shoe models, sock thickness, and wide/narrow ring band styles affect comfort. Use brand millimeter equivalents and card-calibrated ring measurements alongside retailer sizing advice."
+            ]
+          }
+        ]
+      },
+      "cookies": {
+        "title": "Cookie & Local Storage Policy | ScaleAndFit",
+        "h1": "Cookie & Browser Storage Policy",
+        "lead": "ScaleAndFit sets zero marketing or analytics cookies. Here is every item your browser may save locally.",
+        "description": "Full list of functional browser storage keys used by ScaleAndFit.com with zero tracking cookies.",
+        "tableHeaders": ["Storage Key", "Storage Type", "Purpose", "When Stored"],
+        "tableRows": [
+          ["sf-theme", "localStorage", "Remembers Carbon dark theme when toggled", "Only if you switch to Dark mode"],
+          ["sf-lang", "localStorage", "Remembers your preferred display language", "Only when you pick a language"]
+        ],
+        "note": "Camera permission (if requested by you on Passport Photo) is controlled strictly by your browser and camera stream stops immediately when you snap or close the preview."
+      },
+      "contact": {
+        "title": "Contact & Dataset Updates | ScaleAndFit",
+        "h1": "Contact, Feedback & Dataset Corrections",
+        "lead": "Spotted a changed airline baggage limit, a new shoe brand you want included, or an updated embassy photo spec? Tell us directly.",
+        "description": "Contact ScaleAndFit / OTHRYS Systems for airline baggage updates, passport photo specification updates, translations, or support.",
+        "emailLabel": "Direct Email:",
+        "email": "othrys.systems@gmail.com",
+        "helpfulTitle": "What to Include for Fast Updates",
+        "helpfulList": [
+          "Airline carry-on updates: carrier name, ticket class, official cm/in and kg/lb limits, and source link.",
+          "Passport or visa specification updates: country, document name, mm/px dimensions, and official government reference.",
+          "Website feedback or bug report: which page URL you visited and what browser or phone you used."
+        ]
+      }
+    },
+    "seo": {
+      "directoryTitle": "All Preset Pages in This Tool",
+      "directoryUnit": "Presets",
+      "relatedTitle": "More Helpful Comparisons & Presets",
+      "relatedUnit": "Related",
+      "faqTitle": "Common Questions",
+      "faqUnit": "Answers",
+      "specLabel": "Quick Reference Table"
+    }
+  },
+  "nl": {
+    "meta": { "code": "nl", "nativeName": "Nederlands", "ogLocale": "nl_NL" },
+    "nav": {
+      "skipToMain": "Ga naar het werkveld",
+      "overview": "Overzicht",
+      "visualSizer": "Scherm & Koffer",
+      "printablePaper": "Papier & Etiketten",
+      "sizeConverter": "Schoen & Ringmaat",
+      "passportPhoto": "Pasfoto Maken",
+      "guides": "Hoe Het Werkt",
+      "searchPlaceholder": "Zoek tool...",
+      "searchBtn": "Zoek Tool",
+      "shareBtn": "Deel Link",
+      "shareCopied": "Gekopieerd!",
+      "themeCarbon": "Donker",
+      "themeDaylight": "Licht",
+      "langLabel": "Taal",
+      "searchModalTitle": "Vind Direct een Maat-, Print- of Fototool",
+      "searchModalInput": "Zoek tv's, Ryanair koffer, dot grid, Nike naar Adidas, België pasfoto...",
+      "searchNoResults": "Geen resultaten gevonden. Probeer een land, luchtvaartmaatschappij of merk.",
+      "closeEsc": "Sluiten (Esc)"
+    },
+    "footer": {
+      "tagline": "Handige visuele maatvergelijking, printbare PDF-vellen, schoen- en ringmaten per millimeter en biometrische pasfoto's — alles werkt privé op jouw apparaat.",
+      "trustBadge": "100% Lokaal in Je Browser · Geen Trackingcookies",
+      "colTools": "Alle Tools",
+      "colGuides": "Gidsen & Overzicht",
+      "colLegal": "Info & Juridisch",
+      "languageLabel": "Taal",
+      "copyright": "© 2026 ScaleAndFit.com · Alle berekeningen draaien lokaal op jouw apparaat.",
+      "links": {
+        "about": "Over Ons & Normen",
+        "guides": "Visuele Handleidingen",
+        "privacy": "Privacybeleid",
+        "terms": "Gebruiksvoorwaarden",
+        "cookies": "Cookie- & Opslagbeleid",
+        "contact": "Contact & Correcties",
+        "sitemap": "Sitemap",
+        "llms": "AI Gids (llms.txt)"
+      }
+    },
+    "hub": {
+      "title": "ScaleAndFit — Makkelijk Maten Vergelijken, PDF's Printen & Pasfoto's Maken",
+      "h1": "Meet & Vergelijk Alles in Enkele Seconden",
+      "lead": "Vergelijk tv's en handbagage op ware grootte, download printklare PDF-rasters & kalenders, vind je schoen- en ringmaat in mm en maak officiële pasfoto's op eigen toestel.",
+      "description": "Privé browserstudio voor tv- & koffervergelijking, A4/Letter dot-grid & Avery PDF's, schoen- en ringmaten en 300-DPI pasfoto's.",
+      "searchLabel": "Direct Zoeken in 200+ Kant-en-Klare Tools",
+      "searchPlaceholder": "Wat wil je vandaag opmeten? Bijv. pasfoto Nederland, Ryanair tas, 55 vs 65 inch tv...",
+      "quickPopularLabel": "Veelgekozen:",
+      "quickTags": [
+        { "label": "Pasfoto Maken", "href": "/nl/passport-photo/" },
+        { "label": "Ryanair Handbagage", "href": "/nl/visual-sizer/ryanair-carry-on-size/" },
+        { "label": "55\" vs 65\" TV", "href": "/nl/visual-sizer/55-vs-65-inch-tv/" },
+        { "label": "A4 Dot Grid PDF", "href": "/nl/printable-paper/5mm-dot-grid-a4/" },
+        { "label": "Nike naar Adidas", "href": "/nl/size-converter/nike-to-adidas-shoe-size/" },
+        { "label": "Ringmaat Meten", "href": "/nl/size-converter/credit-card-ring-sizer-online/" }
+      ],
+      "trustItems": [
+        "100% Privé op Je Eigen Toestel",
+        "Geen Trackingcookies",
+        "Geen Account Nodig",
+        "Direct PDF & PNG Downloaden"
+      ],
+      "overviewTitle": "Hoe ScaleAndFit Je Dagelijks Helpt",
+      "overviewLead": "Heldere afbeeldingen, directe voorbeelden en resultaten die meteen kloppen.",
+      "cards": {
+        "visualSizer": {
+          "kicker": "Tool 01 · Visueel vergelijken",
+          "badge": "TV · KOFFER · BED",
+          "title": "Tv, Handbagage & Matras Vergelijker",
+          "desc": "Leg twee tv's of bedden op ware schaal over elkaar, of check of jouw koffer past bij 34 luchtvaartmaatschappijen.",
+          "cta": "Open Scherm & Koffer",
+          "imageAlt": "Illustratie van twee tv-schermen vergeleken naast een rolkoffer en bagageframe",
+          "routes": [
+            { "label": "55\" vs 65\" TV Grootte", "href": "/nl/visual-sizer/55-vs-65-inch-tv/", "tag": "TV" },
+            { "label": "Ryanair Handbagage Check", "href": "/nl/visual-sizer/ryanair-carry-on-size/", "tag": "Koffer" },
+            { "label": "EU 140×200 vs 160×200 Bed", "href": "/nl/visual-sizer/eu-140x200-vs-160x200-bed/", "tag": "Bed" }
+          ]
+        },
+        "printablePaper": {
+          "kicker": "Tool 02 · Print op 100%",
+          "badge": "PDF VELLEN",
+          "title": "Printbaar Rasterpapier, Kalenders & Etiketten",
+          "desc": "Download A4- of Letter-PDF's voor bullet-journal dot grid, ruitjes, muziekpapier, feestdagkalenders en Avery-etiketten.",
+          "cta": "Open Papierstudio",
+          "imageAlt": "Bovenaanzicht van ruitjespapier, kalender, etikettenvel, liniaal en printer",
+          "routes": [
+            { "label": "5mm Dot Grid Papier (A4)", "href": "/nl/printable-paper/5mm-dot-grid-a4/", "tag": "Papier" },
+            { "label": "Feestdagenkalender 2026 NL", "href": "/nl/printable-paper/2026-netherlands-holiday-calendar-pdf/", "tag": "Kalender" },
+            { "label": "Avery L7160 Etiketten PDF", "href": "/nl/printable-paper/avery-l7160-template-pdf/", "tag": "Etiket" }
+          ]
+        },
+        "sizeConverter": {
+          "kicker": "Tool 03 · Direct de juiste maat",
+          "badge": "SCHOEN · RING",
+          "title": "Schoenmaten & Bankpas Ringmeter",
+          "desc": "Vergelijk 24 schoenmerken nauwkeurig op voetlengte in mm, of gebruik een bankpas op je scherm om een ring op te meten.",
+          "cta": "Open Maten Tool",
+          "imageAlt": "Illustratie van een schoen op papier met liniaal naast een tablet met ringmaat en bankpas",
+          "routes": [
+            { "label": "Nike naar Adidas Omrekenen", "href": "/nl/size-converter/nike-to-adidas-shoe-size/", "tag": "Schoen" },
+            { "label": "EU naar US Schoenmaat", "href": "/nl/size-converter/eu-to-us-shoe-size-chart/", "tag": "Tabel" },
+            { "label": "Online Ringmeter (Bankpas)", "href": "/nl/size-converter/credit-card-ring-sizer-online/", "tag": "Ring" }
+          ]
+        },
+        "passportPhoto": {
+          "kicker": "Tool 04 · Klaar voor afdruk",
+          "badge": "ID & VISUM",
+          "title": "Pasfoto & Visumfoto Maker",
+          "desc": "Kies een foto of maak er een met je camera, zet je ogen op de groene lijn en download los of als 10×15 cm printvel.",
+          "cta": "Open Pasfoto Tool",
+          "imageAlt": "Illustratie van thuis een pasfoto maken voor een lichte muur bij raamlicht",
+          "routes": [
+            { "label": "Nederland Pasfoto 35×45 mm", "href": "/nl/passport-photo/netherlands-pasfoto/", "tag": "NL" },
+            { "label": "België Paspoort & eID", "href": "/nl/passport-photo/belgium-passport-eid/", "tag": "BE" },
+            { "label": "Schengen Visum 35×45 mm", "href": "/nl/passport-photo/schengen-visa-35x45/", "tag": "EU" }
+          ]
+        }
+      }
+    },
+    "suites": {
+      "visual-sizer": {
+        "name": "Scherm & Koffer",
+        "title": "Tv, Handbagage & Matras Grootte Vergelijken | ScaleAndFit",
+        "h1": "Tv, Handbagage & Matras Vergelijker",
+        "lead": "Bekijk schermen op echte schaal, test koffers bij 34 maatschappijen en plan loopruimte in de slaapkamer.",
+        "description": "Vergelijk tv's, monitoren, matrassen en handbagageafmetingen bij 34 maatschappijen gratis in je browser.",
+        "spec": "SCHAAL · 34 MAATSCHAPPIJEN"
+      },
+      "printable-paper": {
+        "name": "Papier & Etiketten",
+        "title": "Printbaar Dot Grid, Kalender 2026-2027 & Avery Etiketten PDF | ScaleAndFit",
+        "h1": "Printbaar Papier, Kalenders & Etiketten",
+        "lead": "Maak millimeter-nauwkeurige A4- of Letter-PDF's met puntjes, ruitjes, feestdagen en Avery-stickers zonder vervorming.",
+        "description": "Genereer A4 & US Letter dot grid, grafiekpapier, feestdagkalenders en Avery PDF's lokaal in je browser.",
+        "spec": "A4 & LETTER · 100% SCHAAL"
+      },
+      "size-converter": {
+        "name": "Schoen & Ringmaat",
+        "title": "Schoenmaten Omrekenen (24 Merken) & Online Ringmeter | ScaleAndFit",
+        "h1": "Schoenmaat Omrekenen & Ringmeter",
+        "lead": "Vind direct de juiste maat tussen 24 merken op echte voetlengte (mm/cm) of meet een ring met een gewone bankpas op je scherm.",
+        "description": "Zet EU, UK, US en cm schoenmaten om tussen 24 merken en meet ringen op ware grootte met elke bankpas.",
+        "spec": "24 MERKEN · BANKPAS SCHAAL"
+      },
+      "passport-photo": {
+        "name": "Pasfoto Maken",
+        "title": "Zelf Biometrische Pasfoto & 10×15 Printvel Maken | ScaleAndFit",
+        "h1": "Pasfoto, Visum & ID Foto Maker",
+        "lead": "Plaats je portret makkelijk binnen de officiële lijnen voor 36 landen en download los als bestand of 10×15 printvel.",
+        "description": "Maak thuis pasfoto's volgens officiële maten voor Nederland, België en 34 andere landen — alles blijft lokaal.",
+        "spec": "36 LANDEN · PRIVÉ CANVAS"
+      }
+    },
+    "passport": {
+      "steps": ["1. Kies Land", "2. Foto Toevoegen", "3. Bijsnijden & Opslaan"],
+      "controlsTitle": "Foto Instellen",
+      "countryGroupTitle": "Stap 1 · Kies Land & Document",
+      "popularLabel": "Veelgekozen:",
+      "countrySelectLabel": "Alle Landen & Visa",
+      "specsUnit": "landen",
+      "dropTitle": "Kies Foto van Je Toestel",
+      "dropSub": "of sleep een foto hierheen",
+      "cameraBtn": "Foto Maken met Camera",
+      "cameraStop": "Camera Sluiten",
+      "cameraSnap": "Maak Nu Foto",
+      "cameraMirror": "Spiegelbeeld tonen",
+      "cameraUnavailable": "Camera niet beschikbaar of geweigerd. Kies in plaats daarvan een fotobestand.",
+      "cameraHint": "Kijk recht in de lens met een neutrale mond en sta voor een effen lichte muur.",
+      "privacyNote": "Je foto verlaat nooit je toestel — alles gebeurt lokaal in het browsergeheugen.",
+      "sampleBtn": "Voorbeeldfoto Tonen",
+      "adjustGroupTitle": "Stap 3 · Positie & Licht Aanpassen",
+      "resetBtn": "Herstel",
+      "zoom": "In/uitzoomen",
+      "rotate": "Rechtzetten",
+      "panX": "Links / Rechts",
+      "panY": "Omhoog / Omlaag",
+      "exposure": "Helderheid",
+      "backdrop": "Achtergrond Witter",
+      "guidesToggle": "Toon groene ooglijn & blauwe pasfoto-ovaal",
+      "exportGroupTitle": "Download Klaar-Voor-Gebruik Bestanden",
+      "dlSingleTitle": "Download Digitale Foto (PNG)",
+      "dlSingleSub": "Voor online aanvragen & portalen",
+      "dlPdfTitle": "Download 10×15 cm Printvel (PDF)",
+      "dlPdfSub": "Print thuis of bij printshop · met kniplijnen",
+      "dlPngTitle": "Download Kiosk Printfoto 10×15 (PNG)",
+      "dlPngSub": "Voor fotohokje of printkiosk in de winkel",
+      "viewSingle": "Enkele Foto",
+      "viewSheet": "10×15 Printvel",
+      "dragTip": "Tip: Sleep direct op de foto om te verschuiven of scroll om te zoomen.",
+      "sheetTip": "Standaard 10×15 cm (4×6 inch) vel — print zonder rand op 100% en knip langs de dunne grijze lijnen.",
+      "statusUser": "Jouw Foto Geladen",
+      "statusSample": "Voorbeeld — Kies Links Jouw Foto",
+      "kpiPixels": "Digitale Formaat (300 DPI)",
+      "kpiHead": "Ideale Hoofdhoogte",
+      "kpiTiles": "Foto's per 10×15 Vel",
+      "checkSpec": "Juiste Afmeting",
+      "checkHead": "Kruin-tot-Kin Ovaal",
+      "checkBg": "Lichte Achtergrond",
+      "checkPrivacy": "100% Privé",
+      "ruleLabel": "Officiële Eis:",
+      "printSizeLabel": "Printformaat",
+      "headHeightLabel": "Hoofdhoogte",
+      "howTitle": "Zo Maak Je Thuis een Goede Pasfoto (Stap-voor-Stap)",
+      "howLead": "Volg deze 3 simpele voorbeelden voor een foto die meteen wordt goedgekeurd.",
+      "bannerAlt": "Illustratie van iemand voor een effen witte muur bij daglicht met een smartphone op ooghoogte",
+      "stepCards": [
+        {
+          "title": "Stap 1 · Effen Muur & Daglicht",
+          "desc": "Ga 50 cm voor een witte muur staan met je gezicht richting een raam. Houd de camera precies op ooghoogte zodat schaduwen wegvallen.",
+          "alt": "Schema met raamlicht vooraan en camera op ooghoogte voor een lichte muur"
+        },
+        {
+          "title": "Stap 2 · Ogen op de Groene Lijn",
+          "desc": "Sleep en zoom tot je ogen op de groene lijn liggen en de bovenkant van je hoofd netjes binnen de blauwe ovaal past.",
+          "alt": "Schema met ogen op de groene lijn en hoofd binnen de blauwe ovaal"
+        },
+        {
+          "title": "Stap 3 · Print op 10×15 cm & Knip Netjes",
+          "desc": "Download het printvel en druk het af als standaard 10×15 cm foto. Knip recht langs de dunne grijze kaders.",
+          "alt": "Diagram van een 10x15 cm fotovel met zes pasfoto's en een schaar"
+        }
+      ],
+      "doDontTitle": "Snelle Controle: Goed vs Afgekeurd",
+      "doDontLead": "Controleer voor het opslaan of je foto lijkt op de groene vinkjes.",
+      "doDontAlt": "Vierdelig voorbeeld van goede versus afgekeurde pasfoto's",
+      "doDontPairs": [
+        { "goodTitle": "Egaal Licht Vooraan", "goodDesc": "Gezicht helder verlicht, geen schaduw op de muur.", "badTitle": "Geen Schaduwen", "badDesc": "Vermijd donkere strepen naast oor of achterhoofd." },
+        { "goodTitle": "Recht & Neutraal", "goodDesc": "Hoofd recht naar voren, mond gesloten, ogen open.", "badTitle": "Niet Scheef of Lachen", "badDesc": "Schuin hoofd of open lach met tanden wordt afgekeurd." },
+        { "goodTitle": "Ogen Volledig Zichtbaar", "goodDesc": "Zonder zonnebril, schittering, cap of sjaal voor gezicht.", "badTitle": "Geen Brilschittering", "badDesc": "Zwaar montuur voor ogen of reflectie op glazen." },
+        { "goodTitle": "Ruimte Boven Kruin", "goodDesc": "Schouders zichtbaar en volledige haargrens in beeld.", "badTitle": "Niet Te Dichtbij", "badDesc": "Afgesneden haar of kin raakt onderrand." }
+      ]
+    },
+    "sizer": {
+      "steps": ["1. Kies Categorie", "2. Selecteer Maten", "3. Bekijk Ware Grootte"],
+      "tabScreens": "Tv's & Monitoren",
+      "tabAirlines": "Handbagage Check",
+      "tabMattresses": "Matras & Slaapkamer",
+      "unitMetric": "cm / kg",
+      "unitImperial": "inch / lb",
+      "presetLabel": "Snel kiezen:",
+      "scrTitle": "Vergelijk Twee Schermen",
+      "scrA": "Eerste Scherm (Blauw)",
+      "scrB": "Tweede Scherm (Rood)",
+      "scrSwap": "Wissel Om",
+      "scrOverlay": "Leg schermen op elkaar linksonder",
+      "scrConsole": "Toon tv-meubel van 160 cm ter referentie",
+      "kpiArea": "Extra Beeldoppervlak",
+      "kpiWidthDiff": "Verschil in Breedte",
+      "kpiSmpte": "Fijne Kijkafstand",
+      "kpiThx": "Bioscoopafstand",
+      "airTitle": "Controleer Jouw Tas of Koffer",
+      "airSpotlight": "Luchtvaartmaatschappij",
+      "airH": "Hoogte",
+      "airW": "Breedte",
+      "airD": "Diepte",
+      "airKg": "Gewicht",
+      "airRegion": "Filter Regio",
+      "allRegions": "Alle Maatschappijen",
+      "kpiCabinPass": "Past in Bagagebak",
+      "kpiUnderPass": "Past Onder Stoel",
+      "verdictBoth": "Past Onder Stoel én Bovenin!",
+      "verdictOverheadOnly": "Past in Bagagebak (Check Tickettype)",
+      "verdictTooBig": "Te Groot voor Deze Maatschappij",
+      "legendOverhead": "Max Bagagevak",
+      "legendUnder": "Gratis Onder Stoel",
+      "legendBag": "Jouw Tas",
+      "marginsLabel": "Speling:",
+      "matTitle": "Vergelijk Bedden in Jouw Kamer",
+      "matA": "Kleiner / Huidig Bed (Blauw)",
+      "matB": "Nieuw Bed (Rood)",
+      "roomW": "Kamerbreedte",
+      "roomL": "Kamerlengte",
+      "kpiSleepDelta": "Extra Slaapruimte",
+      "kpiSideAisle": "Looppad per Zijkant",
+      "kpiFootClear": "Ruimte Voeteneind",
+      "howTitle": "Zo Gebruik Je de Visuele Vergelijker",
+      "howLead": "Zie meteen hoe groot een nieuw scherm, koffer of bed echt in huis staat.",
+      "bannerAlt": "Woonkamer illustratie met twee vergeleken tv-formaten en een handbagagekoffer",
+      "stepCards": [
+        { "title": "Stap 1 · Schermen Over Elkaar", "desc": "Kies twee maten om precies te zien hoeveel breder en hoger het grotere model uitvalt.", "alt": "Overlappende 55 en 65 inch schermen" },
+        { "title": "Stap 2 · Meet Inclusief Wieltejes", "desc": "Tel handvat en wieltjes mee bij de hoogte zodat je koffer makkelijk in het gate-rek glijdt.", "alt": "Rolkoffer in bagageframe" },
+        { "title": "Stap 3 · Minimaal 60 cm Loopruimte", "desc": "Vul je kamerafmetingen in om te zien of nachtkastjes en deuren open kunnen.", "alt": "Slaapkamer plattegrond met 60 cm looppaden" }
+      ]
+    },
+    "paper": {
+      "steps": ["1. Kies Sjabloon", "2. Pas Kleur & Raster Aan", "3. Print op 100% Schaal"],
+      "tabPaper": "Ruitjes, Puntjes & Muziek",
+      "tabCalendar": "Feestdagenkalenders 2026–2027",
+      "tabAvery": "Avery Etiketten",
+      "paperTitle": "Stel Je Printvel Samen",
+      "presetLabel": "Populair:",
+      "patternLabel": "Soort Papier",
+      "formatLabel": "Papierformaat",
+      "spacingLabel": "Rasterafstand (mm)",
+      "inkLabel": "Lijnkleur",
+      "weightLabel": "Lijndikte",
+      "titleLabel": "Titel Bovenaan (optioneel)",
+      "titlePlaceholder": "Bijv. Wiskunde / Weekplanning",
+      "dlPaper": "Download Vector PDF",
+      "kpiSize": "Velformaat",
+      "kpiPitch": "Rastermaat",
+      "kpiPrintScale": "Printerinstelling",
+      "calTitle": "Feestdagenkalender Instellen",
+      "calCountry": "Land (inclusief feestdagen)",
+      "calYear": "Jaartal",
+      "calScope": "Welke Maanden",
+      "calFormat": "Papierformaat",
+      "calWeek": "Week Begint Op",
+      "weekMon": "Maandag (NL / BE / EU)",
+      "weekSun": "Zondag (VS / Canada)",
+      "dlCal": "Download Kalender PDF",
+      "calHolidaysBadge": "Feestdagen",
+      "averyTitle": "Avery Etiketten Invullen",
+      "averyTemplate": "Etiketcode",
+      "averyCopy": "Tekst op Elk Etiket (max 3 regels)",
+      "averyXNudge": "Verschuif Links/Rechts",
+      "averyYNudge": "Verschuif Omhoog/Omlaag",
+      "dlAvery": "Download Etiketten PDF",
+      "labelsUnit": "etiketten",
+      "captionPrintAt100": "Belangrijk: Kies in je printermenu 'Ware grootte / 100%' zodat millimeters echt kloppen.",
+      "howTitle": "Zo Print Je Millimeter-Nauwkeurig Thuis",
+      "howLead": "Voorkom verkleinde pagina's bij ruitjespapier en etiketvellen.",
+      "bannerAlt": "Bovenaanzicht van dot-grid vel, kalender, adresstickers en printer",
+      "stepCards": [
+        { "title": "Stap 1 · Kies A4 of US Letter", "desc": "In Nederland en België is A4 (210×297 mm) standaard voor bijna elke thuisprinter.", "alt": "Drie soorten printbare vellen" },
+        { "title": "Stap 2 · Kies Zachte Inktkleur", "desc": "Kies lichtgrijs of leigrijs zodat je handschrift duidelijk zichtbaar blijft boven het raster.", "alt": "Inktkleuren en 5 mm liniaal" },
+        { "title": "Stap 3 · Print op 'Ware Grootte (100%)'", "desc": "Zet 'Aanpassen aan pagina' altijd uit zodat etiketten precies in elk vakje vallen.", "alt": "Printerdialoog met 100% groen vinkje" }
+      ]
+    },
+    "fit": {
+      "steps": ["1. Meet Voet of Pak een Pasje", "2. Pas Maat Aan op Scherm", "3. Lees Jouw Maat Af"],
+      "tabShoes": "Schoenmaten Omrekenen",
+      "tabRings": "Online Ringmeter",
+      "shoeTitle": "Bereken Jouw Maat per Merk",
+      "fromBrand": "Merk Dat Nu Goed Zit",
+      "toBrand": "Merk Dat Je Wilt Kopen",
+      "swapTitle": "Merken Wisselen",
+      "genderLabel": "Maatlijn",
+      "genderMens": "Heren",
+      "genderWomens": "Dames",
+      "genderUnisex": "Unisex",
+      "inputSystemLabel": "Maatsoort Die Je Weet",
+      "sizeValueLabel": "Jouw Huidige Maat",
+      "recommendedBanner": "Aanbevolen Maat:",
+      "kpiFootLength": "Voetlengte",
+      "lastNoteLabel": "Pasvorm advies:",
+      "mondopointBadge": "VOETLENGTE",
+      "ringTitle": "Scherm IJken & Ring Meten",
+      "ringStep1": "Stap 1 · Leg een Bankpas of ID-Kaart op het Vak",
+      "ringStep1Desc": "Houd een gewone pinpas tegen het blauwe kader en druk op - of + tot de zijkanten exact gelijk lopen.",
+      "cardWidthLabel": "Pasbreedte Aanpassen",
+      "ringStep2": "Stap 2 · Leg Je Ring op de Rode Cirkel",
+      "ringStep2Desc": "Zorg dat de rode lijn precies langs de BINNENKANT van je ring valt.",
+      "ringDiaLabel": "Binnendiameter",
+      "ringCircLabel": "Omtrek (EU Maat)",
+      "matchRingPrompt": "Zet de rode lijn gelijk aan de BINNENRAND van de ring",
+      "howTitle": "Zo Meet Je Schoenen & Ringen Zonder Meetlint Fouten",
+      "howLead": "Drie makkelijke manieren voor een juiste online bestelling.",
+      "bannerAlt": "Schoen tegen muur op papier naast tablet met ringmeter en bankpas",
+      "stepCards": [
+        { "title": "Stap 1 · Hiel tegen de Muur Meten", "desc": "Zet je hiel lichtjes tegen een rechte muur op papier, streep bij de langste teen en meet het aantal millimeter.", "alt": "Voet op papier tegen muur gemeten met potlood" },
+        { "title": "Stap 2 · Scherm IJken met Bankpas", "desc": "Elke bankpas ter wereld is exact 85,60 mm breed — zo weet je scherm precies hoe groot één millimeter is.", "alt": "Bankpas tegen het scherm geijkt" },
+        { "title": "Stap 3 · Meet de Binnenzijde van de Ring", "desc": "Vergelijk altijd de binnenrand waar je vinger doorheen gaat, nooit de dikke buitenrand.", "alt": "Detail van binnenrand versus buitenrand van een ring" }
+      ]
+    },
+    "info": {
+      "about": {
+        "title": "Over ScaleAndFit & Meetnormen | ScaleAndFit",
+        "h1": "Over ScaleAndFit & Onze Meetnormen",
+        "lead": "Gemaakt om snel zekerheid te geven over formaten, drukwerk, handbagage en pasfoto's — privé in jouw eigen browser.",
+        "description": "Lees hoe ScaleAndFit tv-formaten, PDF-vectoren, schoenmaten en pasfoto-eisen lokaal berekent.",
+        "sections": [
+          {
+            "heading": "Waarom ScaleAndFit?",
+            "paragraphs": [
+              "Simpele meetklussen worden online vaak lastig gemaakt met vage schattingen of onnodige bestandsuploads. ScaleAndFit brengt vier nauwkeurige tools samen in één heldere, directe werkomgeving.",
+              "Elke millimeter en pixel wordt wiskundig op je eigen apparaat berekend."
+            ]
+          },
+          {
+            "heading": "Gebruikte Internationale Normen",
+            "list": [
+              "Pasfoto's (ICAO 9303): 300 DPI afdrukkwaliteit en officiële hoofdverhoudingen voor 36 landen.",
+              "Printbare PDF's (72 PostScript pt/inch): Echte geometrie voor ISO A4 en US Letter zonder kwaliteitsverlies.",
+              "Schoenmaten (ISO 9407 Mondopoint): Omrekenen via echte millimeterlengte plus specifieke merkpasvormen.",
+              "Ringmaten (ISO 8653 & Bankpas ISO/IEC 7810 ID-1): IJking met 85,60 mm pasje werkt op elk scherm."
+            ]
+          }
+        ]
+      },
+      "guides": {
+        "title": "Visuele Handleidingen | ScaleAndFit",
+        "h1": "Hoe Elke Tool Werkt — Beeldgidsen",
+        "lead": "Heldere tekeningen per tool plus een gratis 10mm testvel voor jouw thuisprinter.",
+        "description": "Stap-voor-stap uitleg met illustraties voor pasfoto's, handbagage, printpapier en ringmaten.",
+        "printTestTitle": "Gratis 100% Printer Kalibratie-Testvel",
+        "printTestDesc": "Twijfel je of je printer PDF's iets verkleint? Download dit 10 mm ruitjesvel en meet een vakje na met een gewone liniaal.",
+        "printTestBtnA4": "Download 10mm Testvel (A4 PDF)",
+        "printTestBtnLetter": "Download 10mm Testvel (US Letter PDF)"
+      },
+      "privacy": {
+        "title": "Privacybeleid | ScaleAndFit",
+        "h1": "Privacybeleid",
+        "lead": "In gewone taal: je foto's, adresteksten en ingevulde maten blijven volledig op jouw eigen toestel.",
+        "description": "ScaleAndFit verwerkt foto's, PDF's en metingen lokaal in je browser zonder uploads of trackingcookies.",
+        "summaryTitle": "Kort Samengevat",
+        "summaryBullets": [
+          "Foto's worden nooit geüpload — bijsnijden gebeurt lokaal in Canvas-geheugen.",
+          "PDF's met jouw adres of kalender worden direct op je eigen apparaat gemaakt.",
+          "Geen trackingcookies, geen profielen en geen aanmelding nodig."
+        ],
+        "sections": [
+          { "heading": "1. Verantwoordelijke", "paragraphs": ["ScaleAndFit.com wordt beheerd door OTHRYS Systems. Vragen kun je sturen naar othrys.systems@gmail.com."] },
+          { "heading": "2. Lokale Verwerking (AVG / GDPR)", "paragraphs": ["Alle beeldbewerking, cameravoorbeelden en PDF-generatie draaien exclusief in het geheugen van jouw browser. Wij ontvangen of bewaren geen pasfoto's of ingevulde teksten op een server."] },
+          { "heading": "3. Functionele Browser-opslag", "paragraphs": ["We bewaren hooguit twee functionele voorkeuren in localStorage: sf-theme (donkere modus) en sf-lang (taalkeuze)."] },
+          { "heading": "4. Hosting & Beveiliging", "paragraphs": ["Statische bestanden worden veilig geleverd via Cloudflare Workers met standaard verbindingsbeveiliging."] }
+        ]
+      },
+      "terms": {
+        "title": "Gebruiksvoorwaarden | ScaleAndFit",
+        "h1": "Gebruiksvoorwaarden & Aandachtspunten",
+        "lead": "Praktische afspraken voor pasfoto's, bagage-eisen, drukwerk en maatadvies.",
+        "description": "Gebruiksvoorwaarden van ScaleAndFit.com voor maatconversie, printables en pasfoto's.",
+        "sections": [
+          { "heading": "1. Eigen Controle bij Officiële Aanvragen", "paragraphs": ["ScaleAndFit rekent zo zorgvuldig mogelijk volgens officiële normen, maar controleer bij gemeente, ambassade of luchtvaartmaatschappij altijd de meest recente eisen op je boekingsbewijs of overheidssite."] },
+          { "heading": "2. Handbagage", "paragraphs": ["Toegestane bagage verschilt soms per tariefklasse (zoals Basis vs Priority). Meet inclusief wielen en handvat."] },
+          { "heading": "3. Schoenen & Ringen", "paragraphs": ["Model, sokdikte en breedtemaat kunnen invloed hebben op het draagcomfort."] }
+        ]
+      },
+      "cookies": {
+        "title": "Cookie- & Opslagbeleid | ScaleAndFit",
+        "h1": "Cookie- & Browseropslagbeleid",
+        "lead": "ScaleAndFit plaatst nul marketing- of analytische cookies.",
+        "description": "Overzicht van de twee lokale voorkeursleutels die ScaleAndFit gebruikt.",
+        "tableHeaders": ["Sleutelnaam", "Type", "Doel", "Wanneer Opgeslagen"],
+        "tableRows": [
+          ["sf-theme", "localStorage", "Onthoudt donkere weergave", "Alleen als je Donker kiest"],
+          ["sf-lang", "localStorage", "Onthoudt je taalkeuze", "Alleen als je van taal wisselt"]
+        ],
+        "note": "Cameratoegang wordt uitsluitend lokaal gebruikt en stopt direct zodra je een foto maakt of sluit."
+      },
+      "contact": {
+        "title": "Contact & Verbeteringen | ScaleAndFit",
+        "h1": "Contact & Correcties Doorgeven",
+        "lead": "Gewijzigde bagageregels gezien of een extra schoenmerk nodig? Laat het ons weten.",
+        "description": "Neem contact op met ScaleAndFit / OTHRYS Systems.",
+        "emailLabel": "E-mailadres:",
+        "email": "othrys.systems@gmail.com",
+        "helpfulTitle": "Handige Gegevens om Mee te Sturen",
+        "helpfulList": [
+          "Bij bagagewijzigingen: maatschappij, nieuwe afmetingen in cm/kg en link.",
+          "Bij pasfoto-eisen: land, type document en link naar officiële richtlijn.",
+          "Bij technische vragen: pagina-adres en welk toestel of browser je gebruikt."
+        ]
+      }
+    },
+    "seo": {
+      "directoryTitle": "Alle Kant-en-Klare Pagina's in Deze Tool",
+      "directoryUnit": "Pagina's",
+      "relatedTitle": "Meer Handige Vergelijkingen",
+      "relatedUnit": "Gerelateerd",
+      "faqTitle": "Veelgestelde Vragen",
+      "faqUnit": "Antwoorden",
+      "specLabel": "Handige Overzichtstabel"
+    }
+  },
+  "fr": {
+    "meta": { "code": "fr", "nativeName": "Français", "ogLocale": "fr_FR" },
+    "nav": {
+      "skipToMain": "Aller à l'outil",
+      "overview": "Accueil",
+      "visualSizer": "Écran & Bagage",
+      "printablePaper": "Papier & Étiquettes",
+      "sizeConverter": "Chaussures & Bagues",
+      "passportPhoto": "Photo d'Identité",
+      "guides": "Mode d'Emploi",
+      "searchPlaceholder": "Chercher un outil...",
+      "searchBtn": "Chercher",
+      "shareBtn": "Partager",
+      "shareCopied": "Copié !",
+      "themeCarbon": "Sombre",
+      "themeDaylight": "Clair",
+      "langLabel": "Langue",
+      "searchModalTitle": "Trouver un Outil de Taille, d'Impression ou Photo",
+      "searchModalInput": "Chercher TV, bagage Ryanair, papier pointillé, Nike Adidas, passeport France...",
+      "searchNoResults": "Aucun outil trouvé. Essayez un pays, une compagnie ou une marque.",
+      "closeEsc": "Fermer (Échap)"
+    },
+    "footer": {
+      "tagline": "Comparaison visuelle à l'échelle réelle, PDF millimétrés à imprimer, pointures et bagues exactes, et photos d'identité conformes — tout reste privé sur votre appareil.",
+      "trustBadge": "100 % Local sur Votre Appareil · Aucun Cookie Traceur",
+      "colTools": "Outils Pratiques",
+      "colGuides": "Guides & Index",
+      "colLegal": "À Propos & Légal",
+      "languageLabel": "Langue",
+      "copyright": "© 2026 ScaleAndFit.com · Tous les calculs s'effectuent localement dans votre navigateur.",
+      "links": {
+        "about": "À Propos & Normes",
+        "guides": "Guides Illustrés",
+        "privacy": "Confidentialité",
+        "terms": "Conditions d'Utilisation",
+        "cookies": "Cookies & Stockage",
+        "contact": "Contact & Mises à Jour",
+        "sitemap": "Plan du Site",
+        "llms": "Guide IA (llms.txt)"
+      }
+    },
+    "hub": {
+      "title": "ScaleAndFit — Outils Simples de Tailles, PDF à Imprimer & Photos d'Identité",
+      "h1": "Vérifiez Chaque Dimension en Quelques Secondes",
+      "lead": "Comparez téléviseurs et bagages cabine à l'échelle réelle, créez des feuilles PDF millimétrées, convertissez chaussures et bagues, et cadrez vos photos d'identité chez vous.",
+      "description": "Boîte à outils privée dans le navigateur pour écrans, bagages cabine, papier PDF A4/Letter, chaussures, bagues et photos biométriques 300 DPI.",
+      "searchLabel": "Recherche Rapide parmi 200+ Outils Prêts à l'Emploi",
+      "searchPlaceholder": "Que souhaitez-vous mesurer ? Ex : photo passeport, bagage Ryanair, TV 55 vs 65, feuille A4...",
+      "quickPopularLabel": "Accès rapides :",
+      "quickTags": [
+        { "label": "Photo Passeport", "href": "/fr/passport-photo/" },
+        { "label": "Bagage Ryanair", "href": "/fr/visual-sizer/ryanair-carry-on-size/" },
+        { "label": "TV 55\" vs 65\"", "href": "/fr/visual-sizer/55-vs-65-inch-tv/" },
+        { "label": "Papier Pointillé A4", "href": "/fr/printable-paper/5mm-dot-grid-a4/" },
+        { "label": "Nike vers Adidas", "href": "/fr/size-converter/nike-to-adidas-shoe-size/" },
+        { "label": "Baguier en Ligne", "href": "/fr/size-converter/credit-card-ring-sizer-online/" }
+      ],
+      "trustItems": [
+        "100 % Privé sur Votre Appareil",
+        "Aucun Cookie Traceur",
+        "Sans Inscription",
+        "Téléchargement PDF & PNG Immédiat"
+      ],
+      "overviewTitle": "Comment ScaleAndFit Simplifie Vos Mesures",
+      "overviewLead": "Des schémas clairs et des fichiers prêts à imprimer sans calculs compliqués.",
+      "cards": {
+        "visualSizer": {
+          "kicker": "Outil 01 · Comparer en vrai",
+          "badge": "TV · BAGAGE · LIT",
+          "title": "Comparateur Écrans, Bagages & Matelas",
+          "desc": "Superposez deux téléviseurs ou matelas à l'échelle exacte, ou vérifiez si votre valise passe chez 34 compagnies aériennes.",
+          "cta": "Ouvrir le Comparateur",
+          "imageAlt": "Illustration comparant deux écrans TV à côté d'une valise cabine",
+          "routes": [
+            { "label": "TV 55\" vs 65\" Comparaison", "href": "/fr/visual-sizer/55-vs-65-inch-tv/", "tag": "TV" },
+            { "label": "Gabarit Air France / Ryanair", "href": "/fr/visual-sizer/air-france-carry-on-size/", "tag": "Vol" },
+            { "label": "Lit 140×200 vs 160×200", "href": "/fr/visual-sizer/eu-140x200-vs-160x200-bed/", "tag": "Lit" }
+          ]
+        },
+        "printablePaper": {
+          "kicker": "Outil 02 · Imprimer à 100 %",
+          "badge": "PDF À IMPRIMER",
+          "title": "Papier Quadrillé, Calendriers & Étiquettes",
+          "desc": "Générez des PDF A4 ou Letter pour papier pointillé, millimétré, partitions, calendriers 2026–2027 et planches Avery.",
+          "cta": "Ouvrir Studio Papier",
+          "imageAlt": "Vue de dessus d'une feuille pointillée, d'un calendrier, d'étiquettes et d'une imprimante",
+          "routes": [
+            { "label": "Papier Pointillé 5mm A4", "href": "/fr/printable-paper/5mm-dot-grid-a4/", "tag": "PDF" },
+            { "label": "Calendrier Jours Fériés 2026", "href": "/fr/printable-paper/2026-france-holiday-calendar-pdf/", "tag": "Calendrier" },
+            { "label": "Planche Étiquettes Avery L7160", "href": "/fr/printable-paper/avery-l7160-template-pdf/", "tag": "Avery" }
+          ]
+        },
+        "sizeConverter": {
+          "kicker": "Outil 03 · Trouver sa taille",
+          "badge": "CHAUSSURES · BAGUES",
+          "title": "Pointures par Marque & Baguier",
+          "desc": "Convertissez votre pointure entre 24 marques selon la longueur réelle du pied en mm, ou mesurez une bague avec une carte bancaire.",
+          "cta": "Ouvrir Convertisseur",
+          "imageAlt": "Illustration d'une mesure de chaussure contre un mur et d'un baguier calibré par carte sur tablette",
+          "routes": [
+            { "label": "Nike vers Adidas Pointure", "href": "/fr/size-converter/nike-to-adidas-shoe-size/", "tag": "Chaussures" },
+            { "label": "Tableau EU vers US", "href": "/fr/size-converter/eu-to-us-shoe-size-chart/", "tag": "Tableau" },
+            { "label": "Baguier sur Écran (Carte CB)", "href": "/fr/size-converter/credit-card-ring-sizer-online/", "tag": "Bague" }
+          ]
+        },
+        "passportPhoto": {
+          "kicker": "Outil 04 · Prêt à imprimer",
+          "badge": "PASSEPORT · CNI",
+          "title": "Studio Photo Passeport, CNI & Visa",
+          "desc": "Importez ou prenez une photo par caméra, alignez les yeux sur la ligne verte et téléchargez en fichier unique ou planche 10×15 cm.",
+          "cta": "Ouvrir Studio Photo",
+          "imageAlt": "Illustration d'une prise de photo d'identité devant un mur clair avec lumière naturelle",
+          "routes": [
+            { "label": "France Passeport & CNI 35×45", "href": "/fr/passport-photo/france-passport-cni/", "tag": "FR" },
+            { "label": "Belgique Passeport & eID", "href": "/fr/passport-photo/belgium-passport-eid/", "tag": "BE" },
+            { "label": "Visa Schengen 35×45 mm", "href": "/fr/passport-photo/schengen-visa-35x45/", "tag": "UE" }
+          ]
+        }
+      }
+    },
+    "suites": {
+      "visual-sizer": {
+        "name": "Écran & Bagage",
+        "title": "Comparateur TV, Bagage Cabine & Matelas à l'Échelle | ScaleAndFit",
+        "h1": "Comparateur Écrans, Bagages & Lits",
+        "lead": "Visualisez deux écrans côte à côte ou superposés, vérifiez 34 compagnies aériennes et simulez la place autour de votre lit.",
+        "description": "Comparez téléviseurs, moniteurs, matelas et dimensions de bagages cabine pour 34 compagnies aériennes localement.",
+        "spec": "ÉCHELLE EXACTE · 34 COMPAGNIES"
+      },
+      "printable-paper": {
+        "name": "Papier & Étiquettes",
+        "title": "Papier Pointillé, Calendrier 2026–2027 & Étiquettes Avery PDF | ScaleAndFit",
+        "h1": "Papier à Imprimer, Calendriers & Étiquettes",
+        "lead": "Créez gratuitement vos feuilles A4 ou Letter millimétrées, calendriers avec jours fériés et étiquettes Avery calibrées.",
+        "description": "Créez des PDF vectoriels A4/Letter exacts : pointillés, carreaux, portées musicales, calendriers et étiquettes Avery.",
+        "spec": "A4 & LETTER · ÉCHELLE 100%"
+      },
+      "size-converter": {
+        "name": "Chaussures & Bagues",
+        "title": "Convertisseur Pointures 24 Marques & Baguier Carte Bancaire | ScaleAndFit",
+        "h1": "Convertisseur Chaussures & Baguier",
+        "lead": "Traduisez vos pointures EU, US, UK et cm sur 24 marques, et calibrez un baguier précis avec n'importe quelle carte bancaire.",
+        "description": "Convertissez les pointures sur 24 marques par longueur en mm et mesurez une bague à l'écran avec une carte de 85,60 mm.",
+        "spec": "24 MARQUES · CALIBRAGE CARTE"
+      },
+      "passport-photo": {
+        "name": "Photo d'Identité",
+        "title": "Créateur Photo Passeport, CNI & Planche 10×15 cm | ScaleAndFit",
+        "h1": "Photo Passeport, Visa & Carte d'Identité",
+        "lead": "Recadrez votre portrait aux normes de 36 pays en local dans votre navigateur et téléchargez en 300 DPI ou sur planche 10×15.",
+        "description": "Créez des photos biométriques 35×45 mm ou 2×2 pouces localement avec aperçu 10×15 cm prêt à imprimer.",
+        "spec": "36 PAYS · TRAITEMENT LOCAL"
+      }
+    },
+    "passport": {
+      "steps": ["1. Choisir le Pays", "2. Charger ou Prendre Photo", "3. Ajuster & Télécharger"],
+      "controlsTitle": "Réglages de la Photo",
+      "countryGroupTitle": "Étape 1 · Pays & Document",
+      "popularLabel": "Populaires :",
+      "countrySelectLabel": "Tous les Formats (36 pays)",
+      "specsUnit": "formats",
+      "dropTitle": "Choisir une Photo sur Votre Appareil",
+      "dropSub": "ou glisser-déposer un portrait ici",
+      "cameraBtn": "Prendre une Photo (Caméra)",
+      "cameraStop": "Fermer la Caméra",
+      "cameraSnap": "Capturer la Photo",
+      "cameraMirror": "Vue miroir",
+      "cameraUnavailable": "Caméra indisponible ou refusée. Veuillez importer une photo.",
+      "cameraHint": "Regardez droit vers l'objectif avec la bouche fermée devant un mur clair uni.",
+      "privacyNote": "Aucune image n'est envoyée sur Internet — tout reste dans la mémoire de votre appareil.",
+      "sampleBtn": "Afficher le Modèle d'Exemple",
+      "adjustGroupTitle": "Étape 3 · Cadrage & Luminosité",
+      "resetBtn": "Réinitialiser",
+      "zoom": "Zoom",
+      "rotate": "Inclinaison",
+      "panX": "Gauche / Droite",
+      "panY": "Haut / Bas",
+      "exposure": "Luminosité",
+      "backdrop": "Éclaircir le Fond",
+      "guidesToggle": "Afficher ligne verte des yeux & ovale bleu",
+      "exportGroupTitle": "Télécharger Vos Fichiers",
+      "dlSingleTitle": "Télécharger Photo Numérique (PNG)",
+      "dlSingleSub": "Pour dépôts et formulaires en ligne",
+      "dlPdfTitle": "Télécharger Planche 10×15 cm (PDF)",
+      "dlPdfSub": "À imprimer à la maison ou boutique · traits de coupe",
+      "dlPngTitle": "Télécharger Image Borne Photo 10×15 (PNG)",
+      "dlPngSub": "Pour bornes d'impression 10×15 cm en magasin",
+      "viewSingle": "Photo Seule",
+      "viewSheet": "Planche 10×15",
+      "dragTip": "Astuce : Glissez directement sur la photo pour recadrer ou faites défiler pour zoomer.",
+      "sheetTip": "Format standard 10×15 cm (4×6 po) — imprimez sans bordure à 100 % puis découpez les traits gris.",
+      "statusUser": "Votre Photo Chargée",
+      "statusSample": "Exemple — Importez Votre Photo à Gauche",
+      "kpiPixels": "Pixels (300 DPI)",
+      "kpiHead": "Hauteur Tête Idéale",
+      "kpiTiles": "Photos / Planche",
+      "checkSpec": "Format Officiel",
+      "checkHead": "Gabarit Menton-Sommet",
+      "checkBg": "Fond Clair Uni",
+      "checkPrivacy": "100 % Privé",
+      "ruleLabel": "Règle Officielle :",
+      "printSizeLabel": "Format Papier",
+      "headHeightLabel": "Hauteur Tête",
+      "howTitle": "Comment Réussir Votre Photo d'Identité à la Maison",
+      "howLead": "Suivez ces 3 étapes visuelles pour une photo nette dès le premier essai.",
+      "bannerAlt": "Illustration d'une personne devant un mur blanc face à la lumière du jour avec un téléphone à hauteur des yeux",
+      "stepCards": [
+        { "title": "Étape 1 · Mur Uni & Lumière Naturelle", "desc": "Tenez-vous à 50 cm d'un mur blanc face à une fenêtre. Placez l'appareil photo exactement à hauteur des yeux.", "alt": "Schéma d'éclairage naturel face au sujet devant un mur blanc" },
+        { "title": "Étape 2 · Yeux sur la Ligne Verte", "desc": "Déplacez et zoomez jusqu'à aligner vos yeux sur la ligne verte et loger votre visage dans l'ovale bleu.", "alt": "Schéma alignement des yeux sur la ligne verte dans l'ovale bleu" },
+        { "title": "Étape 3 · Imprimer en 10×15 & Découper", "desc": "Imprimez la planche 10×15 cm à taille réelle sans marges, puis découpez proprement aux ciseaux le long des cadres.", "alt": "Planche photo 10x15 avec six portraits et ciseaux" }
+      ],
+      "doDontTitle": "Vérification Rapide : Bon vs À Éviter",
+      "doDontLead": "Vérifiez ces 4 points simples avant d'enregistrer votre photo.",
+      "doDontAlt": "Comparaison visuelle en quatre panneaux des bonnes pratiques photo",
+      "doDontPairs": [
+        { "goodTitle": "Éclairage Uniforme", "goodDesc": "Visage bien éclairé, aucune ombre derrière la tête.", "badTitle": "Éviter les Ombres", "badDesc": "Ombre marquée sur le visage ou le mur." },
+        { "goodTitle": "Tête Droite & Neutre", "goodDesc": "Regard face à l'objectif, bouche fermée.", "badTitle": "Éviter Sourire ou Tête Penchée", "badDesc": "Bouche ouverte, sourire large ou cou incliné." },
+        { "goodTitle": "Yeux Bien Dégagés", "goodDesc": "Sans lunettes teintées, reflets ni couvre-chef.", "badTitle": "Éviter Reflets & Lunettes", "badDesc": "Verres brillants, monture épaisse ou casquette." },
+        { "goodTitle": "Espace au-Dessus", "goodDesc": "Haut du crâne complet et épaules visibles.", "badTitle": "Éviter Trop Près", "badDesc": "Cheveux ou menton coupés par le bord." }
+      ]
+    },
+    "sizer": {
+      "steps": ["1. Choisir Catégorie", "2. Sélectionner Modèles", "3. Voir l'Échelle Réelle"],
+      "tabScreens": "TV & Écrans PC",
+      "tabAirlines": "Gabarit Bagage Cabine",
+      "tabMattresses": "Matelas & Chambre",
+      "unitMetric": "cm / kg",
+      "unitImperial": "pouces / lb",
+      "presetLabel": "Choix rapides :",
+      "scrTitle": "Comparer Deux Écrans",
+      "scrA": "Premier Écran (Bleu)",
+      "scrB": "Second Écran (Rouge)",
+      "scrSwap": "Inverser",
+      "scrOverlay": "Superposer depuis le coin inférieur gauche",
+      "scrConsole": "Afficher un meuble TV de 160 cm dessous",
+      "kpiArea": "Surface en Plus",
+      "kpiWidthDiff": "Écart de Largeur",
+      "kpiSmpte": "Distance Confortable",
+      "kpiThx": "Distance Cinéma",
+      "airTitle": "Tester Votre Valise ou Sac",
+      "airSpotlight": "Compagnie Ciblée",
+      "airH": "Hauteur",
+      "airW": "Largeur",
+      "airD": "Profondeur",
+      "airKg": "Poids",
+      "airRegion": "Région",
+      "allRegions": "Toutes les Compagnies",
+      "kpiCabinPass": "Coffre Supérieur OK",
+      "kpiUnderPass": "Sous le Siège OK",
+      "verdictBoth": "Passe Sous le Siège et en Cabine !",
+      "verdictOverheadOnly": "Coffre Supérieur Uniquement (Vérifier Billet)",
+      "verdictTooBig": "Dépasse le Gabarit de Cette Compagnie",
+      "legendOverhead": "Limite Coffre Cabine",
+      "legendUnder": "Sac Gratuit Sous Siège",
+      "legendBag": "Votre Bagage",
+      "marginsLabel": "Marge restante :",
+      "matTitle": "Comparer Lits & Dégagement",
+      "matA": "Lit A (Bleu)",
+      "matB": "Lit B (Rouge)",
+      "roomW": "Largeur Chambre",
+      "roomL": "Longueur Chambre",
+      "kpiSleepDelta": "Surface Couchage",
+      "kpiSideAisle": "Passage de Chaque Côté",
+      "kpiFootClear": "Espace au Pied du Lit",
+      "howTitle": "Pourquoi Visualiser Avant d'Acheter ou Voyager",
+      "howLead": "Évitez les mauvaises surprises à l'embarquement ou lors d'un achat d'écran.",
+      "bannerAlt": "Comparaison visuelle d'écrans et d'une valise cabine",
+      "stepCards": [
+        { "title": "Étape 1 · Superposition Réelle", "desc": "Voyez immédiatement la vraie différence de hauteur et de largeur entre deux diagonales.", "alt": "Écrans 55 et 65 pouces superposés" },
+        { "title": "Étape 2 · Roulettes Incluses", "desc": "Mesurez votre valise poignées et roulettes comprises pour éviter tout supplément en porte d'embarquement.", "alt": "Valise cabine dans le gabarit" },
+        { "title": "Étape 3 · Prévoir 60 cm de Passage", "desc": "Entrez les dimensions de votre chambre pour garder au moins 60 cm autour du lit.", "alt": "Plan de chambre avec passages de 60 cm" }
+      ]
+    },
+    "paper": {
+      "steps": ["1. Choisir le Modèle", "2. Régler l'Espacement", "3. Imprimer à 100 %"],
+      "tabPaper": "Grilles, Lignes & Musique",
+      "tabCalendar": "Calendriers Fériés 2026–2027",
+      "tabAvery": "Étiquettes Avery",
+      "paperTitle": "Personnaliser la Feuille PDF",
+      "presetLabel": "Styles rapides :",
+      "patternLabel": "Type de Modèle",
+      "formatLabel": "Format Papier",
+      "spacingLabel": "Espacement (mm)",
+      "inkLabel": "Couleur d'Encre",
+      "weightLabel": "Épaisseur du Trait",
+      "titleLabel": "En-tête Optionnel",
+      "titlePlaceholder": "Ex : Notes de Cours",
+      "dlPaper": "Télécharger le PDF",
+      "kpiSize": "Format",
+      "kpiPitch": "Espacement",
+      "kpiPrintScale": "Réglage Imprimante",
+      "calTitle": "Configurer le Calendrier",
+      "calCountry": "Jours Fériés du Pays",
+      "calYear": "Année",
+      "calScope": "Période",
+      "calFormat": "Format Papier",
+      "calWeek": "Début de Semaine",
+      "weekMon": "Lundi (Europe / ISO)",
+      "weekSun": "Dimanche (Amérique du Nord)",
+      "dlCal": "Télécharger le Calendrier PDF",
+      "calHolidaysBadge": "Jours Fériés",
+      "averyTitle": "Configurer les Étiquettes Avery",
+      "averyTemplate": "Référence Avery",
+      "averyCopy": "Texte sur Chaque Étiquette (3 lignes)",
+      "averyXNudge": "Décalage Gauche / Droite",
+      "averyYNudge": "Décalage Haut / Bas",
+      "dlAvery": "Télécharger Planche PDF",
+      "labelsUnit": "étiquettes",
+      "captionPrintAt100": "Important : Choisissez « Taille réelle / 100 % » à l'impression pour respecter le millimètre.",
+      "howTitle": "Comment Imprimer à l'Échelle Exacte (100 %)",
+      "howLead": "Gardez un pas de 5 mm parfait et des étiquettes bien centrées.",
+      "bannerAlt": "Matériel de papeterie, calendrier, étiquettes et imprimante vus de dessus",
+      "stepCards": [
+        { "title": "Étape 1 · Format A4 ou Letter", "desc": "Sélectionnez A4 (210×297 mm) en Europe ou Letter en Amérique du Nord selon votre ramette.", "alt": "Trois feuilles A4 et Letter" },
+        { "title": "Étape 2 · Encre Discrète", "desc": "Utilisez le gris clair ou ardoise afin que votre écriture manuscrite ressorte nettement.", "alt": "Nuancier d'encre et règle" },
+        { "title": "Étape 3 · Choisir « Taille Réelle 100 % »", "desc": "Décochez « Ajuster à la page » dans le menu d'impression pour ne rien rétrécir.", "alt": "Menu imprimante réglé à 100 %" }
+      ]
+    },
+    "fit": {
+      "steps": ["1. Mesurer Pied ou Carte", "2. Calibrer à l'Écran", "3. Lire Votre Taille"],
+      "tabShoes": "Convertisseur Pointures",
+      "tabRings": "Baguier sur Écran",
+      "shoeTitle": "Trouver Votre Pointure par Marque",
+      "fromBrand": "Marque que Vous Portez",
+      "toBrand": "Marque Souhaitée",
+      "swapTitle": "Inverser",
+      "genderLabel": "Catégorie",
+      "genderMens": "Homme",
+      "genderWomens": "Femme",
+      "genderUnisex": "Unisexe",
+      "inputSystemLabel": "Système Connu",
+      "sizeValueLabel": "Votre Pointure Actuelle",
+      "recommendedBanner": "Pointure Conseillée :",
+      "kpiFootLength": "Longueur du Pied",
+      "lastNoteLabel": "Conseil forme :",
+      "mondopointBadge": "LONGUEUR PIED",
+      "ringTitle": "Étalonner l'Écran & Mesurer la Bague",
+      "ringStep1": "Étape 1 · Aligner une Carte Bancaire (85,6 mm)",
+      "ringStep1Desc": "Posez une carte bancaire sur le cadre bleu et ajustez avec - / + jusqu'à ce que les bords correspondent.",
+      "cardWidthLabel": "Largeur du Cadre",
+      "ringStep2": "Étape 2 · Poser la Bague sur le Cercle Rouge",
+      "ringStep2Desc": "Alignez le cercle rouge exactement avec le bord INTÉRIEUR de la bague.",
+      "ringDiaLabel": "Diamètre Intérieur",
+      "ringCircLabel": "Circonférence (Taille EU)",
+      "matchRingPrompt": "Alignez la ligne rouge sur le bord INTÉRIEUR de la bague",
+      "howTitle": "Mesurer Pointures et Bagues Sans Erreur",
+      "howLead": "Trois gestes simples avant de commander en ligne.",
+      "bannerAlt": "Chaussure mesurée contre un mur et baguier calibré par carte sur tablette",
+      "stepCards": [
+        { "title": "Étape 1 · Talon Contre le Mur", "desc": "Posez le talon contre un mur sur une feuille, tracez un trait devant l'orteil le plus long et mesurez en mm.", "alt": "Pied contre un mur marqué au crayon" },
+        { "title": "Étape 2 · Calibrer avec une Carte CB", "desc": "Toute carte bancaire mesure exactement 85,60 mm : votre écran affiche ensuite la taille réelle au millimètre.", "alt": "Carte bancaire alignée sur le cadre bleu" },
+        { "title": "Étape 3 · Mesurer l'Intérieur Uniquement", "desc": "Ne mesurez jamais le métal extérieur d'un anneau large — fiez-vous uniquement au cercle intérieur.", "alt": "Gros plan sur le bord intérieur de la bague" }
+      ]
+    },
+    "info": {
+      "about": {
+        "title": "À Propos de ScaleAndFit & Normes | ScaleAndFit",
+        "h1": "À Propos de ScaleAndFit & Normes de Mesure",
+        "lead": "Conçu pour mesurer avec précision écrans, bagages, impressions PDF et photos d'identité — 100 % localement.",
+        "description": "Découvrez les normes internationales ICAO, Mondopoint, ISO 8653 et PostScript utilisées localement par ScaleAndFit.",
+        "sections": [
+          { "heading": "Notre Mission", "paragraphs": ["Offrir à chacun des outils visuels fiables, simples et privés sans téléversement ni inscription."] },
+          {
+            "heading": "Normes Utilisées",
+            "list": [
+              "Photos ICAO 9303 à 300 DPI pour 36 pays.",
+              "PDF vectoriels exacts à 72 points/pouce (A4 & US Letter).",
+              "Pointures ISO 9407 Mondopoint en millimètres sur 24 marques.",
+              "Baguier ISO 8653 calibré par carte ISO/IEC 7810 ID-1 (85,60 mm)."
+            ]
+          }
+        ]
+      },
+      "guides": {
+        "title": "Guides Visuels Étape par Étape | ScaleAndFit",
+        "h1": "Mode d'Emploi Illustré des 4 Outils",
+        "lead": "Guides clairs avec schémas et feuille de test à 100 % pour votre imprimante.",
+        "description": "Guides illustrés pour photos d'identité, bagages cabine, impression PDF et baguier.",
+        "printTestTitle": "Feuille de Test Imprimante à 100 % Gratuite",
+        "printTestDesc": "Vérifiez avec une règle si votre imprimante respecte les 10 mm exacts avant d'imprimer des étiquettes.",
+        "printTestBtnA4": "Télécharger Grille Test 10mm (A4 PDF)",
+        "printTestBtnLetter": "Télécharger Grille Test 10mm (US Letter PDF)"
+      },
+      "privacy": {
+        "title": "Politique de Confidentialité | ScaleAndFit",
+        "h1": "Politique de Confidentialité",
+        "lead": "Vos photos, étiquettes et mesures restent strictement dans votre propre navigateur.",
+        "description": "Politique de confidentialité RGPD : traitement 100 % local sans cookies traceurs ni envoi de fichiers.",
+        "summaryTitle": "L'Essentiel en Bref",
+        "summaryBullets": [
+          "Aucune photo n'est envoyée vers un serveur : le recadrage Canvas reste sur votre appareil.",
+          "Tous les PDF sont générés localement dans votre navigateur.",
+          "Zéro cookie publicitaire ou de suivi, aucun compte requis."
+        ],
+        "sections": [
+          { "heading": "1. Responsable", "paragraphs": ["ScaleAndFit.com est édité par OTHRYS Systems (othrys.systems@gmail.com)."] },
+          { "heading": "2. Traitement 100 % Local", "paragraphs": ["Toutes les données saisies et images chargées restent en mémoire locale de votre navigateur."] },
+          { "heading": "3. Préférences Enregistrées", "paragraphs": ["Seules vos préférences fonctionnelles sf-theme et sf-lang peuvent être mémorisées localement."] },
+          { "heading": "4. Hébergement Edge", "paragraphs": ["Les pages statiques sont diffusées via Cloudflare Workers avec journaux techniques de sécurité standards."] }
+        ]
+      },
+      "terms": {
+        "title": "Conditions d'Utilisation | ScaleAndFit",
+        "h1": "Conditions d'Utilisation",
+        "lead": "Recommandations d'usage pour démarches officielles, voyages et impressions.",
+        "description": "Conditions d'utilisation et conseils de vérification ScaleAndFit.com.",
+        "sections": [
+          { "heading": "1. Vérification Finale", "paragraphs": ["Vérifiez toujours les dernières consignes de votre préfecture, ambassade ou compagnie aérienne avant soumission ou voyage."] },
+          { "heading": "2. Bagages & Billets", "paragraphs": ["Les franchises cabine varient selon la classe tarifaire. Mesurez valises avec roulettes et poignées."] }
+        ]
+      },
+      "cookies": {
+        "title": "Politique Cookies & Stockage | ScaleAndFit",
+        "h1": "Cookies & Stockage Local",
+        "lead": "ScaleAndFit n'utilise aucun cookie traceur.",
+        "description": "Liste complète du stockage local fonctionnel sur ScaleAndFit.com.",
+        "tableHeaders": ["Clé", "Stockage", "Utilité", "Déclenchement"],
+        "tableRows": [
+          ["sf-theme", "localStorage", "Mémorise le thème sombre", "Uniquement si activé"],
+          ["sf-lang", "localStorage", "Mémorise votre langue", "Uniquement si choisie"]
+        ],
+        "note": "L'accès caméra reste strictement local et se coupe dès la capture ou fermeture."
+      },
+      "contact": {
+        "title": "Contact & Mises à Jour | ScaleAndFit",
+        "h1": "Contact & Signalement de Mises à Jour",
+        "lead": "Une nouvelle règle bagage ou un format photo à actualiser ? Écrivez-nous.",
+        "description": "Contacter l'équipe ScaleAndFit / OTHRYS Systems.",
+        "emailLabel": "E-mail direct :",
+        "email": "othrys.systems@gmail.com",
+        "helpfulTitle": "Informations Utiles à Préciser",
+        "helpfulList": [
+          "Bagages aériens : compagnie, dimensions exactes en cm/kg et lien officiel.",
+          "Photos officielles : pays, document concerné et dimensions requises.",
+          "Retours techniques : lien de la page et navigateur utilisé."
+        ]
+      }
+    },
+    "seo": {
+      "directoryTitle": "Tous les Préréglages Disponibles",
+      "directoryUnit": "Modèles",
+      "relatedTitle": "Autres Outils Associés",
+      "relatedUnit": "Liens",
+      "faqTitle": "Questions Fréquentes",
+      "faqUnit": "Réponses",
+      "specLabel": "Tableau de Référence"
+    }
+  },
+  "de": {
+    "meta": { "code": "de", "nativeName": "Deutsch", "ogLocale": "de_DE" },
+    "nav": {
+      "skipToMain": "Zum Arbeitsbereich springen",
+      "overview": "Übersicht",
+      "visualSizer": "TV & Handgepäck",
+      "printablePaper": "Papier & Etiketten",
+      "sizeConverter": "Schuhe & Ringe",
+      "passportPhoto": "Passbild Studio",
+      "guides": "Anleitungen",
+      "searchPlaceholder": "Tool suchen...",
+      "searchBtn": "Suchen",
+      "shareBtn": "Link Teilen",
+      "shareCopied": "Kopiert!",
+      "themeCarbon": "Dunkel",
+      "themeDaylight": "Hell",
+      "langLabel": "Sprache",
+      "searchModalTitle": "Passendes Größen-, Druck- oder Foto-Tool finden",
+      "searchModalInput": "Suche TV, Ryanair Handgepäck, Punktraster, Nike Adidas, Reisepass...",
+      "searchNoResults": "Keine Treffer gefunden. Versuche ein Land, eine Airline oder Marke.",
+      "closeEsc": "Schließen (Esc)"
+    },
+    "footer": {
+      "tagline": "Maßstabsgetreue TV- & Koffervergleiche, präzise Druck-PDFs, Schuh- & Ringgrößen sowie biometrische Passbilder — komplett privat direkt in deinem Browser.",
+      "trustBadge": "100 % Lokal auf Deinem Gerät · Keine Tracking-Cookies",
+      "colTools": "Werkzeuge",
+      "colGuides": "Anleitungen & Verzeichnis",
+      "colLegal": "Info & Rechtliches",
+      "languageLabel": "Sprache",
+      "copyright": "© 2026 ScaleAndFit.com · Alle Berechnungen erfolgen lokal auf deinem Gerät.",
+      "links": {
+        "about": "Über Uns & Normen",
+        "guides": "Bild-Anleitungen",
+        "privacy": "Datenschutz",
+        "terms": "Nutzungsbedingungen",
+        "cookies": "Cookie- & Speicherhinweis",
+        "contact": "Kontakt & Korrekturen",
+        "sitemap": "Sitemap",
+        "llms": "KI-Übersicht (llms.txt)"
+      }
+    },
+    "hub": {
+      "title": "ScaleAndFit — Einfache Größenvergleiche, Druck-PDFs & Passbilder",
+      "h1": "Jede Größe in Sekunden Sicher Prüfen",
+      "lead": "Vergleiche Fernseher und Handgepäck im echten Maßstab, drucke millimetergenaue PDF-Vorlagen, rechne Schuh- & Ringgrößen um und erstelle Passbilder lokal.",
+      "description": "Lokale Browser-Toolbox für maßstabsgetreue Bildschirm- & Gepäckvergleiche, A4-Druckvorlagen, 24 Schuhmarken, Ringmesser und 300-DPI-Passfotos.",
+      "searchLabel": "Schnellsuche über 200+ Fertige Vorlagen",
+      "searchPlaceholder": "Was möchtest du prüfen? z. B. Reisepass, Ryanair Koffer, 55 vs 65 Zoll TV, A4 Punktraster...",
+      "quickPopularLabel": "Beliebt:",
+      "quickTags": [
+        { "label": "Passbild Erstellen", "href": "/de/passport-photo/" },
+        { "label": "Ryanair Handgepäck", "href": "/de/visual-sizer/ryanair-carry-on-size/" },
+        { "label": "55\" vs 65\" TV", "href": "/de/visual-sizer/55-vs-65-inch-tv/" },
+        { "label": "A4 Punktraster PDF", "href": "/de/printable-paper/5mm-dot-grid-a4/" },
+        { "label": "Nike zu Adidas", "href": "/de/size-converter/nike-to-adidas-shoe-size/" },
+        { "label": "Ringmesser", "href": "/de/size-converter/credit-card-ring-sizer-online/" }
+      ],
+      "trustItems": [
+        "100 % Lokal auf Deinem Gerät",
+        "Keine Tracking-Cookies",
+        "Ohne Anmeldung",
+        "Sofortiger PDF- & PNG-Download"
+      ],
+      "overviewTitle": "Wie ScaleAndFit im Alltag Hilft",
+      "overviewLead": "Anschauliche Skizzen und klare Ergebnisse ohne Rätselraten.",
+      "cards": {
+        "visualSizer": {
+          "kicker": "Tool 01 · Visuell vergleichen",
+          "badge": "TV · KOFFER · BETT",
+          "title": "TV-, Handgepäck- & Matratzen-Vergleich",
+          "desc": "Lege zwei TV-Größen oder Betten exakt übereinander oder prüfe dein Handgepäck gegen 34 Airline-Vorgaben.",
+          "cta": "Vergleich Starten",
+          "imageAlt": "Illustration eines TV-Größenvergleichs neben einem Handgepäck-Trolley",
+          "routes": [
+            { "label": "55\" vs 65\" TV-Größe", "href": "/de/visual-sizer/55-vs-65-inch-tv/", "tag": "TV" },
+            { "label": "Ryanair / Lufthansa Gepäck", "href": "/de/visual-sizer/ryanair-carry-on-size/", "tag": "Koffer" },
+            { "label": "140×200 vs 160×200 Bett", "href": "/de/visual-sizer/eu-140x200-vs-160x200-bed/", "tag": "Raum" }
+          ]
+        },
+        "printablePaper": {
+          "kicker": "Tool 02 · 100 % Originalgröße",
+          "badge": "PDF DRUCK",
+          "title": "Druckbares Rasterpapier, Kalender & Etiketten",
+          "desc": "Erstelle A4- oder Letter-PDFs mit Punktraster, Millimeterpapier, Notenlinien, Feiertagskalendern und Avery-Etiketten.",
+          "cta": "Papierstudio Öffnen",
+          "imageAlt": "Schreibtisch mit Punktrasterpapier, Planer, Etikettenbogen, Lineal und Drucker",
+          "routes": [
+            { "label": "5mm Punktraster A4 PDF", "href": "/de/printable-paper/5mm-dot-grid-a4/", "tag": "PDF" },
+            { "label": "Feiertagskalender 2026 DE", "href": "/de/printable-paper/2026-germany-holiday-calendar-pdf/", "tag": "Kalender" },
+            { "label": "Avery L7160 Etiketten", "href": "/de/printable-paper/avery-l7160-template-pdf/", "tag": "Etikett" }
+          ]
+        },
+        "sizeConverter": {
+          "kicker": "Tool 03 · Passgenau umrechnen",
+          "badge": "SCHUHE · RINGE",
+          "title": "Schuhgrößen & Bankkarten-Ringmesser",
+          "desc": "Rechne Schuhgrößen über echte Fußlänge in Millimetern um oder kalibriere deinen Bildschirm mit einer Bankkarte für Ringgrößen.",
+          "cta": "Größenrechner Öffnen",
+          "imageAlt": "Schuhmessung auf Papier an der Wand neben Tablet mit Ringkreis und Bankkarte",
+          "routes": [
+            { "label": "Nike in Adidas Umrechnen", "href": "/de/size-converter/nike-to-adidas-shoe-size/", "tag": "Schuhe" },
+            { "label": "EU in US Schuhtabelle", "href": "/de/size-converter/eu-to-us-shoe-size-chart/", "tag": "Tabelle" },
+            { "label": "Ringgröße mit Bankkarte", "href": "/de/size-converter/credit-card-ring-sizer-online/", "tag": "Ring" }
+          ]
+        },
+        "passportPhoto": {
+          "kicker": "Tool 04 · Druckfertig",
+          "badge": "PASS & AUSWEIS",
+          "title": "Biometrisches Passfoto-Studio",
+          "desc": "Foto hochladen oder direkt mit Webcam aufnehmen, Augen an der grünen Linie ausrichten und einzeln oder als 10×15-Bogen speichern.",
+          "cta": "Passfoto Erstellen",
+          "imageAlt": "Illustration zur Aufnahme eines Passfotos zu Hause vor einer hellen Wand bei Tageslicht",
+          "routes": [
+            { "label": "Deutschland Reisepass 35×45", "href": "/de/passport-photo/germany-biometric-passport/", "tag": "DE" },
+            { "label": "Schweiz & Österreich Pass", "href": "/de/passport-photo/austria-passport/", "tag": "AT/CH" },
+            { "label": "USA Visum & Pass 2×2\"", "href": "/de/passport-photo/us-passport-photo-2x2/", "tag": "US" }
+          ]
+        }
+      }
+    },
+    "suites": {
+      "visual-sizer": {
+        "name": "TV & Handgepäck",
+        "title": "TV-, Handgepäck- & Matratzen-Größenvergleich | ScaleAndFit",
+        "h1": "TV, Handgepäck & Matratze im Vergleich",
+        "lead": "Vergleiche Bildschirme maßstabsgetreu, prüfe Handgepäck bei 34 Airlines und berechne Gehwege im Schlafzimmer.",
+        "description": "Maßstabsgetreuer Browser-Vergleich für Fernseher, Monitore, Betten und Handgepäck-Regeln.",
+        "spec": "ECHTMASS · 34 AIRLINES"
+      },
+      "printable-paper": {
+        "name": "Papier & Etiketten",
+        "title": "Punktraster, Karopapier, Kalender & Avery Etiketten PDF | ScaleAndFit",
+        "h1": "Druckpapier, Kalender & Avery-Etiketten",
+        "lead": "Erstelle millimetergenaue A4- und Letter-PDFs zum Ausdrucken bei 100 % Originalgröße.",
+        "description": "Erstelle A4- & Letter-Vektor-PDFs mit Punktraster, Karos, Notenlinien, Feiertagen und Avery-Etiketten lokal.",
+        "spec": "A4 & LETTER · DRUCK 100%"
+      },
+      "size-converter": {
+        "name": "Schuhe & Ringe",
+        "title": "Schuhgrößen Umrechnen & Online-Ringmesser | ScaleAndFit",
+        "h1": "Schuhgrößen & Bankkarten-Ringmesser",
+        "lead": "Vergleiche 24 Schuhmarken nach echter Fußlänge in mm oder kalibriere dein Display per Bankkarte.",
+        "description": "EU-, US-, UK- und cm-Schuhgrößen zwischen 24 Marken umrechnen und Ringdurchmesser mit 85,60-mm-Karte messen.",
+        "spec": "24 MARKEN · KARTEN-EICHUNG"
+      },
+      "passport-photo": {
+        "name": "Passbild Studio",
+        "title": "Biometrisches Passfoto Selbst Erstellen & 10×15 Druckbogen | ScaleAndFit",
+        "h1": "Passbild-, Visum- & Ausweisfoto-Studio",
+        "lead": "Bringe dein Porträt für 36 Länder exakt in die Schablone und speichere 300-DPI-Einzelbilder oder 10×15-Druckbögen.",
+        "description": "Schneide Passfotos für Deutschland, Österreich, Schweiz und 33 weitere Länder direkt im Browser zu.",
+        "spec": "36 LÄNDER · PRIVAT IM BROWSER"
+      }
+    },
+    "passport": {
+      "steps": ["1. Land Wählen", "2. Foto Laden", "3. Ausrichten & Speichern"],
+      "controlsTitle": "Foto Einrichten",
+      "countryGroupTitle": "Schritt 1 · Land & Dokument",
+      "popularLabel": "Beliebt:",
+      "countrySelectLabel": "Alle Länderformate",
+      "specsUnit": "Formate",
+      "dropTitle": "Foto vom Gerät Wählen",
+      "dropSub": "oder Bild hierher ziehen",
+      "cameraBtn": "Foto mit Kamera Aufnehmen",
+      "cameraStop": "Kamera Schließen",
+      "cameraSnap": "Jetzt Foto Auslösen",
+      "cameraMirror": "Spiegelansicht",
+      "cameraUnavailable": "Kamera nicht verfügbar oder blockiert. Bitte eine Bilddatei hochladen.",
+      "cameraHint": "Blicke geradeaus in die Kamera mit neutralem Gesichtsausdruck vor einer hellen Wand.",
+      "privacyNote": "Deine Bilder bleiben ausschließlich lokal im Browser — kein Upload auf Server.",
+      "sampleBtn": "Beispiel-Silhouette Laden",
+      "adjustGroupTitle": "Schritt 3 · Ausschnitt & Licht",
+      "resetBtn": "Zurücksetzen",
+      "zoom": "Zoom",
+      "rotate": "Ausrichten",
+      "panX": "Links / Rechts",
+      "panY": "Hoch / Runter",
+      "exposure": "Helligkeit",
+      "backdrop": "Hintergrund Aufhellen",
+      "guidesToggle": "Grüne Augenlinie & blaues Kopf-Oval anzeigen",
+      "exportGroupTitle": "Fertige Dateien Herunterladen",
+      "dlSingleTitle": "Digitalfoto Herunterladen (PNG)",
+      "dlSingleSub": "Ideal für Online-Anträge & Portale",
+      "dlPdfTitle": "10×15 cm Druckbogen Laden (PDF)",
+      "dlPdfSub": "Für Zuhause oder Copyshop · mit Schnittlinien",
+      "dlPngTitle": "Fotodrucker / Terminal Bild (PNG)",
+      "dlPngSub": "Für 10×15-Fotostationen im Drogeriemarkt",
+      "viewSingle": "Einzelansicht",
+      "viewSheet": "10×15 Bogen",
+      "dragTip": "Tipp: Ziehe direkt auf dem Bild zum Verschieben oder scrolle zum Zoomen.",
+      "sheetTip": "Standard 10×15 cm (4×6 Zoll) — randlos mit 100 % Größe drucken und entlang der grauen Linien schneiden.",
+      "statusUser": "Dein Foto Geladen",
+      "statusSample": "Vorschau — Links Dein Foto Laden",
+      "kpiPixels": "Pixel (300 DPI)",
+      "kpiHead": "Kopfanteil-Ziel",
+      "kpiTiles": "Bilder pro Bogen",
+      "checkSpec": "Format-Norm",
+      "checkHead": "Kopf-Schablone",
+      "checkBg": "Heller Hintergrund",
+      "checkPrivacy": "100 % Privat",
+      "ruleLabel": "Amtliche Vorgabe:",
+      "printSizeLabel": "Druckmaß",
+      "headHeightLabel": "Kopfhöhe",
+      "howTitle": "So Gelingt Dein Passbild zu Hause (Bildanleitung)",
+      "howLead": "Drei einfache Schritte für eine biometrische Aufnahme ohne Schatten.",
+      "bannerAlt": "Illustration für ein Passfoto zu Hause vor heller Wand bei Tageslicht",
+      "stepCards": [
+        { "title": "Schritt 1 · Helle Wand & Fensterlicht", "desc": "Stelle dich 50 cm vor eine weiße Wand mit Gesicht Richtung Fenster. Kamera genau auf Augenhöhe halten.", "alt": "Schema mit Fensterlicht und weißer Wand" },
+        { "title": "Schritt 2 · Augen auf die Grüne Linie", "desc": "Verschiebe das Foto, bis beide Augen auf der grünen Linie liegen und der Kopf ins blaue Oval passt.", "alt": "Augen auf grüner Hilfslinie im Oval" },
+        { "title": "Schritt 3 · 10×15 Drucken & Schneiden", "desc": "Drucke den Bogen als 10×15 cm Bild ohne Skalierung und schneide sauber entlang der dünnen Linien.", "alt": "Sechsfacher 10x15 Druckbogen mit Schere" }
+      ],
+      "doDontTitle": "Schnellcheck: Akzeptiert vs Abgelehnt",
+      "doDontLead": "Prüfe vor dem Speichern diese vier Punkte.",
+      "doDontAlt": "Vier Vergleichspaare guter und fehlerhafter Passbilder",
+      "doDontPairs": [
+        { "goodTitle": "Gleichmäßiges Licht", "goodDesc": "Gesicht hell, keine harten Schatten auf der Wand.", "badTitle": "Schatten Vermeiden", "badDesc": "Dunkler Schatten hinter Kopf oder einseitiges Licht." },
+        { "goodTitle": "Gerade & Neutral", "goodDesc": "Kopf gerade, Mund geschlossen, Augen offen.", "badTitle": "Nicht Neigen oder Lachen", "badDesc": "Schräger Kopf oder offener Mund." },
+        { "goodTitle": "Klare Sicht auf Augen", "goodDesc": "Keine Sonnenbrille, Spiegelung oder Kopfbedeckung.", "badTitle": "Keine Reflexe / Mützen", "badDesc": "Lichtreflexe auf Brillengläsern oder Kappen." },
+        { "goodTitle": "Rand über den Haaren", "goodDesc": "Schultern erkennbar und Luft über dem Scheitel.", "badTitle": "Nicht zu Nah", "badDesc": "Abgeschnittener Kopf oder Kinn am Rand." }
+      ]
+    },
+    "sizer": {
+      "steps": ["1. Bereich Wählen", "2. Größen Vergleichen", "3. Ergebnis Prüfen"],
+      "tabScreens": "Fernseher & Monitore",
+      "tabAirlines": "Handgepäck-Check",
+      "tabMattresses": "Matratzen & Raum",
+      "unitMetric": "cm / kg",
+      "unitImperial": "Zoll / lb",
+      "presetLabel": "Schnellwahl:",
+      "scrTitle": "Zwei Bildschirme Vergleichen",
+      "scrA": "Erstes Gerät (Blau)",
+      "scrB": "Zweites Gerät (Rot)",
+      "scrSwap": "Tauschen",
+      "scrOverlay": "Unten links übereinander legen",
+      "scrConsole": "160 cm TV-Board unter den Geräten einblenden",
+      "kpiArea": "Flächenunterschied",
+      "kpiWidthDiff": "Breitenzuwachs",
+      "kpiSmpte": "Empfohlener Abstand",
+      "kpiThx": "Kino-Abstand",
+      "airTitle": "Koffer- oder Rucksackmaße Prüfen",
+      "airSpotlight": "Airline Hervorheben",
+      "airH": "Höhe",
+      "airW": "Breite",
+      "airD": "Tiefe",
+      "airKg": "Gewicht",
+      "airRegion": "Region",
+      "allRegions": "Alle Airlines",
+      "kpiCabinPass": "Gepäckfach OK",
+      "kpiUnderPass": "Unter Vordersitz OK",
+      "verdictBoth": "Passt Unter den Sitz & ins Fach!",
+      "verdictOverheadOnly": "Nur Gepäckfach (Tarif prüfen)",
+      "verdictTooBig": "Zu Groß für Diese Airline",
+      "legendOverhead": "Max Handgepäck",
+      "legendUnder": "Kleine Tasche Frei",
+      "legendBag": "Dein Gepäck",
+      "marginsLabel": "Spielraum:",
+      "matTitle": "Matratzen im Zimmer Planen",
+      "matA": "Bett A (Blau)",
+      "matB": "Bett B (Rot)",
+      "roomW": "Zimmerbreite",
+      "roomL": "Zimmerlänge",
+      "kpiSleepDelta": "Mehr Liegefläche",
+      "kpiSideAisle": "Durchgang je Seite",
+      "kpiFootClear": "Platz am Fußende",
+      "howTitle": "Maße Verstehen Vor Kauf & Flug",
+      "howLead": "Drei visuelle Prüfungen sparen Fehlkäufe und Gepäckgebühren.",
+      "bannerAlt": "Wohnzimmervergleich zweier Fernseher und Handgepäckkoffer",
+      "stepCards": [
+        { "title": "Schritt 1 · Echte Bildschirmflächen", "desc": "Sieh direkt, wie viel höher und breiter ein Upgrade wirklich ausfällt.", "alt": "Überlappende 55 und 65 Zoll Geräte" },
+        { "title": "Schritt 2 · Inklusive Rollen Messen", "desc": "Miss bis ganz nach oben inklusive Griff und Rollen.", "alt": "Trolley im Gepäckrahmen" },
+        { "title": "Schritt 3 · 60 cm Laufweg Einplanen", "desc": "Mindestens 60 cm Platz seitlich ermöglichen bequemes Bettenmachen.", "alt": "Grundriss mit 60 cm Abstand" }
+      ]
+    },
+    "paper": {
+      "steps": ["1. Vorlage Wählen", "2. Raster & Farbe Einstellen", "3. Mit 100 % Drucken"],
+      "tabPaper": "Raster, Linien & Noten",
+      "tabCalendar": "Feiertagskalender 2026–2027",
+      "tabAvery": "Avery Etiketten",
+      "paperTitle": "Druckbogen Einstellen",
+      "presetLabel": "Vorlagen:",
+      "patternLabel": "Musterart",
+      "formatLabel": "Papierformat",
+      "spacingLabel": "Abstand (mm)",
+      "inkLabel": "Linienfarbe",
+      "weightLabel": "Strichstärke",
+      "titleLabel": "Kopftitel (optional)",
+      "titlePlaceholder": "z. B. Mathe / Projektplan",
+      "dlPaper": "Druck-PDF Herunterladen",
+      "kpiSize": "Format",
+      "kpiPitch": "Rastermaß",
+      "kpiPrintScale": "Druckhinweis",
+      "calTitle": "Kalender Erstellen",
+      "calCountry": "Land mit Feiertagen",
+      "calYear": "Jahr",
+      "calScope": "Umfang",
+      "calFormat": "Papierformat",
+      "calWeek": "Wochenstart",
+      "weekMon": "Montag (ISO / EU)",
+      "weekSun": "Sonntag (US / CA)",
+      "dlCal": "Kalender-PDF Laden",
+      "calHolidaysBadge": "Feiertage",
+      "averyTitle": "Avery Etikettenbogen",
+      "averyTemplate": "Etikettencode",
+      "averyCopy": "Text auf Jedem Etikett (3 Zeilen)",
+      "averyXNudge": "Links / Rechts",
+      "averyYNudge": "Hoch / Runter",
+      "dlAvery": "Etiketten-PDF Laden",
+      "labelsUnit": "Etiketten",
+      "captionPrintAt100": "Wichtig: Im Druckdialog immer „Tatsächliche Größe / 100 %“ wählen.",
+      "howTitle": "Millimetergenau Drucken Ohne Verkleinerung",
+      "howLead": "So bleiben 5 mm wirklich 5 mm auf dem Papier.",
+      "bannerAlt": "Schreibwaren, Punktraster, Etikettenbogen und Drucker",
+      "stepCards": [
+        { "title": "Schritt 1 · DIN A4 oder Letter", "desc": "Wähle passend zu deinem Papierfach DIN A4 (210×297 mm) oder US Letter.", "alt": "Drei PDF-Blätter im Überblick" },
+        { "title": "Schritt 2 · Dezente Linienfarbe", "desc": "Hellgrau lässt Tinte und Bleistift klar im Vordergrund stehen.", "alt": "5mm Skala mit Farbwahl" },
+        { "title": "Schritt 3 · Drucken bei 100 %", "desc": "Deaktiviere „An Seite anpassen“, damit jede Etikettenreihe sauber trifft.", "alt": "Druckdialog mit 100% Haken" }
+      ]
+    },
+    "fit": {
+      "steps": ["1. Fuß oder Karte Messen", "2. Am Display Abgleichen", "3. Größe Ablesen"],
+      "tabShoes": "Schuhgrößen-Umrechner",
+      "tabRings": "Karten-Ringmesser",
+      "shoeTitle": "Markengröße Berechnen",
+      "fromBrand": "Aktuell Getragene Marke",
+      "toBrand": "Neue Wunschmarke",
+      "swapTitle": "Tauschen",
+      "genderLabel": "Passform",
+      "genderMens": "Herren",
+      "genderWomens": "Damen",
+      "genderUnisex": "Unisex",
+      "inputSystemLabel": "Bekanntes System",
+      "sizeValueLabel": "Deine Größe",
+      "recommendedBanner": "Empfohlene Größe:",
+      "kpiFootLength": "Fußlänge",
+      "lastNoteLabel": "Passform-Hinweis:",
+      "mondopointBadge": "FUSSLÄNGE",
+      "ringTitle": "Display Eichen & Ring Messen",
+      "ringStep1": "Schritt 1 · Standardkarte Anlegen (85,6 mm)",
+      "ringStep1Desc": "Halte eine EC- oder Kreditkarte an das blaue Rechteck und passe die Breite exakt mit - / + an.",
+      "cardWidthLabel": "Kartenbreite",
+      "ringStep2": "Schritt 2 · Ring auf den Roten Kreis Legen",
+      "ringStep2Desc": "Der rote Kreis muss die INNENSEITE des Ringes berühren.",
+      "ringDiaLabel": "Innendurchmesser",
+      "ringCircLabel": "Umfang (EU Größe)",
+      "matchRingPrompt": "Roten Kreis exakt auf die INNENWAND des Rings legen",
+      "howTitle": "Schuh- & Ringmaße Sicher Zu Hause Bestimmen",
+      "howLead": "Vermeide Retouren durch echtes Ausmessen in Millimetern.",
+      "bannerAlt": "Schuhmessung auf Papier neben Tablet mit Ringmesser und Karte",
+      "stepCards": [
+        { "title": "Schritt 1 · Ferse an die Wand", "desc": "Auf Papier stellen, längsten Zeh markieren und Distanz in mm messen.", "alt": "Fußmessung an einer Wand" },
+        { "title": "Schritt 2 · Mit Bankkarte Eichen", "desc": "Jede Bankkarte ist weltweit 85,60 mm breit und kalibriert jedes Display sofort.", "alt": "Karte auf Bildschirm ausgerichtet" },
+        { "title": "Schritt 3 · Nur den Innenrand Messen", "desc": "Bei breiten Ringen zählt ausschließlich der innere Metallrand.", "alt": "Vergrößerte Innenwand des Rings" }
+      ]
+    },
+    "info": {
+      "about": {
+        "title": "Über ScaleAndFit & Messstandards | ScaleAndFit",
+        "h1": "Über ScaleAndFit & Internationale Standards",
+        "lead": "Präzise Werkzeuge für Alltag, Reise, Druck und Ausweise — direkt im Browser.",
+        "description": "Erfahre mehr über die Berechnungsstandards bei ScaleAndFit.com.",
+        "sections": [
+          { "heading": "Unsere Idee", "paragraphs": ["Einfache, schnelle Werkzeuge ohne Konten oder Dateiuploads."] },
+          {
+            "heading": "Standards",
+            "list": [
+              "ICAO Doc 9303 Passbilder bei 300 DPI.",
+              "PostScript PDF-Vektoren (72 pt/in) für DIN A4 und US Letter.",
+              "ISO 9407 Mondopoint-Umrechnung für 24 Schuhmarken.",
+              "ISO 8653 Ringgrößen geeicht über ISO/IEC 7810 ID-1 Karten (85,60 mm)."
+            ]
+          }
+        ]
+      },
+      "guides": {
+        "title": "Bild-Anleitungen für Alle Tools | ScaleAndFit",
+        "h1": "So Funktioniert Jedes Werkzeug",
+        "lead": "Verständliche Schritt-für-Schritt-Grafiken plus 10mm-Drucktestbogen.",
+        "description": "Visuelle Schritt-für-Schritt-Anleitungen für alle vier ScaleAndFit-Studios.",
+        "printTestTitle": "Kostenloser 100 % Druckertestbogen",
+        "printTestDesc": "Lade ein 10-mm-Testgitter herunter und prüfe nach dem Ausdruck mit dem Lineal.",
+        "printTestBtnA4": "10mm Testbogen Laden (DIN A4 PDF)",
+        "printTestBtnLetter": "10mm Testbogen Laden (US Letter PDF)"
+      },
+      "privacy": {
+        "title": "Datenschutzerklärung | ScaleAndFit",
+        "h1": "Datenschutzerklärung",
+        "lead": "Deine Fotos, Texte und Maße verlassen niemals dein eigenes Gerät.",
+        "description": "DSGVO-konforme Datenschutzerklärung für ScaleAndFit.com ohne Tracking-Cookies oder Bild-Uploads.",
+        "summaryTitle": "Auf einen Blick",
+        "summaryBullets": [
+          "Kein Bildupload: Alle Passfotos werden rein lokal im Canvas bearbeitet.",
+          "Alle PDFs entstehen direkt im Arbeitsspeicher deines Browsers.",
+          "Keine Tracking-Cookies, kein Konto erforderlich."
+        ],
+        "sections": [
+          { "heading": "1. Verantwortlicher", "paragraphs": ["ScaleAndFit.com (OTHRYS Systems), Kontakt: othrys.systems@gmail.com."] },
+          { "heading": "2. Lokale Verarbeitung (DSGVO)", "paragraphs": ["Sämtliche Eingaben bleiben lokal im Browser."] },
+          { "heading": "3. Lokale Einstellungen", "paragraphs": ["Nur die funktionalen Schlüssel sf-theme und sf-lang werden bei Nutzung gespeichert."] }
+        ]
+      },
+      "terms": {
+        "title": "Nutzungsbedingungen | ScaleAndFit",
+        "h1": "Nutzungsbedingungen & Hinweise",
+        "lead": "Wichtige Hinweise für Behörden, Flugreisen und Einkäufe.",
+        "description": "Nutzungsbedingungen für ScaleAndFit.com.",
+        "sections": [
+          { "heading": "1. Endkontrolle durch Nutzer", "paragraphs": ["Bitte prüfe aktuelle Vorgaben deines Bürgeramts, Konsulats oder deiner Airline vor Reiseantritt."] }
+        ]
+      },
+      "cookies": {
+        "title": "Cookie- & Speicherhinweise | ScaleAndFit",
+        "h1": "Cookie- & Browserspeicher-Richtlinie",
+        "lead": "Wir setzen keinerlei Marketing- oder Analyse-Cookies.",
+        "description": "Transparente Übersicht des lokalen Speichers bei ScaleAndFit.com.",
+        "tableHeaders": ["Schlüssel", "Speicherart", "Zweck", "Wann Gespeichert"],
+        "tableRows": [
+          ["sf-theme", "localStorage", "Merkt dunkles Design", "Nur bei Wahl von Dunkel"],
+          ["sf-lang", "localStorage", "Merkt Sprachwahl", "Nur bei Sprachwechsel"]
+        ],
+        "note": "Kamerazugriff bleibt rein lokal und endet sofort beim Schließen."
+      },
+      "contact": {
+        "title": "Kontakt & Daten-Feedback | ScaleAndFit",
+        "h1": "Kontakt & Aktualisierungen",
+        "lead": "Neue Gepäckmaße oder ein Wunschformat gefunden? Schreib uns direkt.",
+        "description": "Kontakt zu ScaleAndFit / OTHRYS Systems.",
+        "emailLabel": "E-Mail:",
+        "email": "othrys.systems@gmail.com",
+        "helpfulTitle": "Hilfreiche Angaben",
+        "helpfulList": [
+          "Airline-Änderungen: Name, neue Maße in cm/kg und offizielle Quelle.",
+          "Passbild-Updates: Land, Dokumenttyp und verlinkte Vorgabe."
+        ]
+      }
+    },
+    "seo": {
+      "directoryTitle": "Alle Vorlagen in Diesem Bereich",
+      "directoryUnit": "Vorlagen",
+      "relatedTitle": "Weitere Nützliche Vergleiche",
+      "relatedUnit": "Ähnlich",
+      "faqTitle": "Häufige Fragen",
+      "faqUnit": "Antworten",
+      "specLabel": "Maßtabelle & Details"
+    }
+  },
+  "es": {
+    "meta": { "code": "es", "nativeName": "Español", "ogLocale": "es_ES" },
+    "nav": {
+      "skipToMain": "Ir al espacio de trabajo",
+      "overview": "Inicio",
+      "visualSizer": "Pantallas y Equipaje",
+      "printablePaper": "Papel y Etiquetas",
+      "sizeConverter": "Calzado y Anillos",
+      "passportPhoto": "Foto Carnet",
+      "guides": "Cómo Funciona",
+      "searchPlaceholder": "Buscar herramienta...",
+      "searchBtn": "Buscar",
+      "shareBtn": "Compartir",
+      "shareCopied": "¡Copiado!",
+      "themeCarbon": "Oscuro",
+      "themeDaylight": "Claro",
+      "langLabel": "Idioma",
+      "searchModalTitle": "Buscar Herramienta de Medidas, PDF o Fotos",
+      "searchModalInput": "Buscar TV, equipaje Ryanair, papel puntos, Nike a Adidas, pasaporte...",
+      "searchNoResults": "Sin coincidencias. Prueba un país, aerolínea o marca.",
+      "closeEsc": "Cerrar (Esc)"
+    },
+    "footer": {
+      "tagline": "Comparador visual a escala real, papel PDF milimetrado, conversor exacto de tallas y fotos de pasaporte — todo procesado en privado dentro de tu navegador.",
+      "trustBadge": "100 % Local en Tu Dispositivo · Sin Cookies de Rastreo",
+      "colTools": "Herramientas",
+      "colGuides": "Guías e Índices",
+      "colLegal": "Empresa y Legal",
+      "languageLabel": "Idioma",
+      "copyright": "© 2026 ScaleAndFit.com · Todos los cálculos ocurren localmente en tu dispositivo.",
+      "links": {
+        "about": "Acerca de y Estándares",
+        "guides": "Guías Visuales",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Uso",
+        "cookies": "Política de Cookies",
+        "contact": "Contacto",
+        "sitemap": "Mapa del Sitio",
+        "llms": "Guía IA (llms.txt)"
+      }
+    },
+    "hub": {
+      "title": "ScaleAndFit — Medidas Visuales, Papel PDF y Fotos de Pasaporte",
+      "h1": "Comprueba Cualquier Medida en Segundos",
+      "lead": "Compara televisores y maletas de cabina a escala real, imprime papel cuadriculado y calendarios PDF exactos, convierte tallas por milímetros y recorta fotos oficiales.",
+      "description": "Estudio privado en navegador para comparar TVs, verificar equipaje en 34 aerolíneas, imprimir PDFs A4/Carta, convertir tallas y crear fotos de pasaporte.",
+      "searchLabel": "Búsqueda Rápida entre Más de 200 Herramientas",
+      "searchPlaceholder": "¿Qué necesitas medir hoy? Ej: foto pasaporte, maleta Ryanair, TV 55 vs 65, papel A4...",
+      "quickPopularLabel": "Accesos populares:",
+      "quickTags": [
+        { "label": "Foto Pasaporte", "href": "/es/passport-photo/" },
+        { "label": "Equipaje Ryanair", "href": "/es/visual-sizer/ryanair-carry-on-size/" },
+        { "label": "TV 55\" vs 65\"", "href": "/es/visual-sizer/55-vs-65-inch-tv/" },
+        { "label": "Papel Puntos A4", "href": "/es/printable-paper/5mm-dot-grid-a4/" },
+        { "label": "Nike a Adidas", "href": "/es/size-converter/nike-to-adidas-shoe-size/" },
+        { "label": "Medidor Anillos", "href": "/es/size-converter/credit-card-ring-sizer-online/" }
+      ],
+      "trustItems": [
+        "100 % Privado en Tu Dispositivo",
+        "Sin Cookies de Rastreo",
+        "Sin Registro",
+        "Descargas Directas PDF y PNG"
+      ],
+      "overviewTitle": "Cómo Te Ayuda ScaleAndFit Cada Día",
+      "overviewLead": "Imágenes claras y resultados inmediatos sin complicaciones técnicas.",
+      "cards": {
+        "visualSizer": {
+          "kicker": "Herramienta 01 · Comparar visualmente",
+          "badge": "TV · MALETA · CAMA",
+          "title": "Comparador de Pantallas, Maletas y Camas",
+          "desc": "Superpón dos televisores o colchones a escala exacta, o comprueba si tu maleta cabe en 34 aerolíneas.",
+          "cta": "Abrir Comparador",
+          "imageAlt": "Ilustración comparando pantallas de TV junto a una maleta de cabina",
+          "routes": [
+            { "label": "Comparativa TV 55\" vs 65\"", "href": "/es/visual-sizer/55-vs-65-inch-tv/", "tag": "TV" },
+            { "label": "Equipaje Iberia / Ryanair", "href": "/es/visual-sizer/iberia-carry-on-size/", "tag": "Vuelo" },
+            { "label": "Cama Queen vs King", "href": "/es/visual-sizer/queen-vs-king-mattress/", "tag": "Hogar" }
+          ]
+        },
+        "printablePaper": {
+          "kicker": "Herramienta 02 · Imprimir al 100 %",
+          "badge": "PDF IMPRIMIBLE",
+          "title": "Papel Milimetrado, Calendarios y Etiquetas",
+          "desc": "Descarga PDFs A4 o Carta de puntos, cuadrículas, pentagramas, calendarios festivos 2026–2027 y etiquetas Avery.",
+          "cta": "Abrir Estudio Papel",
+          "imageAlt": "Vista superior de papel punteado, calendario, etiquetas, regla e impresora",
+          "routes": [
+            { "label": "Papel Puntos 5mm A4 PDF", "href": "/es/printable-paper/5mm-dot-grid-a4/", "tag": "PDF" },
+            { "label": "Calendario Festivos España 2026", "href": "/es/printable-paper/2026-spain-holiday-calendar-pdf/", "tag": "Año" },
+            { "label": "Etiquetas Avery 5160 PDF", "href": "/es/printable-paper/avery-5160-template-pdf/", "tag": "Avery" }
+          ]
+        },
+        "sizeConverter": {
+          "kicker": "Herramienta 03 · Talla exacta",
+          "badge": "ZAPATOS · ANILLOS",
+          "title": "Conversor de Calzado y Medidor de Anillos",
+          "desc": "Traduce tu talla entre 24 marcas por longitud real en mm o calibra la pantalla con una tarjeta bancaria para medir anillos.",
+          "cta": "Abrir Conversor",
+          "imageAlt": "Medición de zapatilla contra la pared junto a tableta con medidor de anillo y tarjeta",
+          "routes": [
+            { "label": "Talla Nike a Adidas", "href": "/es/size-converter/nike-to-adidas-shoe-size/", "tag": "Calzado" },
+            { "label": "Tabla Tallas US a EU", "href": "/es/size-converter/us-to-eu-shoe-size-chart/", "tag": "Tabla" },
+            { "label": "Medidor Anillos con Tarjeta", "href": "/es/size-converter/credit-card-ring-sizer-online/", "tag": "Anillo" }
+          ]
+        },
+        "passportPhoto": {
+          "kicker": "Herramienta 04 · Listo para imprimir",
+          "badge": "DNI · PASAPORTE",
+          "title": "Creador de Fotos de Pasaporte y Visado",
+          "desc": "Sube una foto o usa tu cámara, alinea los ojos en la línea verde y descarga en archivo suelto o lámina de 10×15 cm.",
+          "cta": "Abrir Estudio Foto",
+          "imageAlt": "Ilustración para tomar una foto de carnet en casa frente a pared blanca con luz natural",
+          "routes": [
+            { "label": "España DNI y Pasaporte", "href": "/es/passport-photo/spain-passport/", "tag": "ES" },
+            { "label": "Visado Schengen 35×45 mm", "href": "/es/passport-photo/schengen-visa-35x45/", "tag": "UE" },
+            { "label": "Pasaporte EE. UU. 2×2\"", "href": "/es/passport-photo/us-passport-photo-2x2/", "tag": "US" }
+          ]
+        }
+      }
+    },
+    "suites": {
+      "visual-sizer": {
+        "name": "Pantallas y Equipaje",
+        "title": "Comparador Visual de TVs, Maletas de Cabina y Colchones | ScaleAndFit",
+        "h1": "Comparador Visual de Pantallas, Maletas y Camas",
+        "lead": "Compara televisores a escala real, verifica maletas en 34 aerolíneas y planifica el espacio del dormitorio.",
+        "description": "Compara televisores, monitores, colchones y medidas de equipaje de mano en 34 aerolíneas desde el navegador.",
+        "spec": "ESCALA REAL · 34 AEROLÍNEAS"
+      },
+      "printable-paper": {
+        "name": "Papel y Etiquetas",
+        "title": "Papel de Puntos, Calendarios 2026–2027 y Etiquetas Avery PDF | ScaleAndFit",
+        "h1": "Papel Imprimible, Calendarios y Etiquetas Avery",
+        "lead": "Descarga PDFs A4 o Carta milimetrados, calendarios con festivos y plantillas Avery alineadas al 100 %.",
+        "description": "Genera PDF vectoriales exactos A4 y Carta con puntos, cuadrículas, música, calendarios y etiquetas Avery.",
+        "spec": "A4 Y CARTA · IMPRESIÓN 100%"
+      },
+      "size-converter": {
+        "name": "Calzado y Anillos",
+        "title": "Conversor de Tallas de Calzado y Medidor de Anillos | ScaleAndFit",
+        "h1": "Conversor de Calzado y Medidor de Anillos",
+        "lead": "Compara 24 marcas por longitud del pie en mm y calibra la pantalla con cualquier tarjeta bancaria para medir tu anillo.",
+        "description": "Convierte tallas EU, US, UK y cm en 24 marcas y mide anillos en pantalla usando una tarjeta de 85,60 mm.",
+        "spec": "24 MARCAS · CALIBRE TARJETA"
+      },
+      "passport-photo": {
+        "name": "Foto Carnet",
+        "title": "Creador de Fotos de Pasaporte, DNI y Visado 300 DPI | ScaleAndFit",
+        "h1": "Estudio de Foto Pasaporte, DNI y Visado",
+        "lead": "Ajusta tu retrato a las medidas oficiales de 36 países sin salir de casa y descarga foto individual o lámina 10×15 cm.",
+        "description": "Recorta fotos biométricas de pasaporte y visado en 300 DPI localmente y crea láminas 4×6 listas para imprimir.",
+        "spec": "36 PAÍSES · PROCESO LOCAL"
+      }
+    },
+    "passport": {
+      "steps": ["1. Elige País", "2. Añade Tu Foto", "3. Ajusta y Descarga"],
+      "controlsTitle": "Configurar Tu Foto",
+      "countryGroupTitle": "Paso 1 · País y Documento",
+      "popularLabel": "Populares:",
+      "countrySelectLabel": "Todos los Formatos (36 países)",
+      "specsUnit": "formatos",
+      "dropTitle": "Elegir Foto del Dispositivo",
+      "dropSub": "o arrastra una foto aquí",
+      "cameraBtn": "Hacer Foto con Cámara",
+      "cameraStop": "Cerrar Cámara",
+      "cameraSnap": "Capturar Foto",
+      "cameraMirror": "Vista espejo",
+      "cameraUnavailable": "No se pudo abrir la cámara. Sube una imagen desde tu dispositivo.",
+      "cameraHint": "Mira recto a la lente con boca cerrada y una pared blanca lisa detrás.",
+      "privacyNote": "Tus fotos nunca salen de tu dispositivo — todo ocurre en la memoria local del navegador.",
+      "sampleBtn": "Cargar Silueta de Ejemplo",
+      "adjustGroupTitle": "Paso 3 · Encuadre y Brillo",
+      "resetBtn": "Restablecer",
+      "zoom": "Acercar / Alejar",
+      "rotate": "Enderezar",
+      "panX": "Izquierda / Derecha",
+      "panY": "Arriba / Abajo",
+      "exposure": "Brillo",
+      "backdrop": "Blanquear Fondo",
+      "guidesToggle": "Mostrar línea verde de ojos y óvalo azul",
+      "exportGroupTitle": "Descargar Archivos Listos",
+      "dlSingleTitle": "Descargar Foto Digital (PNG)",
+      "dlSingleSub": "Ideal para trámites y solicitudes web",
+      "dlPdfTitle": "Descargar Lámina 10×15 cm (PDF)",
+      "dlPdfSub": "Para imprimir en casa o tienda · con guías",
+      "dlPngTitle": "Descargar Imagen Quiosco 10×15 (PNG)",
+      "dlPngSub": "Para máquinas de revelado 10×15 cm",
+      "viewSingle": "Foto Individual",
+      "viewSheet": "Lámina 10×15",
+      "dragTip": "Consejo: Arrastra sobre la foto para centrarla o usa la rueda para hacer zoom.",
+      "sheetTip": "Hoja estándar 10×15 cm (4×6 in) — imprime sin bordes al 100 % y recorta por las líneas grises.",
+      "statusUser": "Tu Foto Cargada",
+      "statusSample": "Ejemplo — Sube Tu Foto a la Izquierda",
+      "kpiPixels": "Píxeles (300 DPI)",
+      "kpiHead": "Proporción Cabeza",
+      "kpiTiles": "Fotos por Hoja",
+      "checkSpec": "Tamaño Oficial",
+      "checkHead": "Altura Cabeza",
+      "checkBg": "Fondo Claro",
+      "checkPrivacy": "100 % Privado",
+      "ruleLabel": "Requisito Oficial:",
+      "printSizeLabel": "Tamaño Impreso",
+      "headHeightLabel": "Altura Cabeza",
+      "howTitle": "Cómo Hacer Tu Foto de Pasaporte en Casa",
+      "howLead": "Sigue estos 3 pasos visuales para evitar rechazos.",
+      "bannerAlt": "Ilustración de persona frente a pared blanca junto a ventana y móvil a la altura de los ojos",
+      "stepCards": [
+        { "title": "Paso 1 · Pared Lisa y Luz Natural", "desc": "Colócate a 50 cm de una pared blanca mirando hacia una ventana, con la cámara exactamente a la altura de tus ojos.", "alt": "Esquema con ventana frontal y pared blanca" },
+        { "title": "Paso 2 · Alinea los Ojos con la Línea Verde", "desc": "Mueve y acerca tu imagen hasta situar ambos ojos sobre la línea verde y encajar el rostro en el óvalo azul.", "alt": "Ojos alineados en línea verde dentro de óvalo azul" },
+        { "title": "Paso 3 · Imprime en 10×15 y Recorta", "desc": "Imprime la lámina al 100 % en papel 10×15 cm sin márgenes y corta por las marcas grises.", "alt": "Lámina de seis fotos con tijeras" }
+      ],
+      "doDontTitle": "Comprobación Rápida: Correcto vs Evitar",
+      "doDontLead": "Revisa estos cuatro puntos antes de descargar.",
+      "doDontAlt": "Cuatro comparativas visuales de fotos aceptadas frente a rechazadas",
+      "doDontPairs": [
+        { "goodTitle": "Luz Uniforme", "goodDesc": "Rostro claro sin sombras duras en la pared.", "badTitle": "Evitar Sombras", "badDesc": "Sombras marcadas tras las orejas o pared oscura." },
+        { "goodTitle": "Cabeza Recta y Neutra", "goodDesc": "Boca cerrada, rostro centrado y ojos abiertos.", "badTitle": "Sin Inclinarse ni Reír", "badDesc": "Cabeza ladeada o sonrisa mostrando dientes." },
+        { "goodTitle": "Ojos Despejados", "goodDesc": "Sin gafas oscuras, reflejos ni gorras.", "badTitle": "Evitar Reflejos y Gorras", "badDesc": "Brillos sobre cristales o monturas gruesas." },
+        { "goodTitle": "Espacio Superior", "goodDesc": "Hombros visibles y aire sobre la coronilla.", "badTitle": "Evitar Primer Plano Extremo", "badDesc": "Frente o barbilla cortadas por el borde." }
+      ]
+    },
+    "sizer": {
+      "steps": ["1. Elige Categoría", "2. Selecciona Tamaños", "3. Comprueba Escala Real"],
+      "tabScreens": "TVs y Monitores",
+      "tabAirlines": "Equipaje de Mano",
+      "tabMattresses": "Colchones y Cuarto",
+      "unitMetric": "cm / kg",
+      "unitImperial": "pulg / lb",
+      "presetLabel": "Accesos rápidos:",
+      "scrTitle": "Comparar Dos Pantallas",
+      "scrA": "Primera Pantalla (Azul)",
+      "scrB": "Segunda Pantalla (Roja)",
+      "scrSwap": "Intercambiar",
+      "scrOverlay": "Superponer desde esquina inferior izquierda",
+      "scrConsole": "Mostrar mueble de 160 cm debajo",
+      "kpiArea": "Diferencia de Área",
+      "kpiWidthDiff": "Diferencia Ancho",
+      "kpiSmpte": "Distancia Cómoda",
+      "kpiThx": "Distancia Cine",
+      "airTitle": "Comprueba Tu Maleta o Mochila",
+      "airSpotlight": "Aerolínea Destacada",
+      "airH": "Alto",
+      "airW": "Ancho",
+      "airD": "Fondo",
+      "airKg": "Peso",
+      "airRegion": "Región",
+      "allRegions": "Todas las Aerolíneas",
+      "kpiCabinPass": "Cabina Superior OK",
+      "kpiUnderPass": "Bajo Asiento OK",
+      "verdictBoth": "¡Cabe Bajo el Asiento y Arriba!",
+      "verdictOverheadOnly": "Solo Compartimento Superior (Revisar Tarifa)",
+      "verdictTooBig": "Supera el Medidor de Esta Aerolínea",
+      "legendOverhead": "Límite Cabina",
+      "legendUnder": "Bolso Bajo Asiento",
+      "legendBag": "Tu Equipaje",
+      "marginsLabel": "Margen libre:",
+      "matTitle": "Comparar Colchones en Tu Habitación",
+      "matA": "Colchón A (Azul)",
+      "matB": "Colchón B (Rojo)",
+      "roomW": "Ancho Habitación",
+      "roomL": "Largo Habitación",
+      "kpiSleepDelta": "Más Superficie",
+      "kpiSideAisle": "Paso a Cada Lado",
+      "kpiFootClear": "Espacio a los Pies",
+      "howTitle": "Visualiza Antes de Comprar o Volar",
+      "howLead": "Tres comprobaciones visuales evitan devoluciones y cargos extra.",
+      "bannerAlt": "Comparación de televisores y maleta de cabina",
+      "stepCards": [
+        { "title": "Paso 1 · Pantallas Superpuestas", "desc": "Observa al instante cuánta altura y anchura ganas entre dos pulgadas.", "alt": "Pantallas de 55 y 65 pulgadas" },
+        { "title": "Paso 2 · Incluye Ruedas y Asa", "desc": "Mide tu maleta desde el suelo con ruedas para caber en la jaula metálica del embarque.", "alt": "Maleta con ruedas dentro de marco" },
+        { "title": "Paso 3 · Deja 60 cm de Paso", "desc": "Comprueba que puertas y mesillas encajen dejando pasillos cómodos.", "alt": "Plano de dormitorio con 60 cm" }
+      ]
+    },
+    "paper": {
+      "steps": ["1. Elige Plantilla", "2. Ajusta Color y Paso", "3. Imprime al 100 %"],
+      "tabPaper": "Cuadrículas y Música",
+      "tabCalendar": "Calendarios Festivos 2026–2027",
+      "tabAvery": "Etiquetas Avery",
+      "paperTitle": "Configura Tu Hoja PDF",
+      "presetLabel": "Estilos:",
+      "patternLabel": "Diseño",
+      "formatLabel": "Tamaño Papel",
+      "spacingLabel": "Separación (mm)",
+      "inkLabel": "Color de Tinta",
+      "weightLabel": "Grosor de Línea",
+      "titleLabel": "Título Opcional",
+      "titlePlaceholder": "Ej: Apuntes / Plan Mensual",
+      "dlPaper": "Descargar PDF Imprimible",
+      "kpiSize": "Formato",
+      "kpiPitch": "Espaciado",
+      "kpiPrintScale": "Escala Impresora",
+      "calTitle": "Configurar Calendario",
+      "calCountry": "Festivos del País",
+      "calYear": "Año",
+      "calScope": "Meses",
+      "calFormat": "Tamaño Papel",
+      "calWeek": "La Semana Empieza En",
+      "weekMon": "Lunes (ISO / España)",
+      "weekSun": "Domingo (EE. UU.)",
+      "dlCal": "Descargar Calendario PDF",
+      "calHolidaysBadge": "Días Festivos",
+      "averyTitle": "Configurar Etiquetas Avery",
+      "averyTemplate": "Código Avery",
+      "averyCopy": "Texto en Cada Etiqueta (3 líneas)",
+      "averyXNudge": "Mover Izq / Der",
+      "averyYNudge": "Mover Arriba / Abajo",
+      "dlAvery": "Descargar Plantilla PDF",
+      "labelsUnit": "etiquetas",
+      "captionPrintAt100": "Importante: Selecciona «Tamaño real / 100 %» en tu impresora para conservar cada milímetro.",
+      "howTitle": "Cómo Imprimir sin Reducción de Margen",
+      "howLead": "Consigue cuadrículas de 5 mm reales y etiquetas centradas.",
+      "bannerAlt": "Papel punteado, calendario, etiquetas e impresora",
+      "stepCards": [
+        { "title": "Paso 1 · A4 o US Letter", "desc": "Elige A4 (210×297 mm) en Europa y Latinoamérica o Letter en Norteamérica.", "alt": "Hojas A4 y Carta" },
+        { "title": "Paso 2 · Tinta Suave", "desc": "El gris pizarra permite leer tu escritura con total claridad.", "alt": "Regla de 5 mm y tintas" },
+        { "title": "Paso 3 · Imprimir al «100 %»", "desc": "Desmarca «Ajustar a la página» para que los bordes nunca se encojan.", "alt": "Diálogo de impresión al 100%" }
+      ]
+    },
+    "fit": {
+      "steps": ["1. Mide Pie o Usa Tarjeta", "2. Ajusta en Pantalla", "3. Mira Tu Talla"],
+      "tabShoes": "Conversor de Calzado",
+      "tabRings": "Medidor de Anillos",
+      "shoeTitle": "Encuentra Tu Talla en Otra Marca",
+      "fromBrand": "Marca que Ya Usas",
+      "toBrand": "Marca que Quieres Comprar",
+      "swapTitle": "Intercambiar",
+      "genderLabel": "Categoría",
+      "genderMens": "Hombre",
+      "genderWomens": "Mujer",
+      "genderUnisex": "Unisex",
+      "inputSystemLabel": "Sistema Conocido",
+      "sizeValueLabel": "Tu Talla Habitual",
+      "recommendedBanner": "Talla Recomendada:",
+      "kpiFootLength": "Longitud del Pie",
+      "lastNoteLabel": "Consejo de horma:",
+      "mondopointBadge": "LARGO PIE",
+      "ringTitle": "Calibrar Pantalla y Medir Anillo",
+      "ringStep1": "Paso 1 · Alinea Cualquier Tarjeta Bancaria (85,6 mm)",
+      "ringStep1Desc": "Coloca una tarjeta sobre el cuadro azul y pulsa - o + hasta que coincidan los bordes.",
+      "cardWidthLabel": "Ancho del Cuadro",
+      "ringStep2": "Paso 2 · Coloca el Anillo Sobre el Círculo Rojo",
+      "ringStep2Desc": "Haz coincidir la línea roja con el borde INTERIOR del anillo.",
+      "ringDiaLabel": "Diámetro Interior",
+      "ringCircLabel": "Circunferencia (EU)",
+      "matchRingPrompt": "Ajusta el círculo rojo al borde INTERIOR de tu anillo",
+      "howTitle": "Cómo Medir Pies y Anillos Con Exactitud",
+      "howLead": "Pasos sencillos en casa antes de comprar por Internet.",
+      "bannerAlt": "Zapatilla medida en papel junto a tableta con medidor de anillo y tarjeta",
+      "stepCards": [
+        { "title": "Paso 1 · Talón Junto a la Pared", "desc": "Marca la punta del dedo más largo sobre papel con el talón tocando la pared.", "alt": "Pie medido junto a una pared" },
+        { "title": "Paso 2 · Calibra con una Tarjeta", "desc": "Toda tarjeta mide 85,60 mm de ancho y calibra la escala de tu pantalla al instante.", "alt": "Tarjeta alineada en pantalla" },
+        { "title": "Paso 3 · Mide el Borde Interior", "desc": "Fíjate únicamente en la abertura interior del anillo, no en el grosor del metal.", "alt": "Detalle borde interior del anillo" }
+      ]
+    },
+    "info": {
+      "about": {
+        "title": "Acerca de ScaleAndFit y Normas | ScaleAndFit",
+        "h1": "Acerca de ScaleAndFit y Nuestros Estándares",
+        "lead": "Herramientas precisas para comparar tamaños, imprimir en casa y preparar fotos oficiales desde tu navegador.",
+        "description": "Conoce las normas ICAO, Mondopoint, ISO 8653 y PostScript empleadas por ScaleAndFit.",
+        "sections": [
+          { "heading": "Propósito", "paragraphs": ["Resolver dudas físicas cotidianas de forma visual, rápida y completamente privada."] },
+          {
+            "heading": "Normas Internacionales",
+            "list": [
+              "Fotos ICAO Doc 9303 a 300 DPI.",
+              "PDF vectoriales exactos (72 pt/pulgada).",
+              "Calzado ISO 9407 Mondopoint en milímetros.",
+              "Anillos ISO 8653 calibrados por tarjeta ID-1 (85,60 mm)."
+            ]
+          }
+        ]
+      },
+      "guides": {
+        "title": "Guías Visuales Paso a Paso | ScaleAndFit",
+        "h1": "Cómo Funciona Cada Herramienta",
+        "lead": "Guías ilustradas claras y hoja de prueba al 100 % para tu impresora.",
+        "description": "Instrucciones con imágenes para fotos, equipaje, impresión y anillos.",
+        "printTestTitle": "Hoja de Prueba Gratuita al 100 %",
+        "printTestDesc": "Descarga esta cuadrícula de 10 mm y mídela con una regla tras imprimir.",
+        "printTestBtnA4": "Descargar Prueba 10mm (A4 PDF)",
+        "printTestBtnLetter": "Descargar Prueba 10mm (US Letter PDF)"
+      },
+      "privacy": {
+        "title": "Política de Privacidad | ScaleAndFit",
+        "h1": "Política de Privacidad",
+        "lead": "Tus fotos, etiquetas y datos permanecen exclusivamente en tu dispositivo.",
+        "description": "Política de privacidad RGPD de ScaleAndFit.com sin subidas de fotos ni cookies de seguimiento.",
+        "summaryTitle": "Resumen Claro",
+        "summaryBullets": [
+          "Las fotos nunca se envían a servidores — el recorte ocurre localmente en tu navegador.",
+          "Los PDF se generan en tu dispositivo al instante.",
+          "Cero cookies de rastreo y sin necesidad de registro."
+        ],
+        "sections": [
+          { "heading": "1. Responsable", "paragraphs": ["ScaleAndFit.com (OTHRYS Systems), contacto: othrys.systems@gmail.com."] },
+          { "heading": "2. Procesamiento Local", "paragraphs": ["Todo cálculo ocurre dentro del navegador del usuario."] },
+          { "heading": "3. Preferencias", "paragraphs": ["Solo guardamos localmente sf-theme y sf-lang cuando cambias el tema o idioma."] }
+        ]
+      },
+      "terms": {
+        "title": "Términos de Uso | ScaleAndFit",
+        "h1": "Términos de Uso y Avisos",
+        "lead": "Recomendaciones prácticas para trámites oficiales, vuelos y compras.",
+        "description": "Condiciones de uso de ScaleAndFit.com.",
+        "sections": [
+          { "heading": "1. Verificación Final", "paragraphs": ["Comprueba siempre las reglas vigentes de tu consulado o aerolínea antes de enviar documentos o viajar."] }
+        ]
+      },
+      "cookies": {
+        "title": "Política de Cookies | ScaleAndFit",
+        "h1": "Cookies y Almacenamiento Local",
+        "lead": "ScaleAndFit no utiliza cookies publicitarias ni analíticas.",
+        "description": "Detalle técnico del almacenamiento local en ScaleAndFit.com.",
+        "tableHeaders": ["Clave", "Tipo", "Finalidad", "Cuándo"],
+        "tableRows": [
+          ["sf-theme", "localStorage", "Guarda modo oscuro", "Solo si activas Oscuro"],
+          ["sf-lang", "localStorage", "Guarda tu idioma", "Solo si cambias idioma"]
+        ],
+        "note": "El permiso de cámara es estrictamente local y se detiene al capturar o cerrar."
+      },
+      "contact": {
+        "title": "Contacto y Actualizaciones | ScaleAndFit",
+        "h1": "Contacto y Correcciones",
+        "lead": "¿Cambió una aerolínea sus medidas o falta un formato? Escríbenos.",
+        "description": "Contacto directo con ScaleAndFit / OTHRYS Systems.",
+        "emailLabel": "Correo directo:",
+        "email": "othrys.systems@gmail.com",
+        "helpfulTitle": "Qué Incluir",
+        "helpfulList": [
+          "Aerolíneas: nombre, medidas cm/kg y enlace oficial.",
+          "Pasaportes: país, documento y dimensiones en mm."
+        ]
+      }
+    },
+    "seo": {
+      "directoryTitle": "Todas las Plantillas de Esta Herramienta",
+      "directoryUnit": "Opciones",
+      "relatedTitle": "Comparativas Relacionadas",
+      "relatedUnit": "Similares",
+      "faqTitle": "Preguntas Frecuentes",
+      "faqUnit": "Respuestas",
+      "specLabel": "Tabla de Referencia"
+    }
+  }
+}

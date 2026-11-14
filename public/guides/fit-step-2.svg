@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Place an 85.6mm payment or ID card over the screen box to match edges">
+  <rect width="360" height="220" rx="8" fill="#FAFAF8"/>
+  <!-- Calibrated Screen Container -->
+  <rect x="44" y="34" width="272" height="152" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+  <!-- ISO 7810 ID-1 Card -->
+  <rect x="86" y="54" width="188" height="114" rx="10" fill="#EFF6FF" stroke="#0F52BA" stroke-width="2.6"/>
+  <!-- EMV Gold Chip Silhouette -->
+  <rect x="108" y="88" width="32" height="24" rx="4" fill="#FDE68A" stroke="#B45309" stroke-width="1.3"/>
+  <line x1="118" y1="88" x2="118" y2="112" stroke="#B45309" stroke-width="1"/>
+  <line x1="108" y1="100" x2="140" y2="100" stroke="#B45309" stroke-width="1"/>
+  <!-- Left & Right Calibration Arrows -->
+  <path d="M56 111h26M74 105l8 6-8 6" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M304 111h-26M286 105l-8 6 8 6" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="180" y="144" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="13" font-weight="700" fill="#0F52BA">85.6 mm</text>
+  <circle cx="326" cy="36" r="14" fill="#15803D"/>
+  <path d="M319 36l4.5 4.5 9.5-9.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

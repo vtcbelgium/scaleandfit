@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Center head inside the blue dashed oval and align eyes with the green line">
+  <rect width="360" height="220" rx="8" fill="#FAFAF8"/>
+  <!-- Portrait frame -->
+  <rect x="96" y="18" width="168" height="184" rx="6" fill="#FFFFFF" stroke="#111214" stroke-width="1.6"/>
+  <!-- Subject bust inside frame -->
+  <path d="M114 201c4-32 28-50 66-50s62 18 66 50z" fill="#334155"/>
+  <rect x="167" y="128" width="26" height="28" rx="6" fill="#FDE6D8"/>
+  <!-- Ears -->
+  <ellipse cx="143" cy="96" rx="5" ry="9" fill="#F6D0BC" stroke="#111214" stroke-width="1.2"/>
+  <ellipse cx="217" cy="96" rx="5" ry="9" fill="#F6D0BC" stroke="#111214" stroke-width="1.2"/>
+  <!-- Face -->
+  <ellipse cx="180" cy="94" rx="36" ry="46" fill="#FDE6D8" stroke="#111214" stroke-width="1.6"/>
+  <path d="M144 86c0-24 15-40 36-40s36 16 36 40c-7-13-19-18-36-18s-29 5-36 18z" fill="#1E293B"/>
+  <circle cx="167" cy="93" r="3" fill="#111214"/>
+  <circle cx="193" cy="93" r="3" fill="#111214"/>
+  <path d="M170 116h20" stroke="#111214" stroke-width="2" stroke-linecap="round"/>
+  <!-- Green Eye Level Reticle -->
+  <line x1="106" y1="93" x2="254" y2="93" stroke="#15803D" stroke-width="2"/>
+  <!-- Blue Dashed Crown-to-Chin Oval -->
+  <ellipse cx="180" cy="95" rx="43" ry="54" fill="none" stroke="#0F52BA" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- Crown & chin calibration ticks -->
+  <line x1="158" y1="41" x2="202" y2="41" stroke="#0F52BA" stroke-width="1.6"/>
+  <line x1="158" y1="149" x2="202" y2="149" stroke="#0F52BA" stroke-width="1.6"/>
+  <!-- Dimension bracket on right -->
+  <g stroke="#0F52BA" stroke-width="1.4" fill="none">
+    <path d="M276 41h8v108h-8"/>
+  </g>
+  <text x="290" y="99" font-family="ui-monospace,Consolas,monospace" font-size="11" font-weight="700" fill="#0F52BA">mm</text>
+  <!-- Green check badge -->
+  <circle cx="326" cy="36" r="14" fill="#15803D"/>
+  <path d="M319 36l4.5 4.5 9.5-9.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

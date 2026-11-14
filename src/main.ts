@@ -1,6 +1,15 @@
 import { mountStudioChrome, type SuiteId } from "./components/chrome.js";
 import { ECONOMIC_VALVE_OPEN, renderPartnerSlot } from "./config/valve.js";
+import {
+  detectLocale,
+  isInfoPageId,
+  stripLocalePrefix,
+  t,
+  type InfoPageId,
+  type LocaleCode,
+} from "./i18n/index.js";
 import { mountHub } from "./suites/hub.js";
+import { mountInfoPage } from "./suites/info-page.js";
 import { mountPassportPhoto, type PassportPhotoPreset } from "./suites/passport-photo.js";
 import { mountPrintablePaper, type PrintablePaperPreset } from "./suites/printable-paper.js";
 import { mountSizeConverter, type SizeConverterPreset } from "./suites/size-converter.js";
@@ -13,6 +22,7 @@ const VALID_SUITES = new Set<SuiteId>([
   "printable-paper",
   "size-converter",
   "passport-photo",
+  "info",
 ]);
 
 const NUMERIC_KEYS = new Set([
@@ -27,17 +37,32 @@ const NUMERIC_KEYS = new Set([
   "ringDiameterMm",
 ]);
 
-function resolveSuite(root: HTMLElement): SuiteId {
+function resolveInfoPage(root: HTMLElement, strippedPath: string): InfoPageId | undefined {
+  const fromDataset = root.dataset.page;
+  if (isInfoPageId(fromDataset)) return fromDataset;
+  const seg = strippedPath.replace(/^\/+|\/+$/g, "").split("/")[0];
+  return isInfoPageId(seg) ? seg : undefined;
+}
+
+function resolveSuite(root: HTMLElement): { suite: SuiteId; infoPage?: InfoPageId } {
+  const rawPath = typeof window !== "undefined" ? window.location.pathname : "/";
+  const strippedPath = stripLocalePrefix(rawPath);
+  const detectedPage = resolveInfoPage(root, strippedPath);
+
   const fromDataset = root.dataset.suite as SuiteId | undefined;
   if (fromDataset && VALID_SUITES.has(fromDataset) && fromDataset !== "hub") {
-    return fromDataset;
+    return { suite: fromDataset, infoPage: detectedPage };
   }
-  const path = typeof window !== "undefined" ? window.location.pathname : "/";
-  if (path.startsWith("/visual-sizer")) return "visual-sizer";
-  if (path.startsWith("/printable-paper")) return "printable-paper";
-  if (path.startsWith("/size-converter")) return "size-converter";
-  if (path.startsWith("/passport-photo")) return "passport-photo";
-  return fromDataset && VALID_SUITES.has(fromDataset) ? fromDataset : "hub";
+
+  if (detectedPage) return { suite: "info", infoPage: detectedPage };
+  if (strippedPath.startsWith("/visual-sizer")) return { suite: "visual-sizer" };
+  if (strippedPath.startsWith("/printable-paper")) return { suite: "printable-paper" };
+  if (strippedPath.startsWith("/size-converter")) return { suite: "size-converter" };
+  if (strippedPath.startsWith("/passport-photo")) return { suite: "passport-photo" };
+
+  return {
+    suite: fromDataset && VALID_SUITES.has(fromDataset) ? fromDataset : "hub",
+  };
 }
 
 function parsePreset(root: HTMLElement): Record<string, string | number | boolean> {
@@ -69,6 +94,21 @@ function parsePreset(root: HTMLElement): Record<string, string | number | boolea
   return base;
 }
 
+function defaultHeading(
+  suite: SuiteId,
+  lang: LocaleCode,
+  infoPage?: InfoPageId
+): { h1: string; lead: string } {
+  const tr = t(lang);
+  if (suite === "info" && infoPage) {
+    return { h1: tr.info[infoPage].h1, lead: tr.info[infoPage].lead };
+  }
+  if (suite !== "hub" && suite !== "info") {
+    return { h1: tr.suites[suite].h1, lead: tr.suites[suite].lead };
+  }
+  return { h1: tr.hub.h1, lead: tr.hub.lead };
+}
+
 export function bootApp(): void {
   const root = document.getElementById("app");
   if (!root) return;
@@ -78,12 +118,12 @@ export function bootApp(): void {
     throw new Error("Closed-valve invariant violated");
   }
 
-  const suite = resolveSuite(root);
+  const lang = detectLocale(root);
+  const { suite, infoPage } = resolveSuite(root);
   const preset = parsePreset(root);
-  const h1 = root.dataset.h1 || "ScaleAndFit — 4-in-1 Sizing, Print & Fit Studio";
-  const lead =
-    root.dataset.lead ||
-    "Precision client-side workspace for visual scaling, vector PDF sheets, millimeter shoe & ring sizing, and biometric 300-DPI photo prep.";
+  const defaults = defaultHeading(suite, lang, infoPage);
+  const h1 = root.dataset.h1 || defaults.h1;
+  const lead = root.dataset.lead || defaults.lead;
 
   let shareState: StudioStateMap = {};
   for (const [k, v] of Object.entries(preset)) {
@@ -94,6 +134,8 @@ export function bootApp(): void {
 
   const studioMount = mountStudioChrome(root, {
     suite,
+    lang,
+    infoPage,
     h1,
     lead,
     getShareState: () => shareState,
@@ -103,16 +145,18 @@ export function bootApp(): void {
     shareState = nextState;
   };
 
-  if (suite === "visual-sizer") {
-    mountVisualSizer(studioMount, preset as unknown as VisualSizerPreset, handleStateChange);
+  if (suite === "info" && infoPage) {
+    mountInfoPage(studioMount, infoPage, lang);
+  } else if (suite === "visual-sizer") {
+    mountVisualSizer(studioMount, preset as unknown as VisualSizerPreset, handleStateChange, lang);
   } else if (suite === "printable-paper") {
-    mountPrintablePaper(studioMount, preset as unknown as PrintablePaperPreset, handleStateChange);
+    mountPrintablePaper(studioMount, preset as unknown as PrintablePaperPreset, handleStateChange, lang);
   } else if (suite === "size-converter") {
-    mountSizeConverter(studioMount, preset as unknown as SizeConverterPreset, handleStateChange);
+    mountSizeConverter(studioMount, preset as unknown as SizeConverterPreset, handleStateChange, lang);
   } else if (suite === "passport-photo") {
-    mountPassportPhoto(studioMount, preset as unknown as PassportPhotoPreset, handleStateChange);
+    mountPassportPhoto(studioMount, preset as unknown as PassportPhotoPreset, handleStateChange, lang);
   } else {
-    mountHub(studioMount);
+    mountHub(studioMount, lang);
   }
 
   root.dataset.ready = "true";

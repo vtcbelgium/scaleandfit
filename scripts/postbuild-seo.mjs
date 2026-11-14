@@ -1,51 +1,24 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { buildLlmsSummary } from "./generate-llms-txt.mjs";
+import {
+  INFO_PAGES,
+  LOCALE_CODES,
+  escapeHtml,
+  getBundle,
+  localizeLeafRoute,
+  localizePath,
+  renderHreflangLinks,
+  renderStaticFooterHtml,
+  renderStaticGuidePreviewHtml,
+} from "./i18n-seo.mjs";
 import { buildSeoRouteCatalog } from "./seo-catalog.mjs";
-import { escapeHtml, renderRouteReferenceHtml } from "./seo-reference.mjs";
+import { renderRouteReferenceHtml } from "./seo-reference.mjs";
 
 const ORIGIN = "https://scaleandfit.com";
 const webRoot = process.cwd();
 const distDir = path.resolve(webRoot, "dist");
-
-const SUITE_META = {
-  "visual-sizer": {
-    name: "Visual Sizer",
-    index: "01",
-    h1: "Visual TV, Monitor, Bag & Mattress Sizer",
-    title: "Visual TV, Monitor, Carry-On Bag & Mattress Scale Sizer | ScaleAndFit",
-    description:
-      "Compare TVs, monitors, and mattresses side-by-side to exact scale and check bag sizes against 34 global airline carry-on limits in your browser.",
-    lead: "True-to-scale orthographic CAD overlays for displays, ultrawide monitors, mattresses, and 34 airline cabin sizer cages.",
-  },
-  "printable-paper": {
-    name: "Paper & Avery",
-    index: "02",
-    h1: "Printable Vector Paper, Holiday Calendars & Avery Labels",
-    title: "Printable Vector Grid Paper, 2026–2027 Holiday Calendars & Avery PDFs | ScaleAndFit",
-    description:
-      "Generate millimeter-exact A4 & US Letter dot grid, graph, isometric, Cornell, sheet music, holiday calendar, and Avery die-cut label PDFs offline.",
-    lead: "Vector pdf-lib generator for A4 and Letter drafting sheets, 10-country holiday planners, and calibrated Avery label templates.",
-  },
-  "size-converter": {
-    name: "Shoe & Ring Fit",
-    index: "03",
-    h1: "Cross-Brand Shoe Size Matrix & Credit-Card Ring Sizer",
-    title: "Cross-Brand Mondopoint Shoe Size & Credit-Card Ring Sizer | ScaleAndFit",
-    description:
-      "Convert US, UK, EU, and Mondopoint millimeter shoe sizes across 24 footwear brands and calibrate ring sizes on-screen with an 85.60 mm payment card.",
-    lead: "Canonical millimeter Mondopoint footwear translation across 24 brands plus ISO/IEC 7810 ID-1 bank-card calibrated ring sizing.",
-  },
-  "passport-photo": {
-    name: "Passport Photo",
-    index: "04",
-    h1: "Biometric Passport, Visa & 4×6 Print Sheet Studio",
-    title: "Biometric Passport & Visa Photo Cropper + 4×6 300-DPI Sheet Maker | ScaleAndFit",
-    description:
-      "Crop biometric passport and visa photos across 36 official country templates in local Canvas and download 300-DPI single or 4×6 print sheets.",
-    lead: "Local HTML5 Canvas biometric oval framing, backdrop adjustment, and 300-DPI 4×6 kiosk sheet export across 36 global standards.",
-  },
-};
+const SUITES = ["visual-sizer", "printable-paper", "size-converter", "passport-photo"];
 
 function safeJsonLd(obj) {
   return JSON.stringify(obj).replace(/<\//g, "<\\/");
@@ -60,41 +33,110 @@ function extractViteAssets(baseHtml) {
   };
 }
 
-function buildJsonLdScripts({ url, suite, h1, description, faqJsonLd }) {
+function buildHowToJsonLd(suite, lang, canonicalUrl) {
+  const tr = getBundle(lang);
+  const suiteMap = {
+    "visual-sizer": { data: tr.sizer, prefix: "sizer" },
+    "printable-paper": { data: tr.paper, prefix: "paper" },
+    "size-converter": { data: tr.fit, prefix: "fit" },
+    "passport-photo": { data: tr.passport, prefix: "passport" },
+  };
+  const cfg = suiteMap[suite];
+  if (!cfg || !Array.isArray(cfg.data?.stepCards)) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: cfg.data.howTitle,
+    description: cfg.data.howLead,
+    url: canonicalUrl,
+    step: cfg.data.stepCards.map((card, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: card.title,
+      text: card.desc,
+      image: `${ORIGIN}/guides/${cfg.prefix}-step-${i + 1}.svg`,
+    })),
+  };
+}
+
+function buildJsonLdScripts({ url, suite, lang, infoPage, h1, description, faqJsonLd }) {
+  const tr = getBundle(lang);
   const blocks = [];
 
-  blocks.push({
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: h1,
-    url,
-    description,
-    applicationCategory: "UtilitiesApplication",
-    operatingSystem: "Any",
-    browserRequirements: "Requires JavaScript and HTML5",
-    isAccessibleForFree: true,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-  });
+  if (suite === "hub") {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "ScaleAndFit",
+      url: localizePath("/", lang) === "/" ? `${ORIGIN}/` : `${ORIGIN}${localizePath("/", lang)}`,
+      inLanguage: lang,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${ORIGIN}${localizePath("/", lang)}?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    });
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "ScaleAndFit (OTHRYS Systems)",
+      url: `${ORIGIN}/`,
+      logo: `${ORIGIN}/apple-touch-icon.png`,
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "othrys.systems@gmail.com",
+        contactType: "customer support",
+      },
+    });
+  }
 
-  const crumbs = [{ "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` }];
-  if (suite !== "hub" && SUITE_META[suite]) {
+  if (suite === "info") {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": infoPage === "about" ? "AboutPage" : infoPage === "contact" ? "ContactPage" : "WebPage",
+      name: h1,
+      url,
+      description,
+      inLanguage: lang,
+    });
+  } else {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: h1,
+      url,
+      description,
+      inLanguage: lang,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Any",
+      browserRequirements: "Requires JavaScript and HTML5",
+      isAccessibleForFree: true,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    });
+  }
+
+  const howTo = buildHowToJsonLd(suite, lang, url);
+  if (howTo) blocks.push(howTo);
+
+  const homeUrl = `${ORIGIN}${localizePath("/", lang)}`;
+  const crumbs = [{ "@type": "ListItem", position: 1, name: "ScaleAndFit", item: homeUrl }];
+  if (suite === "info" && infoPage) {
+    crumbs.push({ "@type": "ListItem", position: 2, name: h1, item: url });
+  } else if (suite !== "hub" && tr.suites[suite]) {
+    const suiteUrl = `${ORIGIN}${localizePath(`/${suite}/`, lang)}`;
     crumbs.push({
       "@type": "ListItem",
       position: 2,
-      name: SUITE_META[suite].name,
-      item: `${ORIGIN}/${suite}/`,
+      name: tr.suites[suite].name,
+      item: suiteUrl,
     });
-    if (url !== `${ORIGIN}/${suite}/`) {
-      crumbs.push({
-        "@type": "ListItem",
-        position: 3,
-        name: h1,
-        item: url,
-      });
+    if (url !== suiteUrl) {
+      crumbs.push({ "@type": "ListItem", position: 3, name: h1, item: url });
     }
   }
   blocks.push({
@@ -103,9 +145,7 @@ function buildJsonLdScripts({ url, suite, h1, description, faqJsonLd }) {
     itemListElement: crumbs,
   });
 
-  if (faqJsonLd) {
-    blocks.push(faqJsonLd);
-  }
+  if (faqJsonLd) blocks.push(faqJsonLd);
 
   return blocks
     .map((b) => `<script type="application/ld+json">${safeJsonLd(b)}</script>`)
@@ -113,8 +153,10 @@ function buildJsonLdScripts({ url, suite, h1, description, faqJsonLd }) {
 }
 
 function renderDocument({
-  canonicalPath,
+  canonicalEnPath,
+  lang,
   suite,
+  infoPage = "",
   title,
   h1,
   lead,
@@ -125,81 +167,101 @@ function renderDocument({
   noIndex = false,
   assets,
 }) {
-  const canonicalUrl = `${ORIGIN}${canonicalPath}`;
+  const tr = getBundle(lang);
+  const localizedPath = localizePath(canonicalEnPath, lang);
+  const canonicalUrl = `${ORIGIN}${localizedPath}`;
   const presetAttr = escapeHtml(JSON.stringify(preset || {}));
   const jsonLdHtml = noIndex
     ? ""
-    : buildJsonLdScripts({ url: canonicalUrl, suite, h1, description, faqJsonLd });
+    : buildJsonLdScripts({ url: canonicalUrl, suite, lang, infoPage, h1, description, faqJsonLd });
+  const hreflangHtml = noIndex ? "" : `\n  ${renderHreflangLinks(canonicalEnPath, ORIGIN)}`;
   const robotsMeta = noIndex ? `\n  <meta name="robots" content="noindex, follow" />` : "";
+  const pageAttr = infoPage ? ` data-page="${escapeHtml(infoPage)}"` : "";
+  const staticGuidePreview = noIndex ? "" : renderStaticGuidePreviewHtml(suite, lang, infoPage);
+  const staticFooter = renderStaticFooterHtml(lang, canonicalEnPath);
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${escapeHtml(lang)}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f6f6f3" />${robotsMeta}
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}" />
-  <link rel="canonical" href="${canonicalUrl}" />
+  <link rel="canonical" href="${canonicalUrl}" />${hreflangHtml}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="search" type="application/opensearchdescription+xml" title="ScaleAndFit" href="/opensearch.xml" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="${escapeHtml(tr.meta.ogLocale)}" />
   <meta property="og:site_name" content="ScaleAndFit" />
   <meta property="og:url" content="${canonicalUrl}" />
   <meta property="og:title" content="${escapeHtml(title)}" />
   <meta property="og:description" content="${escapeHtml(description)}" />
-  <meta property="og:image" content="${ORIGIN}/og-image.svg" />
+  <meta property="og:image" content="${ORIGIN}/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   ${assets.stylesHtml}
   ${jsonLdHtml}
 </head>
 <body>
-  <div id="app" data-suite="${escapeHtml(suite)}" data-preset="${presetAttr}" data-h1="${escapeHtml(h1)}" data-lead="${escapeHtml(lead)}">
+  <div id="app" data-lang="${escapeHtml(lang)}" data-suite="${escapeHtml(suite)}"${pageAttr} data-preset="${presetAttr}" data-h1="${escapeHtml(h1)}" data-lead="${escapeHtml(lead)}">
     <main class="container">
       <h1>${escapeHtml(h1)}</h1>
       <p>${escapeHtml(lead)}</p>
+      ${staticGuidePreview}
     </main>
   </div>
   ${referenceHtml}
-  <div id="site-footer-mount"></div>
+  <div id="site-footer-mount">${staticFooter}</div>
   ${assets.scriptsHtml}
 </body>
 </html>
 `;
 }
 
-function renderHubReference(routes) {
-  const suiteCards = Object.entries(SUITE_META)
-    .map(([id, meta]) => {
-      const sample = routes.filter((r) => r.suite === id).slice(0, 6);
-      return `
-        <div class="card">
-          <div class="panel-header">
-            <h2 class="panel-title"><a href="/${id}/">${escapeHtml(meta.h1)}</a></h2>
-            <span class="section-kicker">Module ${meta.index}</span>
-          </div>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:.88rem">${escapeHtml(meta.description)}</p>
-          <div class="directory-grid">
-            ${sample.map((r) => `<a class="directory-link" href="${r.path}"><span>${escapeHtml(r.h1)}</span><span aria-hidden="true">-&gt;</span></a>`).join("")}
-          </div>
+function renderHubReference(routes, lang) {
+  const tr = getBundle(lang);
+  const suiteCards = SUITES.map((id, idx) => {
+    const sMeta = tr.suites[id];
+    const sample = routes.filter((r) => r.suite === id).slice(0, 6);
+    return `
+      <div class="card">
+        <div class="panel-header">
+          <h2 class="panel-title"><a href="${escapeHtml(localizePath(`/${id}/`, lang))}">${escapeHtml(sMeta.h1)}</a></h2>
+          <span class="section-kicker">0${idx + 1}</span>
         </div>
-      `;
-    })
-    .join("");
+        <p style="margin:0 0 12px;color:var(--muted);font-size:.88rem">${escapeHtml(sMeta.description)}</p>
+        <div class="directory-grid">
+          ${sample
+            .map((r) => {
+              const lr = localizeLeafRoute(r, lang);
+              return `<a class="directory-link" href="${escapeHtml(lr.path)}"><span>${escapeHtml(lr.h1)}</span><span aria-hidden="true">&rarr;</span></a>`;
+            })
+            .join("")}
+        </div>
+      </div>
+    `;
+  }).join("");
   return `<section class="seo-reference container">${suiteCards}</section>`;
 }
 
-function renderSuiteDirectoryReference(suiteId, suiteRoutes) {
+function renderSuiteDirectoryReference(suiteId, suiteRoutes, lang) {
+  const tr = getBundle(lang);
   const links = suiteRoutes
-    .map((r) => `<a class="directory-link" href="${r.path}"><span>${escapeHtml(r.h1)}</span><span aria-hidden="true">-&gt;</span></a>`)
+    .map((r) => {
+      const lr = localizeLeafRoute(r, lang);
+      return `<a class="directory-link" href="${escapeHtml(lr.path)}"><span>${escapeHtml(lr.h1)}</span><span aria-hidden="true">&rarr;</span></a>`;
+    })
     .join("");
   return `
     <section class="seo-reference container">
       <div class="card">
         <div class="panel-header">
-          <h2 class="panel-title">Calibrated ${escapeHtml(SUITE_META[suiteId].name)} Directory</h2>
-          <span class="section-kicker">${suiteRoutes.length} Direct Presets</span>
+          <h2 class="panel-title">${escapeHtml(tr.seo.directoryTitle)}</h2>
+          <span class="section-kicker">${suiteRoutes.length} ${escapeHtml(tr.seo.directoryUnit)}</span>
         </div>
         <div class="directory-grid">${links}</div>
       </div>
@@ -208,7 +270,7 @@ function renderSuiteDirectoryReference(suiteId, suiteRoutes) {
 }
 
 async function writeRouteHtml(relPath, html) {
-  const cleanRel = relPath === "/" ? "" : relPath.replace(/^\/+/, "");
+  const cleanRel = relPath === "/" ? "" : relPath.replace(/^\/+|\/+$/g, "");
   const targetDir = cleanRel ? path.join(distDir, cleanRel) : distDir;
   await mkdir(targetDir, { recursive: true });
   await writeFile(path.join(targetDir, "index.html"), html, "utf8");
@@ -219,80 +281,139 @@ async function main() {
   const assets = extractViteAssets(builtIndexHtml);
   const routes = buildSeoRouteCatalog(webRoot);
   const today = new Date().toISOString().slice(0, 10);
+  const urlEntries = [];
 
-  // 1. Root Hub Page (/)
-  const hubHtml = renderDocument({
-    canonicalPath: "/",
-    suite: "hub",
-    title: "ScaleAndFit — Visual TV/Bag Sizer, Printable PDF Paper, Shoe/Ring Matrix & Passport Photo Studio",
-    h1: "Precision Sizing, Vector Print & Biometric Fit Studio",
-    lead: "True-to-scale screen & baggage geometry, vector PDF engineering sheets, millimeter footwear translation, and local 300-DPI passport cropping.",
-    description:
-      "ScaleAndFit.com runs 100% locally in your browser: compare TVs and carry-on bags to scale, generate vector A4/Letter PDF paper & holiday calendars, convert shoe & ring sizes by millimeter, and crop biometric passport photos.",
-    preset: {},
-    referenceHtml: renderHubReference(routes),
-    assets,
-  });
-  await writeRouteHtml("/", hubHtml);
+  for (const lang of LOCALE_CODES) {
+    const tr = getBundle(lang);
 
-  // 2. Four Suite Hub Pages (/visual-sizer/, /printable-paper/, /size-converter/, /passport-photo/)
-  const suiteUrls = [];
-  for (const [suiteId, meta] of Object.entries(SUITE_META)) {
-    const suiteRoutes = routes.filter((r) => r.suite === suiteId);
-    const html = renderDocument({
-      canonicalPath: `/${suiteId}/`,
-      suite: suiteId,
-      title: meta.title,
-      h1: meta.h1,
-      lead: meta.lead,
-      description: meta.description,
+    // 1. Hubs (5 total: /, /nl/, /fr/, /de/, /es/)
+    const hubPath = localizePath("/", lang);
+    const hubHtml = renderDocument({
+      canonicalEnPath: "/",
+      lang,
+      suite: "hub",
+      title: tr.hub.title,
+      h1: tr.hub.h1,
+      lead: tr.hub.lead,
+      description: tr.hub.description,
       preset: {},
-      referenceHtml: renderSuiteDirectoryReference(suiteId, suiteRoutes),
+      referenceHtml: renderHubReference(routes, lang),
       assets,
     });
-    await writeRouteHtml(`/${suiteId}/`, html);
-    suiteUrls.push({ path: `/${suiteId}/`, priority: "0.9" });
+    await writeRouteHtml(hubPath, hubHtml);
+    urlEntries.push({ path: hubPath, priority: "1.0" });
+
+    // 2. Suite Hubs (20 total: 4 suites * 5 locales)
+    for (const suiteId of SUITES) {
+      const sMeta = tr.suites[suiteId];
+      const suiteEnPath = `/${suiteId}/`;
+      const suiteLocPath = localizePath(suiteEnPath, lang);
+      const suiteRoutes = routes.filter((r) => r.suite === suiteId);
+      const html = renderDocument({
+        canonicalEnPath: suiteEnPath,
+        lang,
+        suite: suiteId,
+        title: sMeta.title,
+        h1: sMeta.h1,
+        lead: sMeta.lead,
+        description: sMeta.description,
+        preset: {},
+        referenceHtml: renderSuiteDirectoryReference(suiteId, suiteRoutes, lang),
+        assets,
+      });
+      await writeRouteHtml(suiteLocPath, html);
+      urlEntries.push({ path: suiteLocPath, priority: "0.9" });
+    }
+
+    // 3. Info & Legal Pages (30 total: 6 pages * 5 locales)
+    for (const pageId of INFO_PAGES) {
+      const infoMeta = tr.info[pageId];
+      const infoEnPath = `/${pageId}/`;
+      const infoLocPath = localizePath(infoEnPath, lang);
+      const html = renderDocument({
+        canonicalEnPath: infoEnPath,
+        lang,
+        suite: "info",
+        infoPage: pageId,
+        title: infoMeta.title,
+        h1: infoMeta.h1,
+        lead: infoMeta.lead,
+        description: infoMeta.description,
+        preset: {},
+        referenceHtml: "",
+        assets,
+      });
+      await writeRouteHtml(infoLocPath, html);
+      urlEntries.push({ path: infoLocPath, priority: pageId === "guides" ? "0.8" : "0.6" });
+    }
+
+    // 4. Leaf Routes (1,040 total: 208 * 5 locales)
+    for (const route of routes) {
+      const lr = localizeLeafRoute(route, lang);
+      const ref = renderRouteReferenceHtml(route, routes, lang);
+      const html = renderDocument({
+        canonicalEnPath: route.path,
+        lang,
+        suite: route.suite,
+        title: lr.title,
+        h1: lr.h1,
+        lead: lr.description,
+        description: lr.description,
+        preset: route.preset,
+        referenceHtml: ref.html,
+        faqJsonLd: ref.faqJsonLd,
+        assets,
+      });
+      await writeRouteHtml(lr.path, html);
+      urlEntries.push({ path: lr.path, priority: "0.8" });
+    }
+
+    // 5. Localized Route Search Index (route-index.json + route-index.{nl,fr,de,es}.json)
+    const searchIndex = [
+      ...SUITES.map((id) => ({
+        path: localizePath(`/${id}/`, lang),
+        suite: id,
+        h1: tr.suites[id].h1,
+        kind: "suite-hub",
+      })),
+      ...INFO_PAGES.map((pid) => ({
+        path: localizePath(`/${pid}/`, lang),
+        suite: "info",
+        h1: tr.info[pid].h1,
+        kind: "info-page",
+      })),
+      ...routes.map((r) => {
+        const lr = localizeLeafRoute(r, lang);
+        return {
+          path: lr.path,
+          suite: r.suite,
+          h1: lr.h1,
+          kind: r.kind,
+        };
+      }),
+    ];
+    const indexFilename = lang === "en" ? "route-index.json" : `route-index.${lang}.json`;
+    await writeFile(path.join(distDir, indexFilename), JSON.stringify(searchIndex), "utf8");
   }
 
-  // 3. 200+ Pre-Rendered Programmatic Leaf Routes
-  for (const route of routes) {
-    const ref = renderRouteReferenceHtml(route, routes);
-    const html = renderDocument({
-      canonicalPath: route.path,
-      suite: route.suite,
-      title: route.title,
-      h1: route.h1,
-      lead: route.description,
-      description: route.description,
-      preset: route.preset,
-      referenceHtml: ref.html,
-      faqJsonLd: ref.faqJsonLd,
-      assets,
-    });
-    await writeRouteHtml(route.path, html);
-  }
-
-  // 4. 404 Page
+  // 6. 404 Page (noindex, follow)
+  const trEn = getBundle("en");
   const notFoundHtml = renderDocument({
-    canonicalPath: "/",
+    canonicalEnPath: "/",
+    lang: "en",
     suite: "hub",
     title: "Page Not Found | ScaleAndFit",
-    h1: "404 — Utility Route Not Found",
-    lead: "Select one of the four client-side sizing, vector print, shoe/ring conversion, or biometric passport modules below.",
+    h1: "404 — Page Not Found",
+    lead: trEn.hub.lead,
     description: "Route not found on ScaleAndFit.com.",
     preset: {},
-    referenceHtml: renderHubReference(routes),
+    referenceHtml: renderHubReference(routes, "en"),
     noIndex: true,
     assets,
   });
   await writeFile(path.join(distDir, "404.html"), notFoundHtml, "utf8");
 
-  // 5. sitemap.xml (Root + 4 Suite Hubs + 200+ Routes)
-  const urlEntries = [
-    { path: "/", priority: "1.0" },
-    ...suiteUrls,
-    ...routes.map((r) => ({ path: r.path, priority: "0.8" })),
-  ];
+  // 7. sitemap.xml (1,095 routes across all 5 languages)
   const sitemapXml =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
@@ -305,29 +426,12 @@ async function main() {
     `\n</urlset>\n`;
   await writeFile(path.join(distDir, "sitemap.xml"), sitemapXml, "utf8");
 
-  // 6. llms-full.txt
+  // 8. llms-full.txt
   const llmsFull = buildLlmsSummary(routes, ORIGIN);
   await writeFile(path.join(distDir, "llms-full.txt"), llmsFull, "utf8");
 
-  // 7. route-index.json (Ctrl+K quick search modal index)
-  const searchIndex = [
-    ...Object.entries(SUITE_META).map(([id, m]) => ({
-      path: `/${id}/`,
-      suite: id,
-      h1: m.h1,
-      kind: "suite-hub",
-    })),
-    ...routes.map((r) => ({
-      path: r.path,
-      suite: r.suite,
-      h1: r.h1,
-      kind: r.kind,
-    })),
-  ];
-  await writeFile(path.join(distDir, "route-index.json"), JSON.stringify(searchIndex), "utf8");
-
   console.log(
-    `[postbuild-seo] Built ${urlEntries.length} static routes, sitemap.xml, llms-full.txt, route-index.json, and 404.html cleanly.`
+    `[postbuild-seo] Built ${urlEntries.length} static localized routes across 5 languages, sitemap.xml, llms-full.txt, 5 route-index JSON files, and 404.html cleanly.`
   );
 }
 

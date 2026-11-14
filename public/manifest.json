@@ -1,7 +1,7 @@
 {
   "name": "ScaleAndFit Utility Studio",
   "short_name": "ScaleAndFit",
-  "description": "4-in-1 private in-browser visual sizing, vector printable PDF, shoe/ring fit converter, and biometric passport photo studio.",
+  "description": "Private in-browser visual sizing, vector printable PDFs, shoe/ring fit converter, and passport photo studio in 5 languages.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f6f6f3",
@@ -11,6 +11,11 @@
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }

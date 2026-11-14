@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Zoomed 5mm ruler scale over grid dots and three ink color swatches">
+  <rect width="360" height="220" rx="8" fill="#FAFAF8"/>
+  <!-- Zoomed Canvas Sheet -->
+  <rect x="24" y="22" width="212" height="176" rx="6" fill="#FFFFFF" stroke="#111214" stroke-width="1.5"/>
+  <!-- Subtle graph lines -->
+  <g stroke="#E2E8F0" stroke-width="1">
+    <line x1="64" y1="36" x2="64" y2="176"/><line x1="104" y1="36" x2="104" y2="176"/><line x1="144" y1="36" x2="144" y2="176"/><line x1="184" y1="36" x2="184" y2="176"/>
+    <line x1="40" y1="56" x2="220" y2="56"/><line x1="40" y1="96" x2="220" y2="96"/><line x1="40" y1="136" x2="220" y2="136"/>
+  </g>
+  <!-- Crisp Dots at intersections -->
+  <g fill="#0F52BA">
+    <circle cx="64" cy="56" r="3"/><circle cx="104" cy="56" r="3"/><circle cx="144" cy="56" r="3"/><circle cx="184" cy="56" r="3"/>
+    <circle cx="64" cy="96" r="3"/><circle cx="104" cy="96" r="3"/><circle cx="144" cy="96" r="3"/><circle cx="184" cy="96" r="3"/>
+    <circle cx="64" cy="136" r="3"/><circle cx="104" cy="136" r="3"/><circle cx="144" cy="136" r="3"/><circle cx="184" cy="136" r="3"/>
+  </g>
+  <!-- 5 mm dimension indicator -->
+  <g stroke="#D9381E" stroke-width="2">
+    <line x1="104" y1="158" x2="144" y2="158"/>
+    <line x1="104" y1="151" x2="104" y2="165"/>
+    <line x1="144" y1="151" x2="144" y2="165"/>
+  </g>
+  <text x="124" y="180" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="12" font-weight="700" fill="#D9381E">5.0 mm</text>
+  <!-- Ink Color Swatches on right -->
+  <g transform="translate(254,38)">
+    <rect width="82" height="144" rx="6" fill="#FFFFFF" stroke="#DCDCD5" stroke-width="1.4"/>
+    <circle cx="41" cy="34" r="14" fill="#475569"/>
+    <circle cx="41" cy="72" r="14" fill="#0F52BA" stroke="#111214" stroke-width="2"/>
+    <circle cx="41" cy="110" r="14" fill="#111214"/>
+  </g>
+</svg>

@@ -8,6 +8,8 @@ import {
   type PaperFormatId,
   type PaperPatternKind,
 } from "../engines/paper/index.js";
+import { renderStepRibbon, renderVisualGuideSection } from "../components/guide-section.js";
+import { escapeHtml, t, type LocaleCode } from "../i18n/index.js";
 import {
   generateAveryPdf,
   generateHolidayCalendarPdf,
@@ -23,10 +25,6 @@ export interface PrintablePaperPreset {
   year?: number;
   month?: number;
   averyCode?: string;
-}
-
-function escapeXml(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 function triggerPdfDownload(bytes: Uint8Array, filename: string): void {
@@ -63,8 +61,10 @@ const QUICK_PRESETS: Array<{ label: string; pattern: PaperPatternKind; spacingMm
 export function mountPrintablePaper(
   container: HTMLElement,
   preset: PrintablePaperPreset,
-  onStateChange?: (state: Record<string, string | number | boolean>) => void
+  onStateChange?: (state: Record<string, string | number | boolean>) => void,
+  lang: LocaleCode = "en"
 ): void {
+  const tr = t(lang);
   const state = {
     mode: preset.mode || "paper",
     format: (preset.format || "a4") as PaperFormatId,
@@ -99,17 +99,28 @@ export function mountPrintablePaper(
 
   function render(): void {
     container.innerHTML = `
+      ${renderStepRibbon(tr.paper.steps, 2)}
+
       <div class="studio-controls-bar">
         <div class="segmented-bar" role="tablist">
-          <button class="seg-btn ${state.mode === "paper" ? "active" : ""}" data-tab="paper" type="button">Grids, Notes &amp; Music Paper</button>
-          <button class="seg-btn ${state.mode === "calendar" ? "active" : ""}" data-tab="calendar" type="button">2026–2027 Holiday Calendars</button>
-          <button class="seg-btn ${state.mode === "avery" ? "active" : ""}" data-tab="avery" type="button">Avery Die-Cut Labels</button>
+          <button class="seg-btn ${state.mode === "paper" ? "active" : ""}" data-tab="paper" type="button">${escapeHtml(tr.paper.tabPaper)}</button>
+          <button class="seg-btn ${state.mode === "calendar" ? "active" : ""}" data-tab="calendar" type="button">${escapeHtml(tr.paper.tabCalendar)}</button>
+          <button class="seg-btn ${state.mode === "avery" ? "active" : ""}" data-tab="avery" type="button">${escapeHtml(tr.paper.tabAvery)}</button>
         </div>
       </div>
       <div class="studio-grid">
         <div class="panel form-grid" id="pp-controls"></div>
         <div class="panel" id="pp-stage"></div>
       </div>
+
+      ${renderVisualGuideSection({
+        title: tr.paper.howTitle,
+        lead: tr.paper.howLead,
+        bannerSrc: "/images/guide-printable-paper.jpg",
+        bannerAlt: tr.paper.bannerAlt,
+        stepSvgs: ["/guides/paper-step-1.svg", "/guides/paper-step-2.svg", "/guides/paper-step-3.svg"],
+        stepCards: tr.paper.stepCards,
+      })}
     `;
     container.querySelectorAll<HTMLButtonElement>("[data-tab]").forEach((btn) => {
       btn.onclick = () => {
@@ -130,53 +141,55 @@ export function mountPrintablePaper(
   function renderPaper(controls: HTMLElement, stage: HTMLElement): void {
     const plan = buildPaperGeometry(state.format, state.pattern, state.spacingMm, state.marginMm);
     const patOpts = (Object.keys(PATTERN_LABELS) as PaperPatternKind[])
-      .map((k) => `<option value="${k}" ${k === state.pattern ? "selected" : ""}>${PATTERN_LABELS[k]}</option>`)
+      .map((k) => `<option value="${k}" ${k === state.pattern ? "selected" : ""}>${escapeHtml(PATTERN_LABELS[k])}</option>`)
       .join("");
     const presetChips = QUICK_PRESETS.map(
       (p) =>
-        `<button class="preset-chip ${state.pattern === p.pattern ? "active" : ""}" data-qpat="${p.pattern}" data-qspc="${p.spacingMm}" type="button">${p.label}</button>`
+        `<button class="country-chip ${state.pattern === p.pattern ? "active" : ""}" data-qpat="${p.pattern}" data-qspc="${p.spacingMm}" type="button">${escapeHtml(p.label)}</button>`
     ).join("");
 
     controls.innerHTML = `
       <div class="panel-header">
-        <h2 class="panel-title">Vector Sheet Parameters</h2>
-        <span class="section-kicker">01 // 72 PT/IN</span>
+        <h2 class="panel-title">${escapeHtml(tr.paper.paperTitle)}</h2>
+        <span class="section-kicker">VECTOR PDF</span>
       </div>
-      <div class="preset-strip">${presetChips}</div>
-      <div class="field"><label for="pp-pat">Template Geometry</label><select id="pp-pat">${patOpts}</select></div>
+      <div style="font-size:.78rem;color:var(--muted)">${escapeHtml(tr.paper.presetLabel)}</div>
+      <div class="country-chip-row">${presetChips}</div>
+      <div class="field"><label for="pp-pat">${escapeHtml(tr.paper.patternLabel)}</label><select id="pp-pat">${patOpts}</select></div>
       <div class="form-row-2">
         <div class="field">
-          <label for="pp-fmt">Paper Standard</label>
+          <label for="pp-fmt">${escapeHtml(tr.paper.formatLabel)}</label>
           <select id="pp-fmt">
             <option value="a4" ${state.format === "a4" ? "selected" : ""}>A4 (210 × 297 mm)</option>
             <option value="letter" ${state.format === "letter" ? "selected" : ""}>US Letter (8.5 × 11 in)</option>
           </select>
         </div>
         <div class="field">
-          <label for="pp-spc">Pitch / Scale (mm)</label>
+          <label for="pp-spc">${escapeHtml(tr.paper.spacingLabel)}</label>
           <input id="pp-spc" type="number" min="2" max="20" step="0.5" value="${state.spacingMm}">
         </div>
       </div>
       <div class="form-row-2">
         <div class="field">
-          <label for="pp-ink">Ink Tone</label>
+          <label for="pp-ink">${escapeHtml(tr.paper.inkLabel)}</label>
           <select id="pp-ink">
-            <option value="#475569" ${state.inkHex === "#475569" ? "selected" : ""}>Drafting Slate</option>
+            <option value="#475569" ${state.inkHex === "#475569" ? "selected" : ""}>Slate Grey</option>
             <option value="#0F52BA" ${state.inkHex === "#0F52BA" ? "selected" : ""}>Blueprint Cobalt</option>
-            <option value="#111214" ${state.inkHex === "#111214" ? "selected" : ""}>Carbon Ink</option>
-            <option value="#94A3B8" ${state.inkHex === "#94A3B8" ? "selected" : ""}>Faint Grid</option>
+            <option value="#111214" ${state.inkHex === "#111214" ? "selected" : ""}>Black Ink</option>
+            <option value="#94A3B8" ${state.inkHex === "#94A3B8" ? "selected" : ""}>Faint Silver</option>
           </select>
         </div>
         <div class="field">
-          <label for="pp-w">Stroke Weight (pt)</label>
+          <label for="pp-w">${escapeHtml(tr.paper.weightLabel)}</label>
           <input id="pp-w" type="number" min="0.25" max="1.5" step="0.05" value="${state.strokeWidthPt}">
         </div>
       </div>
-      <div class="field"><label for="pp-title">Optional Header Title</label><input id="pp-title" type="text" placeholder="e.g. Lab Notebook / Sheet 01" value="${escapeXml(state.title)}"></div>
-      <button class="btn-primary" id="pp-download" type="button">Download Vector PDF (${state.format.toUpperCase()})</button>
+      <div class="field"><label for="pp-title">${escapeHtml(tr.paper.titleLabel)}</label><input id="pp-title" type="text" placeholder="${escapeHtml(tr.paper.titlePlaceholder)}" value="${escapeHtml(state.title)}"></div>
+      <button class="btn-primary" id="pp-download" type="button">${escapeHtml(tr.paper.dlPaper)} (${state.format.toUpperCase()})</button>
       <div class="kpi-grid">
-        <div class="kpi"><div class="label">Physical Sheet</div><div class="value">${plan.format.widthMm}×${plan.format.heightMm}</div></div>
-        <div class="kpi"><div class="label">Vector Nodes</div><div class="value">${plan.dots.length + plan.lines.length}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.paper.kpiSize)}</div><div class="value">${plan.format.widthMm}×${plan.format.heightMm}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.paper.kpiPitch)}</div><div class="value">${state.spacingMm} mm</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.paper.kpiPrintScale)}</div><div class="value">100%</div></div>
       </div>
     `;
 
@@ -249,8 +262,8 @@ export function mountPrintablePaper(
 
     stage.innerHTML = `
       <div class="stage-toolbar">
-        <span style="font-weight:600;font-size:.9rem">${PATTERN_LABELS[state.pattern]}</span>
-        <span class="spec-tag">${state.format.toUpperCase()} · ${state.spacingMm} MM PITCH</span>
+        <span style="font-weight:600;font-size:.95rem">${escapeHtml(PATTERN_LABELS[state.pattern])}</span>
+        <span class="spec-tag">${state.format.toUpperCase()} · ${state.spacingMm} MM</span>
       </div>
       <div class="paper-mat">
         <svg viewBox="0 0 ${fw} ${fh}" style="max-height:430px;background:#ffffff;box-shadow:0 3px 14px rgba(17,18,20,0.14),0 0 0 1px rgba(17,18,20,0.12)" role="img" aria-label="Vector drafting sheet preview">
@@ -258,39 +271,39 @@ export function mountPrintablePaper(
           ${svgLines}
           ${svgDots}
         </svg>
-        <div class="paper-caption">${state.format === "a4" ? "ISO A4 · 210 × 297 MM" : "US LETTER · 215.9 × 279.4 MM"} · PRINT AT 100% ACTUAL SIZE</div>
+        <div class="paper-caption">${escapeHtml(tr.paper.captionPrintAt100)}</div>
       </div>
     `;
   }
 
   function renderCalendar(controls: HTMLElement, stage: HTMLElement): void {
     const countryOpts = Object.entries(HOLIDAY_COUNTRIES)
-      .map(([code, name]) => `<option value="${code}" ${code === state.country ? "selected" : ""}>${name} (${code})</option>`)
+      .map(([code, name]) => `<option value="${code}" ${code === state.country ? "selected" : ""}>${escapeHtml(name)} (${code})</option>`)
       .join("");
     const monthNames = ["Full 12-Month Pack (Jan–Dec)", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const monthOpts = monthNames.map((n, i) => `<option value="${i}" ${i === state.month ? "selected" : ""}>${n}</option>`).join("");
+    const monthOpts = monthNames.map((n, i) => `<option value="${i}" ${i === state.month ? "selected" : ""}>${escapeHtml(n)}</option>`).join("");
 
     controls.innerHTML = `
       <div class="panel-header">
-        <h2 class="panel-title">Holiday Calendar PDF</h2>
-        <span class="section-kicker">02 // Planner</span>
+        <h2 class="panel-title">${escapeHtml(tr.paper.calTitle)}</h2>
+        <span class="section-kicker">2026 · 2027</span>
       </div>
-      <div class="field"><label for="pp-cc">Country Public Holidays</label><select id="pp-cc">${countryOpts}</select></div>
+      <div class="field"><label for="pp-cc">${escapeHtml(tr.paper.calCountry)}</label><select id="pp-cc">${countryOpts}</select></div>
       <div class="form-row-2">
-        <div class="field"><label for="pp-yr">Year</label>
+        <div class="field"><label for="pp-yr">${escapeHtml(tr.paper.calYear)}</label>
           <select id="pp-yr"><option value="2026" ${state.year === 2026 ? "selected" : ""}>2026</option><option value="2027" ${state.year === 2027 ? "selected" : ""}>2027</option></select>
         </div>
-        <div class="field"><label for="pp-mo">Scope</label><select id="pp-mo">${monthOpts}</select></div>
+        <div class="field"><label for="pp-mo">${escapeHtml(tr.paper.calScope)}</label><select id="pp-mo">${monthOpts}</select></div>
       </div>
       <div class="form-row-2">
-        <div class="field"><label for="pp-cfmt">Sheet Format</label>
+        <div class="field"><label for="pp-cfmt">${escapeHtml(tr.paper.calFormat)}</label>
           <select id="pp-cfmt"><option value="a4" ${state.format === "a4" ? "selected" : ""}>A4 Landscape</option><option value="letter" ${state.format === "letter" ? "selected" : ""}>US Letter Landscape</option></select>
         </div>
-        <div class="field"><label for="pp-wk">Week Starts</label>
-          <select id="pp-wk"><option value="mon" ${state.weekStartsMonday ? "selected" : ""}>Monday (ISO)</option><option value="sun" ${!state.weekStartsMonday ? "selected" : ""}>Sunday (US)</option></select>
+        <div class="field"><label for="pp-wk">${escapeHtml(tr.paper.calWeek)}</label>
+          <select id="pp-wk"><option value="mon" ${state.weekStartsMonday ? "selected" : ""}>${escapeHtml(tr.paper.weekMon)}</option><option value="sun" ${!state.weekStartsMonday ? "selected" : ""}>${escapeHtml(tr.paper.weekSun)}</option></select>
         </div>
       </div>
-      <button class="btn-primary" id="pp-cal-dl" type="button">Download Holiday Calendar PDF</button>
+      <button class="btn-primary" id="pp-cal-dl" type="button">${escapeHtml(tr.paper.dlCal)}</button>
     `;
 
     controls.querySelector<HTMLSelectElement>("#pp-cc")!.onchange = (e) => {
@@ -334,8 +347,8 @@ export function mountPrintablePaper(
 
     stage.innerHTML = `
       <div class="stage-toolbar">
-        <strong>${grid.monthName} ${grid.year} — ${HOLIDAY_COUNTRIES[state.country]}</strong>
-        <span class="spec-tag">${yearHolidays.length} National Holidays</span>
+        <strong>${grid.monthName} ${grid.year} — ${escapeHtml(HOLIDAY_COUNTRIES[state.country] || state.country)}</strong>
+        <span class="spec-tag">${yearHolidays.length} ${escapeHtml(tr.paper.calHolidaysBadge)}</span>
       </div>
       <div class="data-table-wrap" style="margin-top:0">
         <table class="data-table">
@@ -345,7 +358,7 @@ export function mountPrintablePaper(
               .map(
                 (w) => `<tr>${w
                   .map(
-                    (c) => `<td style="vertical-align:top;height:58px;${c.holidayNames.length ? "border-top:2px solid var(--accent-b);background:var(--accent-b-soft);" : ""}${!c.inMonth ? "opacity:.35;" : ""}"><strong>${c.day}</strong>${c.holidayNames.length ? `<div style="font-size:.7rem;color:var(--accent-b);font-weight:600;margin-top:2px">${c.holidayNames[0]}</div>` : ""}</td>`
+                    (c) => `<td style="vertical-align:top;height:58px;${c.holidayNames.length ? "border-top:2px solid var(--accent-b);background:var(--accent-b-soft);" : ""}${!c.inMonth ? "opacity:.35;" : ""}"><strong>${c.day}</strong>${c.holidayNames.length ? `<div style="font-size:.7rem;color:var(--accent-b);font-weight:600;margin-top:2px">${escapeHtml(c.holidayNames[0])}</div>` : ""}</td>`
                   )
                   .join("")}</tr>`
               )
@@ -353,8 +366,8 @@ export function mountPrintablePaper(
           </tbody>
         </table>
       </div>
-      <div style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;font-size:.8rem;color:var(--muted)">
-        ${yearHolidays.map((h) => `<div><span style="font-family:var(--font-mono);color:var(--text)">${h.date}</span> · ${escapeXml(h.name)}</div>`).join("")}
+      <div style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;font-size:.82rem;color:var(--muted)">
+        ${yearHolidays.map((h) => `<div><span style="font-family:var(--font-mono);color:var(--text)">${h.date}</span> · ${escapeHtml(h.name)}</div>`).join("")}
       </div>
     `;
   }
@@ -363,21 +376,21 @@ export function mountPrintablePaper(
     const tpl = AVERY_TEMPLATES.find((a) => a.code === state.averyCode) || AVERY_TEMPLATES[0];
     const plan = buildAverySheetPlan(tpl, state.offsetXMm, state.offsetYMm);
     const tplOpts = AVERY_TEMPLATES.map(
-      (a) => `<option value="${a.code}" ${a.code === tpl.code ? "selected" : ""}>${a.name}</option>`
+      (a) => `<option value="${a.code}" ${a.code === tpl.code ? "selected" : ""}>${escapeHtml(a.name)}</option>`
     ).join("");
 
     controls.innerHTML = `
       <div class="panel-header">
-        <h2 class="panel-title">Avery Die-Cut Matrix</h2>
-        <span class="section-kicker">03 // Calibration</span>
+        <h2 class="panel-title">${escapeHtml(tr.paper.averyTitle)}</h2>
+        <span class="section-kicker">${tpl.cols}×${tpl.rows}</span>
       </div>
-      <div class="field"><label for="pp-av">Template Standard</label><select id="pp-av">${tplOpts}</select></div>
-      <div class="field"><label for="pp-av-txt">Label Copy (3 lines)</label><textarea id="pp-av-txt" rows="3">${escapeXml(state.averyLines)}</textarea></div>
+      <div class="field"><label for="pp-av">${escapeHtml(tr.paper.averyTemplate)}</label><select id="pp-av">${tplOpts}</select></div>
+      <div class="field"><label for="pp-av-txt">${escapeHtml(tr.paper.averyCopy)}</label><textarea id="pp-av-txt" rows="3">${escapeHtml(state.averyLines)}</textarea></div>
       <div class="form-row-2">
-        <div class="field"><label for="pp-ox">X Nudge (${state.offsetXMm} mm)</label><input id="pp-ox" type="range" min="-5" max="5" step="0.5" value="${state.offsetXMm}"></div>
-        <div class="field"><label for="pp-oy">Y Nudge (${state.offsetYMm} mm)</label><input id="pp-oy" type="range" min="-5" max="5" step="0.5" value="${state.offsetYMm}"></div>
+        <div class="field"><label for="pp-ox">${escapeHtml(tr.paper.averyXNudge)} (${state.offsetXMm} mm)</label><input id="pp-ox" type="range" min="-5" max="5" step="0.5" value="${state.offsetXMm}"></div>
+        <div class="field"><label for="pp-oy">${escapeHtml(tr.paper.averyYNudge)} (${state.offsetYMm} mm)</label><input id="pp-oy" type="range" min="-5" max="5" step="0.5" value="${state.offsetYMm}"></div>
       </div>
-      <button class="btn-primary" id="pp-av-dl" type="button">Download Die-Cut Sheet PDF (${plan.totalLabels} labels)</button>
+      <button class="btn-primary" id="pp-av-dl" type="button">${escapeHtml(tr.paper.dlAvery)} (${plan.totalLabels} ${escapeHtml(tr.paper.labelsUnit)})</button>
     `;
 
     controls.querySelector<HTMLSelectElement>("#pp-av")!.onchange = (e) => {
@@ -419,7 +432,7 @@ export function mountPrintablePaper(
         const lineSvg = lines
           .map(
             (ln, idx) =>
-              `<text x="${(b.xMm + 2.5).toFixed(2)}" y="${(b.yMm + 5.2 + idx * 3.6).toFixed(2)}" font-family="sans-serif" font-size="2.7" fill="#111214">${escapeXml(ln.slice(0, 26))}</text>`
+              `<text x="${(b.xMm + 2.5).toFixed(2)}" y="${(b.yMm + 5.2 + idx * 3.6).toFixed(2)}" font-family="sans-serif" font-size="2.7" fill="#111214">${escapeHtml(ln.slice(0, 26))}</text>`
           )
           .join("");
         return `<rect x="${b.xMm}" y="${b.yMm}" width="${b.widthMm}" height="${b.heightMm}" rx="1.2" fill="rgba(15,82,186,0.035)" stroke="#0F52BA" stroke-width="0.35" />${lineSvg}`;
@@ -428,14 +441,14 @@ export function mountPrintablePaper(
 
     stage.innerHTML = `
       <div class="stage-toolbar">
-        <strong>${tpl.name} (${tpl.cols} × ${tpl.rows})</strong>
-        <span class="spec-tag">${tpl.labelWidthMm} × ${tpl.labelHeightMm} MM PER LABEL</span>
+        <strong>${escapeHtml(tpl.name)} (${tpl.cols} × ${tpl.rows})</strong>
+        <span class="spec-tag">${tpl.labelWidthMm} × ${tpl.labelHeightMm} MM</span>
       </div>
       <div class="paper-mat">
         <svg viewBox="0 0 ${plan.paperWidthMm} ${plan.paperHeightMm}" style="max-height:430px;background:#ffffff;box-shadow:0 3px 14px rgba(17,18,20,0.14),0 0 0 1px rgba(17,18,20,0.12)" role="img" aria-label="Avery die-cut label layout preview">
           ${boxesSvg}
         </svg>
-        <div class="paper-caption">${tpl.paper.toUpperCase()} SHEET · CALIBRATION OFFSET (${state.offsetXMm >= 0 ? "+" : ""}${state.offsetXMm}, ${state.offsetYMm >= 0 ? "+" : ""}${state.offsetYMm}) MM</div>
+        <div class="paper-caption">${escapeHtml(tr.paper.captionPrintAt100)} (${state.offsetXMm >= 0 ? "+" : ""}${state.offsetXMm}, ${state.offsetYMm >= 0 ? "+" : ""}${state.offsetYMm} mm)</div>
       </div>
     `;
   }

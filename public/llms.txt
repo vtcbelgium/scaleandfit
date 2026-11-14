@@ -1,10 +1,19 @@
 # ScaleAndFit (scaleandfit.com)
 
-ScaleAndFit is a 100% client-side, zero-tracking utility platform housing four precision studio suites:
+ScaleAndFit is a 100% client-side, multilingual (EN, NL, FR, DE, ES) utility platform housing four precision studio suites:
 
-- /visual-sizer/ — Visual TV/monitor/mattress scale overlays & airline carry-on sizer checks
-- /printable-paper/ — Client-side vector PDF dot-grid, graph, Cornell notes, holiday calendars & Avery labels
-- /size-converter/ — Millimeter Mondopoint brand shoe matrix & credit-card calibrated ring sizer
-- /passport-photo/ — Local biometric passport/visa photo cropper & 300-DPI 4x6 print sheet generator
+- visual-sizer (/visual-sizer/) — Visual TV/monitor/mattress scale overlays & airline carry-on sizer checks across 34 airlines
+- printable-paper (/printable-paper/) — Client-side vector PDF dot-grid, graph, Cornell notes, holiday calendars & Avery labels
+- size-converter (/size-converter/) — Millimeter Mondopoint brand shoe matrix & credit-card calibrated ring sizer
+- passport-photo (/passport-photo/) — Local passport/visa photo cropper, webcam capture & 300-DPI 4x6 print sheet generator
+
+## Additional Information, Guides & Legal Pages
+
+- /guides/ (plus /nl/guides/, /fr/guides/, /de/guides/, /es/guides/) — Illustrated step-by-step guides and 100% scale printer calibration check sheets
+- /about/ — Engineering & measurement standards (ICAO Doc 9303, ISO 9407, ISO 8653, ISO/IEC 7810 ID-1)
+- /privacy/ — Zero server photo uploads, local HTML5 Canvas processing
+- /terms/ — Usage notes & official verification reminders
+- /cookies/ — Zero analytics/tracking cookies; optional sf-theme and sf-lang storage keys only
+- /contact/ — Corrections & dataset inquiries (othrys.systems@gmail.com)
 
 All math, PDF synthesis, and image cropping execute strictly on the user's device.

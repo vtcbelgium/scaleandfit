@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 230" role="img" aria-label="Visual comparison of approved versus rejected biometric passport photos">
+  <rect width="920" height="230" rx="8" fill="#FAFAF8"/>
+  <!-- 4 Comparison Pairs -->
+  <!-- Pair 1: Lighting (Even vs Side Shadow) -->
+  <g transform="translate(16,16)">
+    <rect width="210" height="198" rx="6" fill="#FFFFFF" stroke="#DCDCD5" stroke-width="1.4"/>
+    <rect x="12" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#15803D" stroke-width="1.8"/>
+    <circle cx="56" cy="68" r="22" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+    <path d="M26 138c3-18 14-26 30-26s27 8 30 26z" fill="#0F52BA"/>
+    <circle cx="84" cy="30" r="10" fill="#15803D"/><path d="M79 30l3.5 3.5 6.5-6.5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="110" y="18" width="88" height="122" rx="4" fill="#E2E8F0" stroke="#DC2626" stroke-width="1.8"/>
+    <ellipse cx="164" cy="70" rx="22" ry="28" fill="#64748B" opacity="0.45"/>
+    <circle cx="152" cy="68" r="22" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+    <path d="M152 46a22 22 0 0 1 0 44z" fill="#94A3B8" opacity="0.65"/>
+    <path d="M122 138c3-18 14-26 30-26s27 8 30 26z" fill="#475569"/>
+    <circle cx="182" cy="30" r="10" fill="#DC2626"/><path d="M178 26l8 8M186 26l-8 8" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="24" y1="168" x2="186" y2="168" stroke="#DCDCD5" stroke-width="1.2"/>
+    <circle cx="56" cy="170" r="7" fill="#15803D"/><circle cx="154" cy="170" r="7" fill="#DC2626"/>
+  </g>
+
+  <!-- Pair 2: Straight Head vs Tilted / Smiling Teeth -->
+  <g transform="translate(242,16)">
+    <rect width="210" height="198" rx="6" fill="#FFFFFF" stroke="#DCDCD5" stroke-width="1.4"/>
+    <rect x="12" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#15803D" stroke-width="1.8"/>
+    <circle cx="56" cy="68" r="22" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+    <circle cx="48" cy="65" r="2" fill="#111214"/><circle cx="64" cy="65" r="2" fill="#111214"/>
+    <line x1="49" y1="78" x2="63" y2="78" stroke="#111214" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M26 138c3-18 14-26 30-26s27 8 30 26z" fill="#0F52BA"/>
+    <circle cx="84" cy="30" r="10" fill="#15803D"/><path d="M79 30l3.5 3.5 6.5-6.5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="110" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.8"/>
+    <g transform="rotate(18 154 70)">
+      <circle cx="154" cy="68" r="22" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+      <circle cx="146" cy="65" r="2" fill="#111214"/><circle cx="162" cy="65" r="2" fill="#111214"/>
+      <path d="M144 76c5 7 15 7 20 0z" fill="#FFFFFF" stroke="#111214" stroke-width="1.2"/>
+    </g>
+    <path d="M124 138c3-18 14-26 30-26s27 8 30 26z" fill="#475569"/>
+    <circle cx="182" cy="30" r="10" fill="#DC2626"/><path d="M178 26l8 8M186 26l-8 8" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="24" y1="168" x2="186" y2="168" stroke="#DCDCD5" stroke-width="1.2"/>
+    <circle cx="56" cy="170" r="7" fill="#15803D"/><circle cx="154" cy="170" r="7" fill="#DC2626"/>
+  </g>
+
+  <!-- Pair 3: Clear Eyes vs Tinted Glasses / Cap -->
+  <g transform="translate(468,16)">
+    <rect width="210" height="198" rx="6" fill="#FFFFFF" stroke="#DCDCD5" stroke-width="1.4"/>
+    <rect x="12" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#15803D" stroke-width="1.8"/>
+    <circle cx="56" cy="68" r="22" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+    <circle cx="48" cy="66" r="2.2" fill="#111214"/><circle cx="64" cy="66" r="2.2" fill="#111214"/>
+    <path d="M26 138c3-18 14-26 30-26s27 8 30 26z" fill="#0F52BA"/>
+    <circle cx="84" cy="30" r="10" fill="#15803D"/><path d="M79 30l3.5 3.5 6.5-6.5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="110" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.8"/>
+    <circle cx="154" cy="68" r="22" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+    <path d="M130 56c3-16 14-24 24-24s21 8 24 24h8v6h-56v-6z" fill="#334155"/>
+    <rect x="137" y="61" width="14" height="10" rx="2" fill="#111214"/><rect x="157" y="61" width="14" height="10" rx="2" fill="#111214"/>
+    <line x1="151" y1="65" x2="157" y2="65" stroke="#111214" stroke-width="2"/>
+    <path d="M124 138c3-18 14-26 30-26s27 8 30 26z" fill="#475569"/>
+    <circle cx="182" cy="30" r="10" fill="#DC2626"/><path d="M178 26l8 8M186 26l-8 8" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="24" y1="168" x2="186" y2="168" stroke="#DCDCD5" stroke-width="1.2"/>
+    <circle cx="56" cy="170" r="7" fill="#15803D"/><circle cx="154" cy="170" r="7" fill="#DC2626"/>
+  </g>
+
+  <!-- Pair 4: Centered Oval Framing vs Cropped Close-up -->
+  <g transform="translate(694,16)">
+    <rect width="210" height="198" rx="6" fill="#FFFFFF" stroke="#DCDCD5" stroke-width="1.4"/>
+    <rect x="12" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#15803D" stroke-width="1.8"/>
+    <circle cx="56" cy="68" r="20" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+    <ellipse cx="56" cy="68" rx="23" ry="29" fill="none" stroke="#0F52BA" stroke-dasharray="4 3" stroke-width="1.4"/>
+    <path d="M26 138c3-18 14-26 30-26s27 8 30 26z" fill="#0F52BA"/>
+    <circle cx="84" cy="30" r="10" fill="#15803D"/><path d="M79 30l3.5 3.5 6.5-6.5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="110" y="18" width="88" height="122" rx="4" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.8"/>
+    <clipPath id="clipBad4"><rect x="110" y="18" width="88" height="122" rx="4"/></clipPath>
+    <g clip-path="url(#clipBad4)">
+      <circle cx="154" cy="56" r="46" fill="#FDE6D8" stroke="#111214" stroke-width="1.4"/>
+      <circle cx="138" cy="52" r="3" fill="#111214"/><circle cx="170" cy="52" r="3" fill="#111214"/>
+    </g>
+    <circle cx="182" cy="30" r="10" fill="#DC2626"/><path d="M178 26l8 8M186 26l-8 8" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="24" y1="168" x2="186" y2="168" stroke="#DCDCD5" stroke-width="1.2"/>
+    <circle cx="56" cy="170" r="7" fill="#15803D"/><circle cx="154" cy="170" r="7" fill="#DC2626"/>
+  </g>
+</svg>

@@ -1,3 +1,26 @@
+import { escapeHtml, localizePath, t, type LocaleCode } from "../i18n/index.js";
+
+interface HubRouteItem {
+  path: string;
+  suite: string;
+  h1: string;
+}
+
+const FALLBACK_HUB_ROUTES: HubRouteItem[] = [
+  { path: "/visual-sizer/55-vs-65-inch-tv/", suite: "visual-sizer", h1: '55" vs 65" TV Size Comparison' },
+  { path: "/visual-sizer/ryanair-carry-on-size/", suite: "visual-sizer", h1: "Ryanair Carry-On Bag Sizer" },
+  { path: "/visual-sizer/queen-vs-king-mattress/", suite: "visual-sizer", h1: "US Queen vs King Mattress Size" },
+  { path: "/printable-paper/5mm-dot-grid-a4/", suite: "printable-paper", h1: "5mm Dot Grid Paper A4 PDF" },
+  { path: "/printable-paper/2026-united-states-holiday-calendar-pdf/", suite: "printable-paper", h1: "2026 United States Holiday Calendar PDF" },
+  { path: "/printable-paper/avery-5160-template-pdf/", suite: "printable-paper", h1: "Avery 5160 Address Labels PDF" },
+  { path: "/size-converter/nike-to-adidas-shoe-size/", suite: "size-converter", h1: "Nike to Adidas Shoe Size Converter" },
+  { path: "/size-converter/credit-card-ring-sizer-online/", suite: "size-converter", h1: "Credit Card Calibrated Ring Sizer" },
+  { path: "/passport-photo/us-passport-photo-2x2/", suite: "passport-photo", h1: 'United States 2×2" Passport Photo' },
+  { path: "/passport-photo/schengen-visa-35x45/", suite: "passport-photo", h1: "Schengen Visa 35×45 mm Photo" },
+  { path: "/passport-photo/belgium-passport-eid/", suite: "passport-photo", h1: "Belgium Passport & eID Photo" },
+  { path: "/passport-photo/netherlands-pasfoto/", suite: "passport-photo", h1: "Netherlands Pasfoto 35×45 mm" },
+];
+
 const SVG_SIZER_PREVIEW = `<svg viewBox="0 0 280 86" width="260" height="80" role="img" aria-hidden="true">
   <rect x="34" y="10" width="122" height="68" fill="rgba(217,56,30,0.08)" stroke="#D9381E" stroke-width="1.5"/>
   <rect x="34" y="22" width="100" height="56" fill="rgba(15,82,186,0.10)" stroke="#0F52BA" stroke-width="1.6"/>
@@ -48,127 +71,178 @@ const SVG_PHOTO_PREVIEW = `<svg viewBox="0 0 280 86" width="260" height="80" rol
   </g>
 </svg>`;
 
-export function mountHub(container: HTMLElement): void {
+export function mountHub(container: HTMLElement, lang: LocaleCode = "en"): void {
+  const tr = t(lang);
+  const cards = tr.hub.cards;
+
+  const renderCard = (
+    suitePath: string,
+    previewSvg: string,
+    card: {
+      kicker: string;
+      badge: string;
+      title: string;
+      desc: string;
+      cta: string;
+      routes: Array<{ label: string; href: string; tag: string }>;
+    }
+  ) => `
+    <article class="instrument-card">
+      <div class="instrument-head">
+        <span class="section-kicker">${escapeHtml(card.kicker)}</span>
+        <span class="spec-tag">${escapeHtml(card.badge)}</span>
+      </div>
+      <div class="instrument-preview">${previewSvg}</div>
+      <div class="instrument-body">
+        <h2>${escapeHtml(card.title)}</h2>
+        <p>${escapeHtml(card.desc)}</p>
+        <div style="margin-top:auto">
+          <a class="btn-primary" href="${escapeHtml(localizePath(suitePath, lang))}">${escapeHtml(card.cta)} &rarr;</a>
+        </div>
+        <div class="instrument-links">
+          ${card.routes
+            .map(
+              (r) => `
+            <a class="instrument-route-row" href="${escapeHtml(localizePath(r.href, lang))}">
+              <span>${escapeHtml(r.label)}</span>
+              <span class="section-kicker">${escapeHtml(r.tag)}</span>
+            </a>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    </article>
+  `;
+
+  const quickTagsHtml = tr.hub.quickTags
+    .map(
+      (tag) =>
+        `<a class="country-chip" href="${escapeHtml(localizePath(tag.href, lang))}">${escapeHtml(tag.label)}</a>`
+    )
+    .join("");
+
+  const trustHtml = tr.hub.trustItems
+    .map((item) => `<div class="hub-trust-cell"><span style="color:var(--ok)">✓</span><span>${escapeHtml(item)}</span></div>`)
+    .join("");
+
+  const visualCards = [
+    { href: "/visual-sizer/", img: "/images/guide-visual-sizer.jpg", alt: cards.visualSizer.imageAlt, title: cards.visualSizer.title, cta: cards.visualSizer.cta },
+    { href: "/printable-paper/", img: "/images/guide-printable-paper.jpg", alt: cards.printablePaper.imageAlt, title: cards.printablePaper.title, cta: cards.printablePaper.cta },
+    { href: "/size-converter/", img: "/images/guide-shoe-ring.jpg", alt: cards.sizeConverter.imageAlt, title: cards.sizeConverter.title, cta: cards.sizeConverter.cta },
+    { href: "/passport-photo/", img: "/images/guide-passport-setup.jpg", alt: cards.passportPhoto.imageAlt, title: cards.passportPhoto.title, cta: cards.passportPhoto.cta },
+  ];
+
   container.innerHTML = `
     <div class="hub-workbench">
-      <div class="hub-command-bar">
-        <div>
-          <span class="section-kicker">Workbench Index</span>
-          <div style="font-size:.9rem;font-weight:600">Jump directly to any screen, airline cage, vector sheet, shoe brand pair, or passport spec.</div>
+      <section class="hub-live-search" aria-label="${escapeHtml(tr.hub.searchLabel)}">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+          <label for="hub-live-input" class="section-kicker">${escapeHtml(tr.hub.searchLabel)}</label>
+          <button class="search-trigger" type="button" id="hub-open-search">
+            <span class="search-trigger-left"><span>${escapeHtml(tr.nav.searchBtn)}</span></span>
+            <kbd class="kbd">Ctrl K</kbd>
+          </button>
         </div>
-        <button class="search-trigger" type="button" id="hub-open-search" style="min-width:240px">
-          <span class="search-trigger-left">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="4.8"/><path d="M10.7 10.7L14 14"/></svg>
-            <span>Search 213 calibrated tools...</span>
-          </span>
-          <kbd class="kbd">Ctrl K</kbd>
-        </button>
-      </div>
+        <div class="hub-search-row">
+          <input id="hub-live-input" class="hub-live-input" type="search" placeholder="${escapeHtml(tr.hub.searchPlaceholder)}" autocomplete="off" />
+        </div>
+        <div id="hub-live-results" class="hub-live-results" hidden></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+          <span style="font-size:.82rem;color:var(--muted)">${escapeHtml(tr.hub.quickPopularLabel)}</span>
+          ${quickTagsHtml}
+        </div>
+      </section>
 
-      <div class="hub-stat-strip" aria-label="Calibration specifications">
-        <div class="hub-stat-cell">
-          <div class="hub-stat-num">34</div>
-          <div class="hub-stat-label">Airlines · Overhead &amp; Under-Seat Cages</div>
-        </div>
-        <div class="hub-stat-cell">
-          <div class="hub-stat-num">10 / 8</div>
-          <div class="hub-stat-label">Vector Paper &amp; Avery Die-Cut Templates</div>
-        </div>
-        <div class="hub-stat-cell">
-          <div class="hub-stat-num">24</div>
-          <div class="hub-stat-label">Footwear Brands via Mondopoint mm</div>
-        </div>
-        <div class="hub-stat-cell">
-          <div class="hub-stat-num">36</div>
-          <div class="hub-stat-label">Country Biometric Photo Standards</div>
-        </div>
+      <div class="hub-trust-strip" aria-label="Guarantees">
+        ${trustHtml}
       </div>
 
       <div class="instrument-grid">
-        <article class="instrument-card">
-          <div class="instrument-head">
-            <span class="section-kicker">01 / Visual Sizer</span>
-            <span class="spec-tag">CM · IN · DEG</span>
-          </div>
-          <div class="instrument-preview">${SVG_SIZER_PREVIEW}</div>
-          <div class="instrument-body">
-            <h2>Display, Carry-On &amp; Mattress Geometry</h2>
-            <p>Orthographic corner-aligned screen overlays, dual front/side baggage sizer checks against 34 airline policies, and bedroom clearance plans.</p>
-            <div style="margin-top:auto">
-              <a class="btn-primary" href="/visual-sizer/">Launch Visual Sizer &rarr;</a>
-            </div>
-            <div class="instrument-links">
-              <a class="instrument-route-row" href="/visual-sizer/55-vs-65-inch-tv/"><span>55&quot; vs 65&quot; 16:9 TV Overlay</span><span class="section-kicker">Compare</span></a>
-              <a class="instrument-route-row" href="/visual-sizer/ryanair-carry-on-size/"><span>Ryanair 40×20×25 / 55×40×20 Cage</span><span class="section-kicker">Luggage</span></a>
-              <a class="instrument-route-row" href="/visual-sizer/queen-vs-king-mattress/"><span>US Queen vs King Room Clearance</span><span class="section-kicker">Floor Plan</span></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="instrument-card">
-          <div class="instrument-head">
-            <span class="section-kicker">02 / Paper &amp; Avery</span>
-            <span class="spec-tag">72 PT/IN VECTOR</span>
-          </div>
-          <div class="instrument-preview">${SVG_PAPER_PREVIEW}</div>
-          <div class="instrument-body">
-            <h2>Printable Grids, Holiday Calendars &amp; Labels</h2>
-            <p>Client-side pdf-lib synthesis for exact millimeter dot-grid, engineering graph, isometric, Cornell notes, sheet music, calendars, and Avery die-cuts.</p>
-            <div style="margin-top:auto">
-              <a class="btn-primary" href="/printable-paper/">Launch Paper Studio &rarr;</a>
-            </div>
-            <div class="instrument-links">
-              <a class="instrument-route-row" href="/printable-paper/5mm-dot-grid-a4/"><span>5mm Dot Grid Paper (ISO A4 PDF)</span><span class="section-kicker">Grid</span></a>
-              <a class="instrument-route-row" href="/printable-paper/2026-belgium-holiday-calendar-pdf/"><span>2026 Belgium Public Holiday Pack</span><span class="section-kicker">Calendar</span></a>
-              <a class="instrument-route-row" href="/printable-paper/avery-5160-template-pdf/"><span>Avery 5160 30-Up Die-Cut Sheet</span><span class="section-kicker">Labels</span></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="instrument-card">
-          <div class="instrument-head">
-            <span class="section-kicker">03 / Shoe &amp; Ring Fit</span>
-            <span class="spec-tag">MONDOPOINT · ISO 8653</span>
-          </div>
-          <div class="instrument-preview">${SVG_FIT_PREVIEW}</div>
-          <div class="instrument-body">
-            <h2>Cross-Brand Shoe Matrix &amp; Ring Reticle</h2>
-            <p>Translate US, UK, and EU footwear sizes across 24 brand lasts by millimeter foot length, plus 85.60 mm ISO bank-card calibrated ring sizing.</p>
-            <div style="margin-top:auto">
-              <a class="btn-primary" href="/size-converter/">Launch Fit Converter &rarr;</a>
-            </div>
-            <div class="instrument-links">
-              <a class="instrument-route-row" href="/size-converter/nike-to-adidas-shoe-size/"><span>Nike to Adidas Mondopoint Matrix</span><span class="section-kicker">Footwear</span></a>
-              <a class="instrument-route-row" href="/size-converter/hoka-to-new-balance-shoe-size/"><span>Hoka to New Balance Last Offset</span><span class="section-kicker">Footwear</span></a>
-              <a class="instrument-route-row" href="/size-converter/credit-card-ring-sizer-online/"><span>Bank-Card Calibrated Ring Reticle</span><span class="section-kicker">ISO 8653</span></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="instrument-card">
-          <div class="instrument-head">
-            <span class="section-kicker">04 / Passport Photo</span>
-            <span class="spec-tag">ICAO 9303 · 300 DPI</span>
-          </div>
-          <div class="instrument-preview">${SVG_PHOTO_PREVIEW}</div>
-          <div class="instrument-body">
-            <h2>Biometric ID Cropper &amp; 4×6 Kiosk Sheet</h2>
-            <p>Align portrait crowns and eye lines locally in HTML5 Canvas across 36 country requirements and export single files or tiled 4×6 PDF print sheets.</p>
-            <div style="margin-top:auto">
-              <a class="btn-primary" href="/passport-photo/">Launch Photo Studio &rarr;</a>
-            </div>
-            <div class="instrument-links">
-              <a class="instrument-route-row" href="/passport-photo/us-passport-photo-2x2/"><span>United States 2×2 in (600×600 px)</span><span class="section-kicker">ICAO</span></a>
-              <a class="instrument-route-row" href="/passport-photo/schengen-visa-35x45/"><span>Schengen Visa 35×45 mm Grid</span><span class="section-kicker">ICAO</span></a>
-              <a class="instrument-route-row" href="/passport-photo/netherlands-pasfoto/"><span>Netherlands Pasfoto 35×45 mm</span><span class="section-kicker">ICAO</span></a>
-            </div>
-          </div>
-        </article>
+        ${renderCard("/visual-sizer/", SVG_SIZER_PREVIEW, cards.visualSizer)}
+        ${renderCard("/printable-paper/", SVG_PAPER_PREVIEW, cards.printablePaper)}
+        ${renderCard("/size-converter/", SVG_FIT_PREVIEW, cards.sizeConverter)}
+        ${renderCard("/passport-photo/", SVG_PHOTO_PREVIEW, cards.passportPhoto)}
       </div>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">${escapeHtml(tr.hub.overviewTitle)}</h2>
+            <p style="margin:4px 0 0;color:var(--muted);font-size:.9rem">${escapeHtml(tr.hub.overviewLead)}</p>
+          </div>
+          <a class="action-btn" href="${escapeHtml(localizePath("/guides/", lang))}">${escapeHtml(tr.nav.guides)} &rarr;</a>
+        </div>
+        <div class="do-dont-grid">
+          ${visualCards
+            .map(
+              (v) => `
+            <a class="guide-card" href="${escapeHtml(localizePath(v.href, lang))}" style="text-decoration:none;color:inherit">
+              <div class="guide-thumb" style="padding:0">
+                <img src="${escapeHtml(v.img)}" alt="${escapeHtml(v.alt)}" loading="lazy" width="440" height="260" style="aspect-ratio:880/520;object-fit:cover;border-radius:0" />
+              </div>
+              <div class="guide-card-body">
+                <h3>${escapeHtml(v.title)}</h3>
+                <p style="color:var(--accent);font-weight:600">${escapeHtml(v.cta)} &rarr;</p>
+              </div>
+            </a>
+          `
+            )
+            .join("")}
+        </div>
+      </section>
     </div>
   `;
 
   container.querySelector<HTMLButtonElement>("#hub-open-search")?.addEventListener("click", () => {
     window.dispatchEvent(new CustomEvent("scaleandfit:open-search"));
+  });
+
+  const liveInput = container.querySelector<HTMLInputElement>("#hub-live-input");
+  const liveResults = container.querySelector<HTMLElement>("#hub-live-results");
+  let cachedIndex: HubRouteItem[] | null = null;
+
+  const ensureIndex = async (): Promise<HubRouteItem[]> => {
+    if (cachedIndex) return cachedIndex;
+    const indexUrl = lang === "en" ? "/route-index.json" : `/route-index.${lang}.json`;
+    try {
+      if (typeof fetch === "function") {
+        let res = await fetch(indexUrl);
+        if (!res.ok && lang !== "en") res = await fetch("/route-index.json");
+        if (res.ok) {
+          const parsed = (await res.json()) as HubRouteItem[];
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            cachedIndex = parsed;
+            return cachedIndex;
+          }
+        }
+      }
+    } catch {
+      cachedIndex = null;
+    }
+    cachedIndex = FALLBACK_HUB_ROUTES.map((r) => ({ ...r, path: localizePath(r.path, lang) }));
+    return cachedIndex;
+  };
+
+  liveInput?.addEventListener("input", async () => {
+    if (!liveResults) return;
+    const q = liveInput.value.trim().toLowerCase();
+    if (!q) {
+      liveResults.hidden = true;
+      liveResults.innerHTML = "";
+      return;
+    }
+    const items = await ensureIndex();
+    const matches = items
+      .filter((r) => r.h1.toLowerCase().includes(q) || r.path.toLowerCase().includes(q) || r.suite.toLowerCase().includes(q))
+      .slice(0, 10);
+    liveResults.hidden = false;
+    liveResults.innerHTML = matches.length
+      ? matches
+          .map(
+            (r) =>
+              `<a class="palette-item" href="${escapeHtml(r.path)}"><span><strong>${escapeHtml(r.h1)}</strong><span style="display:block;font-family:var(--font-mono);font-size:.72rem;color:var(--muted)">${escapeHtml(r.path)}</span></span><span class="spec-tag">${escapeHtml(r.suite)}</span></a>`
+          )
+          .join("")
+      : `<div style="padding:10px;color:var(--muted);font-size:.86rem">${escapeHtml(tr.nav.searchNoResults)}</div>`;
   });
 }

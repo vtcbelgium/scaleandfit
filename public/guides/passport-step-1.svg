@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Stand facing natural window light with plain white wall behind you">
+  <rect width="360" height="220" rx="8" fill="#FAFAF8"/>
+  <!-- Soft window daylight rays from left -->
+  <rect x="18" y="24" width="38" height="118" rx="4" fill="#EFF6FF" stroke="#0F52BA" stroke-width="1.6"/>
+  <line x1="37" y1="24" x2="37" y2="142" stroke="#93C5FD" stroke-width="1.2"/>
+  <line x1="18" y1="83" x2="56" y2="83" stroke="#93C5FD" stroke-width="1.2"/>
+  <g stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" opacity="0.75">
+    <line x1="66" y1="48" x2="108" y2="62"/>
+    <line x1="66" y1="78" x2="112" y2="84"/>
+    <line x1="66" y1="108" x2="106" y2="106"/>
+  </g>
+  <!-- Plain light backdrop wall behind subject -->
+  <rect x="128" y="22" width="118" height="162" rx="6" fill="#FFFFFF" stroke="#DCDCD5" stroke-width="1.5"/>
+  <!-- Person standing straight -->
+  <circle cx="187" cy="76" r="21" fill="#FDE6D8" stroke="#111214" stroke-width="1.6"/>
+  <!-- Hair -->
+  <path d="M166 74c0-14 9-23 21-23s21 9 21 23c-4-7-12-10-21-10s-17 3-21 10z" fill="#334155"/>
+  <!-- Eyes & calm expression -->
+  <circle cx="180" cy="76" r="2" fill="#111214"/>
+  <circle cx="194" cy="76" r="2" fill="#111214"/>
+  <line x1="182" y1="86" x2="192" y2="86" stroke="#111214" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Shoulders -->
+  <path d="M148 158c2-26 16-42 39-42s37 16 39 42v26h-78v-26z" fill="#0F52BA" opacity="0.88"/>
+  <rect x="179" y="96" width="16" height="22" rx="4" fill="#FDE6D8"/>
+  <!-- Smartphone on tripod at eye level -->
+  <line x1="292" y1="88" x2="292" y2="188" stroke="#64748B" stroke-width="2.2"/>
+  <line x1="292" y1="138" x2="274" y2="188" stroke="#64748B" stroke-width="2"/>
+  <line x1="292" y1="138" x2="310" y2="188" stroke="#64748B" stroke-width="2"/>
+  <rect x="282" y="54" width="20" height="36" rx="4" fill="#111214"/>
+  <rect x="285" y="58" width="14" height="26" rx="2" fill="#E0F2FE"/>
+  <!-- Eye level alignment dashed guide -->
+  <line x1="204" y1="76" x2="280" y2="76" stroke="#0F52BA" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Green checkmark badge -->
+  <circle cx="326" cy="36" r="14" fill="#15803D"/>
+  <path d="M319 36l4.5 4.5 9.5-9.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

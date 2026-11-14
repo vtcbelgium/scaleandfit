@@ -8,6 +8,8 @@ import {
   evaluateBagFleet,
   type AirlineBaggageSpec,
 } from "../engines/sizer/index.js";
+import { renderStepRibbon, renderVisualGuideSection } from "../components/guide-section.js";
+import { escapeHtml, t, type LocaleCode } from "../i18n/index.js";
 
 export interface VisualSizerPreset {
   mode?: "screens" | "airlines" | "mattresses";
@@ -27,10 +29,6 @@ function fmtLen(cm: number, unit: "metric" | "imperial"): string {
   return unit === "imperial" ? `${(cm / 2.54).toFixed(1)} in` : `${cm.toFixed(1)} cm`;
 }
 
-function escapeAttr(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
 function cadDimH(x1: number, x2: number, y: number, label: string, color = "var(--muted)"): string {
   return `
     <g stroke="${color}" stroke-width="1">
@@ -38,7 +36,7 @@ function cadDimH(x1: number, x2: number, y: number, label: string, color = "var(
       <line x1="${x1.toFixed(1)}" y1="${(y - 4).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(y + 4).toFixed(1)}" />
       <line x1="${x2.toFixed(1)}" y1="${(y - 4).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(y + 4).toFixed(1)}" />
     </g>
-    <text x="${((x1 + x2) / 2).toFixed(1)}" y="${(y + 13).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="10.5" font-family="ui-monospace,Consolas,monospace">${escapeAttr(label)}</text>
+    <text x="${((x1 + x2) / 2).toFixed(1)}" y="${(y + 13).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="10.5" font-family="ui-monospace,Consolas,monospace">${escapeHtml(label)}</text>
   `;
 }
 
@@ -51,15 +49,36 @@ function cadDimV(x: number, y1: number, y2: number, label: string, color = "var(
       <line x1="${(x - 4).toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x + 4).toFixed(1)}" y2="${y1.toFixed(1)}" />
       <line x1="${(x - 4).toFixed(1)}" y1="${y2.toFixed(1)}" x2="${(x + 4).toFixed(1)}" y2="${y2.toFixed(1)}" />
     </g>
-    <text x="${tx.toFixed(1)}" y="${((y1 + y2) / 2 + 3.5).toFixed(1)}" text-anchor="${anchor}" fill="${color}" font-size="10.5" font-family="ui-monospace,Consolas,monospace">${escapeAttr(label)}</text>
+    <text x="${tx.toFixed(1)}" y="${((y1 + y2) / 2 + 3.5).toFixed(1)}" text-anchor="${anchor}" fill="${color}" font-size="10.5" font-family="ui-monospace,Consolas,monospace">${escapeHtml(label)}</text>
   `;
 }
+
+const SCREEN_QUICK_PICKS: Array<{ a: string; b: string; label: string }> = [
+  { a: "55-tv-16x9", b: "65-tv-16x9", label: '55" vs 65" TV' },
+  { a: "65-tv-16x9", b: "75-tv-16x9", label: '65" vs 75" TV' },
+  { a: "27-monitor-16x9", b: "34-ultrawide-21x9", label: '27" vs 34" UW' },
+];
+
+const AIRLINE_QUICK_PICKS: Array<{ slug: string; code: string; label: string }> = [
+  { slug: "ryanair-carry-on-size", code: "FR", label: "Ryanair" },
+  { slug: "easyjet-carry-on-size", code: "U2", label: "EasyJet" },
+  { slug: "brussels-airlines-carry-on-size", code: "SN", label: "Brussels" },
+  { slug: "lufthansa-carry-on-size", code: "LH", label: "Lufthansa" },
+  { slug: "delta-carry-on-size", code: "DL", label: "Delta" },
+];
+
+const MATTRESS_QUICK_PICKS: Array<{ a: string; b: string; label: string }> = [
+  { a: "us-queen", b: "us-king", label: "US Queen vs King" },
+  { a: "eu-double-140x200", b: "eu-queen-160x200", label: "EU 140 vs 160" },
+];
 
 export function mountVisualSizer(
   container: HTMLElement,
   preset: VisualSizerPreset,
-  onStateChange?: (state: Record<string, string | number | boolean>) => void
+  onStateChange?: (state: Record<string, string | number | boolean>) => void,
+  lang: LocaleCode = "en"
 ): void {
+  const tr = t(lang);
   const state = {
     mode: preset.mode || "screens",
     displayA: preset.displayA || DISPLAY_PRESETS.find((d) => d.diagonalIn === 55)?.id || DISPLAY_PRESETS[0].id,
@@ -98,21 +117,33 @@ export function mountVisualSizer(
   function render(): void {
     const unit = state.unit;
     container.innerHTML = `
+      ${renderStepRibbon(tr.sizer.steps, 2)}
+
       <div class="studio-controls-bar">
         <div class="segmented-bar" role="tablist">
-          <button class="seg-btn ${state.mode === "screens" ? "active" : ""}" data-tab="screens" type="button">Screens &amp; TVs</button>
-          <button class="seg-btn ${state.mode === "airlines" ? "active" : ""}" data-tab="airlines" type="button">Airline Carry-On Sizer</button>
-          <button class="seg-btn ${state.mode === "mattresses" ? "active" : ""}" data-tab="mattresses" type="button">Mattress &amp; Bedroom Plan</button>
+          <button class="seg-btn ${state.mode === "screens" ? "active" : ""}" data-tab="screens" type="button">${escapeHtml(tr.sizer.tabScreens)}</button>
+          <button class="seg-btn ${state.mode === "airlines" ? "active" : ""}" data-tab="airlines" type="button">${escapeHtml(tr.sizer.tabAirlines)}</button>
+          <button class="seg-btn ${state.mode === "mattresses" ? "active" : ""}" data-tab="mattresses" type="button">${escapeHtml(tr.sizer.tabMattresses)}</button>
         </div>
         <div class="segmented-bar" role="group" aria-label="Measurement units">
-          <button class="seg-btn ${unit === "metric" ? "active" : ""}" id="vs-unit-metric" type="button">cm / kg</button>
-          <button class="seg-btn ${unit === "imperial" ? "active" : ""}" id="vs-unit-imperial" type="button">in / lb</button>
+          <button class="seg-btn ${unit === "metric" ? "active" : ""}" id="vs-unit-metric" type="button">${escapeHtml(tr.sizer.unitMetric)}</button>
+          <button class="seg-btn ${unit === "imperial" ? "active" : ""}" id="vs-unit-imperial" type="button">${escapeHtml(tr.sizer.unitImperial)}</button>
         </div>
       </div>
+
       <div class="studio-grid">
         <div class="panel form-grid" id="vs-controls"></div>
         <div class="panel" id="vs-stage"></div>
       </div>
+
+      ${renderVisualGuideSection({
+        title: tr.sizer.howTitle,
+        lead: tr.sizer.howLead,
+        bannerSrc: "/images/guide-visual-sizer.jpg",
+        bannerAlt: tr.sizer.bannerAlt,
+        stepSvgs: ["/guides/sizer-step-1.svg", "/guides/sizer-step-2.svg", "/guides/sizer-step-3.svg"],
+        stepCards: tr.sizer.stepCards,
+      })}
     `;
 
     container.querySelectorAll<HTMLButtonElement>("[data-tab]").forEach((btn) => {
@@ -152,41 +183,56 @@ export function mountVisualSizer(
 
     const buildOpts = (selectedId: string) =>
       DISPLAY_PRESETS.map(
-        (d) => `<option value="${escapeAttr(d.id)}" ${d.id === selectedId ? "selected" : ""}>${escapeAttr(d.label)} (${d.aspectW}:${d.aspectH})</option>`
+        (d) => `<option value="${escapeHtml(d.id)}" ${d.id === selectedId ? "selected" : ""}>${escapeHtml(d.label)} (${d.aspectW}:${d.aspectH})</option>`
       ).join("");
+
+    const quickChipsHtml = SCREEN_QUICK_PICKS.map(
+      (q) =>
+        `<button type="button" class="country-chip ${state.displayA === q.a && state.displayB === q.b ? "active" : ""}" data-scr-a="${escapeHtml(q.a)}" data-scr-b="${escapeHtml(q.b)}">${escapeHtml(q.label)}</button>`
+    ).join("");
 
     controls.innerHTML = `
       <div class="panel-header">
-        <h2 class="panel-title">Display Geometry</h2>
-        <span class="section-kicker">01 // Specimens</span>
+        <h2 class="panel-title">${escapeHtml(tr.sizer.scrTitle)}</h2>
+        <span class="section-kicker">TV · MONITOR</span>
       </div>
+      <div style="font-size:.78rem;color:var(--muted)">${escapeHtml(tr.sizer.presetLabel)}</div>
+      <div class="country-chip-row">${quickChipsHtml}</div>
       <div class="field">
-        <label for="vs-scr-a"><span>Specimen A (Cobalt)</span><span>${aSpec.aspectW}:${aSpec.aspectH}</span></label>
+        <label for="vs-scr-a"><span>${escapeHtml(tr.sizer.scrA)}</span><span>${aSpec.aspectW}:${aSpec.aspectH}</span></label>
         <select id="vs-scr-a">${buildOpts(aSpec.id)}</select>
       </div>
       <div style="display:flex;justify-content:center">
-        <button class="action-btn btn-sm" id="vs-scr-swap" type="button" title="Swap Display A and B">&#8645; Swap Specimens</button>
+        <button class="action-btn btn-sm" id="vs-scr-swap" type="button" title="${escapeHtml(tr.sizer.scrSwap)}">&#8645; ${escapeHtml(tr.sizer.scrSwap)}</button>
       </div>
       <div class="field">
-        <label for="vs-scr-b"><span>Specimen B (Vermilion)</span><span>${bSpec.aspectW}:${bSpec.aspectH}</span></label>
+        <label for="vs-scr-b"><span>${escapeHtml(tr.sizer.scrB)}</span><span>${bSpec.aspectW}:${bSpec.aspectH}</span></label>
         <select id="vs-scr-b">${buildOpts(bSpec.id)}</select>
       </div>
       <div class="control-group" style="padding-top:6px">
-        <label style="display:flex;gap:8px;align-items:center;font-size:.84rem;cursor:pointer">
-          <input type="checkbox" id="vs-overlay" ${state.overlayMode ? "checked" : ""} /> Corner-aligned overlay comparison
+        <label style="display:flex;gap:8px;align-items:center;font-size:.86rem;cursor:pointer">
+          <input type="checkbox" id="vs-overlay" ${state.overlayMode ? "checked" : ""} /> ${escapeHtml(tr.sizer.scrOverlay)}
         </label>
-        <label style="display:flex;gap:8px;align-items:center;font-size:.84rem;cursor:pointer">
-          <input type="checkbox" id="vs-human" ${state.showHumanRef ? "checked" : ""} /> 160 cm Media Console reference bench
+        <label style="display:flex;gap:8px;align-items:center;font-size:.86rem;cursor:pointer">
+          <input type="checkbox" id="vs-human" ${state.showHumanRef ? "checked" : ""} /> ${escapeHtml(tr.sizer.scrConsole)}
         </label>
       </div>
       <div class="kpi-grid">
-        <div class="kpi"><div class="label">Area Delta (B vs A)</div><div class="value">${cmp.areaDeltaPercent >= 0 ? "+" : ""}${cmp.areaDeltaPercent}%</div></div>
-        <div class="kpi"><div class="label">Width Diff</div><div class="value">${cmp.widthDiffCm >= 0 ? "+" : ""}${fmtLen(cmp.widthDiffCm, state.unit)}</div></div>
-        <div class="kpi"><div class="label">B 30° SMPTE</div><div class="value">${(cmp.b.smpteDistanceCm / 100).toFixed(2)} m</div></div>
-        <div class="kpi"><div class="label">B 40° THX</div><div class="value">${(cmp.b.thxDistanceCm / 100).toFixed(2)} m</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiArea)}</div><div class="value">${cmp.areaDeltaPercent >= 0 ? "+" : ""}${cmp.areaDeltaPercent}%</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiWidthDiff)}</div><div class="value">${cmp.widthDiffCm >= 0 ? "+" : ""}${fmtLen(cmp.widthDiffCm, state.unit)}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiSmpte)}</div><div class="value">${(cmp.b.smpteDistanceCm / 100).toFixed(2)} m</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiThx)}</div><div class="value">${(cmp.b.thxDistanceCm / 100).toFixed(2)} m</div></div>
       </div>
     `;
 
+    controls.querySelectorAll<HTMLButtonElement>("[data-scr-a]").forEach((btn) => {
+      btn.onclick = () => {
+        state.displayA = btn.dataset.scrA || state.displayA;
+        state.displayB = btn.dataset.scrB || state.displayB;
+        emitState();
+        renderScreens(controls, stage);
+      };
+    });
     controls.querySelector<HTMLSelectElement>("#vs-scr-a")!.onchange = (e) => {
       state.displayA = (e.target as HTMLSelectElement).value;
       emitState();
@@ -241,14 +287,14 @@ export function mountVisualSizer(
         <rect x="${originX.toFixed(1)}" y="${bY.toFixed(1)}" width="${wB.toFixed(1)}" height="${hB.toFixed(1)}" fill="var(--accent-b-soft)" stroke="var(--accent-b)" stroke-width="2" />
         <line x1="${originX.toFixed(1)}" y1="${baseLineY.toFixed(1)}" x2="${(originX + wB).toFixed(1)}" y2="${bY.toFixed(1)}" stroke="var(--accent-b)" stroke-width="1" stroke-dasharray="4 3" opacity="0.5" />
         <rect x="${originX.toFixed(1)}" y="${aY.toFixed(1)}" width="${wA.toFixed(1)}" height="${hA.toFixed(1)}" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2" />
-        <text x="${(originX + 8).toFixed(1)}" y="${(bY + 15).toFixed(1)}" fill="var(--accent-b)" font-size="11" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeAttr(cmp.b.label)}</text>
-        <text x="${(originX + 8).toFixed(1)}" y="${(baseLineY - 8).toFixed(1)}" fill="var(--accent)" font-size="11" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeAttr(cmp.a.label)}</text>
+        <text x="${(originX + 8).toFixed(1)}" y="${(bY + 15).toFixed(1)}" fill="var(--accent-b)" font-size="11" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeHtml(cmp.b.label)}</text>
+        <text x="${(originX + 8).toFixed(1)}" y="${(baseLineY - 8).toFixed(1)}" fill="var(--accent)" font-size="11" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeHtml(cmp.a.label)}</text>
       `;
       const maxX = originX + Math.max(wA, wB);
       dimHtml = `
         ${cadDimV(originX - 14, aY, baseLineY, fmtLen(cmp.a.heightCm, state.unit), "var(--accent)", "left")}
         ${cadDimV(maxX + 14, bY, baseLineY, fmtLen(cmp.b.heightCm, state.unit), "var(--accent-b)", "right")}
-        ${cadDimH(originX, originX + Math.max(wA, wB), baseLineY + (state.showHumanRef ? 52 : 16), `${wB >= wA ? "B" : "A"} Width ${fmtLen(Math.max(cmp.a.widthCm, cmp.b.widthCm), state.unit)}`, "var(--text)")}
+        ${cadDimH(originX, originX + Math.max(wA, wB), baseLineY + (state.showHumanRef ? 52 : 16), `${wB >= wA ? "B" : "A"} ${fmtLen(Math.max(cmp.a.widthCm, cmp.b.widthCm), state.unit)}`, "var(--text)")}
       `;
     } else {
       const ax = padLeft;
@@ -258,8 +304,8 @@ export function mountVisualSizer(
       shapesHtml = `
         <rect x="${ax.toFixed(1)}" y="${aY.toFixed(1)}" width="${wA.toFixed(1)}" height="${hA.toFixed(1)}" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2" />
         <rect x="${bx.toFixed(1)}" y="${bY.toFixed(1)}" width="${wB.toFixed(1)}" height="${hB.toFixed(1)}" fill="var(--accent-b-soft)" stroke="var(--accent-b)" stroke-width="2" />
-        <text x="${(ax + wA / 2).toFixed(1)}" y="${(aY + hA / 2 + 4).toFixed(1)}" text-anchor="middle" fill="var(--accent)" font-size="11.5" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeAttr(cmp.a.label)}</text>
-        <text x="${(bx + wB / 2).toFixed(1)}" y="${(bY + hB / 2 + 4).toFixed(1)}" text-anchor="middle" fill="var(--accent-b)" font-size="11.5" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeAttr(cmp.b.label)}</text>
+        <text x="${(ax + wA / 2).toFixed(1)}" y="${(aY + hA / 2 + 4).toFixed(1)}" text-anchor="middle" fill="var(--accent)" font-size="11.5" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeHtml(cmp.a.label)}</text>
+        <text x="${(bx + wB / 2).toFixed(1)}" y="${(bY + hB / 2 + 4).toFixed(1)}" text-anchor="middle" fill="var(--accent-b)" font-size="11.5" font-weight="700" font-family="ui-monospace,Consolas,monospace">${escapeHtml(cmp.b.label)}</text>
       `;
       dimHtml = `
         ${cadDimV(ax - 14, aY, baseLineY, fmtLen(cmp.a.heightCm, state.unit), "var(--accent)", "left")}
@@ -283,8 +329,8 @@ export function mountVisualSizer(
     stage.innerHTML = `
       <div class="stage-toolbar">
         <div class="legend-strip">
-          <span class="legend-item"><span class="swatch swatch-a"></span><strong>${escapeAttr(cmp.a.label)}</strong> · ${fmtLen(cmp.a.widthCm, state.unit)} × ${fmtLen(cmp.a.heightCm, state.unit)}</span>
-          <span class="legend-item"><span class="swatch swatch-b"></span><strong>${escapeAttr(cmp.b.label)}</strong> · ${fmtLen(cmp.b.widthCm, state.unit)} × ${fmtLen(cmp.b.heightCm, state.unit)}</span>
+          <span class="legend-item"><span class="swatch swatch-a"></span><strong>${escapeHtml(cmp.a.label)}</strong> · ${fmtLen(cmp.a.widthCm, state.unit)} × ${fmtLen(cmp.a.heightCm, state.unit)}</span>
+          <span class="legend-item"><span class="swatch swatch-b"></span><strong>${escapeHtml(cmp.b.label)}</strong> · ${fmtLen(cmp.b.widthCm, state.unit)} × ${fmtLen(cmp.b.heightCm, state.unit)}</span>
         </div>
         <span class="spec-tag">${cmp.areaDeltaPercent >= 0 ? "+" : ""}${cmp.areaDeltaPercent}% AREA</span>
       </div>
@@ -297,7 +343,7 @@ export function mountVisualSizer(
       </div>
       <div class="data-table-wrap">
         <table class="data-table">
-          <thead><tr><th>Metric</th><th>${escapeAttr(cmp.a.label)}</th><th>${escapeAttr(cmp.b.label)}</th><th>Delta</th></tr></thead>
+          <thead><tr><th>Metric</th><th>${escapeHtml(cmp.a.label)}</th><th>${escapeHtml(cmp.b.label)}</th><th>Delta</th></tr></thead>
           <tbody>
             <tr><td>Visible Width</td><td>${cmp.a.widthCm} cm (${cmp.a.widthIn} in)</td><td>${cmp.b.widthCm} cm (${cmp.b.widthIn} in)</td><td>${cmp.widthDiffCm >= 0 ? "+" : ""}${cmp.widthDiffCm} cm</td></tr>
             <tr><td>Visible Height</td><td>${cmp.a.heightCm} cm (${cmp.a.heightIn} in)</td><td>${cmp.b.heightCm} cm (${cmp.b.heightIn} in)</td><td>${cmp.heightDiffCm >= 0 ? "+" : ""}${cmp.heightDiffCm} cm</td></tr>
@@ -320,28 +366,43 @@ export function mountVisualSizer(
     const personalPassCount = fleetResults.filter((r) => r.fitsPersonalItem && r.fitsWeight).length;
 
     const airOpts = AIRLINE_FLEET.map(
-      (a) => `<option value="${escapeAttr(a.slug)}" ${a.slug === selected.slug ? "selected" : ""}>${escapeAttr(a.name)} (${a.iata}) — ${a.carryOnCm.join("x")} cm</option>`
+      (a) => `<option value="${escapeHtml(a.slug)}" ${a.slug === selected.slug ? "selected" : ""}>${escapeHtml(a.name)} (${a.iata}) — ${a.carryOnCm.join("×")} cm</option>`
     ).join("");
+
+    const quickAirHtml = AIRLINE_QUICK_PICKS.filter((q) => AIRLINE_FLEET.some((a) => a.slug === q.slug))
+      .map(
+        (q) =>
+          `<button type="button" class="country-chip ${q.slug === selected.slug ? "active" : ""}" data-air-slug="${escapeHtml(q.slug)}"><span class="code-badge">${escapeHtml(q.code)}</span><span>${escapeHtml(q.label)}</span></button>`
+      )
+      .join("");
+
+    const isImp = state.unit === "imperial";
+    const lenUnit = isImp ? "in" : "cm";
+    const wtUnit = isImp ? "lb" : "kg";
+    const dispVal = (cm: number) => (isImp ? Number((cm / 2.54).toFixed(1)) : cm);
+    const dispWt = (kg: number) => (isImp ? Number((kg * 2.20462).toFixed(1)) : kg);
 
     controls.innerHTML = `
       <div class="panel-header">
-        <h2 class="panel-title">Baggage Dimensions</h2>
-        <span class="section-kicker">01 // Cage Check</span>
+        <h2 class="panel-title">${escapeHtml(tr.sizer.airTitle)}</h2>
+        <span class="section-kicker">${AIRLINE_FLEET.length} AIRLINES</span>
       </div>
+      <div style="font-size:.78rem;color:var(--muted)">${escapeHtml(tr.sizer.presetLabel)}</div>
+      <div class="country-chip-row">${quickAirHtml}</div>
       <div class="field">
-        <label for="vs-air-focus">Spotlight Airline</label>
+        <label for="vs-air-focus">${escapeHtml(tr.sizer.airSpotlight)}</label>
         <select id="vs-air-focus">${airOpts}</select>
       </div>
       <div class="form-row-3">
-        <div class="field"><label for="vs-bag-l">Height (cm)</label><input id="vs-bag-l" type="number" min="15" max="90" step="0.5" value="${state.bagL}"></div>
-        <div class="field"><label for="vs-bag-w">Width (cm)</label><input id="vs-bag-w" type="number" min="10" max="70" step="0.5" value="${state.bagW}"></div>
-        <div class="field"><label for="vs-bag-d">Depth (cm)</label><input id="vs-bag-d" type="number" min="5" max="45" step="0.5" value="${state.bagD}"></div>
+        <div class="field"><label for="vs-bag-l">${escapeHtml(tr.sizer.airH)} (${lenUnit})</label><input id="vs-bag-l" type="number" min="${isImp ? 6 : 15}" max="${isImp ? 36 : 90}" step="0.5" value="${dispVal(state.bagL)}"></div>
+        <div class="field"><label for="vs-bag-w">${escapeHtml(tr.sizer.airW)} (${lenUnit})</label><input id="vs-bag-w" type="number" min="${isImp ? 4 : 10}" max="${isImp ? 28 : 70}" step="0.5" value="${dispVal(state.bagW)}"></div>
+        <div class="field"><label for="vs-bag-d">${escapeHtml(tr.sizer.airD)} (${lenUnit})</label><input id="vs-bag-d" type="number" min="${isImp ? 2 : 5}" max="${isImp ? 18 : 45}" step="0.5" value="${dispVal(state.bagD)}"></div>
       </div>
       <div class="form-row-2">
-        <div class="field"><label for="vs-bag-kg">Weight (kg)</label><input id="vs-bag-kg" type="number" min="1" max="32" step="0.5" value="${state.bagKg}"></div>
-        <div class="field"><label for="vs-region">Fleet Filter</label>
+        <div class="field"><label for="vs-bag-kg">${escapeHtml(tr.sizer.airKg)} (${wtUnit})</label><input id="vs-bag-kg" type="number" min="1" max="${isImp ? 70 : 32}" step="0.5" value="${dispWt(state.bagKg)}"></div>
+        <div class="field"><label for="vs-region">${escapeHtml(tr.sizer.airRegion)}</label>
           <select id="vs-region">
-            <option value="ALL" ${state.regionFilter === "ALL" ? "selected" : ""}>All Regions (${AIRLINE_FLEET.length})</option>
+            <option value="ALL" ${state.regionFilter === "ALL" ? "selected" : ""}>${escapeHtml(tr.sizer.allRegions)} (${AIRLINE_FLEET.length})</option>
             <option value="EU" ${state.regionFilter === "EU" ? "selected" : ""}>Europe (EU)</option>
             <option value="NA" ${state.regionFilter === "NA" ? "selected" : ""}>North America</option>
             <option value="APAC" ${state.regionFilter === "APAC" ? "selected" : ""}>Asia-Pacific</option>
@@ -350,11 +411,18 @@ export function mountVisualSizer(
         </div>
       </div>
       <div class="kpi-grid">
-        <div class="kpi"><div class="label">Cabin Overhead Pass</div><div class="value">${cabinPassCount} / ${fleetResults.length}</div></div>
-        <div class="kpi"><div class="label">Under-Seat Pass</div><div class="value">${personalPassCount} / ${fleetResults.length}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiCabinPass)}</div><div class="value">${cabinPassCount} / ${fleetResults.length}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiUnderPass)}</div><div class="value">${personalPassCount} / ${fleetResults.length}</div></div>
       </div>
     `;
 
+    controls.querySelectorAll<HTMLButtonElement>("[data-air-slug]").forEach((btn) => {
+      btn.onclick = () => {
+        state.airline = btn.dataset.airSlug || state.airline;
+        emitState();
+        renderAirlines(controls, stage);
+      };
+    });
     controls.querySelector<HTMLSelectElement>("#vs-air-focus")!.onchange = (e) => {
       state.airline = (e.target as HTMLSelectElement).value;
       emitState();
@@ -362,9 +430,17 @@ export function mountVisualSizer(
     };
     const bindNum = (id: string, key: "bagL" | "bagW" | "bagD" | "bagKg") => {
       controls.querySelector<HTMLInputElement>(id)!.oninput = (e) => {
-        const val = Number((e.target as HTMLInputElement).value);
-        if (val > 0) {
-          state[key] = val;
+        const raw = Number((e.target as HTMLInputElement).value);
+        if (raw > 0) {
+          const metricVal =
+            key === "bagKg"
+              ? isImp
+                ? Number((raw / 2.20462).toFixed(1))
+                : raw
+              : isImp
+                ? Number((raw * 2.54).toFixed(1))
+                : raw;
+          state[key] = metricVal;
           emitState();
           renderAirlines(controls, stage);
         }
@@ -380,10 +456,10 @@ export function mountVisualSizer(
     };
 
     const verdictBadge = singleFit.verdict === "PERSONAL_AND_CABIN"
-      ? `<span class="status-pill status-ok">Fits Under-Seat + Overhead</span>`
+      ? `<span class="status-pill status-ok">${escapeHtml(tr.sizer.verdictBoth)}</span>`
       : singleFit.verdict === "OVERHEAD_ONLY"
-        ? `<span class="status-pill status-warn">Fits Overhead Cage Only</span>`
-        : `<span class="status-pill status-bad">Exceeds Sizer Cage</span>`;
+        ? `<span class="status-pill status-warn">${escapeHtml(tr.sizer.verdictOverheadOnly)}</span>`
+        : `<span class="status-pill status-bad">${escapeHtml(tr.sizer.verdictTooBig)}</span>`;
 
     const sortedBag = [...bagCm].sort((x, y) => y - x);
     const bagH = sortedBag[0];
@@ -412,21 +488,20 @@ export function mountVisualSizer(
     stage.innerHTML = `
       <div class="stage-toolbar">
         <div>
-          <strong style="font-size:1rem">${escapeAttr(selected.name)} (${selected.iata})</strong>
+          <strong style="font-size:1rem">${escapeHtml(selected.name)} (${selected.iata})</strong>
           <div style="font-size:.82rem;color:var(--muted)">Cabin Max: ${selected.carryOnCm.join(" × ")} cm (${selected.carryOnWeightKg} kg) · Under-seat: ${selected.personalItemCm.join(" × ")} cm</div>
         </div>
         ${verdictBadge}
       </div>
       <div class="legend-strip" style="margin-bottom:10px">
-        <span class="legend-item"><span class="swatch swatch-neutral"></span>Overhead Cage Limit</span>
-        <span class="legend-item"><span class="swatch swatch-b"></span>Under-Seat Limit</span>
-        <span class="legend-item"><span class="swatch" style="background:${bagColor}"></span>Your Bag (${sortedBag.join("×")} cm · ${state.bagKg} kg)</span>
-        <span class="spec-tag" style="margin-left:auto">Margins: ${singleFit.marginCarryOnCm.map((m) => (m >= 0 ? `+${m}` : `${m}`)).join(" / ")} cm</span>
+        <span class="legend-item"><span class="swatch swatch-neutral"></span>${escapeHtml(tr.sizer.legendOverhead)}</span>
+        <span class="legend-item"><span class="swatch swatch-b"></span>${escapeHtml(tr.sizer.legendUnder)}</span>
+        <span class="legend-item"><span class="swatch" style="background:${bagColor}"></span>${escapeHtml(tr.sizer.legendBag)} (${sortedBag.map((v) => v.toFixed(0)).join("×")} cm · ${state.bagKg.toFixed(1)} kg)</span>
+        <span class="spec-tag" style="margin-left:auto">${escapeHtml(tr.sizer.marginsLabel)} ${singleFit.marginCarryOnCm.map((m) => (m >= 0 ? `+${m}` : `${m}`)).join(" / ")} cm</span>
       </div>
       <div class="viewport-box" style="min-height:245px">
         <svg viewBox="0 0 460 236" width="100%" style="max-height:245px" role="img" aria-label="Dual front and side airline sizer cage comparison">
-          <!-- Front Elevation: Height x Width -->
-          <text x="${(frontX + cabW / 2).toFixed(1)}" y="18" text-anchor="middle" fill="var(--muted)" font-size="9.5" font-family="ui-monospace,Consolas,monospace">FRONT ELEVATION (H × W)</text>
+          <text x="${(frontX + cabW / 2).toFixed(1)}" y="18" text-anchor="middle" fill="var(--muted)" font-size="9.5" font-family="ui-monospace,Consolas,monospace">FRONT (H × W)</text>
           <rect x="${frontX}" y="${(baseY - cabH).toFixed(1)}" width="${cabW.toFixed(1)}" height="${cabH.toFixed(1)}" fill="none" stroke="var(--muted)" stroke-dasharray="5 3" stroke-width="1.5" />
           <rect x="${frontX}" y="${(baseY - perH).toFixed(1)}" width="${perW.toFixed(1)}" height="${perH.toFixed(1)}" fill="none" stroke="var(--accent-b)" stroke-dasharray="2.5 2.5" stroke-width="1.4" />
           <rect x="${frontX}" y="${(baseY - bH).toFixed(1)}" width="${bW.toFixed(1)}" height="${bH.toFixed(1)}" rx="3" fill="${bagFill}" stroke="${bagColor}" stroke-width="2" />
@@ -434,8 +509,7 @@ export function mountVisualSizer(
           ${cadDimH(frontX, frontX + Math.max(cabW, bW), baseY + 12, `${fmtLen(bagW, state.unit)} / ${fmtLen(selected.carryOnCm[1], state.unit)}`, "var(--muted)")}
           ${cadDimV(frontX - 12, baseY - cabH, baseY, fmtLen(selected.carryOnCm[0], state.unit), "var(--muted)", "left")}
 
-          <!-- Side Elevation: Height x Depth -->
-          <text x="${(sideX + cabD / 2).toFixed(1)}" y="18" text-anchor="middle" fill="var(--muted)" font-size="9.5" font-family="ui-monospace,Consolas,monospace">SIDE PROFILE (H × D)</text>
+          <text x="${(sideX + cabD / 2).toFixed(1)}" y="18" text-anchor="middle" fill="var(--muted)" font-size="9.5" font-family="ui-monospace,Consolas,monospace">SIDE (H × D)</text>
           <rect x="${sideX}" y="${(baseY - cabH).toFixed(1)}" width="${cabD.toFixed(1)}" height="${cabH.toFixed(1)}" fill="none" stroke="var(--muted)" stroke-dasharray="5 3" stroke-width="1.5" />
           <rect x="${sideX}" y="${(baseY - perH).toFixed(1)}" width="${perD.toFixed(1)}" height="${perH.toFixed(1)}" fill="none" stroke="var(--accent-b)" stroke-dasharray="2.5 2.5" stroke-width="1.4" />
           <rect x="${sideX}" y="${(baseY - bH).toFixed(1)}" width="${bD.toFixed(1)}" height="${bH.toFixed(1)}" rx="3" fill="${bagFill}" stroke="${bagColor}" stroke-width="2" />
@@ -443,7 +517,7 @@ export function mountVisualSizer(
           ${cadDimV(sideX + Math.max(cabD, bD) + 12, baseY - bH, baseY, fmtLen(bagH, state.unit), bagColor, "right")}
         </svg>
       </div>
-      <div style="font-size:.81rem;color:var(--muted);margin-top:10px">${escapeAttr(selected.policyNote)}</div>
+      <div style="font-size:.84rem;color:var(--muted);margin-top:10px">${escapeHtml(selected.policyNote)}</div>
       <div class="data-table-wrap" style="max-height:300px;overflow-y:auto">
         <table class="data-table">
           <thead><tr><th>Airline</th><th>Cabin Limit</th><th>Under-Seat</th><th>Max kg</th><th>Verdict</th></tr></thead>
@@ -455,7 +529,7 @@ export function mountVisualSizer(
                   : r.verdict === "OVERHEAD_ONLY"
                     ? `<span class="status-pill status-warn">${r.airline.overheadFree ? "OVERHEAD OK" : "PAID OVERHEAD"}</span>`
                     : `<span class="status-pill status-bad">TOO BIG</span>`;
-                return `<tr><td><strong>${escapeAttr(r.airline.name)}</strong> (${r.airline.iata})</td><td>${r.airline.carryOnCm.join("×")} cm</td><td>${r.airline.personalItemCm.join("×")} cm</td><td>${r.airline.carryOnWeightKg} kg</td><td>${badge}</td></tr>`;
+                return `<tr><td><strong>${escapeHtml(r.airline.name)}</strong> (${r.airline.iata})</td><td>${r.airline.carryOnCm.join("×")} cm</td><td>${r.airline.personalItemCm.join("×")} cm</td><td>${r.airline.carryOnWeightKg} kg</td><td>${badge}</td></tr>`;
               })
               .join("")}
           </tbody>
@@ -473,27 +547,42 @@ export function mountVisualSizer(
 
     const opts = (selId: string) =>
       MATTRESS_PRESETS.map(
-        (m) => `<option value="${escapeAttr(m.id)}" ${m.id === selId ? "selected" : ""}>${escapeAttr(m.label)} (${m.widthCm}×${m.lengthCm} cm)</option>`
+        (m) => `<option value="${escapeHtml(m.id)}" ${m.id === selId ? "selected" : ""}>${escapeHtml(m.label)} (${m.widthCm}×${m.lengthCm} cm)</option>`
       ).join("");
+
+    const quickMatHtml = MATTRESS_QUICK_PICKS.map(
+      (q) =>
+        `<button type="button" class="country-chip ${state.mattressA === q.a && state.mattressB === q.b ? "active" : ""}" data-mat-a="${escapeHtml(q.a)}" data-mat-b="${escapeHtml(q.b)}">${escapeHtml(q.label)}</button>`
+    ).join("");
 
     controls.innerHTML = `
       <div class="panel-header">
-        <h2 class="panel-title">Mattress &amp; Room Fit</h2>
-        <span class="section-kicker">01 // Architectural Plan</span>
+        <h2 class="panel-title">${escapeHtml(tr.sizer.matTitle)}</h2>
+        <span class="section-kicker">BEDROOM PLAN</span>
       </div>
-      <div class="field"><label for="vs-mat-a">Mattress A (Cobalt)</label><select id="vs-mat-a">${opts(mA.id)}</select></div>
-      <div class="field"><label for="vs-mat-b">Mattress B (Vermilion)</label><select id="vs-mat-b">${opts(mB.id)}</select></div>
+      <div style="font-size:.78rem;color:var(--muted)">${escapeHtml(tr.sizer.presetLabel)}</div>
+      <div class="country-chip-row">${quickMatHtml}</div>
+      <div class="field"><label for="vs-mat-a">${escapeHtml(tr.sizer.matA)}</label><select id="vs-mat-a">${opts(mA.id)}</select></div>
+      <div class="field"><label for="vs-mat-b">${escapeHtml(tr.sizer.matB)}</label><select id="vs-mat-b">${opts(mB.id)}</select></div>
       <div class="form-row-2">
-        <div class="field"><label for="vs-rm-w">Room Width (cm)</label><input id="vs-rm-w" type="number" min="180" max="800" value="${state.roomW}"></div>
-        <div class="field"><label for="vs-rm-l">Room Length (cm)</label><input id="vs-rm-l" type="number" min="200" max="800" value="${state.roomL}"></div>
+        <div class="field"><label for="vs-rm-w">${escapeHtml(tr.sizer.roomW)} (cm)</label><input id="vs-rm-w" type="number" min="180" max="800" value="${state.roomW}"></div>
+        <div class="field"><label for="vs-rm-l">${escapeHtml(tr.sizer.roomL)} (cm)</label><input id="vs-rm-l" type="number" min="200" max="800" value="${state.roomL}"></div>
       </div>
       <div class="kpi-grid">
-        <div class="kpi"><div class="label">Sleep Area Delta</div><div class="value">${cmp.areaDeltaPercent >= 0 ? "+" : ""}${cmp.areaDeltaPercent}%</div></div>
-        <div class="kpi"><div class="label">Side Aisle (Each)</div><div class="value">${fmtLen(clearanceSideCm, state.unit)}</div></div>
-        <div class="kpi"><div class="label">Foot Clearance</div><div class="value">${fmtLen(clearanceFootCm, state.unit)}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiSleepDelta)}</div><div class="value">${cmp.areaDeltaPercent >= 0 ? "+" : ""}${cmp.areaDeltaPercent}%</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiSideAisle)}</div><div class="value">${fmtLen(clearanceSideCm, state.unit)}</div></div>
+        <div class="kpi"><div class="label">${escapeHtml(tr.sizer.kpiFootClear)}</div><div class="value">${fmtLen(clearanceFootCm, state.unit)}</div></div>
       </div>
     `;
 
+    controls.querySelectorAll<HTMLButtonElement>("[data-mat-a]").forEach((btn) => {
+      btn.onclick = () => {
+        state.mattressA = btn.dataset.matA || state.mattressA;
+        state.mattressB = btn.dataset.matB || state.mattressB;
+        emitState();
+        renderMattresses(controls, stage);
+      };
+    });
     controls.querySelector<HTMLSelectElement>("#vs-mat-a")!.onchange = (e) => {
       state.mattressA = (e.target as HTMLSelectElement).value;
       emitState();
@@ -529,27 +618,23 @@ export function mountVisualSizer(
     stage.innerHTML = `
       <div class="stage-toolbar">
         <div class="legend-strip">
-          <span class="legend-item"><span class="swatch swatch-a"></span><strong>${escapeAttr(mA.label)}</strong> · ${mA.widthCm}×${mA.lengthCm} cm</span>
-          <span class="legend-item"><span class="swatch swatch-b"></span><strong>${escapeAttr(mB.label)}</strong> · ${mB.widthCm}×${mB.lengthCm} cm</span>
+          <span class="legend-item"><span class="swatch swatch-a"></span><strong>${escapeHtml(mA.label)}</strong> · ${mA.widthCm}×${mA.lengthCm} cm</span>
+          <span class="legend-item"><span class="swatch swatch-b"></span><strong>${escapeHtml(mB.label)}</strong> · ${mB.widthCm}×${mB.lengthCm} cm</span>
         </div>
-        <span class="spec-tag">Room ${state.roomW} × ${state.roomL} cm</span>
+        <span class="spec-tag">${state.roomW} × ${state.roomL} cm</span>
       </div>
       <div class="viewport-box">
         <svg viewBox="0 0 460 272" width="100%" style="max-height:300px" role="img" aria-label="Bedroom top-down scale plan">
           <rect x="${rx.toFixed(1)}" y="${ry.toFixed(1)}" width="${rw.toFixed(1)}" height="${rl.toFixed(1)}" fill="var(--surface)" stroke="var(--text)" stroke-width="2.4" />
-          <!-- Headboard against top wall -->
           <rect x="${Math.min(aX, bX).toFixed(1)}" y="${ry.toFixed(1)}" width="${Math.max(wA, wB).toFixed(1)}" height="6" fill="var(--text)" />
-          <!-- Mattress B & A anchored to headboard -->
           <rect x="${bX.toFixed(1)}" y="${bedY.toFixed(1)}" width="${wB.toFixed(1)}" height="${lB.toFixed(1)}" fill="var(--accent-b-soft)" stroke="var(--accent-b)" stroke-width="2" />
           <rect x="${aX.toFixed(1)}" y="${bedY.toFixed(1)}" width="${wA.toFixed(1)}" height="${lA.toFixed(1)}" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2" />
-          <!-- Architectural pillows -->
           <rect x="${(bX + wB * 0.1).toFixed(1)}" y="${(bedY + 5).toFixed(1)}" width="${(wB * 0.35).toFixed(1)}" height="${(12 * s + 6).toFixed(1)}" rx="2" fill="none" stroke="var(--muted)" stroke-width="1" />
           <rect x="${(bX + wB * 0.55).toFixed(1)}" y="${(bedY + 5).toFixed(1)}" width="${(wB * 0.35).toFixed(1)}" height="${(12 * s + 6).toFixed(1)}" rx="2" fill="none" stroke="var(--muted)" stroke-width="1" />
-          <!-- Side & foot walkway callouts -->
           <line x1="${rx.toFixed(1)}" y1="${(bedY + lB * 0.5).toFixed(1)}" x2="${bX.toFixed(1)}" y2="${(bedY + lB * 0.5).toFixed(1)}" stroke="var(--muted)" stroke-width="1" />
-          <text x="${(rx - 6).toFixed(1)}" y="${(bedY + lB * 0.5 + 3).toFixed(1)}" text-anchor="end" fill="var(--muted)" font-size="9.5" font-family="ui-monospace,Consolas,monospace">Aisle ${fmtLen(clearanceSideCm, state.unit)}</text>
-          ${cadDimV(230, bedY + lB, ry + rl, `Foot ${fmtLen(clearanceFootCm, state.unit)}`, "var(--muted)", "right")}
-          ${cadDimH(rx, rx + rw, ry + rl + 14, `Room Width ${fmtLen(state.roomW, state.unit)}`, "var(--text)")}
+          <text x="${(rx - 6).toFixed(1)}" y="${(bedY + lB * 0.5 + 3).toFixed(1)}" text-anchor="end" fill="var(--muted)" font-size="9.5" font-family="ui-monospace,Consolas,monospace">${fmtLen(clearanceSideCm, state.unit)}</text>
+          ${cadDimV(230, bedY + lB, ry + rl, fmtLen(clearanceFootCm, state.unit), "var(--muted)", "right")}
+          ${cadDimH(rx, rx + rw, ry + rl + 14, `${fmtLen(state.roomW, state.unit)}`, "var(--text)")}
         </svg>
       </div>
     `;
