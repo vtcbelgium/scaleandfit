@@ -65,22 +65,22 @@ export function localizeLeafRoute(route, lang) {
       nl: {
         h1: `${a} vs ${b} schermvergelijking`,
         title: `${a} vs ${b} afmetingen op ware grootte | ScaleAndFit`,
-        description: `Vergelijk breedte, hoogte, schermoppervlak en kijkafstand van ${a} en ${b} direct in uw browser.`,
+        description: `Vergelijk breedte, hoogte, schermoppervlak, VESA en kijkafstand van ${a} en ${b} direct in uw browser.`,
       },
       fr: {
         h1: `Comparaison écran ${a} vs ${b}`,
         title: `Dimensions exactes ${a} vs ${b} à l'échelle | ScaleAndFit`,
-        description: `Comparez la largeur, la hauteur, la surface d'affichage et la distance de recul entre ${a} et ${b}.`,
+        description: `Comparez la largeur, la hauteur, la surface d'affichage, le VESA et le recul entre ${a} et ${b}.`,
       },
       de: {
         h1: `Bildschirmvergleich ${a} vs ${b}`,
         title: `Abmessungen im Maßstab: ${a} vs ${b} | ScaleAndFit`,
-        description: `Vergleichen Sie Breite, Höhe, Bildfläche und Sitzabstand zwischen ${a} und ${b} direkt im Browser.`,
+        description: `Vergleichen Sie Breite, Höhe, Bildfläche, VESA-Norm und Sitzabstand zwischen ${a} und ${b} direkt im Browser.`,
       },
       es: {
         h1: `Comparación de pantalla ${a} vs ${b}`,
         title: `Tamaño real ${a} vs ${b} a escala exacta | ScaleAndFit`,
-        description: `Compare el ancho, alto, superficie y distancia de visualización entre ${a} y ${b} en su navegador.`,
+        description: `Compare el ancho, alto, superficie, montaje VESA y distancia óptima entre ${a} y ${b} en su navegador.`,
       },
     };
     return { path: pathLocalized, ...map[lang] };
@@ -110,6 +110,35 @@ export function localizeLeafRoute(route, lang) {
         h1: `Verificador de equipaje ${air.name} (${air.iata})`,
         title: `Medidas de equipaje de mano ${air.name} (${air.iata}) ${dims} | ScaleAndFit`,
         description: `Compruebe si su maleta cabe en ${air.name}: cabina ${dims} (${air.carryOnWeightKg} kg) y artículo personal ${personal}.`,
+      },
+    };
+    return { path: pathLocalized, ...map[lang] };
+  }
+
+  if (route.kind === "airline-compare") {
+    const { airA, airB } = route.meta;
+    const dA = `${airA.carryOnCm.join("×")} cm`;
+    const dB = `${airB.carryOnCm.join("×")} cm`;
+    const map = {
+      nl: {
+        h1: `${airA.name} vs ${airB.name} handbagage vergelijking`,
+        title: `${airA.name} (${airA.iata}) vs ${airB.name} (${airB.iata}) handbagage regels | ScaleAndFit`,
+        description: `Vergelijk ${airA.name} (${dA}, ${airA.carryOnWeightKg} kg) met ${airB.name} (${dB}, ${airB.carryOnWeightKg} kg) voor cabine- en onderstoelbagage.`,
+      },
+      fr: {
+        h1: `Comparatif bagage cabine ${airA.name} vs ${airB.name}`,
+        title: `${airA.name} (${airA.iata}) vs ${airB.name} (${airB.iata}) : dimensions cabine | ScaleAndFit`,
+        description: `Comparez les gabarits cabine de ${airA.name} (${dA}, ${airA.carryOnWeightKg} kg) et ${airB.name} (${dB}, ${airB.carryOnWeightKg} kg).`,
+      },
+      de: {
+        h1: `Handgepäck-Vergleich ${airA.name} vs ${airB.name}`,
+        title: `${airA.name} (${airA.iata}) vs ${airB.name} (${airB.iata}) Kabinengepäck | ScaleAndFit`,
+        description: `Vergleichen Sie die Handgepäckmaße von ${airA.name} (${dA}, ${airA.carryOnWeightKg} kg) gegen ${airB.name} (${dB}, ${airB.carryOnWeightKg} kg).`,
+      },
+      es: {
+        h1: `Comparativa equipaje ${airA.name} vs ${airB.name}`,
+        title: `${airA.name} (${airA.iata}) vs ${airB.name} (${airB.iata}) medidas de cabina | ScaleAndFit`,
+        description: `Compare los límites de equipaje de mano de ${airA.name} (${dA}, ${airA.carryOnWeightKg} kg) frente a ${airB.name} (${dB}, ${airB.carryOnWeightKg} kg).`,
       },
     };
     return { path: pathLocalized, ...map[lang] };
@@ -146,26 +175,27 @@ export function localizeLeafRoute(route, lang) {
   if (route.kind === "paper-grid") {
     const { format, spacingMm } = route.meta;
     const fmt = format.toUpperCase();
+    const baseName = route.h1.replace(/ PDF$/i, "");
     const map = {
       nl: {
-        h1: `${route.h1.replace("Paper ", "Papier ").replace("PDF", "PDF")}`,
+        h1: `${route.h1.replace("Paper ", "Papier ")}`,
         title: `${route.h1} — Op ware grootte printen | ScaleAndFit`,
-        description: `Pas lijnkleur en raster (${spacingMm} mm) aan en download een millimeternauwkeurige ${fmt} vector-PDF zonder schaalverlies.`,
+        description: `${baseName}: pas lijnkleur en raster (${spacingMm} mm) aan en download een millimeternauwkeurige ${fmt} vector-PDF.`,
       },
       fr: {
         h1: `${route.h1} — Modèle PDF`,
         title: `${route.h1} à l'échelle exacte | ScaleAndFit`,
-        description: `Réglez la couleur et l'espacement (${spacingMm} mm) puis téléchargez votre feuille ${fmt} PDF prête à imprimer à 100%.`,
+        description: `${baseName} : réglez la couleur et l'espacement (${spacingMm} mm) puis téléchargez votre feuille ${fmt} PDF à 100%.`,
       },
       de: {
         h1: `${route.h1} — Druckvorlage`,
         title: `${route.h1} maßstabsgetreu drucken | ScaleAndFit`,
-        description: `Wählen Sie Farbe und Abstand (${spacingMm} mm) und laden Sie ein exakt skaliertes ${fmt}-PDF für 100%-Druck herunter.`,
+        description: `${baseName}: wählen Sie Farbe und Raster (${spacingMm} mm) und laden Sie ein exakt skaliertes ${fmt}-PDF herunter.`,
       },
       es: {
         h1: `${route.h1} — Plantilla PDF`,
         title: `${route.h1} a escala real 100% | ScaleAndFit`,
-        description: `Ajuste color y separación (${spacingMm} mm) y descargue su hoja vectorial ${fmt} PDF lista para imprimir.`,
+        description: `${baseName}: ajuste color y separación (${spacingMm} mm) y descargue su hoja vectorial ${fmt} PDF exacta.`,
       },
     };
     return { path: pathLocalized, ...map[lang] };
@@ -226,7 +256,7 @@ export function localizeLeafRoute(route, lang) {
     return { path: pathLocalized, ...map[lang] };
   }
 
-  if (route.kind === "shoe-pair" || route.kind === "shoe-chart") {
+  if (route.kind === "shoe-pair") {
     const bA = route.meta.bA?.name || "US";
     const bB = route.meta.bB?.name || "EU";
     const map = {
@@ -254,27 +284,55 @@ export function localizeLeafRoute(route, lang) {
     return { path: pathLocalized, ...map[lang] };
   }
 
-  if (route.kind === "ring-guide") {
+  if (route.kind === "shoe-chart") {
+    const label = route.meta.metricLabel || route.h1;
     const map = {
       nl: {
-        h1: `${route.meta.h1} (NL)`,
-        title: `Ringmaat meten met bankpas op uw scherm | ScaleAndFit`,
-        description: `Meet uw exacte ringdiameter en omtrek in mm op het scherm met elke bankpas — EU, US en UK maten.`,
+        h1: `Schoenmaat omrekenen: ${label} (EU, US, UK & cm)`,
+        title: `${label} schoenmaat tabel in mm, EU, US en UK | ScaleAndFit`,
+        description: `Bekijk exacte voetlengte in millimeters en zet ${label} direct om tussen EU, US en UK maten in uw browser.`,
       },
       fr: {
-        h1: `Baguier en ligne calibré par carte bancaire`,
-        title: `Mesurer sa taille de bague sans erreur (EU, FR, US) | ScaleAndFit`,
-        description: `Calibrez votre écran avec une carte bancaire (85,60 mm) et mesurez le diamètre intérieur de votre bague.`,
+        h1: `Équivalence pointure ${label} (EU, US, UK & cm)`,
+        title: `Tableau pointure ${label} en mm, EU, US et UK | ScaleAndFit`,
+        description: `Calculez la correspondance exacte en millimètres pour ${label} entre les systèmes EU, US, UK et cm.`,
       },
       de: {
-        h1: `Ringgröße direkt am Bildschirm messen`,
-        title: `Ringgrößen-Messer mit Bankkarte (EU, US, UK, mm) | ScaleAndFit`,
-        description: `Kalibrieren Sie den Bildschirm per EC-Karte (85,60 mm) und lesen Sie Innendurchmesser und Ringgröße ab.`,
+        h1: `Schuhgröße umrechnen: ${label} (EU, US, UK & cm)`,
+        title: `${label} Schuhgrößentabelle in mm, EU, US & UK | ScaleAndFit`,
+        description: `Rechnen Sie ${label} anhand der exakten Fußlänge in Millimetern präzise zwischen EU, US und UK um.`,
       },
       es: {
-        h1: `Medidor de anillos online con tarjeta`,
-        title: `Medir talla de anillo en pantalla (ES, EU, US, mm) | ScaleAndFit`,
-        description: `Calibre la pantalla con cualquier tarjeta bancaria (85,60 mm) y obtenga diámetro y talla exacta al instante.`,
+        h1: `Equivalencia de calzado ${label} (EU, US, UK y cm)`,
+        title: `Tabla de talla ${label} en mm, EU, US y UK | ScaleAndFit`,
+        description: `Convierta al instante ${label} según la longitud exacta del pie en milímetros entre EU, US y UK.`,
+      },
+    };
+    return { path: pathLocalized, ...map[lang] };
+  }
+
+  if (route.kind === "ring-guide") {
+    const label = route.meta.metricLabel || `${route.preset?.ringDiameterMm || 18.14} mm`;
+    const map = {
+      nl: {
+        h1: `Ringmaat ${label} — Online meten met bankpas`,
+        title: `Ringmaat ${label} naar EU, US, UK & mm omtrek | ScaleAndFit`,
+        description: `Calibreer op ${label} met elke bankpas (85,60 mm) en lees directe EU, US, UK en JP ringmaten af.`,
+      },
+      fr: {
+        h1: `Taille de bague ${label} — Baguier carte bancaire`,
+        title: `Baguier ${label} : conversion mm, EU, FR, US & UK | ScaleAndFit`,
+        description: `Mesurez et convertissez une bague (${label}) sur votre écran calibré par carte bancaire (85,60 mm).`,
+      },
+      de: {
+        h1: `Ringgröße ${label} direkt am Bildschirm messen`,
+        title: `Ringgröße ${label} in mm, EU, US & UK Tabelle | ScaleAndFit`,
+        description: `Kalibrieren Sie Ihren Bildschirm per Karte (85,60 mm) für ${label} und ermitteln Sie Innendurchmesser & Umfang.`,
+      },
+      es: {
+        h1: `Talla de anillo ${label} — Medidor con tarjeta`,
+        title: `Conversor de anillo ${label} en mm, EU, US y UK | ScaleAndFit`,
+        description: `Calibre la pantalla con cualquier tarjeta (85,60 mm) para ${label} y vea equivalencias exactas en mm y EU/US.`,
       },
     };
     return { path: pathLocalized, ...map[lang] };
@@ -283,25 +341,52 @@ export function localizeLeafRoute(route, lang) {
   if (route.kind === "photo-spec") {
     const sp = route.meta.spec;
     const size = `${sp.widthMm}×${sp.heightMm} mm`;
+    const retailer = route.meta.sheetRetailer;
+    if (retailer) {
+      const map = {
+        nl: {
+          h1: `${retailer} pasfoto afdrukvel (${sp.country} ${size})`,
+          title: `${retailer} 10×15 / 4×6 pasfoto vel (${sp.country} ${size}) | ScaleAndFit`,
+          description: `Maak voor ${retailer} direct een 300 DPI afdrukvel met ${sp.country} pasfoto's (${size}) klaar in uw browser.`,
+        },
+        fr: {
+          h1: `Planche photo ${retailer} (${sp.country} ${size})`,
+          title: `Planche ${retailer} 10×15 / 4×6 cm (${sp.country} ${size}) | ScaleAndFit`,
+          description: `Préparez localement pour ${retailer} une planche 300 DPI de photos officielles ${sp.country} (${size}).`,
+        },
+        de: {
+          h1: `${retailer} Passfoto Druckbogen (${sp.country} ${size})`,
+          title: `${retailer} 10×15 / 4×6 Passbild Vorlage (${sp.country} ${size}) | ScaleAndFit`,
+          description: `Erstellen Sie für ${retailer} einen 300-DPI-Druckbogen mit ${sp.country} Passfotos (${size}) privat im Browser.`,
+        },
+        es: {
+          h1: `Lámina de fotos ${retailer} (${sp.country} ${size})`,
+          title: `Plantilla ${retailer} 10×15 / 4×6 (${sp.country} ${size}) | ScaleAndFit`,
+          description: `Prepare para ${retailer} una lámina 300 DPI con fotos oficiales ${sp.country} (${size}) directamente en su navegador.`,
+        },
+      };
+      return { path: pathLocalized, ...map[lang] };
+    }
+
     const map = {
       nl: {
         h1: `${sp.country} ${sp.documentType} pasfoto (${size})`,
-        title: `${sp.country} pasfoto zelf maken (${size}) + 10×15 vel | ScaleAndFit`,
+        title: `${sp.country} ${sp.documentType} pasfoto maken (${size}) + 10×15 vel | ScaleAndFit`,
         description: `Snijd uw ${sp.country} ${sp.documentType} pasfoto (${size}) bij in uw browser en download voor online upload of 10×15 cm afdruk.`,
       },
       fr: {
         h1: `Photo d'identité ${sp.country} — ${sp.documentType} (${size})`,
-        title: `Photo passeport & visa ${sp.country} (${size}) + planche | ScaleAndFit`,
+        title: `Photo ${sp.country} ${sp.documentType} (${size}) + planche 10×15 | ScaleAndFit`,
         description: `Recadrez votre photo ${sp.country} ${sp.documentType} (${size}) sur votre appareil et exportez en format numérique ou planche 10×15.`,
       },
       de: {
         h1: `Passfoto ${sp.country} — ${sp.documentType} (${size})`,
-        title: `Biometrisches Passbild ${sp.country} (${size}) erstellen | ScaleAndFit`,
+        title: `Biometrisches Foto ${sp.country} ${sp.documentType} (${size}) | ScaleAndFit`,
         description: `Erstellen Sie Ihr ${sp.country} ${sp.documentType} Foto (${size}) privat im Browser inklusive 10×15-cm-Druckbogen.`,
       },
       es: {
         h1: `Foto oficial ${sp.country} — ${sp.documentType} (${size})`,
-        title: `Hacer foto carnet / visado ${sp.country} (${size}) | ScaleAndFit`,
+        title: `Foto ${sp.country} ${sp.documentType} (${size}) + lámina 10×15 | ScaleAndFit`,
         description: `Recorte su foto oficial ${sp.country} ${sp.documentType} (${size}) sin subir archivos y descargue lámina 10×15 cm.`,
       },
     };

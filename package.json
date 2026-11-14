@@ -10,6 +10,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
+    "seo:audit": "node scripts/audit-seo-quality.mjs",
     "deploy": "npm run build && npx wrangler deploy"
   },
   "dependencies": {

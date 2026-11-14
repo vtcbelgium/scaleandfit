@@ -69,7 +69,7 @@
           "kicker": "Tool 01 · Compare visually",
           "badge": "TV · BAG · BED",
           "title": "Screen, Carry-On Bag & Bed Sizer",
-          "desc": "See two TVs or mattresses drawn to exact scale, or test whether your suitcase fits overhead bins and under-seat sizers across 34 airlines.",
+          "desc": "See two TVs or mattresses drawn to exact scale, or test whether your suitcase fits overhead bins and under-seat sizers across 75 .",
           "cta": "Open Visual Sizer",
           "imageAlt": "Illustration comparing overlapping TV sizes next to a carry-on suitcase",
           "routes": [
@@ -95,7 +95,7 @@
           "kicker": "Tool 03 · Fit without guesswork",
           "badge": "SHOES · RINGS",
           "title": "Shoe Brand Translator & Ring Sizer",
-          "desc": "Find your true shoe size across 24 brands by millimeter foot length, or calibrate your screen with any bank card to measure a ring accurately.",
+          "desc": "Find your true shoe size across 45  by millimeter foot length, or calibrate your screen with any bank card to measure a ring accurately.",
           "cta": "Open Size Converter",
           "imageAlt": "Illustration of measuring a shoe against a wall ruler and sizing a ring on a tablet with a bank card",
           "routes": [
@@ -125,8 +125,8 @@
         "title": "Visual TV, Carry-On Luggage & Mattress Size Comparison | ScaleAndFit",
         "h1": "Visual TV, Bag & Mattress Sizer",
         "lead": "See true-to-scale screen overlays, test cabin bags against 34 airline sizers, and plan bedroom walking clearance around mattresses.",
-        "description": "Compare TVs, monitors, mattresses side-by-side to exact scale and check luggage sizes against 34 global airlines directly in your browser.",
-        "spec": "SCALE SVG · 34 AIRLINES"
+        "description": "Compare TVs, monitors, mattresses side-by-side to exact scale and check luggage sizes against 75  directly in your browser.",
+        "spec": "SCALE SVG · 75 "
       },
       "printable-paper": {
         "name": "Paper & Labels",
@@ -140,17 +140,17 @@
         "name": "Shoe & Ring Size",
         "title": "Cross-Brand Shoe Size Translator & Credit-Card Ring Sizer | ScaleAndFit",
         "h1": "Shoe Brand Translator & Ring Sizer",
-        "lead": "Convert shoe sizes across 24 brands using foot length in millimeters, or measure ring diameter accurately on screen using any bank card.",
-        "description": "Convert US, UK, EU, and centimeter shoe sizes across 24 footwear brands and calibrate your screen with an 85.60 mm bank card to measure rings.",
-        "spec": "24 BRANDS · CARD CALIBRATED"
+        "lead": "Convert shoe sizes across 45  using foot length in millimeters, or measure ring diameter accurately on screen using any bank card.",
+        "description": "Convert US, UK, EU, and centimeter shoe sizes across 45  and calibrate your screen with an 85.60 mm bank card to measure rings.",
+        "spec": "45  · CARD CALIBRATED"
       },
       "passport-photo": {
         "name": "Passport Photo",
         "title": "Passport & Visa Photo Maker + 4×6 Print Sheet | ScaleAndFit",
         "h1": "Passport, Visa & ID Photo Maker",
-        "lead": "Frame your portrait neatly to official rules for 36 countries and download an online upload PNG or multi-photo 4×6 print sheet in seconds.",
-        "description": "Crop passport and visa photos across 36 country rules directly in browser memory and save 300-DPI single images or 4×6 print sheets.",
-        "spec": "36 COUNTRIES · PRIVATE CANVAS"
+        "lead": "Frame your portrait neatly to official rules for 90  and download an online upload PNG or multi-photo 4×6 print sheet in seconds.",
+        "description": "Crop passport and visa photos across 90  directly in browser memory and save 300-DPI single images or 4×6 print sheets.",
+        "spec": "90  · PRIVATE CANVAS"
       }
     },
     "passport": {
@@ -418,7 +418,7 @@
           {
             "heading": "International Standards Used",
             "list": [
-              "Passport & Visa Photos (ICAO Doc 9303): Calculates 300 pixels per inch (11.811 px/mm) output canvases and target crown-to-chin ratios across 36 country rules.",
+              "Passport & Visa Photos (ICAO Doc 9303): Calculates 300 pixels per inch (11.811 px/mm) output canvases and target crown-to-chin ratios across 90 .",
               "Printable Vector PDFs (72 PostScript pt/in): Writes true geometric coordinates into clean PDF vectors using ISO A4 (210 × 297 mm) and US Letter (215.9 × 279.4 mm).",
               "Shoe Sizing (ISO 9407 Mondopoint): Translates US, UK, and Paris-Point EU sizes through canonical foot length in millimeters plus brand last offsets.",
               "Ring Sizing (ISO 8653 & ISO/IEC 7810 ID-1): Uses a real 85.60 × 53.98 mm card reference to eliminate display DPI distortion on phones, laptops, and monitors."
@@ -619,7 +619,7 @@
           "kicker": "Tool 01 · Visueel vergelijken",
           "badge": "TV · KOFFER · BED",
           "title": "Tv, Handbagage & Matras Vergelijker",
-          "desc": "Leg twee tv's of bedden op ware schaal over elkaar, of check of jouw koffer past bij 34 luchtvaartmaatschappijen.",
+          "desc": "Leg twee tv's of bedden op ware schaal over elkaar, of check of jouw koffer past bij 75 .",
           "cta": "Open Scherm & Koffer",
           "imageAlt": "Illustratie van twee tv-schermen vergeleken naast een rolkoffer en bagageframe",
           "routes": [
@@ -674,9 +674,9 @@
         "name": "Scherm & Koffer",
         "title": "Tv, Handbagage & Matras Grootte Vergelijken | ScaleAndFit",
         "h1": "Tv, Handbagage & Matras Vergelijker",
-        "lead": "Bekijk schermen op echte schaal, test koffers bij 34 maatschappijen en plan loopruimte in de slaapkamer.",
-        "description": "Vergelijk tv's, monitoren, matrassen en handbagageafmetingen bij 34 maatschappijen gratis in je browser.",
-        "spec": "SCHAAL · 34 MAATSCHAPPIJEN"
+        "lead": "Bekijk schermen op echte schaal, test koffers bij 75  en plan loopruimte in de slaapkamer.",
+        "description": "Vergelijk tv's, monitoren, matrassen en handbagageafmetingen bij 75  gratis in je browser.",
+        "spec": "SCHAAL · 75 "
       },
       "printable-paper": {
         "name": "Papier & Etiketten",
@@ -688,19 +688,19 @@
       },
       "size-converter": {
         "name": "Schoen & Ringmaat",
-        "title": "Schoenmaten Omrekenen (24 Merken) & Online Ringmeter | ScaleAndFit",
+        "title": "Schoenmaten Omrekenen (45 ) & Online Ringmeter | ScaleAndFit",
         "h1": "Schoenmaat Omrekenen & Ringmeter",
-        "lead": "Vind direct de juiste maat tussen 24 merken op echte voetlengte (mm/cm) of meet een ring met een gewone bankpas op je scherm.",
-        "description": "Zet EU, UK, US en cm schoenmaten om tussen 24 merken en meet ringen op ware grootte met elke bankpas.",
-        "spec": "24 MERKEN · BANKPAS SCHAAL"
+        "lead": "Vind direct de juiste maat tussen 45  op echte voetlengte (mm/cm) of meet een ring met een gewone bankpas op je scherm.",
+        "description": "Zet EU, UK, US en cm schoenmaten om tussen 45  en meet ringen op ware grootte met elke bankpas.",
+        "spec": "45  · BANKPAS SCHAAL"
       },
       "passport-photo": {
         "name": "Pasfoto Maken",
         "title": "Zelf Biometrische Pasfoto & 10×15 Printvel Maken | ScaleAndFit",
         "h1": "Pasfoto, Visum & ID Foto Maker",
-        "lead": "Plaats je portret makkelijk binnen de officiële lijnen voor 36 landen en download los als bestand of 10×15 printvel.",
-        "description": "Maak thuis pasfoto's volgens officiële maten voor Nederland, België en 34 andere landen — alles blijft lokaal.",
-        "spec": "36 LANDEN · PRIVÉ CANVAS"
+        "lead": "Plaats je portret makkelijk binnen de officiële lijnen voor 90  en download los als bestand of 10×15 printvel.",
+        "description": "Maak thuis pasfoto's volgens officiële maten voor Nederland, België en ruim 88 andere documentformaten — alles blijft lokaal.",
+        "spec": "90  · PRIVÉ CANVAS"
       }
     },
     "passport": {
@@ -932,7 +932,7 @@
           {
             "heading": "Gebruikte Internationale Normen",
             "list": [
-              "Pasfoto's (ICAO 9303): 300 DPI afdrukkwaliteit en officiële hoofdverhoudingen voor 36 landen.",
+              "Pasfoto's (ICAO 9303): 300 DPI afdrukkwaliteit en officiële hoofdverhoudingen voor 90 .",
               "Printbare PDF's (72 PostScript pt/inch): Echte geometrie voor ISO A4 en US Letter zonder kwaliteitsverlies.",
               "Schoenmaten (ISO 9407 Mondopoint): Omrekenen via echte millimeterlengte plus specifieke merkpasvormen.",
               "Ringmaten (ISO 8653 & Bankpas ISO/IEC 7810 ID-1): IJking met 85,60 mm pasje werkt op elk scherm."
@@ -1086,7 +1086,7 @@
           "kicker": "Outil 01 · Comparer en vrai",
           "badge": "TV · BAGAGE · LIT",
           "title": "Comparateur Écrans, Bagages & Matelas",
-          "desc": "Superposez deux téléviseurs ou matelas à l'échelle exacte, ou vérifiez si votre valise passe chez 34 compagnies aériennes.",
+          "desc": "Superposez deux téléviseurs ou matelas à l'échelle exacte, ou vérifiez si votre valise passe chez 75 .",
           "cta": "Ouvrir le Comparateur",
           "imageAlt": "Illustration comparant deux écrans TV à côté d'une valise cabine",
           "routes": [
@@ -1112,7 +1112,7 @@
           "kicker": "Outil 03 · Trouver sa taille",
           "badge": "CHAUSSURES · BAGUES",
           "title": "Pointures par Marque & Baguier",
-          "desc": "Convertissez votre pointure entre 24 marques selon la longueur réelle du pied en mm, ou mesurez une bague avec une carte bancaire.",
+          "desc": "Convertissez votre pointure entre 45  selon la longueur réelle du pied en mm, ou mesurez une bague avec une carte bancaire.",
           "cta": "Ouvrir Convertisseur",
           "imageAlt": "Illustration d'une mesure de chaussure contre un mur et d'un baguier calibré par carte sur tablette",
           "routes": [
@@ -1141,9 +1141,9 @@
         "name": "Écran & Bagage",
         "title": "Comparateur TV, Bagage Cabine & Matelas à l'Échelle | ScaleAndFit",
         "h1": "Comparateur Écrans, Bagages & Lits",
-        "lead": "Visualisez deux écrans côte à côte ou superposés, vérifiez 34 compagnies aériennes et simulez la place autour de votre lit.",
-        "description": "Comparez téléviseurs, moniteurs, matelas et dimensions de bagages cabine pour 34 compagnies aériennes localement.",
-        "spec": "ÉCHELLE EXACTE · 34 COMPAGNIES"
+        "lead": "Visualisez deux écrans côte à côte ou superposés, vérifiez 75  et simulez la place autour de votre lit.",
+        "description": "Comparez téléviseurs, moniteurs, matelas et dimensions de bagages cabine pour 75  localement.",
+        "spec": "ÉCHELLE EXACTE · 75 "
       },
       "printable-paper": {
         "name": "Papier & Étiquettes",
@@ -1155,19 +1155,19 @@
       },
       "size-converter": {
         "name": "Chaussures & Bagues",
-        "title": "Convertisseur Pointures 24 Marques & Baguier Carte Bancaire | ScaleAndFit",
+        "title": "Convertisseur Pointures 45  & Baguier Carte Bancaire | ScaleAndFit",
         "h1": "Convertisseur Chaussures & Baguier",
-        "lead": "Traduisez vos pointures EU, US, UK et cm sur 24 marques, et calibrez un baguier précis avec n'importe quelle carte bancaire.",
-        "description": "Convertissez les pointures sur 24 marques par longueur en mm et mesurez une bague à l'écran avec une carte de 85,60 mm.",
-        "spec": "24 MARQUES · CALIBRAGE CARTE"
+        "lead": "Traduisez vos pointures EU, US, UK et cm sur 45 , et calibrez un baguier précis avec n'importe quelle carte bancaire.",
+        "description": "Convertissez les pointures sur 45  par longueur en mm et mesurez une bague à l'écran avec une carte de 85,60 mm.",
+        "spec": "45  · CALIBRAGE CARTE"
       },
       "passport-photo": {
         "name": "Photo d'Identité",
         "title": "Créateur Photo Passeport, CNI & Planche 10×15 cm | ScaleAndFit",
         "h1": "Photo Passeport, Visa & Carte d'Identité",
-        "lead": "Recadrez votre portrait aux normes de 36 pays en local dans votre navigateur et téléchargez en 300 DPI ou sur planche 10×15.",
+        "lead": "Recadrez votre portrait aux normes de 90  en local dans votre navigateur et téléchargez en 300 DPI ou sur planche 10×15.",
         "description": "Créez des photos biométriques 35×45 mm ou 2×2 pouces localement avec aperçu 10×15 cm prêt à imprimer.",
-        "spec": "36 PAYS · TRAITEMENT LOCAL"
+        "spec": "90  · TRAITEMENT LOCAL"
       }
     },
     "passport": {
@@ -1175,7 +1175,7 @@
       "controlsTitle": "Réglages de la Photo",
       "countryGroupTitle": "Étape 1 · Pays & Document",
       "popularLabel": "Populaires :",
-      "countrySelectLabel": "Tous les Formats (36 pays)",
+      "countrySelectLabel": "Tous les Formats (90 )",
       "specsUnit": "formats",
       "dropTitle": "Choisir une Photo sur Votre Appareil",
       "dropSub": "ou glisser-déposer un portrait ici",
@@ -1381,9 +1381,9 @@
           {
             "heading": "Normes Utilisées",
             "list": [
-              "Photos ICAO 9303 à 300 DPI pour 36 pays.",
+              "Photos ICAO 9303 à 300 DPI pour 90 .",
               "PDF vectoriels exacts à 72 points/pouce (A4 & US Letter).",
-              "Pointures ISO 9407 Mondopoint en millimètres sur 24 marques.",
+              "Pointures ISO 9407 Mondopoint en millimètres sur 45 .",
               "Baguier ISO 8653 calibré par carte ISO/IEC 7810 ID-1 (85,60 mm)."
             ]
           }
@@ -1509,7 +1509,7 @@
       "title": "ScaleAndFit — Einfache Größenvergleiche, Druck-PDFs & Passbilder",
       "h1": "Jede Größe in Sekunden Sicher Prüfen",
       "lead": "Vergleiche Fernseher und Handgepäck im echten Maßstab, drucke millimetergenaue PDF-Vorlagen, rechne Schuh- & Ringgrößen um und erstelle Passbilder lokal.",
-      "description": "Lokale Browser-Toolbox für maßstabsgetreue Bildschirm- & Gepäckvergleiche, A4-Druckvorlagen, 24 Schuhmarken, Ringmesser und 300-DPI-Passfotos.",
+      "description": "Lokale Browser-Toolbox für maßstabsgetreue Bildschirm- & Gepäckvergleiche, A4-Druckvorlagen, 45 , Ringmesser und 300-DPI-Passfotos.",
       "searchLabel": "Schnellsuche über 200+ Fertige Vorlagen",
       "searchPlaceholder": "Was möchtest du prüfen? z. B. Reisepass, Ryanair Koffer, 55 vs 65 Zoll TV, A4 Punktraster...",
       "quickPopularLabel": "Beliebt:",
@@ -1534,7 +1534,7 @@
           "kicker": "Tool 01 · Visuell vergleichen",
           "badge": "TV · KOFFER · BETT",
           "title": "TV-, Handgepäck- & Matratzen-Vergleich",
-          "desc": "Lege zwei TV-Größen oder Betten exakt übereinander oder prüfe dein Handgepäck gegen 34 Airline-Vorgaben.",
+          "desc": "Lege zwei TV-Größen oder Betten exakt übereinander oder prüfe dein Handgepäck gegen 75 .",
           "cta": "Vergleich Starten",
           "imageAlt": "Illustration eines TV-Größenvergleichs neben einem Handgepäck-Trolley",
           "routes": [
@@ -1589,9 +1589,9 @@
         "name": "TV & Handgepäck",
         "title": "TV-, Handgepäck- & Matratzen-Größenvergleich | ScaleAndFit",
         "h1": "TV, Handgepäck & Matratze im Vergleich",
-        "lead": "Vergleiche Bildschirme maßstabsgetreu, prüfe Handgepäck bei 34 Airlines und berechne Gehwege im Schlafzimmer.",
+        "lead": "Vergleiche Bildschirme maßstabsgetreu, prüfe Handgepäck bei 75  und berechne Gehwege im Schlafzimmer.",
         "description": "Maßstabsgetreuer Browser-Vergleich für Fernseher, Monitore, Betten und Handgepäck-Regeln.",
-        "spec": "ECHTMASS · 34 AIRLINES"
+        "spec": "ECHTMASS · 75 "
       },
       "printable-paper": {
         "name": "Papier & Etiketten",
@@ -1605,17 +1605,17 @@
         "name": "Schuhe & Ringe",
         "title": "Schuhgrößen Umrechnen & Online-Ringmesser | ScaleAndFit",
         "h1": "Schuhgrößen & Bankkarten-Ringmesser",
-        "lead": "Vergleiche 24 Schuhmarken nach echter Fußlänge in mm oder kalibriere dein Display per Bankkarte.",
-        "description": "EU-, US-, UK- und cm-Schuhgrößen zwischen 24 Marken umrechnen und Ringdurchmesser mit 85,60-mm-Karte messen.",
-        "spec": "24 MARKEN · KARTEN-EICHUNG"
+        "lead": "Vergleiche 45  nach echter Fußlänge in mm oder kalibriere dein Display per Bankkarte.",
+        "description": "EU-, US-, UK- und cm-Schuhgrößen zwischen 45  umrechnen und Ringdurchmesser mit 85,60-mm-Karte messen.",
+        "spec": "45  · KARTEN-EICHUNG"
       },
       "passport-photo": {
         "name": "Passbild Studio",
         "title": "Biometrisches Passfoto Selbst Erstellen & 10×15 Druckbogen | ScaleAndFit",
         "h1": "Passbild-, Visum- & Ausweisfoto-Studio",
-        "lead": "Bringe dein Porträt für 36 Länder exakt in die Schablone und speichere 300-DPI-Einzelbilder oder 10×15-Druckbögen.",
+        "lead": "Bringe dein Porträt für 90  exakt in die Schablone und speichere 300-DPI-Einzelbilder oder 10×15-Druckbögen.",
         "description": "Schneide Passfotos für Deutschland, Österreich, Schweiz und 33 weitere Länder direkt im Browser zu.",
-        "spec": "36 LÄNDER · PRIVAT IM BROWSER"
+        "spec": "90  · PRIVAT IM BROWSER"
       }
     },
     "passport": {
@@ -1831,7 +1831,7 @@
             "list": [
               "ICAO Doc 9303 Passbilder bei 300 DPI.",
               "PostScript PDF-Vektoren (72 pt/in) für DIN A4 und US Letter.",
-              "ISO 9407 Mondopoint-Umrechnung für 24 Schuhmarken.",
+              "ISO 9407 Mondopoint-Umrechnung für 45 .",
               "ISO 8653 Ringgrößen geeicht über ISO/IEC 7810 ID-1 Karten (85,60 mm)."
             ]
           }
@@ -1954,7 +1954,7 @@
       "title": "ScaleAndFit — Medidas Visuales, Papel PDF y Fotos de Pasaporte",
       "h1": "Comprueba Cualquier Medida en Segundos",
       "lead": "Compara televisores y maletas de cabina a escala real, imprime papel cuadriculado y calendarios PDF exactos, convierte tallas por milímetros y recorta fotos oficiales.",
-      "description": "Estudio privado en navegador para comparar TVs, verificar equipaje en 34 aerolíneas, imprimir PDFs A4/Carta, convertir tallas y crear fotos de pasaporte.",
+      "description": "Estudio privado en navegador para comparar TVs, verificar equipaje en 75 , imprimir PDFs A4/Carta, convertir tallas y crear fotos de pasaporte.",
       "searchLabel": "Búsqueda Rápida entre Más de 200 Herramientas",
       "searchPlaceholder": "¿Qué necesitas medir hoy? Ej: foto pasaporte, maleta Ryanair, TV 55 vs 65, papel A4...",
       "quickPopularLabel": "Accesos populares:",
@@ -1979,7 +1979,7 @@
           "kicker": "Herramienta 01 · Comparar visualmente",
           "badge": "TV · MALETA · CAMA",
           "title": "Comparador de Pantallas, Maletas y Camas",
-          "desc": "Superpón dos televisores o colchones a escala exacta, o comprueba si tu maleta cabe en 34 aerolíneas.",
+          "desc": "Superpón dos televisores o colchones a escala exacta, o comprueba si tu maleta cabe en 75 .",
           "cta": "Abrir Comparador",
           "imageAlt": "Ilustración comparando pantallas de TV junto a una maleta de cabina",
           "routes": [
@@ -2005,7 +2005,7 @@
           "kicker": "Herramienta 03 · Talla exacta",
           "badge": "ZAPATOS · ANILLOS",
           "title": "Conversor de Calzado y Medidor de Anillos",
-          "desc": "Traduce tu talla entre 24 marcas por longitud real en mm o calibra la pantalla con una tarjeta bancaria para medir anillos.",
+          "desc": "Traduce tu talla entre 45  por longitud real en mm o calibra la pantalla con una tarjeta bancaria para medir anillos.",
           "cta": "Abrir Conversor",
           "imageAlt": "Medición de zapatilla contra la pared junto a tableta con medidor de anillo y tarjeta",
           "routes": [
@@ -2034,9 +2034,9 @@
         "name": "Pantallas y Equipaje",
         "title": "Comparador Visual de TVs, Maletas de Cabina y Colchones | ScaleAndFit",
         "h1": "Comparador Visual de Pantallas, Maletas y Camas",
-        "lead": "Compara televisores a escala real, verifica maletas en 34 aerolíneas y planifica el espacio del dormitorio.",
-        "description": "Compara televisores, monitores, colchones y medidas de equipaje de mano en 34 aerolíneas desde el navegador.",
-        "spec": "ESCALA REAL · 34 AEROLÍNEAS"
+        "lead": "Compara televisores a escala real, verifica maletas en 75  y planifica el espacio del dormitorio.",
+        "description": "Compara televisores, monitores, colchones y medidas de equipaje de mano en 75  desde el navegador.",
+        "spec": "ESCALA REAL · 75 "
       },
       "printable-paper": {
         "name": "Papel y Etiquetas",
@@ -2050,17 +2050,17 @@
         "name": "Calzado y Anillos",
         "title": "Conversor de Tallas de Calzado y Medidor de Anillos | ScaleAndFit",
         "h1": "Conversor de Calzado y Medidor de Anillos",
-        "lead": "Compara 24 marcas por longitud del pie en mm y calibra la pantalla con cualquier tarjeta bancaria para medir tu anillo.",
-        "description": "Convierte tallas EU, US, UK y cm en 24 marcas y mide anillos en pantalla usando una tarjeta de 85,60 mm.",
-        "spec": "24 MARCAS · CALIBRE TARJETA"
+        "lead": "Compara 45  por longitud del pie en mm y calibra la pantalla con cualquier tarjeta bancaria para medir tu anillo.",
+        "description": "Convierte tallas EU, US, UK y cm en 45  y mide anillos en pantalla usando una tarjeta de 85,60 mm.",
+        "spec": "45  · CALIBRE TARJETA"
       },
       "passport-photo": {
         "name": "Foto Carnet",
         "title": "Creador de Fotos de Pasaporte, DNI y Visado 300 DPI | ScaleAndFit",
         "h1": "Estudio de Foto Pasaporte, DNI y Visado",
-        "lead": "Ajusta tu retrato a las medidas oficiales de 36 países sin salir de casa y descarga foto individual o lámina 10×15 cm.",
+        "lead": "Ajusta tu retrato a las medidas oficiales de 90  sin salir de casa y descarga foto individual o lámina 10×15 cm.",
         "description": "Recorta fotos biométricas de pasaporte y visado en 300 DPI localmente y crea láminas 4×6 listas para imprimir.",
-        "spec": "36 PAÍSES · PROCESO LOCAL"
+        "spec": "90  · PROCESO LOCAL"
       }
     },
     "passport": {
@@ -2068,7 +2068,7 @@
       "controlsTitle": "Configurar Tu Foto",
       "countryGroupTitle": "Paso 1 · País y Documento",
       "popularLabel": "Populares:",
-      "countrySelectLabel": "Todos los Formatos (36 países)",
+      "countrySelectLabel": "Todos los Formatos (90 )",
       "specsUnit": "formatos",
       "dropTitle": "Elegir Foto del Dispositivo",
       "dropSub": "o arrastra una foto aquí",

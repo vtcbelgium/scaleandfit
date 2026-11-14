@@ -118,6 +118,34 @@
       "lengthCm": 200,
       "region": "UK",
       "widthCm": 180
+    },
+    {
+      "id": "eu-narrow-80x200",
+      "label": "EU Narrow Single 80x200",
+      "lengthCm": 200,
+      "region": "EU",
+      "widthCm": 80
+    },
+    {
+      "id": "eu-french-double-140x190",
+      "label": "EU French Double 140x190",
+      "lengthCm": 190,
+      "region": "EU",
+      "widthCm": 140
+    },
+    {
+      "id": "us-rv-short-queen",
+      "label": "US RV Short Queen",
+      "lengthCm": 190.5,
+      "region": "US",
+      "widthCm": 152.4
+    },
+    {
+      "id": "uk-emperor-200x200",
+      "label": "UK Emperor 200x200",
+      "lengthCm": 200,
+      "region": "UK",
+      "widthCm": 200
     }
   ],
   "screens": [
@@ -312,6 +340,70 @@
       "diagonalIn": 100,
       "id": "100-tv-16x9",
       "label": "100\" TV"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 16,
+      "category": "monitor",
+      "diagonalIn": 21.5,
+      "id": "21-5-monitor-16x9",
+      "label": "21.5\" Monitor"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 16,
+      "category": "monitor",
+      "diagonalIn": 28,
+      "id": "28-4k-monitor-16x9",
+      "label": "28\" 4K Monitor"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 16,
+      "category": "monitor",
+      "diagonalIn": 32,
+      "id": "32-oled-monitor-16x9",
+      "label": "32\" OLED Monitor"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 21,
+      "category": "monitor",
+      "diagonalIn": 40,
+      "id": "40-ultrawide-21x9",
+      "label": "40\" Ultrawide"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 21,
+      "category": "monitor",
+      "diagonalIn": 45,
+      "id": "45-ultrawide-oled-21x9",
+      "label": "45\" OLED Ultrawide"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 16,
+      "category": "tv",
+      "diagonalIn": 40,
+      "id": "40-tv-16x9",
+      "label": "40\" TV"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 16,
+      "category": "tv",
+      "diagonalIn": 58,
+      "id": "58-tv-16x9",
+      "label": "58\" TV"
+    },
+    {
+      "aspectH": 9,
+      "aspectW": 16,
+      "category": "tv",
+      "diagonalIn": 70,
+      "id": "70-tv-16x9",
+      "label": "70\" TV"
     }
   ]
 }

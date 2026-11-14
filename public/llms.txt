@@ -1,11 +1,22 @@
 # ScaleAndFit (scaleandfit.com)
 
-ScaleAndFit is a 100% client-side, multilingual (EN, NL, FR, DE, ES) utility platform housing four precision studio suites:
+ScaleAndFit is a 100% client-side, multilingual (EN, NL, FR, DE, ES) utility platform housing four precision studio suites across 554 English base routes and 2,825 static localized pages:
 
-- visual-sizer (/visual-sizer/) — Visual TV/monitor/mattress scale overlays & airline carry-on sizer checks across 34 airlines
-- printable-paper (/printable-paper/) — Client-side vector PDF dot-grid, graph, Cornell notes, holiday calendars & Avery labels
-- size-converter (/size-converter/) — Millimeter Mondopoint brand shoe matrix & credit-card calibrated ring sizer
-- passport-photo (/passport-photo/) — Local passport/visa photo cropper, webcam capture & 300-DPI 4x6 print sheet generator
+- visual-sizer (/visual-sizer/) — Visual TV/monitor/mattress scale overlays & airline carry-on sizer checks across 75 airlines (plus 25 head-to-head airline comparisons)
+- printable-paper (/printable-paper/) — Client-side vector PDF dot-grid, graph, Cornell notes, 20-country holiday calendars & 30 Avery label templates
+- size-converter (/size-converter/) — Millimeter Mondopoint shoe matrix across 45 brands & credit-card calibrated ISO 8653 ring sizer
+- passport-photo (/passport-photo/) — Local passport/visa photo cropper across 90 biometric country specs, webcam capture & 25 retailer 300-DPI 4x6 / 10x15 cm print sheets
+
+## Machine-Readable Discovery & Open Specification API
+
+- /sitemap-index.xml — Sharded XML sitemap index covering core pages, suite hubs, 4 suite shards, and 5 locale shards
+- /llms-full.txt — Full categorized route directory with titles, descriptions, and canonical URLs
+- /api/specs/index.json — Open specification JSON manifest (ICAO Doc 9303, ISO 9407, ISO 8653, ISO/IEC 7810 ID-1)
+- /api/specs/airlines.json — Verified cabin & underseat baggage rules in cm, inches, kg, and liters for 75 airlines
+- /api/specs/displays-and-mattresses.json — 32 display geometry profiles & 21 regional mattress standards
+- /api/specs/paper-and-labels.json — 30 Avery/label geometry templates & 20 country holiday datasets
+- /api/specs/footwear-and-rings.json — 45 Mondopoint footwear brand offsets & ISO 8653 ring sizing formulas
+- /api/specs/passport-photos.json — 90 biometric passport, visa, and ID photo specifications
 
 ## Additional Information, Guides & Legal Pages
 

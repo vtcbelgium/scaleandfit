@@ -1696,6 +1696,21 @@ dialog.palette-modal::backdrop {
   text-decoration: underline;
 }
 
+.geo-answer-card {
+  border-left: 4px solid var(--accent);
+}
+
+.geo-summary-text {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.directory-kind-group + .directory-kind-group {
+  margin-top: 10px;
+}
+
 @media print {
   .site-header,
   .site-footer,

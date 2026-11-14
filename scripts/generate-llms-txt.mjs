@@ -15,7 +15,8 @@ export function buildLlmsSummary(routes, origin = "https://scaleandfit.com") {
   });
 
   let summary = "# ScaleAndFit\n\n";
-  summary += "Multilingual client-side suites available in EN (`/`), NL (`/nl/`), FR (`/fr/`), DE (`/de/`), and ES (`/es/`).\n\n";
+  summary += `Multilingual client-side suites (${routes.length} English base templates across EN \`/\`, NL \`/nl/\`, FR \`/fr/\`, DE \`/de/\`, and ES \`/es/\`).\n\n`;
+  summary += "Machine-Readable Discovery: `/sitemap-index.xml`, `/api/specs/index.json`, `/api/specs/airlines.json`, `/api/specs/displays-and-mattresses.json`, `/api/specs/paper-and-labels.json`, `/api/specs/footwear-and-rings.json`, `/api/specs/passport-photos.json`.\n\n";
   summary += "Guides & Legal: `/guides/`, `/about/`, `/privacy/`, `/terms/`, `/cookies/`, `/contact/`.\n\n";
   for (const [suite, items] of Object.entries(suites)) {
     summary += `## ${suite}\n\n`;

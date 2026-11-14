@@ -1,34 +1,36 @@
 {
-  "schema": "scaleandfit.synthesis.v1",
+  "schema": "scaleandfit.synthesis.v2",
   "model": "qwen2.5-coder:7b",
   "deepcoderModule": "C:/OTHRYS/repos/OTHRYS/agents/cortex/deepcoder_dsl.mjs",
-  "generatedAt": "2026-11-13T21:45:22.124Z",
+  "generatedAt": "2026-11-14T00:48:32.925Z",
   "batches": {
     "airlines": {
-      "count": 34,
-      "elapsedMs": 57253,
-      "sha256": "a9b71c6b07d8fefa3abbcee2dc94df8aad589f20331243bb409b04173aee9a8c"
+      "count": 75,
+      "elapsedMs": 5596,
+      "ollamaFallback": false,
+      "sha256": "af81d17d133e7a17acf63550d23b8c5b44bf26c1abd7f4ad1c8dfa7b5409ff42"
     },
     "screensAndMattresses": {
-      "screens": 24,
-      "mattresses": 17,
-      "sha256": "d373990942d18b751b083d76cddb6af6a2982f025148e6c8606245da0ed6e3cc"
+      "screens": 32,
+      "mattresses": 21,
+      "sha256": "2729e55e7eb7bef92a905f576bda2075a4afbd66d0f654e9f944fb9d0c053c45"
     },
     "holidaysAndAvery": {
-      "countries": 10,
-      "totalHolidays": 139,
-      "averyTemplates": 8,
-      "sha256": "94b8a06994a5eeb6b0eb389767dee2e8d6768b651f61a9d858d519f5c75236b8"
+      "countries": 20,
+      "totalHolidays": 325,
+      "averyTemplates": 30,
+      "sha256": "4371d1fe41c82b5fa36b628a9d6d1a2bfc97c222e61b3e875c35a4fbfe9ac104"
     },
     "extendedFootwearPhoto": {
-      "extraShoes": 12,
-      "extraPhotos": 21,
-      "elapsedMs": 44535,
-      "sha256": "cec6e74117f41f01f96b40a23c5ebc5ba1d02830db08ba06d09c13cdaedfe27c"
+      "extraShoes": 33,
+      "extraPhotos": 75,
+      "sha256": "f41d4af4ac5fc6521b14fe67e673664140900878b2045855b47ac4fdb8afdcc7"
     }
   },
   "deepcoderSynthesisOk": true,
   "deepcoderPipeline": [
-    "slugify"
+    "slugify",
+    "canonicalizeJson",
+    "sha256Hex"
   ]
 }

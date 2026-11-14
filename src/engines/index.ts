@@ -13,3 +13,4 @@ export * from "./sizer/index.js";
 export * from "./paper/index.js";
 export * from "./footwear/index.js";
 export * from "./photo/index.js";
+export * from "./apparel/index.js";

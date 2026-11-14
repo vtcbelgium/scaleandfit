@@ -678,5 +678,825 @@
     "policyNote": "Personal item included",
     "region": "APAC",
     "slug": "qantas-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "EW",
+    "name": "Eurowings",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      25
+    ],
+    "policyNote": "Carry-on limit: 50x32x20 cm.",
+    "region": "EU",
+    "slug": "eurowings-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      20
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "DE",
+    "name": "Condor",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "condor-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      45,
+      25
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "LS",
+    "name": "Jet2",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "jet2-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "LO",
+    "name": "LOT Polish Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      35,
+      12
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "lot-polish-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "AY",
+    "name": "Finnair",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "finnair-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "OS",
+    "name": "Austrian Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "austrian-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      35,
+      25
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "AZ",
+    "name": "ITA Airways",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      45,
+      36,
+      20
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "ita-airways-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      45,
+      25
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "A3",
+    "name": "Aegean Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Carry-on limit: 55x35x23 cm.",
+    "region": "EU",
+    "slug": "aegean-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      20
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "V7",
+    "name": "Volotea",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      20
+    ],
+    "policyNote": "Under-seat bag free; Priority adds 10 kg cabin roller",
+    "region": "EU",
+    "slug": "volotea-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      35,
+      25
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "UX",
+    "name": "Air Europa",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "10 kg 55x35x25 cm overhead bag included on Economy",
+    "region": "EU",
+    "slug": "air-europa-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "BT",
+    "name": "airBaltic",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      30,
+      40,
+      10
+    ],
+    "policyNote": "8 kg combined cabin weight across trolley and personal bag",
+    "region": "EU",
+    "slug": "airbaltic-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      40,
+      25
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "I2",
+    "name": "Iberia Express",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Standard 56x40x25 cm overhead cabin allowance",
+    "region": "EU",
+    "slug": "iberia-express-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      20
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "PC",
+    "name": "Pegasus Airlines",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Basic international fares allow 40x30x15 cm 3 kg under-seat only",
+    "region": "EU",
+    "slug": "pegasus-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "TK",
+    "name": "Turkish Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "8 kg 55x40x23 cm cabin bag plus personal item",
+    "region": "EU",
+    "slug": "turkish-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      20
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "FI",
+    "name": "Icelandair",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "10 kg cabin bag; Economy Light limits dimensions strictly",
+    "region": "EU",
+    "slug": "icelandair-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      45,
+      25
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "OG",
+    "name": "PLAY Airlines",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      42,
+      32,
+      25
+    ],
+    "policyNote": "Basic fare covers 42x32x25 cm personal item only",
+    "region": "EU",
+    "slug": "play-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "VS",
+    "name": "Virgin Atlantic",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "10 kg cabin trolley plus small personal item included",
+    "region": "EU",
+    "slug": "virgin-atlantic-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      20
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "OU",
+    "name": "Croatia Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "8 kg 115 cm linear cabin allowance on Airbus & Dash 8",
+    "region": "EU",
+    "slug": "croatia-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "LG",
+    "name": "Luxair",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "8 kg overhead bag plus small handbag included",
+    "region": "EU",
+    "slug": "luxair-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "XQ",
+    "name": "SUNEXPRESS",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      20
+    ],
+    "policyNote": "SunLight allows 4 kg personal under-seat item only",
+    "region": "EU",
+    "slug": "sunexpress-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      40,
+      35,
+      18
+    ],
+    "carryOnWeightKg": 6,
+    "iata": "LM",
+    "name": "Loganair",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      35,
+      25,
+      15
+    ],
+    "policyNote": "Compact regional turboprop bins cap length at 40 cm",
+    "region": "EU",
+    "slug": "loganair-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      45,
+      25
+    ],
+    "carryOnWeightKg": 8,
+    "iata": "OK",
+    "name": "Czech Airlines",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Lite fare requires paid upgrade for overhead cabin case",
+    "region": "EU",
+    "slug": "czech-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 9,
+    "iata": "PD",
+    "name": "Porter Airlines",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      43,
+      33,
+      16
+    ],
+    "policyNote": "Basic fare allows personal item only; Standard adds overhead",
+    "region": "NA",
+    "slug": "porter-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      23
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "F8",
+    "name": "Flair Airlines",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      43,
+      33,
+      15
+    ],
+    "policyNote": "Personal item free; overhead carry-on requires fee",
+    "region": "NA",
+    "slug": "flair-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 12,
+    "iata": "MX",
+    "name": "Breeze Airways",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      43,
+      33,
+      20
+    ],
+    "policyNote": "No Flex fare includes under-seat item only",
+    "region": "NA",
+    "slug": "breeze-airways-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      25
+    ],
+    "carryOnWeightKg": 11,
+    "iata": "G4",
+    "name": "Allegiant Air",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      45,
+      36,
+      20
+    ],
+    "policyNote": "One personal item included; overhead rollaboard paid",
+    "region": "NA",
+    "slug": "allegiant-air-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 11,
+    "iata": "HA",
+    "name": "Hawaiian Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      45,
+      35,
+      20
+    ],
+    "policyNote": "22x14x9 in overhead bag up to 11.5 kg included",
+    "region": "NA",
+    "slug": "hawaiian-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      25
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "AM",
+    "name": "Aeromexico",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "10 kg combined cabin allowance on Basic AM+ routes",
+    "region": "NA",
+    "slug": "aeromexico-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      26
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "CM",
+    "name": "Copa Airlines",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      43,
+      25,
+      22
+    ],
+    "policyNote": "10 kg carry-on included across Americas network",
+    "region": "NA",
+    "slug": "copa-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      61,
+      41,
+      28
+    ],
+    "carryOnWeightKg": 16,
+    "iata": "SY",
+    "name": "Sun Country Airlines",
+    "overheadFree": false,
+    "personalIncluded": true,
+    "personalItemCm": [
+      43,
+      33,
+      23
+    ],
+    "policyNote": "Personal item free; paid overhead bag up to 35 lb",
+    "region": "NA",
+    "slug": "sun-country-airlines-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      54,
+      38,
+      23
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "TR",
+    "name": "Scoot",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "10 kg combined cabin weight (two pieces total)",
+    "region": "APAC",
+    "slug": "scoot-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "AK",
+    "name": "AirAsia",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "Strict 7 kg combined cabin plus small bag limit",
+    "region": "APAC",
+    "slug": "airasia-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "CX",
+    "name": "Cathay Pacific",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "7 kg Economy cabin bag plus personal small item",
+    "region": "APAC",
+    "slug": "cathay-pacific-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "BR",
+    "name": "EVA Air",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "7 kg cabin bag limit with strict 115 cm linear cap",
+    "region": "APAC",
+    "slug": "eva-air-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      40,
+      20
+    ],
+    "carryOnWeightKg": 10,
+    "iata": "KE",
+    "name": "Korean Air",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "10 kg cabin bag plus personal item allowed in Economy",
+    "region": "APAC",
+    "slug": "korean-air-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "VJ",
+    "name": "VietJet Air",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      10
+    ],
+    "policyNote": "7 kg combined carry-on and small handbag allowance",
+    "region": "APAC",
+    "slug": "vietjet-air-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      35,
+      25
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "6E",
+    "name": "IndiGo",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "7 kg overhead plus 3 kg personal laptop/handbag",
+    "region": "APAC",
+    "slug": "indigo-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      35,
+      25
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "NZ",
+    "name": "Air New Zealand",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "118 cm total linear length, 7 kg Economy limit",
+    "region": "APAC",
+    "slug": "air-new-zealand-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      36,
+      23
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "JQ",
+    "name": "Jetstar",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "Strict gate scale check at 7 kg combined across two bags",
+    "region": "APAC",
+    "slug": "jetstar-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      56,
+      45,
+      25
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "SV",
+    "name": "Saudia",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "7 kg Guest Class cabin bag plus personal item",
+    "region": "ME",
+    "slug": "saudia-carry-on-size"
+  },
+  {
+    "carryOnCm": [
+      55,
+      38,
+      25
+    ],
+    "carryOnWeightKg": 7,
+    "iata": "WY",
+    "name": "Oman Air",
+    "overheadFree": true,
+    "personalIncluded": true,
+    "personalItemCm": [
+      40,
+      30,
+      15
+    ],
+    "policyNote": "7 kg single Economy cabin allowance (115 cm linear)",
+    "region": "ME",
+    "slug": "oman-air-carry-on-size"
   }
 ]

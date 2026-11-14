@@ -60,7 +60,7 @@ function buildHowToJsonLd(suite, lang, canonicalUrl) {
   };
 }
 
-function buildJsonLdScripts({ url, suite, lang, infoPage, h1, description, faqJsonLd }) {
+function buildJsonLdScripts({ url, suite, lang, infoPage, h1, description, faqJsonLd, datasetJsonLd }) {
   const tr = getBundle(lang);
   const blocks = [];
 
@@ -145,6 +145,21 @@ function buildJsonLdScripts({ url, suite, lang, infoPage, h1, description, faqJs
     itemListElement: crumbs,
   });
 
+  if (datasetJsonLd) {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: h1,
+      url,
+      inLanguage: lang,
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".geo-summary-text"],
+      },
+    });
+    blocks.push(datasetJsonLd);
+  }
+
   if (faqJsonLd) blocks.push(faqJsonLd);
 
   return blocks
@@ -164,6 +179,7 @@ function renderDocument({
   preset,
   referenceHtml,
   faqJsonLd = null,
+  datasetJsonLd = null,
   noIndex = false,
   assets,
 }) {
@@ -173,7 +189,7 @@ function renderDocument({
   const presetAttr = escapeHtml(JSON.stringify(preset || {}));
   const jsonLdHtml = noIndex
     ? ""
-    : buildJsonLdScripts({ url: canonicalUrl, suite, lang, infoPage, h1, description, faqJsonLd });
+    : buildJsonLdScripts({ url: canonicalUrl, suite, lang, infoPage, h1, description, faqJsonLd, datasetJsonLd });
   const hreflangHtml = noIndex ? "" : `\n  ${renderHreflangLinks(canonicalEnPath, ORIGIN)}`;
   const robotsMeta = noIndex ? `\n  <meta name="robots" content="noindex, follow" />` : "";
   const pageAttr = infoPage ? ` data-page="${escapeHtml(infoPage)}"` : "";
@@ -248,12 +264,45 @@ function renderHubReference(routes, lang) {
   return `<section class="seo-reference container">${suiteCards}</section>`;
 }
 
+const KIND_LABELS = {
+  "screen-compare": { en: "Screen & Display Comparisons", nl: "Scherm- & TV-vergelijkingen", fr: "Comparatifs Écrans & TV", de: "Bildschirm- & TV-Vergleiche", es: "Comparativas de Pantallas y TV" },
+  "airline-bag": { en: "Airline Cabin Bag Rules", nl: "Handbagageregels per luchtvaartmaatschappij", fr: "Bagages Cabine par Compagnie", de: "Handgepäck-Regeln nach Airline", es: "Equipaje de Mano por Aerolínea" },
+  "airline-compare": { en: "Head-to-Head Airline Comparisons", nl: "Luchtvaartmaatschappij-vergelijkingen", fr: "Comparatifs Compagnies Aériennes", de: "Airline-Direktvergleiche", es: "Comparativas entre Aerolíneas" },
+  "mattress-compare": { en: "Mattress & Bed Dimensions", nl: "Matras- & bedmaten", fr: "Dimensions Matelas & Lits", de: "Matratzen- & Bettgrößen", es: "Medidas de Colchones y Camas" },
+  "paper-grid": { en: "Printable Grids & Note Templates", nl: "Printbare rasters & notitiesjablonen", fr: "Grilles & Modèles Imprimables", de: "Druckbare Raster & Vorlagen", es: "Cuadrículas y Plantillas Imprimibles" },
+  "holiday-calendar": { en: "Country Holiday Calendars", nl: "Feestdagenkalenders per land", fr: "Calendriers des Jours Fériés", de: "Feiertagskalender nach Land", es: "Calendarios de Festivos por País" },
+  "avery-label": { en: "Avery Label Sheet Layouts", nl: "Avery etiketvellen", fr: "Planches d'Étiquettes Avery", de: "Avery Etiketten-Vorlagen", es: "Plantillas de Etiquetas Avery" },
+  "shoe-pair": { en: "Brand-to-Brand Shoe Fit Guides", nl: "Merk-naar-merk schoenmaatvergelijkingen", fr: "Comparatifs Pointures entre Marques", de: "Marken-Schuhgrößen-Vergleiche", es: "Comparativas de Tallas entre Marcas" },
+  "shoe-chart": { en: "Single-Brand Mondopoint Charts", nl: "Mondopoint-maattabellen per merk", fr: "Grilles Mondopoint par Marque", de: "Mondopoint-Tabellen nach Marke", es: "Tablas Mondopoint por Marca" },
+  "ring-guide": { en: "Regional & Precision Ring Size Guides", nl: "Regionale & precisie-ringmaatgidsen", fr: "Guides des Tailles de Bague", de: "Ringgrößen-Ratgeber", es: "Guías de Tallas de Anillo" },
+  "photo-spec": { en: "Country Biometric Specs & Store Print Sheets", nl: "Landelijke pasfotonormen & afdrukvellen", fr: "Normes Biométriques & Planches Photo", de: "Biometrische Normen & Druckbögen", es: "Normas Biométricas y Hojas de Impresión" },
+};
+
 function renderSuiteDirectoryReference(suiteId, suiteRoutes, lang) {
   const tr = getBundle(lang);
-  const links = suiteRoutes
-    .map((r) => {
-      const lr = localizeLeafRoute(r, lang);
-      return `<a class="directory-link" href="${escapeHtml(lr.path)}"><span>${escapeHtml(lr.h1)}</span><span aria-hidden="true">&rarr;</span></a>`;
+  const grouped = new Map();
+  for (const r of suiteRoutes) {
+    const k = r.kind || "other";
+    if (!grouped.has(k)) grouped.set(k, []);
+    grouped.get(k).push(r);
+  }
+  const sectionsHtml = [...grouped.entries()]
+    .map(([kind, items]) => {
+      const heading = KIND_LABELS[kind]?.[lang] || KIND_LABELS[kind]?.en || kind;
+      const links = items
+        .map((r) => {
+          const lr = localizeLeafRoute(r, lang);
+          return `<a class="directory-link" href="${escapeHtml(lr.path)}"><span>${escapeHtml(lr.h1)}</span><span aria-hidden="true">&rarr;</span></a>`;
+        })
+        .join("");
+      return `
+        <div class="directory-kind-group">
+          <div class="panel-header" style="margin-top:16px">
+            <h3 class="panel-title">${escapeHtml(heading)}</h3>
+            <span class="section-kicker">${items.length}</span>
+          </div>
+          <div class="directory-grid">${links}</div>
+        </div>`;
     })
     .join("");
   return `
@@ -263,7 +312,7 @@ function renderSuiteDirectoryReference(suiteId, suiteRoutes, lang) {
           <h2 class="panel-title">${escapeHtml(tr.seo.directoryTitle)}</h2>
           <span class="section-kicker">${suiteRoutes.length} ${escapeHtml(tr.seo.directoryUnit)}</span>
         </div>
-        <div class="directory-grid">${links}</div>
+        ${sectionsHtml}
       </div>
     </section>
   `;
@@ -274,6 +323,159 @@ async function writeRouteHtml(relPath, html) {
   const targetDir = cleanRel ? path.join(distDir, cleanRel) : distDir;
   await mkdir(targetDir, { recursive: true });
   await writeFile(path.join(targetDir, "index.html"), html, "utf8");
+}
+
+function renderUrlsetXml(entries, today) {
+  return (
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    entries
+      .map(
+        (u) =>
+          `  <url><loc>${ORIGIN}${u.path}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${u.priority}</priority></url>`
+      )
+      .join("\n") +
+    `\n</urlset>\n`
+  );
+}
+
+async function readEngineJson(relPath) {
+  const localPath = path.join(webRoot, "src/engines/_data", relPath);
+  try {
+    return JSON.parse(await readFile(localPath, "utf8"));
+  } catch {
+    return JSON.parse(await readFile(path.resolve(webRoot, "../scaleandfit-engines/data", relPath), "utf8"));
+  }
+}
+
+async function extractTsJsonArray(relTsPath, exportName) {
+  const src = await readFile(path.join(webRoot, "src/engines", relTsPath), "utf8");
+  const marker = src.indexOf(`export const ${exportName}`);
+  if (marker === -1) throw new Error(`Missing export ${exportName} in ${relTsPath}`);
+  const eqIdx = src.indexOf("=", marker);
+  const arrStart = eqIdx === -1 ? -1 : src.indexOf("[", eqIdx);
+  const endMatch = arrStart === -1 ? null : src.slice(arrStart).match(/\r?\n\];/);
+  if (arrStart === -1 || !endMatch || endMatch.index === undefined) {
+    throw new Error(`Malformed JSON array for ${exportName} in ${relTsPath}`);
+  }
+  const arrEnd = arrStart + endMatch.index + endMatch[0].length - 1;
+  return JSON.parse(src.slice(arrStart, arrEnd));
+}
+
+async function writeShardedSitemaps(urlEntries, today) {
+  const sitemapsDir = path.join(distDir, "sitemaps");
+  await mkdir(sitemapsDir, { recursive: true });
+
+  const shardMap = {
+    "core-and-legal.xml": urlEntries.filter((u) => u.suite === "hub" || u.suite === "info" || u.kind === "suite-hub"),
+    "visual-sizer.xml": urlEntries.filter((u) => u.suite === "visual-sizer"),
+    "printable-paper.xml": urlEntries.filter((u) => u.suite === "printable-paper"),
+    "size-converter.xml": urlEntries.filter((u) => u.suite === "size-converter"),
+    "passport-photo.xml": urlEntries.filter((u) => u.suite === "passport-photo"),
+    ...Object.fromEntries(LOCALE_CODES.map((code) => [`locale-${code}.xml`, urlEntries.filter((u) => u.lang === code)])),
+  };
+
+  await Promise.all(
+    Object.entries(shardMap).map(([filename, entries]) =>
+      writeFile(path.join(sitemapsDir, filename), renderUrlsetXml(entries, today), "utf8")
+    )
+  );
+
+  const sitemapIndexXml =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    Object.keys(shardMap)
+      .map((filename) => `  <sitemap><loc>${ORIGIN}/sitemaps/${filename}</loc><lastmod>${today}</lastmod></sitemap>`)
+      .join("\n") +
+    `\n</sitemapindex>\n`;
+  await writeFile(path.join(distDir, "sitemap-index.xml"), sitemapIndexXml, "utf8");
+  return Object.keys(shardMap).length;
+}
+
+async function writeOpenSpecsApi(today, routeCount, localizedCount) {
+  const apiDir = path.join(distDir, "api/specs");
+  await mkdir(apiDir, { recursive: true });
+
+  const [airlines, scrMat, holAvery, shoes, photos] = await Promise.all([
+    readEngineJson("airlines.json"),
+    readEngineJson("screens_and_mattresses.json"),
+    readEngineJson("holidays_and_avery.json"),
+    extractTsJsonArray("footwear/shoes.ts", "SHOE_BRANDS"),
+    extractTsJsonArray("photo/specs.ts", "BIOMETRIC_PHOTO_SPECS"),
+  ]);
+
+  const toLiters = (cm) => Number(((cm[0] * cm[1] * cm[2]) / 1000).toFixed(1));
+  const enrichedAirlines = airlines.map((a) => ({
+    ...a,
+    carryOnLiters: toLiters(a.carryOnCm),
+    personalItemLiters: toLiters(a.personalItemCm),
+  }));
+
+  const indexPayload = {
+    schema: "scaleandfit.open-specs.v1",
+    origin: ORIGIN,
+    generatedAt: today,
+    license: `${ORIGIN}/terms/`,
+    standards: ["ICAO Doc 9303", "ISO 9407", "ISO 8653", "ISO/IEC 7810 ID-1", "SMPTE EG-18-1"],
+    counts: {
+      baseRoutes: routeCount,
+      localizedRoutes: localizedCount,
+      locales: LOCALE_CODES,
+      airlines: enrichedAirlines.length,
+      displays: scrMat.screens.length,
+      mattresses: scrMat.mattresses.length,
+      averyTemplates: holAvery.avery.length,
+      holidayCountries: Object.keys(holAvery.holidays).length,
+      shoeBrands: shoes.length,
+      biometricPhotoSpecs: photos.length,
+    },
+    endpoints: {
+      airlines: `${ORIGIN}/api/specs/airlines.json`,
+      displaysAndMattresses: `${ORIGIN}/api/specs/displays-and-mattresses.json`,
+      paperAndLabels: `${ORIGIN}/api/specs/paper-and-labels.json`,
+      footwearAndRings: `${ORIGIN}/api/specs/footwear-and-rings.json`,
+      passportPhotos: `${ORIGIN}/api/specs/passport-photos.json`,
+    },
+  };
+
+  await Promise.all([
+    writeFile(path.join(apiDir, "index.json"), JSON.stringify(indexPayload, null, 2), "utf8"),
+    writeFile(
+      path.join(apiDir, "airlines.json"),
+      JSON.stringify({ schema: "scaleandfit.airlines.v1", generatedAt: today, count: enrichedAirlines.length, airlines: enrichedAirlines }, null, 2),
+      "utf8"
+    ),
+    writeFile(
+      path.join(apiDir, "displays-and-mattresses.json"),
+      JSON.stringify({ schema: "scaleandfit.displays-mattresses.v1", generatedAt: today, displays: scrMat.screens, mattresses: scrMat.mattresses }, null, 2),
+      "utf8"
+    ),
+    writeFile(
+      path.join(apiDir, "paper-and-labels.json"),
+      JSON.stringify({ schema: "scaleandfit.paper-labels.v1", generatedAt: today, averyTemplates: holAvery.avery, holidaysByCountry: holAvery.holidays }, null, 2),
+      "utf8"
+    ),
+    writeFile(
+      path.join(apiDir, "footwear-and-rings.json"),
+      JSON.stringify(
+        {
+          schema: "scaleandfit.footwear-rings.v1",
+          generatedAt: today,
+          standard: "ISO 9407 Mondopoint / ISO 8653 Ring Sizing",
+          ringFormula: "circumferenceMm = diameterMm * Math.PI",
+          shoeBrands: shoes,
+        },
+        null,
+        2
+      ),
+      "utf8"
+    ),
+    writeFile(
+      path.join(apiDir, "passport-photos.json"),
+      JSON.stringify({ schema: "scaleandfit.passport-photos.v1", generatedAt: today, standard: "ICAO Doc 9303", count: photos.length, specs: photos }, null, 2),
+      "utf8"
+    ),
+  ]);
 }
 
 async function main() {
@@ -301,7 +503,7 @@ async function main() {
       assets,
     });
     await writeRouteHtml(hubPath, hubHtml);
-    urlEntries.push({ path: hubPath, priority: "1.0" });
+    urlEntries.push({ path: hubPath, priority: "1.0", lang, suite: "hub", kind: "hub" });
 
     // 2. Suite Hubs (20 total: 4 suites * 5 locales)
     for (const suiteId of SUITES) {
@@ -322,7 +524,7 @@ async function main() {
         assets,
       });
       await writeRouteHtml(suiteLocPath, html);
-      urlEntries.push({ path: suiteLocPath, priority: "0.9" });
+      urlEntries.push({ path: suiteLocPath, priority: "0.9", lang, suite: suiteId, kind: "suite-hub" });
     }
 
     // 3. Info & Legal Pages (30 total: 6 pages * 5 locales)
@@ -344,13 +546,15 @@ async function main() {
         assets,
       });
       await writeRouteHtml(infoLocPath, html);
-      urlEntries.push({ path: infoLocPath, priority: pageId === "guides" ? "0.8" : "0.6" });
+      urlEntries.push({ path: infoLocPath, priority: pageId === "guides" ? "0.8" : "0.6", lang, suite: "info", kind: "info-page" });
     }
 
-    // 4. Leaf Routes (1,040 total: 208 * 5 locales)
+    // 4. Leaf Routes (batched writes of 64 for high static scale)
+    const leafWriteBatch = [];
     for (const route of routes) {
       const lr = localizeLeafRoute(route, lang);
-      const ref = renderRouteReferenceHtml(route, routes, lang);
+      const canonicalUrl = `${ORIGIN}${lr.path}`;
+      const ref = renderRouteReferenceHtml(route, routes, lang, canonicalUrl);
       const html = renderDocument({
         canonicalEnPath: route.path,
         lang,
@@ -362,10 +566,16 @@ async function main() {
         preset: route.preset,
         referenceHtml: ref.html,
         faqJsonLd: ref.faqJsonLd,
+        datasetJsonLd: ref.datasetJsonLd,
         assets,
       });
-      await writeRouteHtml(lr.path, html);
-      urlEntries.push({ path: lr.path, priority: "0.8" });
+      leafWriteBatch.push({ path: lr.path, html });
+      urlEntries.push({ path: lr.path, priority: "0.8", lang, suite: route.suite, kind: route.kind });
+    }
+
+    for (let i = 0; i < leafWriteBatch.length; i += 64) {
+      const chunk = leafWriteBatch.slice(i, i + 64);
+      await Promise.all(chunk.map((item) => writeRouteHtml(item.path, item.html)));
     }
 
     // 5. Localized Route Search Index (route-index.json + route-index.{nl,fr,de,es}.json)
@@ -413,25 +623,28 @@ async function main() {
   });
   await writeFile(path.join(distDir, "404.html"), notFoundHtml, "utf8");
 
-  // 7. sitemap.xml (1,095 routes across all 5 languages)
-  const sitemapXml =
+  // 7. Flat sitemap.xml + 10 Sharded Sitemaps + sitemap-index.xml
+  const renderUrlsetXml = (entries) =>
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    urlEntries
+    entries
       .map(
         (u) =>
           `  <url><loc>${ORIGIN}${u.path}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${u.priority}</priority></url>`
       )
       .join("\n") +
     `\n</urlset>\n`;
-  await writeFile(path.join(distDir, "sitemap.xml"), sitemapXml, "utf8");
+
+  await writeFile(path.join(distDir, "sitemap.xml"), renderUrlsetXml(urlEntries, today), "utf8");
+  const shardCount = await writeShardedSitemaps(urlEntries, today);
+  await writeOpenSpecsApi(today, routes.length, urlEntries.length);
 
   // 8. llms-full.txt
   const llmsFull = buildLlmsSummary(routes, ORIGIN);
   await writeFile(path.join(distDir, "llms-full.txt"), llmsFull, "utf8");
 
   console.log(
-    `[postbuild-seo] Built ${urlEntries.length} static localized routes across 5 languages, sitemap.xml, llms-full.txt, 5 route-index JSON files, and 404.html cleanly.`
+    `[postbuild-seo] Built ${urlEntries.length} static localized routes across 5 languages, sitemap.xml, ${shardCount} sitemap shards + sitemap-index.xml, 6 open API spec JSON files, llms-full.txt, 5 route-index JSON files, and 404.html cleanly.`
   );
 }
 

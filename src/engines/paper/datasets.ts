@@ -12,10 +12,118 @@ export const HOLIDAY_COUNTRIES: Record<string, string> = {
   "CA": "Canada",
   "AU": "Australia",
   "ES": "Spain",
-  "IT": "Italy"
+  "IT": "Italy",
+  "IE": "Ireland",
+  "CH": "Switzerland",
+  "AT": "Austria",
+  "PT": "Portugal",
+  "PL": "Poland",
+  "SE": "Sweden",
+  "NO": "Norway",
+  "DK": "Denmark",
+  "JP": "Japan",
+  "MX": "Mexico"
 };
 
 export const PUBLIC_HOLIDAYS_2026_2027: Record<string, HolidayEntry[]> = {
+  "AT": [
+    {
+      "date": "2026-01-01",
+      "name": "Neujahr"
+    },
+    {
+      "date": "2026-01-06",
+      "name": "Heilige Drei Könige"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Ostermontag"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Staatsfeiertag"
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Christi Himmelfahrt"
+    },
+    {
+      "date": "2026-05-25",
+      "name": "Pfingstmontag"
+    },
+    {
+      "date": "2026-06-04",
+      "name": "Fronleichnam"
+    },
+    {
+      "date": "2026-08-15",
+      "name": "Mariä Himmelfahrt"
+    },
+    {
+      "date": "2026-10-26",
+      "name": "Nationalfeiertag"
+    },
+    {
+      "date": "2026-11-01",
+      "name": "Allerheiligen"
+    },
+    {
+      "date": "2026-12-08",
+      "name": "Mariä Empfängnis"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Christtag"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Stefanitag"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Neujahr"
+    },
+    {
+      "date": "2027-01-06",
+      "name": "Heilige Drei Könige"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Ostermontag"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Staatsfeiertag"
+    },
+    {
+      "date": "2027-05-06",
+      "name": "Christi Himmelfahrt"
+    },
+    {
+      "date": "2027-05-17",
+      "name": "Pfingstmontag"
+    },
+    {
+      "date": "2027-05-27",
+      "name": "Fronleichnam"
+    },
+    {
+      "date": "2027-08-15",
+      "name": "Mariä Himmelfahrt"
+    },
+    {
+      "date": "2027-10-26",
+      "name": "Nationalfeiertag"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Christtag"
+    },
+    {
+      "date": "2027-12-26",
+      "name": "Stefanitag"
+    }
+  ],
   "AU": [
     {
       "date": "2026-01-01",
@@ -190,6 +298,64 @@ export const PUBLIC_HOLIDAYS_2026_2027: Record<string, HolidayEntry[]> = {
       "name": "Christmas Day"
     }
   ],
+  "CH": [
+    {
+      "date": "2026-01-01",
+      "name": "Neujahr / Nouvel An"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Karfreitag / Vendredi saint"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Ostermontag / Lundi de Pâques"
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Auffahrt / Ascension"
+    },
+    {
+      "date": "2026-05-25",
+      "name": "Pfingstmontag / Lundi de Pentecôte"
+    },
+    {
+      "date": "2026-08-01",
+      "name": "Bundesfeiertag / Fête nationale"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Weihnachten / Noël"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Neujahr / Nouvel An"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Karfreitag / Vendredi saint"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Ostermontag / Lundi de Pâques"
+    },
+    {
+      "date": "2027-05-06",
+      "name": "Auffahrt / Ascension"
+    },
+    {
+      "date": "2027-05-17",
+      "name": "Pfingstmontag / Lundi de Pentecôte"
+    },
+    {
+      "date": "2027-08-01",
+      "name": "Bundesfeiertag / Fête nationale"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Weihnachten / Noël"
+    }
+  ],
   "DE": [
     {
       "date": "2026-01-01",
@@ -250,6 +416,72 @@ export const PUBLIC_HOLIDAYS_2026_2027: Record<string, HolidayEntry[]> = {
     {
       "date": "2027-12-25",
       "name": "1. Weihnachtstag"
+    }
+  ],
+  "DK": [
+    {
+      "date": "2026-01-01",
+      "name": "Nytårsdag"
+    },
+    {
+      "date": "2026-04-02",
+      "name": "Skærtorsdag"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Langfredag"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Anden påskedag"
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Kristi himmelfartsdag"
+    },
+    {
+      "date": "2026-05-25",
+      "name": "Anden pinsedag"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Juledag"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Anden juledag"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Nytårsdag"
+    },
+    {
+      "date": "2027-03-25",
+      "name": "Skærtorsdag"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Langfredag"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Anden påskedag"
+    },
+    {
+      "date": "2027-05-06",
+      "name": "Kristi himmelfartsdag"
+    },
+    {
+      "date": "2027-05-17",
+      "name": "Anden pinsedag"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Juledag"
+    },
+    {
+      "date": "2027-12-26",
+      "name": "Anden juledag"
     }
   ],
   "ES": [
@@ -422,6 +654,88 @@ export const PUBLIC_HOLIDAYS_2026_2027: Record<string, HolidayEntry[]> = {
       "name": "Christmas Day (Observed)"
     }
   ],
+  "IE": [
+    {
+      "date": "2026-01-01",
+      "name": "New Year's Day"
+    },
+    {
+      "date": "2026-02-02",
+      "name": "St Brigid's Day"
+    },
+    {
+      "date": "2026-03-17",
+      "name": "St Patrick's Day"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Easter Monday"
+    },
+    {
+      "date": "2026-05-04",
+      "name": "May Bank Holiday"
+    },
+    {
+      "date": "2026-06-01",
+      "name": "June Bank Holiday"
+    },
+    {
+      "date": "2026-08-03",
+      "name": "August Bank Holiday"
+    },
+    {
+      "date": "2026-10-26",
+      "name": "October Bank Holiday"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Christmas Day"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "St Stephen's Day"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "New Year's Day"
+    },
+    {
+      "date": "2027-02-01",
+      "name": "St Brigid's Day"
+    },
+    {
+      "date": "2027-03-17",
+      "name": "St Patrick's Day"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Easter Monday"
+    },
+    {
+      "date": "2027-05-03",
+      "name": "May Bank Holiday"
+    },
+    {
+      "date": "2027-06-07",
+      "name": "June Bank Holiday"
+    },
+    {
+      "date": "2027-08-02",
+      "name": "August Bank Holiday"
+    },
+    {
+      "date": "2027-10-25",
+      "name": "October Bank Holiday"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Christmas Day"
+    },
+    {
+      "date": "2027-12-26",
+      "name": "St Stephen's Day"
+    }
+  ],
   "IT": [
     {
       "date": "2026-01-01",
@@ -470,6 +784,146 @@ export const PUBLIC_HOLIDAYS_2026_2027: Record<string, HolidayEntry[]> = {
     {
       "date": "2027-12-25",
       "name": "Natale"
+    }
+  ],
+  "JP": [
+    {
+      "date": "2026-01-01",
+      "name": "New Year's Day (Ganjitsu)"
+    },
+    {
+      "date": "2026-01-12",
+      "name": "Coming of Age Day"
+    },
+    {
+      "date": "2026-02-11",
+      "name": "National Foundation Day"
+    },
+    {
+      "date": "2026-02-23",
+      "name": "Emperor's Birthday"
+    },
+    {
+      "date": "2026-04-29",
+      "name": "Showa Day"
+    },
+    {
+      "date": "2026-05-03",
+      "name": "Constitution Memorial Day"
+    },
+    {
+      "date": "2026-05-05",
+      "name": "Children's Day"
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Mountain Day"
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Culture Day"
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Labor Thanksgiving Day"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "New Year's Day (Ganjitsu)"
+    },
+    {
+      "date": "2027-01-11",
+      "name": "Coming of Age Day"
+    },
+    {
+      "date": "2027-02-11",
+      "name": "National Foundation Day"
+    },
+    {
+      "date": "2027-02-23",
+      "name": "Emperor's Birthday"
+    },
+    {
+      "date": "2027-04-29",
+      "name": "Showa Day"
+    },
+    {
+      "date": "2027-05-03",
+      "name": "Constitution Memorial Day"
+    },
+    {
+      "date": "2027-05-05",
+      "name": "Children's Day"
+    },
+    {
+      "date": "2027-08-11",
+      "name": "Mountain Day"
+    },
+    {
+      "date": "2027-11-03",
+      "name": "Culture Day"
+    },
+    {
+      "date": "2027-11-23",
+      "name": "Labor Thanksgiving Day"
+    }
+  ],
+  "MX": [
+    {
+      "date": "2026-01-01",
+      "name": "Año Nuevo"
+    },
+    {
+      "date": "2026-02-02",
+      "name": "Día de la Constitución"
+    },
+    {
+      "date": "2026-03-16",
+      "name": "Natalicio de Benito Juárez"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Día del Trabajo"
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Día de la Independencia"
+    },
+    {
+      "date": "2026-11-16",
+      "name": "Día de la Revolución"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Navidad"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Año Nuevo"
+    },
+    {
+      "date": "2027-02-01",
+      "name": "Día de la Constitución"
+    },
+    {
+      "date": "2027-03-15",
+      "name": "Natalicio de Benito Juárez"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Día del Trabajo"
+    },
+    {
+      "date": "2027-09-16",
+      "name": "Día de la Independencia"
+    },
+    {
+      "date": "2027-11-15",
+      "name": "Día de la Revolución"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Navidad"
     }
   ],
   "NL": [
@@ -528,6 +982,326 @@ export const PUBLIC_HOLIDAYS_2026_2027: Record<string, HolidayEntry[]> = {
     {
       "date": "2027-12-25",
       "name": "Eerste Kerstdag"
+    }
+  ],
+  "NO": [
+    {
+      "date": "2026-01-01",
+      "name": "Første nyttårsdag"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Langfredag"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Andre påskedag"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Arbeidernes dag"
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Kristi himmelfartsdag"
+    },
+    {
+      "date": "2026-05-17",
+      "name": "Grunnlovsdagen"
+    },
+    {
+      "date": "2026-05-25",
+      "name": "Andre pinsedag"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Første juledag"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Andre juledag"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Første nyttårsdag"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Langfredag"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Andre påskedag"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Arbeidernes dag"
+    },
+    {
+      "date": "2027-05-06",
+      "name": "Kristi himmelfartsdag"
+    },
+    {
+      "date": "2027-05-17",
+      "name": "Grunnlovsdagen"
+    },
+    {
+      "date": "2027-05-17",
+      "name": "Andre pinsedag"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Første juledag"
+    },
+    {
+      "date": "2027-12-26",
+      "name": "Andre juledag"
+    }
+  ],
+  "PL": [
+    {
+      "date": "2026-01-01",
+      "name": "Nowy Rok"
+    },
+    {
+      "date": "2026-01-06",
+      "name": "Trzech Króli"
+    },
+    {
+      "date": "2026-04-05",
+      "name": "Wielkanoc"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Poniedziałek Wielkanocny"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Święto Pracy"
+    },
+    {
+      "date": "2026-05-03",
+      "name": "Święto Konstytucji 3 Maja"
+    },
+    {
+      "date": "2026-06-04",
+      "name": "Boże Ciało"
+    },
+    {
+      "date": "2026-08-15",
+      "name": "Wniebowzięcie NMP"
+    },
+    {
+      "date": "2026-11-01",
+      "name": "Wszystkich Świętych"
+    },
+    {
+      "date": "2026-11-11",
+      "name": "Święto Niepodległości"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Boże Narodzenie"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Drugi dzień Świąt"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Nowy Rok"
+    },
+    {
+      "date": "2027-01-06",
+      "name": "Trzech Króli"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Poniedziałek Wielkanocny"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Święto Pracy"
+    },
+    {
+      "date": "2027-05-03",
+      "name": "Święto Konstytucji 3 Maja"
+    },
+    {
+      "date": "2027-05-27",
+      "name": "Boże Ciało"
+    },
+    {
+      "date": "2027-08-15",
+      "name": "Wniebowzięcie NMP"
+    },
+    {
+      "date": "2027-11-11",
+      "name": "Święto Niepodległości"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Boże Narodzenie"
+    },
+    {
+      "date": "2027-12-26",
+      "name": "Drugi dzień Świąt"
+    }
+  ],
+  "PT": [
+    {
+      "date": "2026-01-01",
+      "name": "Ano Novo"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Sexta-feira Santa"
+    },
+    {
+      "date": "2026-04-25",
+      "name": "Dia da Liberdade"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Dia do Trabalhador"
+    },
+    {
+      "date": "2026-06-10",
+      "name": "Dia de Portugal"
+    },
+    {
+      "date": "2026-08-15",
+      "name": "Assunção de Nossa Senhora"
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Implantação da República"
+    },
+    {
+      "date": "2026-12-01",
+      "name": "Restauração da Independência"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Natal"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Ano Novo"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Sexta-feira Santa"
+    },
+    {
+      "date": "2027-04-25",
+      "name": "Dia da Liberdade"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Dia do Trabalhador"
+    },
+    {
+      "date": "2027-06-10",
+      "name": "Dia de Portugal"
+    },
+    {
+      "date": "2027-08-15",
+      "name": "Assunção de Nossa Senhora"
+    },
+    {
+      "date": "2027-10-05",
+      "name": "Implantação da República"
+    },
+    {
+      "date": "2027-12-01",
+      "name": "Restauração da Independência"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Natal"
+    }
+  ],
+  "SE": [
+    {
+      "date": "2026-01-01",
+      "name": "Nyårsdagen"
+    },
+    {
+      "date": "2026-01-06",
+      "name": "Trettondedag jul"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Långfredagen"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Annandag påsk"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Första maj"
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Kristi himmelsfärdsdag"
+    },
+    {
+      "date": "2026-06-06",
+      "name": "Sveriges nationaldag"
+    },
+    {
+      "date": "2026-06-20",
+      "name": "Midsommardagen"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Juldagen"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Annandag jul"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Nyårsdagen"
+    },
+    {
+      "date": "2027-01-06",
+      "name": "Trettondedag jul"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Långfredagen"
+    },
+    {
+      "date": "2027-03-29",
+      "name": "Annandag påsk"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Första maj"
+    },
+    {
+      "date": "2027-05-06",
+      "name": "Kristi himmelsfärdsdag"
+    },
+    {
+      "date": "2027-06-06",
+      "name": "Sveriges nationaldag"
+    },
+    {
+      "date": "2027-06-26",
+      "name": "Midsommardagen"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Juldagen"
+    },
+    {
+      "date": "2027-12-26",
+      "name": "Annandag jul"
     }
   ],
   "US": [
@@ -698,5 +1472,291 @@ export const AVERY_TEMPLATES: AveryTemplateSpec[] = [
     "name": "Avery J8160 Inkjet A4 (21/sheet)",
     "paper": "a4",
     "rows": 7
+  },
+  {
+    "code": "5161",
+    "cols": 2,
+    "gapXMm": 4.57,
+    "gapYMm": 0,
+    "labelHeightMm": 25.4,
+    "labelWidthMm": 101.6,
+    "marginLeftMm": 4.06,
+    "marginTopMm": 12.7,
+    "name": "Avery 5161 Address Labels (20/sheet)",
+    "paper": "letter",
+    "rows": 10
+  },
+  {
+    "code": "5162",
+    "cols": 2,
+    "gapXMm": 4.57,
+    "gapYMm": 0,
+    "labelHeightMm": 33.87,
+    "labelWidthMm": 101.6,
+    "marginLeftMm": 4.06,
+    "marginTopMm": 21.17,
+    "name": "Avery 5162 Address Labels (14/sheet)",
+    "paper": "letter",
+    "rows": 7
+  },
+  {
+    "code": "5164",
+    "cols": 2,
+    "gapXMm": 4.57,
+    "gapYMm": 0,
+    "labelHeightMm": 84.67,
+    "labelWidthMm": 101.6,
+    "marginLeftMm": 4.06,
+    "marginTopMm": 12.7,
+    "name": "Avery 5164 Shipping Labels (6/sheet)",
+    "paper": "letter",
+    "rows": 3
+  },
+  {
+    "code": "5195",
+    "cols": 4,
+    "gapXMm": 7.62,
+    "gapYMm": 0,
+    "labelHeightMm": 16.93,
+    "labelWidthMm": 44.45,
+    "marginLeftMm": 7.62,
+    "marginTopMm": 12.7,
+    "name": "Avery 5195 Return Labels (60/sheet)",
+    "paper": "letter",
+    "rows": 15
+  },
+  {
+    "code": "5260",
+    "cols": 3,
+    "gapXMm": 3.18,
+    "gapYMm": 0,
+    "labelHeightMm": 25.4,
+    "labelWidthMm": 66.68,
+    "marginLeftMm": 4.83,
+    "marginTopMm": 12.7,
+    "name": "Avery 5260 Laser Address (30/sheet)",
+    "paper": "letter",
+    "rows": 10
+  },
+  {
+    "code": "5263",
+    "cols": 2,
+    "gapXMm": 4.57,
+    "gapYMm": 0,
+    "labelHeightMm": 50.8,
+    "labelWidthMm": 101.6,
+    "marginLeftMm": 4.06,
+    "marginTopMm": 12.7,
+    "name": "Avery 5263 Inkjet Shipping (10/sheet)",
+    "paper": "letter",
+    "rows": 5
+  },
+  {
+    "code": "5388",
+    "cols": 1,
+    "gapXMm": 0,
+    "gapYMm": 0,
+    "labelHeightMm": 76.2,
+    "labelWidthMm": 127,
+    "marginLeftMm": 44.45,
+    "marginTopMm": 25.4,
+    "name": "Avery 5388 Index Cards 3x5 (3/sheet)",
+    "paper": "letter",
+    "rows": 3
+  },
+  {
+    "code": "8160",
+    "cols": 3,
+    "gapXMm": 3.18,
+    "gapYMm": 0,
+    "labelHeightMm": 25.4,
+    "labelWidthMm": 66.68,
+    "marginLeftMm": 4.83,
+    "marginTopMm": 12.7,
+    "name": "Avery 8160 Inkjet Address (30/sheet)",
+    "paper": "letter",
+    "rows": 10
+  },
+  {
+    "code": "8163",
+    "cols": 2,
+    "gapXMm": 4.57,
+    "gapYMm": 0,
+    "labelHeightMm": 50.8,
+    "labelWidthMm": 101.6,
+    "marginLeftMm": 4.06,
+    "marginTopMm": 12.7,
+    "name": "Avery 8163 Inkjet Shipping (10/sheet)",
+    "paper": "letter",
+    "rows": 5
+  },
+  {
+    "code": "8167",
+    "cols": 4,
+    "gapXMm": 7.62,
+    "gapYMm": 0,
+    "labelHeightMm": 12.7,
+    "labelWidthMm": 44.45,
+    "marginLeftMm": 7.62,
+    "marginTopMm": 12.7,
+    "name": "Avery 8167 Inkjet Return (80/sheet)",
+    "paper": "letter",
+    "rows": 20
+  },
+  {
+    "code": "8371",
+    "cols": 2,
+    "gapXMm": 0,
+    "gapYMm": 0,
+    "labelHeightMm": 50.8,
+    "labelWidthMm": 88.9,
+    "marginLeftMm": 19.05,
+    "marginTopMm": 12.7,
+    "name": "Avery 8371 Business Cards (10/sheet)",
+    "paper": "letter",
+    "rows": 5
+  },
+  {
+    "code": "L7159",
+    "cols": 3,
+    "gapXMm": 2.55,
+    "gapYMm": 0,
+    "labelHeightMm": 33.9,
+    "labelWidthMm": 63.5,
+    "marginLeftMm": 7.2,
+    "marginTopMm": 13,
+    "name": "Avery L7159 A4 Mini Address (24/sheet)",
+    "paper": "a4",
+    "rows": 8
+  },
+  {
+    "code": "L7161",
+    "cols": 3,
+    "gapXMm": 2.55,
+    "gapYMm": 0,
+    "labelHeightMm": 46.6,
+    "labelWidthMm": 63.5,
+    "marginLeftMm": 7.2,
+    "marginTopMm": 8.7,
+    "name": "Avery L7161 A4 Address (18/sheet)",
+    "paper": "a4",
+    "rows": 6
+  },
+  {
+    "code": "L7162",
+    "cols": 2,
+    "gapXMm": 2.5,
+    "gapYMm": 0,
+    "labelHeightMm": 34,
+    "labelWidthMm": 99.1,
+    "marginLeftMm": 4.65,
+    "marginTopMm": 12.5,
+    "name": "Avery L7162 A4 Parcel (16/sheet)",
+    "paper": "a4",
+    "rows": 8
+  },
+  {
+    "code": "L7166",
+    "cols": 2,
+    "gapXMm": 2.5,
+    "gapYMm": 0,
+    "labelHeightMm": 93.1,
+    "labelWidthMm": 99.1,
+    "marginLeftMm": 4.65,
+    "marginTopMm": 8.85,
+    "name": "Avery L7166 A4 Large Parcel (6/sheet)",
+    "paper": "a4",
+    "rows": 3
+  },
+  {
+    "code": "L7168",
+    "cols": 1,
+    "gapXMm": 0,
+    "gapYMm": 0,
+    "labelHeightMm": 143.5,
+    "labelWidthMm": 199.6,
+    "marginLeftMm": 5.2,
+    "marginTopMm": 5,
+    "name": "Avery L7168 A4 Half-Sheet (2/sheet)",
+    "paper": "a4",
+    "rows": 2
+  },
+  {
+    "code": "L7173",
+    "cols": 2,
+    "gapXMm": 2.5,
+    "gapYMm": 0,
+    "labelHeightMm": 57,
+    "labelWidthMm": 99.1,
+    "marginLeftMm": 4.65,
+    "marginTopMm": 6,
+    "name": "Avery L7173 A4 Wide Parcel (10/sheet)",
+    "paper": "a4",
+    "rows": 5
+  },
+  {
+    "code": "J8159",
+    "cols": 3,
+    "gapXMm": 2.55,
+    "gapYMm": 0,
+    "labelHeightMm": 33.9,
+    "labelWidthMm": 63.5,
+    "marginLeftMm": 7.2,
+    "marginTopMm": 13,
+    "name": "Avery J8159 A4 Inkjet (24/sheet)",
+    "paper": "a4",
+    "rows": 8
+  },
+  {
+    "code": "J8163",
+    "cols": 2,
+    "gapXMm": 2.5,
+    "gapYMm": 0,
+    "labelHeightMm": 38.1,
+    "labelWidthMm": 99.1,
+    "marginLeftMm": 4.65,
+    "marginTopMm": 15.15,
+    "name": "Avery J8163 A4 Inkjet Parcel (14/sheet)",
+    "paper": "a4",
+    "rows": 7
+  },
+  {
+    "code": "J8165",
+    "cols": 2,
+    "gapXMm": 2.5,
+    "gapYMm": 0,
+    "labelHeightMm": 67.7,
+    "labelWidthMm": 99.1,
+    "marginLeftMm": 4.65,
+    "marginTopMm": 13.1,
+    "name": "Avery J8165 A4 Large Inkjet (8/sheet)",
+    "paper": "a4",
+    "rows": 4
+  },
+  {
+    "code": "HERMA-4270",
+    "cols": 3,
+    "gapXMm": 0,
+    "gapYMm": 0,
+    "labelHeightMm": 37,
+    "labelWidthMm": 70,
+    "marginLeftMm": 0,
+    "marginTopMm": 0.5,
+    "name": "Herma 4270 A4 Multi-Purpose (24/sheet)",
+    "paper": "a4",
+    "rows": 8
+  },
+  {
+    "code": "HERMA-4360",
+    "cols": 2,
+    "gapXMm": 0,
+    "gapYMm": 0,
+    "labelHeightMm": 37,
+    "labelWidthMm": 105,
+    "marginLeftMm": 0,
+    "marginTopMm": 0.5,
+    "name": "Herma 4360 A4 Shipping (16/sheet)",
+    "paper": "a4",
+    "rows": 8
   }
 ];
