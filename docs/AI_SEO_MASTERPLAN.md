@@ -8,6 +8,7 @@ ScaleAndFit.com uses a **Safe + Ambitious Programmatic SEO & Answer Engine Optim
 2. **Complete Linguistic Authenticity**: All programmatic pages are statically localized across 5 languages (`en`, `nl`, `fr`, `de`, `es`) with unique titles, unique meta descriptions, localized FAQ content, and reciprocal `hreflang` alternates.
 3. **Answer Engine Optimization (GEO)**: Each leaf page places a direct quantitative `.geo-summary-text` capsule directly below the interactive workspace, paired with `FAQPage`, `HowTo`, `WebApplication`, `Dataset`, and `SpeakableSpecification` JSON-LD plus an open CORS-enabled `/api/specs/` JSON citation feed.
 4. **Sovereign Compliance & Static Budget**: Zero third-party analytics/ad-tech tags (`ECONOMIC_VALVE_OPEN === false`), strict client-side canvas/PDF execution, and static output budget well below Cloudflare Workers' 20,000-asset threshold.
+5. **People-First Transparency & Zero Deceptive Authorship ("Who, How, and Why")**: Strictly forbids fabricated creator profiles, AI-generated headshots, invented human bylines, or `@type: "Person"` author markup. Every suite and dataset transparently attributes **ScaleAndFit Engineering (OTHRYS Systems)** (`Organization`), documents deterministic mathematical formulas and CI automation on localized `/about/` pages, and links open JSON verification feeds (`/api/specs/` + `publishingPrinciples` JSON-LD).
 
 ---
 

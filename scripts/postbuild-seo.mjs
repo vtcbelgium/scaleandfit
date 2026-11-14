@@ -83,6 +83,7 @@ function buildJsonLdScripts({ url, suite, lang, infoPage, h1, description, faqJs
       name: "ScaleAndFit (OTHRYS Systems)",
       url: `${ORIGIN}/`,
       logo: `${ORIGIN}/apple-touch-icon.png`,
+      publishingPrinciples: `${ORIGIN}${localizePath("/about/", lang)}`,
       contactPoint: {
         "@type": "ContactPoint",
         email: "othrys.systems@gmail.com",
@@ -146,12 +147,19 @@ function buildJsonLdScripts({ url, suite, lang, infoPage, h1, description, faqJs
   });
 
   if (datasetJsonLd) {
+    const aboutUrl = `${ORIGIN}${localizePath("/about/", lang)}`;
     blocks.push({
       "@context": "https://schema.org",
       "@type": "WebPage",
       name: h1,
       url,
       inLanguage: lang,
+      publishingPrinciples: aboutUrl,
+      author: {
+        "@type": "Organization",
+        name: "ScaleAndFit (OTHRYS Systems)",
+        url: aboutUrl,
+      },
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: ["h1", ".geo-summary-text"],

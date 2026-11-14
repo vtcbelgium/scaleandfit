@@ -100,12 +100,26 @@ describe("Wave 1 AI SEO & GEO Infrastructure", () => {
         const out = renderRouteReferenceHtml(route, routes, lang, `https://scaleandfit.com${lr.path}`);
         expect(out.html).toContain('class="card geo-answer-card"');
         expect(out.html).toContain('class="geo-summary-text"');
+        expect(out.html).toContain('class="card methodology-provenance"');
         expect(out.html).toContain("<table");
         expect(out.faqJsonLd?.["@type"]).toBe("FAQPage");
         expect(out.faqJsonLd?.mainEntity?.length).toBeGreaterThan(0);
         expect(out.datasetJsonLd?.["@type"]).toBe("Dataset");
         expect(out.datasetJsonLd?.inLanguage).toBe(lang);
+        expect(out.datasetJsonLd?.publishingPrinciples).toContain("/about/");
+        expect(out.datasetJsonLd?.creator?.["@type"]).toBe("Organization");
+        expect(JSON.stringify(out.datasetJsonLd)).not.toContain('"Person"');
       }
+    }
+  });
+
+  it("includes Google Who, How & Why transparency across all 5 About locales without truncated count nouns", () => {
+    const rawTranslations = fs.readFileSync(path.resolve(process.cwd(), "src/i18n/translations.json"), "utf8");
+    expect(rawTranslations).not.toMatch(/\b(?:75|45|90)\s{2,}|\b(?:75|45|90)\s+[.,]/);
+    for (const lang of LOCALE_CODES) {
+      const tr = getBundle(lang);
+      expect(tr.info.about.sections.length).toBeGreaterThanOrEqual(3);
+      expect(JSON.stringify(tr.info.about)).toContain("OTHRYS Systems");
     }
   });
 

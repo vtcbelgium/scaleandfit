@@ -1711,6 +1711,33 @@ dialog.palette-modal::backdrop {
   margin-top: 10px;
 }
 
+.methodology-provenance {
+  font-size: 0.86rem;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.methodology-provenance p {
+  margin: 0 0 10px;
+  line-height: 1.55;
+}
+
+.methodology-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.methodology-links a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.methodology-links a:hover {
+  text-decoration: underline;
+}
+
 @media print {
   .site-header,
   .site-footer,

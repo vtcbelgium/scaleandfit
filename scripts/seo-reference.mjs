@@ -1,4 +1,4 @@
-import { escapeHtml, getBundle, localizeLeafRoute } from "./i18n-seo.mjs";
+import { escapeHtml, getBundle, localizeLeafRoute, localizePath } from "./i18n-seo.mjs";
 
 export { escapeHtml };
 
@@ -632,6 +632,79 @@ function buildGeoCapsule(route, lang, calc) {
   return "";
 }
 
+function getProvenanceSpec(route) {
+  if (route.suite === "visual-sizer") {
+    return {
+      apiPath: String(route.kind || "").startsWith("airline")
+        ? "/api/specs/airlines.json"
+        : "/api/specs/displays-and-mattresses.json",
+      standardLabel: "SMPTE EG-18-1 & Carrier Published Dimensions",
+    };
+  }
+  if (route.suite === "printable-paper") {
+    return {
+      apiPath: "/api/specs/paper-and-labels.json",
+      standardLabel: "ISO 216 / ANSI · 72 PostScript pt/in",
+    };
+  }
+  if (route.suite === "size-converter") {
+    return {
+      apiPath: "/api/specs/footwear-and-rings.json",
+      standardLabel: "ISO 9407 Mondopoint & ISO 8653 / ISO/IEC 7810 ID-1",
+    };
+  }
+  return {
+    apiPath: "/api/specs/passport-photos.json",
+    standardLabel: "ICAO Doc 9303 · 300 DPI (11.811 px/mm)",
+  };
+}
+
+function getProvenanceCopy(lang, standardLabel) {
+  const byLang = {
+    en: {
+      title: "Verification, Authorship & Data Provenance",
+      kicker: "Who · How · Why",
+      body: `Maintained by ScaleAndFit Engineering (OTHRYS Systems). All figures on this page are computed deterministically from published standards (${standardLabel}) and sealed open JSON datasets rather than generative text.`,
+      jsonLink: "Open JSON Spec",
+      aboutLink: "Who, How & Why Methodology",
+      contactLink: "Report Update",
+    },
+    nl: {
+      title: "Verificatie, Auteurschap & Databronnen",
+      kicker: "Wie · Hoe · Waarom",
+      body: `Onderhouden door ScaleAndFit Engineering (OTHRYS Systems). Alle waarden op deze pagina worden wiskundig berekend uit officiële normen (${standardLabel}) en verzegelde open JSON-datasets.`,
+      jsonLink: "Open JSON-specificatie",
+      aboutLink: "Wie, Hoe & Waarom Methodologie",
+      contactLink: "Correctie melden",
+    },
+    fr: {
+      title: "Vérification, Équipe Éditoriale & Sources",
+      kicker: "Qui · Comment · Pourquoi",
+      body: `Maintenu par ScaleAndFit Engineering (OTHRYS Systems). Chaque mesure affichée est calculée de manière déterministe selon les normes publiées (${standardLabel}) et nos jeux JSON ouverts.`,
+      jsonLink: "Spécification JSON ouverte",
+      aboutLink: "Méthodologie Qui, Comment & Pourquoi",
+      contactLink: "Signaler une mise à jour",
+    },
+    de: {
+      title: "Prüfung, Autorschaft & Datenherkunft",
+      kicker: "Wer · Wie · Warum",
+      body: `Entwickelt von ScaleAndFit Engineering (OTHRYS Systems). Sämtliche Werte auf dieser Seite werden deterministisch aus veröffentlichten Normen (${standardLabel}) und offenen JSON-Datensätzen berechnet.`,
+      jsonLink: "Offene JSON-Spezifikation",
+      aboutLink: "Wer, Wie & Warum Methodik",
+      contactLink: "Änderung melden",
+    },
+    es: {
+      title: "Verificación, Autoría y Procedencia de Datos",
+      kicker: "Quién · Cómo · Por Qué",
+      body: `Mantenido por ScaleAndFit Engineering (OTHRYS Systems). Todos los valores de esta página se calculan de forma determinista según normas oficiales (${standardLabel}) y conjuntos JSON abiertos.`,
+      jsonLink: "Especificación JSON abierta",
+      aboutLink: "Metodología Quién, Cómo y Por Qué",
+      contactLink: "Notificar corrección",
+    },
+  };
+  return byLang[lang] || byLang.en;
+}
+
 export function renderRouteReferenceHtml(route, allRoutes, lang = "en", canonicalUrl = "") {
   const tr = getBundle(lang);
   const seoLabels = tr.seo || {
@@ -888,6 +961,24 @@ export function renderRouteReferenceHtml(route, allRoutes, lang = "en", canonica
     : null;
 
   const locRoute = localizeLeafRoute(route, lang);
+  const specInfo = getProvenanceSpec(route);
+  const pCopy = getProvenanceCopy(lang, specInfo.standardLabel);
+  const aboutPath = localizePath("/about/", lang);
+  const contactPath = localizePath("/contact/", lang);
+
+  const provenanceHtml = `<div class="card methodology-provenance">
+        <div class="panel-header">
+          <h3 class="panel-title">${escapeHtml(pCopy.title)}</h3>
+          <span class="section-kicker">${escapeHtml(pCopy.kicker)}</span>
+        </div>
+        <p>${escapeHtml(pCopy.body)}</p>
+        <div class="methodology-links">
+          <a href="${escapeHtml(specInfo.apiPath)}">${escapeHtml(pCopy.jsonLink)}</a>
+          <a href="${escapeHtml(aboutPath)}">${escapeHtml(pCopy.aboutLink)}</a>
+          <a href="${escapeHtml(contactPath)}">${escapeHtml(pCopy.contactLink)}</a>
+        </div>
+      </div>`;
+
   const datasetJsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -896,6 +987,12 @@ export function renderRouteReferenceHtml(route, allRoutes, lang = "en", canonica
     url: canonicalUrl || `https://scaleandfit.com${locRoute.path}`,
     inLanguage: lang,
     license: "https://scaleandfit.com/terms/",
+    publishingPrinciples: `https://scaleandfit.com${aboutPath}`,
+    distribution: {
+      "@type": "DataDownload",
+      encodingFormat: "application/json",
+      contentUrl: `https://scaleandfit.com${specInfo.apiPath}`,
+    },
     creator: {
       "@type": "Organization",
       name: "ScaleAndFit (OTHRYS Systems)",
@@ -903,7 +1000,7 @@ export function renderRouteReferenceHtml(route, allRoutes, lang = "en", canonica
   };
 
   return {
-    html: `<section class="seo-reference container">${geoCardHtml}${tableCardHtml}${faqHtml}${relatedHtml}</section>`,
+    html: `<section class="seo-reference container">${geoCardHtml}${tableCardHtml}${faqHtml}${relatedHtml}${provenanceHtml}</section>`,
     faqJsonLd,
     datasetJsonLd,
   };

@@ -127,13 +127,24 @@ function runAudit() {
       failures.push(`Banned phrase "${banned[0]}" found in HTML ${rel}`);
     }
 
+    if (/"@type"\s*:\s*"Person"/.test(html)) {
+      failures.push(`Forbidden Person author schema found in HTML ${rel}`);
+    }
+
+    const truncatedNoun = html.match(/\b(?:75|45|90)\s{2,}|\b(?:75|45|90)\s+\./);
+    if (truncatedNoun) {
+      failures.push(`Truncated count noun "${truncatedNoun[0]}" found in HTML ${rel}`);
+    }
+
     if (!isNonLeafPath(rel)) {
       leafChecked++;
       if (!html.includes("geo-summary-text")) failures.push(`Missing .geo-summary-text on leaf ${rel}`);
+      if (!html.includes("methodology-provenance")) failures.push(`Missing .methodology-provenance on leaf ${rel}`);
       if (!html.includes("<table")) failures.push(`Missing specification <table> on leaf ${rel}`);
       if (!html.includes('"FAQPage"')) failures.push(`Missing FAQPage JSON-LD on leaf ${rel}`);
       if (!html.includes('"Dataset"')) failures.push(`Missing Dataset JSON-LD on leaf ${rel}`);
       if (!html.includes('"SpeakableSpecification"')) failures.push(`Missing SpeakableSpecification JSON-LD on leaf ${rel}`);
+      if (!html.includes("publishingPrinciples")) failures.push(`Missing publishingPrinciples schema on leaf ${rel}`);
 
       for (const hl of ["en", "nl", "fr", "de", "es", "x-default"]) {
         if (!html.includes(`hreflang="${hl}"`)) {
