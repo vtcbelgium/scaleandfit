@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const distDir = path.resolve(process.cwd(), "dist");
 const ORIGIN = "https://scaleandfit.com";
@@ -19,6 +20,14 @@ const BANNED_COPY_RE = new RegExp(
   ].join("|"),
   "i"
 );
+
+const FAKE_AVATAR_RE =
+  /(?:thispersondoesnotexist|pravatar\.cc|randomuser\.me\/api\/portraits|generated\.photos|(?:ai|synthetic|generated|fake)[-_](?:headshot|avatar|portrait|author[-_]?photo))/i;
+
+const FAKE_CREDENTIAL_RE =
+  /(?:written|authored|medically\s+reviewed|fact[- ]checked|clinically\s+reviewed|verified)\s+by\s+(?:dr\.?\s+[a-z]+(?:\s+[a-z]+)*|[a-z]+(?:\s+[a-z]+){1,3}\s*,\s*(?:m\.?d\.?|ph\.?d\.?|esq\.?|c\.?p\.?a\.?|r\.?n\.?))(?![a-z])/i;
+
+const PLACEHOLDER_RE = /(?:lorem\s+ipsum|\{\{|\}\}|\[INSERT\s+|TODO:)/i;
 
 const REQUIRED_SHARDS = [
   "core-and-legal.xml",
@@ -62,7 +71,87 @@ function isNonLeafPath(relUrl) {
   return false;
 }
 
-function runAudit() {
+function hasPersonType(val) {
+  if (typeof val === "string") return val.trim().toLowerCase() === "person";
+  if (Array.isArray(val)) return val.some((x) => typeof x === "string" && x.trim().toLowerCase() === "person");
+  return false;
+}
+
+function walkJsonLdForDeceptiveAuthorship(node, relPath, failures) {
+  if (Array.isArray(node)) {
+    for (const item of node) walkJsonLdForDeceptiveAuthorship(item, relPath, failures);
+    return;
+  }
+  if (!node || typeof node !== "object") return;
+
+  if (hasPersonType(node["@type"])) {
+    const name = typeof node.name === "string" && node.name.trim() ? node.name.trim() : "(unnamed)";
+    failures.push(`Forbidden Person author schema (${name}) found in JSON-LD on ${relPath}`);
+  }
+
+  for (const field of ["name", "headline", "description"]) {
+    if (typeof node[field] === "string" && PLACEHOLDER_RE.test(node[field])) {
+      failures.push(`Unvetted template placeholder found in JSON-LD '${field}' on ${relPath}`);
+    }
+  }
+
+  for (const val of Object.values(node)) {
+    if (val && typeof val === "object") {
+      walkJsonLdForDeceptiveAuthorship(val, relPath, failures);
+    }
+  }
+}
+
+/**
+ * Google Search Central "Who, How & Why" people-first & authorship barrier
+ * check for a single built HTML document.
+ */
+export function auditHtmlAuthorshipAndQuality(html, relPath) {
+  const failures = [];
+
+  if (/"@type"\s*:\s*"Person"/i.test(html)) {
+    failures.push(`Forbidden Person author schema literal found in HTML ${relPath}`);
+  }
+
+  const jsonLdRe = /<script\b[^>]*type=["']application\/ld\+json(?:;[^"']*)?["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let blockMatch;
+  while ((blockMatch = jsonLdRe.exec(html)) !== null) {
+    const raw = blockMatch[1].trim();
+    if (!raw) continue;
+    try {
+      walkJsonLdForDeceptiveAuthorship(JSON.parse(raw), relPath, failures);
+    } catch {
+      failures.push(`Malformed JSON-LD script block in HTML ${relPath}`);
+    }
+  }
+
+  const avatarMatch = html.match(FAKE_AVATAR_RE);
+  if (avatarMatch) {
+    failures.push(`Synthetic/AI headshot or fake avatar marker "${avatarMatch[0]}" found in HTML ${relPath}`);
+  }
+
+  const credMatch = html.match(FAKE_CREDENTIAL_RE);
+  if (credMatch) {
+    failures.push(`Unverified credentialed expert byline "${credMatch[0].trim()}" found in HTML ${relPath}`);
+  }
+
+  const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+  const descMatch = html.match(/<meta\s+name="description"\s+content="([^"]+)"/i);
+  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  for (const [label, text] of [
+    ["<title>", titleMatch?.[1] || ""],
+    ['<meta name="description">', descMatch?.[1] || ""],
+    ["<h1>", (h1Match?.[1] || "").replace(/<[^>]+>/g, " ")],
+  ]) {
+    if (text && PLACEHOLDER_RE.test(text)) {
+      failures.push(`Unvetted template placeholder found in ${label} on ${relPath}`);
+    }
+  }
+
+  return [...new Set(failures)];
+}
+
+export function runAudit() {
   const failures = [];
   if (!fs.existsSync(distDir)) {
     console.error("[seo:audit] dist/ directory does not exist. Run `npm run build` first.");
@@ -127,9 +216,7 @@ function runAudit() {
       failures.push(`Banned phrase "${banned[0]}" found in HTML ${rel}`);
     }
 
-    if (/"@type"\s*:\s*"Person"/.test(html)) {
-      failures.push(`Forbidden Person author schema found in HTML ${rel}`);
-    }
+    failures.push(...auditHtmlAuthorshipAndQuality(html, rel));
 
     const truncatedNoun = html.match(/\b(?:75|45|90)\s{2,}|\b(?:75|45|90)\s+\./);
     if (truncatedNoun) {
@@ -156,6 +243,22 @@ function runAudit() {
       if (internalLinks < 6) {
         failures.push(`Fewer than 6 internal links (${internalLinks}) on leaf ${rel}`);
       }
+    }
+  }
+
+  // Validate root publishingPrinciples disclosure and /about/ Who/How/Why provenance page
+  const rootHtmlPath = path.join(distDir, "index.html");
+  const rootHtml = fs.existsSync(rootHtmlPath) ? fs.readFileSync(rootHtmlPath, "utf8") : "";
+  if (!rootHtml.includes("publishingPrinciples")) {
+    failures.push("dist/index.html is missing Organization publishingPrinciples schema disclosure.");
+  }
+  const aboutPath = path.join(distDir, "about/index.html");
+  if (!fs.existsSync(aboutPath)) {
+    failures.push("Missing dist/about/index.html editorial methodology provenance page.");
+  } else {
+    const aboutHtml = fs.readFileSync(aboutPath, "utf8");
+    if (!aboutHtml.includes('"AboutPage"') || !aboutHtml.includes("Who, How")) {
+      failures.push("dist/about/index.html is missing AboutPage schema or Who, How & Why provenance disclosure.");
     }
   }
 
@@ -230,4 +333,9 @@ function runAudit() {
   );
 }
 
-runAudit();
+const isDirectRun =
+  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+
+if (isDirectRun) {
+  runAudit();
+}
